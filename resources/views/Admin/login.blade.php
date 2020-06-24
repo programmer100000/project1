@@ -29,7 +29,7 @@
                                 <p class="text-muted mb-4 mt-3">لطفا شماره موبایل یا نام کاربری خود را به همراه رمز عبور وارد کنید .</p>
                             </div>
 
-                            <form action="{{ route('admin.login') }}" method="POST">
+                            <form action="{{ route('admin.login.auth') }}" method="POST">
                                 @csrf
                                 @if($errors->any())
                                         <p class="text-danger">{{ $errors->first() }}</p>

@@ -11,7 +11,7 @@ class AdminLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('CheckAdmin');
+            $this->middleware('CheckAdmin');
 
     }
 

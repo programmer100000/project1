@@ -19,6 +19,7 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
 Route::get('/admin/login' , 'AdminLoginController@index')->name('admin.login');
+Route::post('/admin/login', 'AdminLoginController@login')->name('admin.login.auth');
 Route::get('/admin/register' , 'AdminRegisterController@index');
 Route::post('/admin/register', 'AdminRegisterController@register')->name('admin.register');
 Route::post('/admin/register/confirm', 'AdminRegisterController@confirm')->name('admin.confirm');

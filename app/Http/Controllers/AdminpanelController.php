@@ -9,14 +9,15 @@ class AdminpanelController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('CheckAdmin');
+        //$this->middleware('CheckAdmin');
 
     }
     public function index(){
         $user = Auth::user();
         if(Auth::check() && $user->status_id == 1 && $user->role_id == 1){
             return view('Admin.index');
-        }else{
+        }
+        else{
             return redirect()->route('admin.login');
         }
 
