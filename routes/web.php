@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminLoginController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
+Route::get('/admin/create/system' , 'AdminpanelController@createsystem')->name('create.system');
+Route::post('/admin/create/system' , 'AdminpanelController@createsystem')->name('create.system');
+Route::post('/admin/delete/system' , 'AdminpanelController@deletesystem')->name('delete.system');
+Route::post('/admin/edit/system' , 'AdminpanelController@editsystem' )->name('edit.system');
 Route::get('/admin/login' , 'AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'AdminLoginController@login')->name('admin.login.auth');
 Route::get('/admin/register' , 'AdminRegisterController@index');
