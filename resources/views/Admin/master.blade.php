@@ -612,6 +612,13 @@
                             <a href="{{ route('create.system') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
+                                <span> افزودن سیستم </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('create.device') }}">
+                                <i data-feather="airplay"></i>
+                                <span class="badge badge-success badge-pill float-right">4</span>
                                 <span> افزودن دستگاه </span>
                             </a>
                         </li>

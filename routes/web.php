@@ -19,10 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
+
 Route::get('/admin/create/system' , 'AdminpanelController@createsystem')->name('create.system');
 Route::post('/admin/create/system' , 'AdminpanelController@createsystem')->name('create.system');
 Route::post('/admin/delete/system' , 'AdminpanelController@deletesystem')->name('delete.system');
 Route::post('/admin/edit/system' , 'AdminpanelController@editsystem' )->name('edit.system');
+
+Route::get('/admin/create/device' , 'AdminpanelController@createdevice')->name('create.device');
+Route::post('/admin/create/device' , 'AdminpanelController@createdevice')->name('create.device');
+Route::post('/admin/delete/device' , 'AdminpanelController@deletedevice')->name('delete.device');
+Route::post('/admin/edit/device' , 'AdminpanelController@editdevice' )->name('edit.device');
+
+
 Route::get('/admin/login' , 'AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'AdminLoginController@login')->name('admin.login.auth');
 Route::get('/admin/register' , 'AdminRegisterController@index');
