@@ -12,7 +12,7 @@ $(document).ready(function(){
     var form = $(this).closest('form');
     var url = form.attr('action');
 
-    $.ajax({
+$.ajax({
         type: "POST",
         url: url,
         data: form.serialize(), // serializes the form's elements.

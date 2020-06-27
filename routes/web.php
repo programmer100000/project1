@@ -25,11 +25,20 @@ Route::post('/admin/create/system' , 'AdminpanelController@createsystem')->name(
 Route::post('/admin/delete/system' , 'AdminpanelController@deletesystem')->name('delete.system');
 Route::post('/admin/edit/system' , 'AdminpanelController@editsystem' )->name('edit.system');
 
+Route::get('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
+Route::post('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
+Route::post('/admin/delete/buffet' , 'AdminpanelController@deletebuffet')->name('delete.buffet');
+Route::post('/admin/edit/buffet' , 'AdminpanelController@editbuffet' )->name('edit.buffet');
+
 Route::get('/admin/create/device' , 'AdminpanelController@createdevice')->name('create.device');
 Route::post('/admin/create/device' , 'AdminpanelController@createdevice')->name('create.device');
 Route::post('/admin/delete/device' , 'AdminpanelController@deletedevice')->name('delete.device');
 Route::post('/admin/edit/device' , 'AdminpanelController@editdevice' )->name('edit.device');
 
+Route::get('/admin/create/game' , 'AdminpanelController@creategame')->name('create.game');
+Route::post('/admin/create/game' , 'AdminpanelController@creategame')->name('create.game');
+Route::post('/admin/delete/game' , 'AdminpanelController@deletegame')->name('delete.game');
+Route::post('/admin/edit/game' , 'AdminpanelController@editgame' )->name('edit.game');
 
 Route::get('/admin/login' , 'AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'AdminLoginController@login')->name('admin.login.auth');

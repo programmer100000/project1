@@ -17,7 +17,6 @@ class CreateGnetGames extends Migration
             $table->bigIncrements('gnet_game_id');
             $table->unsignedBigInteger('gnet_id');
             $table->string('game_name' , 50);
-            $table->smallInteger('game_count');
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
         });

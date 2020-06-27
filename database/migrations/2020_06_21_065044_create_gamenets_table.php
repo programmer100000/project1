@@ -27,7 +27,7 @@ class CreateGamenetsTable extends Migration
             $table->string('description' , 2000);
 
 
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
     }
 

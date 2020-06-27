@@ -622,6 +622,20 @@
                                 <span> افزودن دستگاه </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('create.game') }}">
+                                <i data-feather="airplay"></i>
+                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <span> افزودن بازی </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('create.buffet') }}">
+                                <i data-feather="airplay"></i>
+                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <span> افزودن خوراکی </span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

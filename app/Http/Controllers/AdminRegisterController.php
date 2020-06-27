@@ -84,7 +84,7 @@ class AdminRegisterController extends Controller
             $user->status_id = 1;
             $user->password = Hash::make($password);
             $user->save();
-            return view('Admin.index');
+            return redirect()->route('admin');
         }
         else{
             return "no";
