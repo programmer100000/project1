@@ -35,6 +35,10 @@ Route::post('/admin/create/device' , 'AdminpanelController@createdevice')->name(
 Route::post('/admin/delete/device' , 'AdminpanelController@deletedevice')->name('delete.device');
 Route::post('/admin/edit/device' , 'AdminpanelController@editdevice' )->name('edit.device');
 
+Route::post('/admin/create/live' , 'AdminpanelController@createlive')->name('create.live');
+Route::post('/admin/delete/live' , 'AdminpanelController@deletelive')->name('delete.live');
+Route::post('/admin/finish/live' , 'AdminpanelController@finishlive')->name('finish.live');
+
 Route::get('/admin/create/game' , 'AdminpanelController@creategame')->name('create.game');
 Route::post('/admin/create/game' , 'AdminpanelController@creategame')->name('create.game');
 Route::post('/admin/delete/game' , 'AdminpanelController@deletegame')->name('delete.game');

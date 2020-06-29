@@ -17,13 +17,13 @@ class CreateGnetLiveLogs extends Migration
             $table->bigIncrements('gnet_live_log_id');
             $table->unsignedBigInteger('gnet_id');
             $table->unsignedBigInteger('gnet_device_id');
-            $table->unsignedBigInteger('gnet_game_id');
             $table->timestamp('start_time');
             $table->timestamp('end_time')->nullable();
+            $table->smallInteger('joystick_count');
+            $table->decimal('price');
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
             $table->foreign('gnet_device_id')->references('gnet_device_id')->on('gnet_devices');
-            $table->foreign('gnet_game_id')->references('gnet_game_id')->on('gnet_games');
         });
     }
 

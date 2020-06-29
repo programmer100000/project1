@@ -18,12 +18,11 @@ class CreateGnetLives extends Migration
             $table->bigIncrements('gnet_live_id');
             $table->unsignedBigInteger('gnet_id');
             $table->unsignedBigInteger('gnet_device_id');
-            $table->unsignedBigInteger('gnet_game_id');
             $table->timestamp('start_time')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->smallInteger('joystick_count');
 
-            $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
-            $table->foreign('gnet_device_id')->references('gnet_device_id')->on('gnet_devices');
-            $table->foreign('gnet_game_id')->references('gnet_game_id')->on('gnet_games');
+            $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets')->onDelete('cascade');
+            $table->foreign('gnet_device_id')->references('gnet_device_id')->on('gnet_devices')->onDelete('cascade');
         });
     }
 

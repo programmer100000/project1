@@ -586,54 +586,38 @@
                         <li class="menu-title">Navigation</li>
 
                         <li>
-                            <a href="#sidebarDashboards" data-toggle="collapse">
+                            <a href="{{ route('admin') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
-                                <span> Dashboards </span>
+                                <span>  داشبورد </span>
                             </a>
-                            <div class="collapse" id="sidebarDashboards">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="index.html">Dashboard 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard-2.html">Dashboard 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard-3.html">Dashboard 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard-4.html">Dashboard 4</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                         <li>
                             <a href="{{ route('create.system') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
-                                <span> افزودن سیستم </span>
+                                <span>  سیستم </span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('create.device') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
-                                <span> افزودن دستگاه </span>
+                                <span>  دستگاه </span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('create.game') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
-                                <span> افزودن بازی </span>
+                                <span>  بازی </span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('create.buffet') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
-                                <span> افزودن خوراکی </span>
+                                <span>  خوراکی </span>
                             </a>
                         </li>
                     </ul>
