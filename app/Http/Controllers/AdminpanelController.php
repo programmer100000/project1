@@ -369,21 +369,25 @@ class AdminpanelController extends Controller
         $end = strtotime($now);
         $mins = ((($end - $start) / 60) / 60) * $deviceprice;
         $jcount = $live->joystick_count ;
-        if($jcount == 0){
+        if($jcount == 1){
             $price = $this->calculateprice($mins);
         }else{
             $joystickprice  = $device->joystick_price;
-            $price = $this->calculateeprice($mins + $jcount * $joystickprice);
+            $price = $this->calculateprice($mins);
+            $price +=$jcount * $joystickprice;
         }
         $livelog->price = $price;
         if($livelog->save()){
             live::select()->where('gnet_live_id' , $id)->delete();
-            return true;
+            $device->status = 0 ;
+            if($device->save()){
+                return true;
+            }
         }else{
             return false;
         }
     }
-    public function calculateeprice($number)
+    public function calculateprice($number)
     {
         $ss = ceil($number);
 
