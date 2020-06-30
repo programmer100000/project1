@@ -7,6 +7,7 @@ use App\DeviceGame;
 use App\Devices;
 use App\Devicesystem;
 use App\DeviceType;
+use App\Exports\LivesLogExport;
 use App\Game;
 use App\GameDevice;
 use App\Gamenet;
@@ -19,6 +20,9 @@ use PDO;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Global_;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Excel;
+use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
+use Morilog\Jalali\Jalalian;
 
 class AdminpanelController extends Controller
 {
@@ -368,22 +372,22 @@ class AdminpanelController extends Controller
         $start = strtotime($live->start_time);
         $end = strtotime($now);
         $mins = ((($end - $start) / 60) / 60) * $deviceprice;
-        $jcount = $live->joystick_count ;
-        if($jcount == 1){
+        $jcount = $live->joystick_count;
+        if ($jcount == 1) {
             $price = $this->calculateprice($mins);
-        }else{
+        } else {
             $joystickprice  = $device->joystick_price;
             $price = $this->calculateprice($mins);
-            $price +=$jcount * $joystickprice;
+            $price += $jcount * $joystickprice;
         }
         $livelog->price = $price;
-        if($livelog->save()){
-            live::select()->where('gnet_live_id' , $id)->delete();
-            $device->status = 0 ;
-            if($device->save()){
+        if ($livelog->save()) {
+            live::select()->where('gnet_live_id', $id)->delete();
+            $device->status = 0;
+            if ($device->save()) {
                 return true;
             }
-        }else{
+        } else {
             return false;
         }
     }
@@ -400,5 +404,84 @@ class AdminpanelController extends Controller
             $aslepolBdoneKhord += 1000;
         }
         return $aslepolBdoneKhord;
+    }
+
+    public function exportexcel()
+    {
+        return FacadesExcel::download(new LivesLogExport, 'log.xlsx');
+    }
+
+    public function getdata(Request $request)
+    {
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+
+        $limit = intval($request->input('pageSize'));
+        $offset = (intval($request->input('pageIndex')) - 1) * $limit;
+        $sortField = $request->input('sortField');
+        $sortOrder = $request->input('sortOrder');
+
+        $sortSql = "";
+        switch ($sortField) {
+            case 'ردیف':
+                $sortSql = "gnet_live_logs.gnet_live_log_id";
+            break;
+
+            case 'نام دستگاه':
+                $sortSql = "gnet_devices.device_name";
+            break;
+
+            case 'زمان شروع':
+                $sortSql = "gnet_live_logs.start_time";
+            break;
+
+            case 'زمان پایان':
+                $sortSql = "gnet_live_logs.end_time";
+            break;
+
+            case 'قیمت':
+                $sortSql = "gnet_live_logs.price";
+            break;
+
+            default:
+                $sortSql = "gnet_live_logs.gnet_live_log_id";
+                $sortOrder = 'asc';
+                break;
+        }
+        $livelogs = livelog::select()
+        ->join('gnet_devices' , 'gnet_devices.gnet_device_id' , '=' , 'gnet_live_logs.gnet_device_id')
+        ->where('gnet_live_logs.gnet_id' , $gnet_id)
+        ->offset($offset)
+        ->take($limit)
+        ->orderBy($sortSql, $sortOrder)
+        ->get();
+
+        $livelogCount = livelog::select()->where('gnet_id', $gnet_id)->count();
+
+        $arr = [];
+        if($sortOrder == 'asc'){
+            $i = $offset;
+        } else {
+            $i = $livelogCount - $offset;
+        }
+
+        foreach($livelogs as $l){
+            if($sortOrder == 'asc'){
+                $rownum = ++$i;
+            } else {
+                $rownum = $i--;
+            }
+
+            $arr[] = [
+                'ردیف' => $rownum,
+                'نام دستگاه' => $l->device_name,
+                'زمان شروع' => Jalalian::forge($l->start_time)->format('Y/M/d h:i:s'),
+                'زمان پایان' => Jalalian::forge($l->end_time)->format('Y/M/d h:i:s'),
+                'قیمت' => number_format($l->price)
+            ];
+        }
+
+        return json_encode(['data'=>$arr, 'itemsCount'=> [$livelogCount]]);
     }
 }

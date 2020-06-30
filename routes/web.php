@@ -56,5 +56,5 @@ Route::post('/register/confirm' , 'RegisterController@confirm')->name('confirm')
 Route::get('/login' , 'LoginController@index');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout' , 'LogoutController@logout')->name('logout');
-
-
+Route::get('/admin/excel/export' , 'AdminpanelController@exportexcel')->name('export.excel');
+Route::get('/admin/get/livelogs' , 'AdminpanelController@getdata')->name('get.logs');

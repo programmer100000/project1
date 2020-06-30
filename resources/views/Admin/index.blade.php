@@ -1,5 +1,11 @@
 @extends('Admin.master')
 @section('title', 'خانه')
+@section('head')
+<link href="{{ asset('assets/libs/jsgrid/jsgrid.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/libs/jsgrid/jsgrid-theme.min.css')}}" rel="stylesheet" type="text/css" />
+
+
+@endsection
 
 
 @section('content')
@@ -60,7 +66,7 @@
                                 <tbody>
                                     @php
                                     $i = 1;
-                                @endphp
+                                    @endphp
                                     @foreach ($lives as $t)
 
                                     <tr>
@@ -74,8 +80,13 @@
 
 
                                         <td>
-                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" data-id="{{ $t->gnet_live_id }}">تمام</button>
-                                            <button data-id="{{ $t->gnet_live_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                                            <button type="button"
+                                                class="edit-system btn btn-success waves-effect waves-light"
+                                                data-toggle="modal" data-target="#con-close-modal"
+                                                data-id="{{ $t->gnet_live_id }}">تمام</button>
+                                            <button data-id="{{ $t->gnet_live_id }}" type="button"
+                                                class="btn btn-danger remove-system" data-toggle="modal"
+                                                data-target="#danger-alert-modal">حذف</button>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -88,13 +99,14 @@
                 <div class="col-xl-6">
                     <div class="card-box">
                         <h4 class="header-title mb-3">افزودن</h4>
-                        <form id="types_form" action="{{ route('create.live') }}"  onsubmit="return false;">
+                        <form id="types_form" action="{{ route('create.live') }}" onsubmit="return false;">
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
                                     <label>نام دستگاه</label> <br />
                                     <select name="deviceid" id="selectize-select" class="form-control ">
                                         @foreach ($falsedevices as $system)
-                                            <option value="{{ $system->gnet_device_id }}">{{ $system->device_name }}</option>
+                                        <option value="{{ $system->gnet_device_id }}">{{ $system->device_name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -109,6 +121,17 @@
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
                     </div> <!-- end card-box-->
+                </div> <!-- end col -->
+
+                <div class="col-xl-12">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card-box">
+                                <div id="jsGrid"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div> <!-- end col -->
             </div>
             <!-- end row -->
@@ -131,15 +154,18 @@
                 <div class="text-center">
                     <i class="dripicons-wrong h1 text-white"></i>
                     <h4 class="mt-2 text-white">توجه</h4>
-                    <p class="mt-3 text-white">درصورت حذف این مورد تمام دستگاه های ثبت شده ی شما که به آن مرتبط هستند حذف خواهند شد.</p>
-                    <button id="remove-system" data-url="{{ route('delete.live') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">حذف</button>
+                    <p class="mt-3 text-white">درصورت حذف این مورد تمام دستگاه های ثبت شده ی شما که به آن مرتبط هستند
+                        حذف خواهند شد.</p>
+                    <button id="remove-system" data-url="{{ route('delete.live') }}" type="button"
+                        class="btn btn-light my-2" data-dismiss="modal">حذف</button>
                 </div>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -149,8 +175,9 @@
             <div class="modal-body p-4">
                 <form action="{{ route('finish.live') }}" method="post">
                     <input type="hidden" id="frm_device_type_id" name="id" value="">
-                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">Save changes</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">Save
+                        changes</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -167,4 +194,14 @@
 <!-- END wrapper -->
 
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
+
+<!-- JsGrid js -->
+<script src="{{ asset('assets/libs/jsgrid/jsgrid.min.js') }}" defer></script>
+
+<!-- Init js -->
+<script src="{{ asset('assets/js/pages/jsgrid.init.js') }}" defer></script>
+
+<script>
+    var url_getLiveLog = '{{ route('get.logs') }}';
+</script>
 @endsection
