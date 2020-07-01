@@ -11,6 +11,7 @@ use App\Exports\LivesLogExport;
 use App\Game;
 use App\GameDevice;
 use App\Gamenet;
+use App\Invoice;
 use App\live;
 use App\livelog;
 use App\System;
@@ -41,8 +42,9 @@ class AdminpanelController extends Controller
         if (Auth::check() && $user->status_id == 1 && $user->role_id == 1) {
             $lives = live::select()->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_lives.gnet_device_id')
                 ->where('gnet_lives.gnet_id', $gnet_id)->get();
+            $buffets = Buffet::all();
             $falsedevices = Devices::select()->where('status', 0)->get();
-            return view('Admin.index', compact('lives', 'falsedevices'));
+            return view('Admin.index', compact('lives', 'falsedevices' , 'buffets'));
         } else {
             return redirect()->route('admin.login');
         }
@@ -318,22 +320,37 @@ class AdminpanelController extends Controller
         $gnet = Gamenet::where('user_id', $user->user_id)->first();
         $gnet_id = $gnet->gamenet_id;
         if ($request->method() == 'POST') {
-            $deviceid = $request->input('deviceid');
-            $price = $request->input('price');
-            $joystick_count = $request->input('joystick_count');
+            $invoicenum = $user->user_id
+            . Jalalian::forge('today')->format('%y')
+            . Jalalian::forge('today')->format('%m')
+            . Jalalian::forge('today')->format('%d')
+            . Jalalian::forge('now')->format('%H')
+            . Jalalian::forge('now')->format('%I')
+            . Jalalian::forge('now')->format('%S');
+            $invoice = new Invoice();
+            $invoice->gnet_id  = $gnet_id;
+            $invoice->user_id  = $user->user_id;
+            $invoice->invoice_num  = $invoicenum;
 
-            $live = new live();
-            $live->gnet_device_id = $deviceid;
-            $live->gnet_id = $gnet_id;
-            $live->joystick_count = $joystick_count;
-            if ($live->save()) {
-                $device = Devices::select()->where('gnet_device_id', $deviceid)->first();
-                $device->status = 1;
-                if ($device->save()) {
-                    return true;
+            if ($invoice->save()) {
+                $deviceid = $request->input('deviceid');
+                $price = $request->input('price');
+                $joystick_count = $request->input('joystick_count');
+
+                $live = new live();
+                $live->gnet_device_id = $deviceid;
+                $live->gnet_id = $gnet_id;
+                $live->invoice_id = $invoice->invoice_id;
+                $live->joystick_count = $joystick_count;
+                if ($live->save()) {
+                    $device = Devices::select()->where('gnet_device_id', $deviceid)->first();
+                    $device->status = 1;
+                    if ($device->save()) {
+                        return true;
+                    }
+                } else {
+                    return json_encode('مشکلی رخ داده است');
                 }
-            } else {
-                return json_encode('مشکلی رخ داده است');
             }
         }
     }
@@ -361,6 +378,7 @@ class AdminpanelController extends Controller
         $livelog->gnet_id = $gnet_id;
         $livelog->gnet_device_id = $live->gnet_device_id;
         $livelog->start_time = $live->start_time;
+        $livelog->invoice_id = $live->invoice_id;
         $livelog->end_time = $now->toDateTimeString();
         $livelog->joystick_count = $live->joystick_count;
 
@@ -373,7 +391,7 @@ class AdminpanelController extends Controller
         $end = strtotime($now);
         $mins = ((($end - $start) / 60) / 60) * $deviceprice;
         $jcount = $live->joystick_count;
-        if ($jcount == 1) {
+        if ($jcount == 0) {
             $price = $this->calculateprice($mins);
         } else {
             $joystickprice  = $device->joystick_price;
@@ -426,23 +444,23 @@ class AdminpanelController extends Controller
         switch ($sortField) {
             case 'ردیف':
                 $sortSql = "gnet_live_logs.gnet_live_log_id";
-            break;
+                break;
 
             case 'نام دستگاه':
                 $sortSql = "gnet_devices.device_name";
-            break;
+                break;
 
             case 'زمان شروع':
                 $sortSql = "gnet_live_logs.start_time";
-            break;
+                break;
 
             case 'زمان پایان':
                 $sortSql = "gnet_live_logs.end_time";
-            break;
+                break;
 
             case 'قیمت':
                 $sortSql = "gnet_live_logs.price";
-            break;
+                break;
 
             default:
                 $sortSql = "gnet_live_logs.gnet_live_log_id";
@@ -450,24 +468,24 @@ class AdminpanelController extends Controller
                 break;
         }
         $livelogs = livelog::select()
-        ->join('gnet_devices' , 'gnet_devices.gnet_device_id' , '=' , 'gnet_live_logs.gnet_device_id')
-        ->where('gnet_live_logs.gnet_id' , $gnet_id)
-        ->offset($offset)
-        ->take($limit)
-        ->orderBy($sortSql, $sortOrder)
-        ->get();
+            ->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_live_logs.gnet_device_id')
+            ->where('gnet_live_logs.gnet_id', $gnet_id)
+            ->offset($offset)
+            ->take($limit)
+            ->orderBy($sortSql, $sortOrder)
+            ->get();
 
         $livelogCount = livelog::select()->where('gnet_id', $gnet_id)->count();
 
         $arr = [];
-        if($sortOrder == 'asc'){
+        if ($sortOrder == 'asc') {
             $i = $offset;
         } else {
             $i = $livelogCount - $offset;
         }
 
-        foreach($livelogs as $l){
-            if($sortOrder == 'asc'){
+        foreach ($livelogs as $l) {
+            if ($sortOrder == 'asc') {
                 $rownum = ++$i;
             } else {
                 $rownum = $i--;
@@ -482,6 +500,71 @@ class AdminpanelController extends Controller
             ];
         }
 
-        return json_encode(['data'=>$arr, 'itemsCount'=> [$livelogCount]]);
+        return json_encode(['data' => $arr, 'itemsCount' => [$livelogCount]]);
+    }
+    public function changelive(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $id = $request->input('live_id');
+        $deviceid = $request->input('deviceid');
+        $joystick_count = $request->input('joystick_count');
+        $now = Carbon::now();
+
+        $live = live::select()->where('gnet_live_id', $id)->first();
+        $livelog = new livelog();
+        $livelog->gnet_id = $gnet_id;
+        $livelog->gnet_device_id = $live->gnet_device_id;
+        $livelog->start_time = $live->start_time;
+        $livelog->invoice_id = $live->invoice_id;
+        $livelog->end_time = $now->toDateTimeString();
+        $livelog->joystick_count = $live->joystick_count;
+
+        $device = Devices::select()
+            ->join('device_types', 'device_types.device_type_id', '=', 'gnet_devices.device_type_id')
+            ->where('gnet_device_id', $live->gnet_device_id)->first();
+        $deviceprice = $device->type_price;
+
+        $start = strtotime($live->start_time);
+        $end = strtotime($now);
+        $mins = ((($end - $start) / 60) / 60) * $deviceprice;
+        $jcount = $live->joystick_count;
+        if ($jcount == 0) {
+            $price = $this->calculateprice($mins);
+        } else {
+            $joystickprice  = $device->joystick_price;
+            $price = $this->calculateprice($mins);
+            $price += $jcount * $joystickprice;
+        }
+        $livelog->price = $price;
+        if ($livelog->save()) {
+
+            $lives = new live();
+            $lives->gnet_device_id = $deviceid;
+            $lives->gnet_id = $gnet_id;
+            $lives->invoice_id = $live->invoice_id;
+            $lives->joystick_count = $joystick_count;
+            live::select()->where('gnet_live_id', $id)->delete();
+            if ($lives->save()) {
+                $device = Devices::select()->where('gnet_device_id', $deviceid)->first();
+                $device->status = 1;
+
+                if ($device->save()) {
+                    return true;
+                }
+            } else {
+                return json_encode('مشکلی رخ داده است');
+            }
+            $device->status = 0;
+            if ($device->save()) {
+                return true;
+            }
+        } else {
+            return false;
+        }
+
+    }
+    public function addbuffet(Request $request){
+
     }
 }

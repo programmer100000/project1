@@ -8,5 +8,4 @@ class Devices extends Model
 {
     protected $table = 'gnet_devices';
     protected $primaryKey = 'gnet_device_id';
-    public $timestamps = false;
 }

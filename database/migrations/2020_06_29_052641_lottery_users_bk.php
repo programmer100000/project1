@@ -36,7 +36,7 @@ class LotteryUsersBk extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lottery_users');
+        Schema::dropIfExists('lottery_users_bk');
 
     }
 }

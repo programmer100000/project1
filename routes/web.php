@@ -58,3 +58,5 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout' , 'LogoutController@logout')->name('logout');
 Route::get('/admin/excel/export' , 'AdminpanelController@exportexcel')->name('export.excel');
 Route::get('/admin/get/livelogs' , 'AdminpanelController@getdata')->name('get.logs');
+Route::post('/admin/change/livelogs' , 'AdminpanelController@changelive')->name('change.live');
+Route::post('/admin/add/buffet' , 'AdminpanelController@addbuffet')->name('add.buffet');

@@ -84,6 +84,15 @@
                                                 class="edit-system btn btn-success waves-effect waves-light"
                                                 data-toggle="modal" data-target="#con-close-modal"
                                                 data-id="{{ $t->gnet_live_id }}">تمام</button>
+                                            <button type="button"
+                                                class="change-system btn btn-success waves-effect waves-light"
+                                                data-toggle="modal" data-target="#chcon-close-modal"
+                                                data-id="{{ $t->gnet_live_id }}">انتقال</button>
+                                                <button type="button"
+                                                class="add-buffet btn btn-success waves-effect waves-light"
+                                                data-toggle="modal" data-target="#bcon-close-modal"
+                                                data-id="{{ $t->gnet_live_id }}">افزودن خوراکی</button>
+
                                             <button data-id="{{ $t->gnet_live_id }}" type="button"
                                                 class="btn btn-danger remove-system" data-toggle="modal"
                                                 data-target="#danger-alert-modal">حذف</button>
@@ -113,7 +122,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label>تعداد دسته</label>
+                                    <label> تعداد دسته اضافه</label>
                                     <input class="form-control" type="text" name="joystick_count" id="selectize-tags">
                                 </div>
                             </div>
@@ -185,7 +194,86 @@
         </div>
     </div>
 </div><!-- /.modal -->
+<div id="chcon-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">ویرایش ردیف - <span id="row-num-model"></span> </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body p-4">
+                <form action="{{ route('change.live') }}" method="post">
+                    <input type="hidden" id="frm_live_id" name="live_id" value="">
+                    <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <label>نام دستگاه</label> <br />
+                            <select name="deviceid" id="selectize-select" class="form-control ">
+                                @foreach ($falsedevices as $system)
+                                <option value="{{ $system->gnet_device_id }}">{{ $system->device_name }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <label> تعداد دسته اضافه</label>
+                            <input class="form-control" type="text" name="joystick_count" id="selectize-tags">
+                        </div>
+                    </div>
 
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" id="changerow" class="btn btn-info waves-effect waves-light">Save
+                        changes</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->
+<div id="bcon-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title mr-2">افزودن خوراکی <span id="row-num-model"></span> </h4>
+                <button type="button" class="btn btn-sm btn-success" id="add-buffet">+</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body p-4">
+                <form action="{{ route('add.buffet') }}" method="post">
+                    <input type="hidden" id="frm_live_id" name="live_id" value="">
+                    <div class="row" id="div-buffet">
+                        <div class="col-md-6" id="dbf-1">
+                            <div class="form-group mb-3">
+                                <label>نام دستگاه</label> <br />
+                                <select name="deviceid[]" id="selectize-select" class="form-control">
+                                    @foreach ($buffets as $system)
+                                    <option value="{{ $system->gnet_buffet_id }}">{{ $system->buffet_name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="dbf-2">
+                            <div class="form-group mb-3">
+                                <label> تعداد</label>
+                                <input class="form-control" type="text" name="joystick_count[]" id="selectize-tags" value='1'>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" id="changerow" class="btn btn-info waves-effect waves-light">Save
+                        changes</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->
 
 <!-- ============================================================== -->
 <!-- End Page content -->
@@ -202,6 +290,6 @@
 <script src="{{ asset('assets/js/pages/jsgrid.init.js') }}" defer></script>
 
 <script>
-    var url_getLiveLog = '{{ route('get.logs') }}';
+   var url_getLiveLog = '{{ route('get.logs') }}';
 </script>
 @endsection

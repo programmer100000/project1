@@ -8,5 +8,4 @@ class Game extends Model
 {
     protected $table = 'gnet_games';
     protected $primaryKey = 'gnet_game_id';
-    public $timestamps = false;
 }

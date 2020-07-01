@@ -8,6 +8,5 @@ class Buffet extends Model
 {
     protected $table = 'gnet_buffets';
     protected $primaryKey = 'gnet_buffet_id';
-    public $timestamps = false;
 }
 
