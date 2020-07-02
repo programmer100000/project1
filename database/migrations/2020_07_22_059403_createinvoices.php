@@ -17,6 +17,7 @@ class Createinvoices extends Migration
             $table->bigIncrements('invoice_id');
             $table->unsignedBigInteger('gnet_id')->index();
             $table->unsignedBigInteger('user_id')->index();
+            $table->timestamps();
 
             $table->string('invoice_num', 50);
 

@@ -15,6 +15,8 @@ class CreateBuffetLogs extends Migration
     {
         Schema::create('buffet_logs', function (Blueprint $table) {
             $table->bigIncrements('buffet_log_id');
+            $table->timestamps();
+
             $table->smallInteger('count');
         });
     }

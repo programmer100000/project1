@@ -25,8 +25,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('role_id');
             $table->string('confirm_code' , 4);
             $table->unsignedBigInteger('status_id');
-
-
+            $table->timestamps();
             $table->foreign('status_id')->references('status_id')->on('status');
             $table->foreign('role_id')->references('user_role_id')->on('user_roles');
             $table->timestamp('registerdate')->default(DB::raw('CURRENT_TIMESTAMP'));

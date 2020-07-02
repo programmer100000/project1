@@ -18,6 +18,7 @@ class CreateGnetRates extends Migration
             $table->unsignedBigInteger('gnet_id')->index();
             $table->smallInteger('rate');
             $table->unsignedBigInteger('user_id');
+            $table->timestamps();
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
             $table->foreign('user_id')->references('user_id')->on('users');

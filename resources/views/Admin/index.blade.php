@@ -82,15 +82,15 @@
                                         <td>
                                             <button type="button"
                                                 class="edit-system btn btn-success waves-effect waves-light"
-                                                data-toggle="modal" data-target="#con-close-modal"
+                                                data-toggle="modal" data-target="#con-خروج-modal"
                                                 data-id="{{ $t->gnet_live_id }}">تمام</button>
                                             <button type="button"
                                                 class="change-system btn btn-success waves-effect waves-light"
-                                                data-toggle="modal" data-target="#chcon-close-modal"
+                                                data-toggle="modal" data-target="#chcon-خروج-modal"
                                                 data-id="{{ $t->gnet_live_id }}">انتقال</button>
                                                 <button type="button"
                                                 class="add-buffet btn btn-success waves-effect waves-light"
-                                                data-toggle="modal" data-target="#bcon-close-modal"
+                                                data-toggle="modal" data-target="#bcon-خروج-modal"
                                                 data-id="{{ $t->gnet_live_id }}">افزودن خوراکی</button>
 
                                             <button data-id="{{ $t->gnet_live_id }}" type="button"
@@ -173,18 +173,18 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div id="con-خروج-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">ویرایش ردیف - <span id="row-num-model"></span> </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="خروج" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body p-4">
                 <form action="{{ route('finish.live') }}" method="post">
                     <input type="hidden" id="frm_device_type_id" name="id" value="">
-                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
                     <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">Save
                         changes</button>
                 </form>
@@ -194,13 +194,13 @@
         </div>
     </div>
 </div><!-- /.modal -->
-<div id="chcon-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div id="chcon-خروج-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">ویرایش ردیف - <span id="row-num-model"></span> </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="خروج" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body p-4">
                 <form action="{{ route('change.live') }}" method="post">
@@ -223,7 +223,7 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
                     <button type="button" id="changerow" class="btn btn-info waves-effect waves-light">Save
                         changes</button>
                 </form>
@@ -233,14 +233,14 @@
         </div>
     </div>
 </div><!-- /.modal -->
-<div id="bcon-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div id="bcon-خروج-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title mr-2">افزودن خوراکی <span id="row-num-model"></span> </h4>
                 <button type="button" class="btn btn-sm btn-success" id="add-buffet">+</button>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="خروج" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body p-4">
                 <form action="{{ route('add.buffet') }}" method="post">
@@ -264,7 +264,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
                     <button type="button" id="changerow" class="btn btn-info waves-effect waves-light">Save
                         changes</button>
                 </form>

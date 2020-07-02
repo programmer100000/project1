@@ -25,6 +25,7 @@ class CreateGamenetsTable extends Migration
             $table->boolean('status' , false);
             $table->boolean('approve' , false);
             $table->string('description' , 2000);
+            $table->timestamps();
 
 
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');

@@ -21,6 +21,7 @@ class LotteryUsersBk extends Migration
             $table->smallInteger('user_num');
             $table->smallInteger('level_num');
             $table->smallInteger('goal');
+            $table->timestamps();
 
             $table->unsignedBigInteger('lottery_id');
 

@@ -17,6 +17,7 @@ class CreateGnetGameDevices extends Migration
             $table->bigIncrements('gnet_game_device_id');
             $table->unsignedBigInteger('gnet_game_id');
             $table->unsignedBigInteger('gnet_device_id');
+            $table->timestamps();
 
             $table->foreign('gnet_game_id')->references('gnet_game_id')->on('gnet_games')->onDelete('cascade');
             $table->foreign('gnet_device_id')->references('gnet_device_id')->on('gnet_devices'  )->onDelete('cascade');

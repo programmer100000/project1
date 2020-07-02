@@ -18,6 +18,7 @@ class CreateGnetBuffets extends Migration
             $table->unsignedBigInteger('gnet_id');
             $table->string('buffet_name' , 50);
             $table->decimal('buffet_price');
+            $table->timestamps();
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
         });

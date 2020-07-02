@@ -24,6 +24,8 @@ class Lotteries extends Migration
             $table->string('lottery_image' , 100);
             $table->text('lottery_desc');
             $table->date('date');
+            $table->timestamps();
+
 
 
 

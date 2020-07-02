@@ -15,6 +15,8 @@ class CreateDeviceTypeNames extends Migration
     {
         Schema::create('device_type_names', function (Blueprint $table) {
             $table->bigIncrements('device_type_name_id');
+            $table->timestamps();
+
             $table->string('type_name' , 50);
         });
     }

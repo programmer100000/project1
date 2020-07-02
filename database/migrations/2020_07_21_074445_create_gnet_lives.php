@@ -20,6 +20,7 @@ class CreateGnetLives extends Migration
             $table->unsignedBigInteger('gnet_device_id');
             $table->timestamp('start_time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->smallInteger('joystick_count');
+            $table->timestamps();
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets')->onDelete('cascade');
             $table->foreign('gnet_device_id')->references('gnet_device_id')->on('gnet_devices')->onDelete('cascade');

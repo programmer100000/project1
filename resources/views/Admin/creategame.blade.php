@@ -87,7 +87,7 @@
 
 
                                         <td>
-                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal" data-id="{{ $t->device_type_id }}" data-dtnid="{{ $t->device_type_name_id }}" data-price="{{ $t->type_price }}">ویرایش</button>
+                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="{{ $t->device_type_id }}" data-dtnid="{{ $t->device_type_name_id }}" data-price="{{ $t->type_price }}">ویرایش</button>
                                             <button data-id="{{ $t->gnet_game_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                                         </td>
                                     </tr>
@@ -152,12 +152,12 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div id="con-خروج-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">ویرایش ردیف - <span id="row-num-model"></span> </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="خروج" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body p-4">
                 <form action="{{ route('edit.game') }}" method="post">
@@ -181,8 +181,8 @@
                         </div>
                     </div>
 
-                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">Save changes</button>
+                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
+                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
