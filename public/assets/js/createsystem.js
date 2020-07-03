@@ -94,6 +94,13 @@ $.ajax({
 
     });
 
+    $(document).on('click', '.add-buffet', function(){
+        let that = $(this);
+        $("#buffet_live_id").val(that.attr('data-id'));
+        let test = $('#frm_device_type_id').val();
+
+    });
+
     $(document).on('click', '#add-buffet', function(){
         let that = $(this);
         let div_buffet = $('#div-buffet');
@@ -124,7 +131,7 @@ $.ajax({
         that.closest('.new-buffet').remove();
     });
 
-    $("#changerow").click(function(e) {
+    $("#submit_buffet_form").click(function(e) {
         console.log('hi');
     e.preventDefault(); // avoid to execute the actual submit of the form.
 
@@ -137,7 +144,6 @@ $.ajax({
         data: form.serialize(), // serializes the form's elements.
         success: function(data)
         {
-            location.reload();
         }
         });
     });

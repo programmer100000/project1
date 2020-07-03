@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Buffet;
+use App\BuffetLog;
 use App\DeviceGame;
 use App\Devices;
 use App\Devicesystem;
@@ -565,6 +566,19 @@ class AdminpanelController extends Controller
 
     }
     public function addbuffet(Request $request){
+        $buffet_live_id = $request->input('live_id');
+        $buffetnames = $request->input('buffetnames');
+        $counts = $request->input('counts');
+
+        $live = live::select()->where('gnet_live_id', $buffet_live_id)->first();
+        foreach($buffetnames as $key=>$value){
+            $buffet_log = new BuffetLog();
+            $buffet_log->count = $counts[$key];
+            $buffet_log->invoice_id = $live->invoice_id;
+            $buffet_log->gnet_buffet_id = $value;
+            $buffet_log->save();
+        }
+
 
     }
 }

@@ -30,8 +30,8 @@ class ForeignKeys extends Migration
 
             $table->unsignedBigInteger('gnet_buffet_id');
             $table->foreign('gnet_buffet_id')->references('gnet_buffet_id')->on('gnet_buffets');
-
         });
+
     }
 
     /**
