@@ -18,10 +18,10 @@ class Lotteries extends Migration
             $table->unsignedBigInteger('gnet_id');
             $table->string('lottery_name' , 50);
             $table->string('game_title' , 50);
-            $table->decimal('award_title' );
-            $table->string('user_winner' , 50);
+            $table->string('award_title' , 200 );
+            $table->string('user_winner' , 50)->nullable();
             $table->decimal('lottery_price');
-            $table->string('lottery_image' , 100);
+            $table->string('lottery_image' , 200)->nullable();
             $table->text('lottery_desc');
             $table->date('date');
             $table->timestamps();

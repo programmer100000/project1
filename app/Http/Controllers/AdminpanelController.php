@@ -15,6 +15,7 @@ use App\Gamenet;
 use App\Invoice;
 use App\live;
 use App\livelog;
+use App\lottery;
 use App\System;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -34,6 +35,47 @@ class AdminpanelController extends Controller
         $this->middleware('CheckAdminLogin');
     }
 
+    function convert_number($num)
+    {
+
+        $num = $num . "";
+
+        $number_farsi = array(
+            "۰" => "0",
+            "۱" => "1",
+            "۲" => "2",
+            "۳" => "3",
+            "۴" => "4",
+            "۵" => "5",
+            "۶" => "6",
+            "۷" => "7",
+            "۸" => "8",
+            "۹" => "9",
+            "٠" => "0",
+            "١" => "1",
+            "٢" => "2",
+            "٣" => "3",
+            "٤" => "4",
+            "٥" => "5",
+            "٦" => "6",
+            "٧" => "7",
+            "٨" => "8",
+            "٩" => "9"
+        );
+
+        $numbers = preg_split('//u', $num);
+
+        $result = "";
+        foreach ($numbers as $number) {
+            if (array_key_exists($number, $number_farsi)) {
+                $result .= $number_farsi[$number];
+            } else {
+                $result .= $number;
+            }
+        }
+        return $result;
+    }
+
     //show dashboard admin page
     public function index()
     {
@@ -45,7 +87,7 @@ class AdminpanelController extends Controller
                 ->where('gnet_lives.gnet_id', $gnet_id)->get();
             $buffets = Buffet::all();
             $falsedevices = Devices::select()->where('status', 0)->get();
-            return view('Admin.index', compact('lives', 'falsedevices' , 'buffets'));
+            return view('Admin.index', compact('lives', 'falsedevices', 'buffets'));
         } else {
             return redirect()->route('admin.login');
         }
@@ -322,16 +364,17 @@ class AdminpanelController extends Controller
         $gnet_id = $gnet->gamenet_id;
         if ($request->method() == 'POST') {
             $invoicenum = $user->user_id
-            . Jalalian::forge('today')->format('%y')
-            . Jalalian::forge('today')->format('%m')
-            . Jalalian::forge('today')->format('%d')
-            . Jalalian::forge('now')->format('%H')
-            . Jalalian::forge('now')->format('%I')
-            . Jalalian::forge('now')->format('%S');
+                . Jalalian::forge('today')->format('%y')
+                . Jalalian::forge('today')->format('%m')
+                . Jalalian::forge('today')->format('%d')
+                . Jalalian::forge('now')->format('%H')
+                . Jalalian::forge('now')->format('%I')
+                . Jalalian::forge('now')->format('%S');
             $invoice = new Invoice();
             $invoice->gnet_id  = $gnet_id;
             $invoice->user_id  = $user->user_id;
             $invoice->invoice_num  = $invoicenum;
+            $invoice->price = 0;
 
             if ($invoice->save()) {
                 $deviceid = $request->input('deviceid');
@@ -385,26 +428,43 @@ class AdminpanelController extends Controller
 
         $device = Devices::select()
             ->join('device_types', 'device_types.device_type_id', '=', 'gnet_devices.device_type_id')
-            ->where('gnet_device_id', $live->gnet_device_id)->first();
+            ->where('gnet_devices.gnet_device_id', $live->gnet_device_id)->first();
         $deviceprice = $device->type_price;
 
         $start = strtotime($live->start_time);
         $end = strtotime($now);
-        $mins = ((($end - $start) / 60) / 60) * $deviceprice;
+
         $jcount = $live->joystick_count;
         if ($jcount == 0) {
+            $mins = ((($end - $start) / 60) / 60) * $deviceprice;
             $price = $this->calculateprice($mins);
         } else {
             $joystickprice  = $device->joystick_price;
+            $mins = ((($end - $start) / 60) / 60) * $deviceprice + $jcount * $joystickprice;
             $price = $this->calculateprice($mins);
-            $price += $jcount * $joystickprice;
         }
         $livelog->price = $price;
         if ($livelog->save()) {
             live::select()->where('gnet_live_id', $id)->delete();
             $device->status = 0;
             if ($device->save()) {
-                return true;
+                $invoiceid = $livelog->invoice_id;
+                $livelogsb = livelog::select()->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_live_logs.gnet_device_id')->where('gnet_live_logs.invoice_id', $invoiceid)->get();
+                $buffetsb = BuffetLog::select()->join('gnet_buffets', 'gnet_buffets.gnet_buffet_id', '=', 'buffet_logs.gnet_buffet_id')->where('buffet_logs.invoice_id', $invoiceid)->get();
+                $invoicep = Invoice::select()->where('invoice_id', $invoiceid)->first();
+                foreach ($livelogsb as $l) {
+                    $invoicep->price += $l->price;
+                    $invoicep->save();
+                }
+                foreach ($buffetsb as $b) {
+                    $invoicep->price += $b->price;
+                    $invoicep->save();
+                }
+                return response()->json([
+                    'livelogs' => $livelogsb,
+                    'buffets' => $buffetsb,
+                    'invoice' => $invoicep
+                ]);
             }
         } else {
             return false;
@@ -503,7 +563,69 @@ class AdminpanelController extends Controller
 
         return json_encode(['data' => $arr, 'itemsCount' => [$livelogCount]]);
     }
-    public function changelive(Request $request){
+    public function getdatafactors(Request $request)
+    {
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+
+        $limit = intval($request->input('pageSize'));
+        $offset = (intval($request->input('pageIndex')) - 1) * $limit;
+        $sortField = $request->input('sortField');
+        $sortOrder = $request->input('sortOrder');
+
+        $sortSql = "";
+        switch ($sortField) {
+            case 'ردیف':
+                $sortSql = "invoices.invoice_id";
+                break;
+
+            case 'شماره فاکتور':
+                $sortSql = "invoices.invoice_num";
+                break;
+            case 'قیمت':
+                $sortSql = "invoices.price";
+                break;
+
+            default:
+                $sortSql = "invoices.invoice_id";
+                $sortOrder = 'asc';
+                break;
+        }
+        $invoice = invoice::select()
+            ->where('gnet_id', $gnet_id)
+            ->offset($offset)
+            ->take($limit)
+            ->orderBy($sortSql, $sortOrder)
+            ->get();
+
+        $invoicecount = invoice::select()->where('gnet_id', $gnet_id)->count();
+
+        $arr = [];
+        if ($sortOrder == 'asc') {
+            $i = $offset;
+        } else {
+            $i = $invoicecount - $offset;
+        }
+
+        foreach ($invoice as $l) {
+            if ($sortOrder == 'asc') {
+                $rownum = ++$i;
+            } else {
+                $rownum = $i--;
+            }
+
+            $arr[] = [
+                'ردیف' => $rownum,
+                'شماره فاکتور' => $l->invoice_num,
+                'قیمت' => number_format($l->price)
+            ];
+        }
+
+        return json_encode(['data' => $arr, 'itemsCount' => [$invoicecount]]);
+    }
+    public function changelive(Request $request)
+    {
         $user = Auth::user();
         $gnet = Gamenet::where('user_id', $user->user_id)->first();
         $gnet_id = $gnet->gamenet_id;
@@ -523,62 +645,147 @@ class AdminpanelController extends Controller
 
         $device = Devices::select()
             ->join('device_types', 'device_types.device_type_id', '=', 'gnet_devices.device_type_id')
-            ->where('gnet_device_id', $live->gnet_device_id)->first();
+            ->where('gnet_devices.gnet_device_id', $live->gnet_device_id)->first();
         $deviceprice = $device->type_price;
 
         $start = strtotime($live->start_time);
         $end = strtotime($now);
-        $mins = ((($end - $start) / 60) / 60) * $deviceprice;
         $jcount = $live->joystick_count;
         if ($jcount == 0) {
+            $mins = ((($end - $start) / 60) / 60) * $deviceprice;
+
             $price = $this->calculateprice($mins);
         } else {
             $joystickprice  = $device->joystick_price;
+            $mins = ((($end - $start) / 60) / 60) * $deviceprice + $jcount * $joystickprice;
+
             $price = $this->calculateprice($mins);
-            $price += $jcount * $joystickprice;
         }
         $livelog->price = $price;
         if ($livelog->save()) {
-
-            $lives = new live();
-            $lives->gnet_device_id = $deviceid;
-            $lives->gnet_id = $gnet_id;
-            $lives->invoice_id = $live->invoice_id;
-            $lives->joystick_count = $joystick_count;
-            live::select()->where('gnet_live_id', $id)->delete();
-            if ($lives->save()) {
-                $device = Devices::select()->where('gnet_device_id', $deviceid)->first();
-                $device->status = 1;
-
-                if ($device->save()) {
-                    return true;
-                }
-            } else {
-                return json_encode('مشکلی رخ داده است');
-            }
+            $device = Devices::select()->where('gnet_device_id', $livelog->gnet_device_id)->first();
             $device->status = 0;
             if ($device->save()) {
-                return true;
+                $lives = new live();
+                $lives->gnet_device_id = $deviceid;
+                $lives->gnet_id = $gnet_id;
+                $lives->invoice_id = $live->invoice_id;
+                $lives->joystick_count = $joystick_count;
+                live::select()->where('gnet_live_id', $id)->delete();
+                if ($lives->save()) {
+                    $devicet = Devices::select()->where('gnet_device_id', $lives->gnet_device_id)->first();
+                    $devicet->status = 1;
+                    if ($devicet->save()) {
+                        return true;
+                    }
+                } else {
+                    return json_encode('مشکلی رخ داده است');
+                }
             }
-        } else {
-            return false;
         }
-
     }
-    public function addbuffet(Request $request){
+    public function addbuffet(Request $request)
+    {
         $buffet_live_id = $request->input('live_id');
         $buffetnames = $request->input('buffetnames');
         $counts = $request->input('counts');
 
         $live = live::select()->where('gnet_live_id', $buffet_live_id)->first();
-        foreach($buffetnames as $key=>$value){
+        foreach ($buffetnames as $key => $value) {
+            $buffet = Buffet::select()->where('gnet_buffet_id', $value)->first();
+            $price = $buffet->buffet_price;
             $buffet_log = new BuffetLog();
             $buffet_log->count = $counts[$key];
             $buffet_log->invoice_id = $live->invoice_id;
-            $buffet_log->gnet_buffet_id = $value;
+            $buffet_log->gnet_buffet_id = $buffet->gnet_buffet_id;
+            $buffet_log->price = $counts[$key] * $price;
             $buffet_log->save();
         }
+    }
+    public function createlottery(Request $request)
+    {
 
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        switch ($request->method()) {
+            case 'GET':
+                $lotteries = lottery::all();
+                return view('Admin.lottery', compact('lotteries'));
+                break;
+            case 'POST':
+                $lottery_id = $request->input('lottery_id');
+                $lotteryname = $request->input('lotteryname');
+                $gametitle = $request->input('gamename');
+                $award = $request->input('award');
+                $price = $request->input('price');
+                $image = $request->file('image');
+                $desc = $request->input('desc');
+                $date = $this->convert_number($request->input('date'));
 
+                request()->validate([
+
+                    'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048000',
+
+                ]);
+
+                if (validator()) {
+                    if ($lottery_id == '') {
+                        $imageName = time() . '.' . request()->file('image')->getClientOriginalExtension();
+
+                        $image->move(public_path('images'), $imageName);
+                        $lottery = new lottery();
+                        $lottery->gnet_id = $gnet_id;
+                        $lottery->lottery_name = $lotteryname;
+                        $lottery->game_title = $gametitle;
+                        $lottery->award_title = $award;
+                        $lottery->lottery_price = $price;
+                        $lottery->lottery_desc = $desc;
+                        $lottery->date = $date;
+                        $lottery->lottery_image = public_path('images') . DIRECTORY_SEPARATOR . $imageName;
+                        if ($lottery->save()) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        $lottery = lottery::select()->where('lottery_id' , $lottery_id)->first();
+                        $lottery->lottery_name = $lotteryname;
+                        $lottery->game_title = $gametitle;
+                        $lottery->award_title = $award;
+                        $lottery->lottery_price = $price;
+                        $lottery->lottery_desc = $desc;
+                        $lottery->date = $date;
+                        if($image != ''){
+                            $imageName = time() . '.' . request()->file('image')->getClientOriginalExtension();
+
+                            $image->move(public_path('images'), $imageName);
+                            $lottery->lottery_image = public_path('images') . DIRECTORY_SEPARATOR . $imageName;
+                        }
+                        if($lottery->save()){
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                }
+        }
+    }
+    public function deletelottery(Request $request)
+    {
+        $id = $request->input('id');
+        $dt = lottery::select()->where('lottery_id', $id)->delete();
+        if ($dt) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function editlottery(Request $request)
+    {
+        $id = $request->input('id');
+        $lottery = lottery::select()->where('lottery_id', $id)->first();
+        return json_encode([$lottery]);
     }
 }

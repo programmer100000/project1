@@ -142,6 +142,17 @@
                         </div>
                     </div>
                 </div> <!-- end col -->
+
+                <div class="col-xl-12">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card-box">
+                                <div id="jsgrid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
             </div>
             <!-- end row -->
 
@@ -184,9 +195,8 @@
             <div class="modal-body p-4">
                 <form action="{{ route('finish.live') }}" method="post">
                     <input type="hidden" id="frm_device_type_id" name="id" value="">
-                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">close</button>
-                    <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">Save
-                        changes</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
+                    <button type="button" id="finishfactor" class="btn btn-info waves-effect waves-light">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -273,6 +283,65 @@
     </div>
 </div><!-- /.modal -->
 
+<!-- Modal -->
+<div id="ModalForm" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-right">فاکتور شماره - <span id='factor-number'></span></h4>
+        </div>
+        <div class="modal-body">
+          <div class="responsive-table-plugin">
+            <p>دستگاه ها</p>
+            <div class="table-rep-plugin">
+                <div class="table-responsive" data-pattern="priority-columns">
+                    <table id="table-factor-livelogs" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th data-priority="1">نام دستگاه</th>
+                                <th data-priority="2">تعداد دسته اضافه</th>
+                                <th data-priority="3">تاریخ شروع</th>
+                                <th data-priority="4">تاریخ پایان</th>
+                                <th data-priority="5">قیمت</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div> <!-- end .table-responsive -->
+
+                </div> <!-- end .table-rep-plugin-->
+            </div> <!-- end .responsive-table-plugin-->
+            <br>
+            <p>خوراکی ها</p>
+            <div class="table-rep-plugin">
+                <div class="table-responsive" data-pattern="priority-columns">
+                    <table id="table-factor-buffets" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th data-priority="1">خوراکی</th>
+                                <th data-priority="2">تعداد</th>
+                                <th data-priority="3">قیمت</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div> <!-- end .table-responsive -->
+
+                </div> <!-- end .table-rep-plugin-->
+            </div> <!-- end .responsive-table-plugin-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 <!-- ============================================================== -->
 <!-- End Page content -->
 <!-- ============================================================== -->
@@ -286,8 +355,11 @@
 
 <!-- Init js -->
 <script src="{{ asset('assets/js/pages/jsgrid.init.js') }}" defer></script>
+<script src="{{ asset('assets/js/pages/jsgridf.init.js') }}" defer></script>
+
 
 <script>
    var url_getLiveLog = '{{ route('get.logs') }}';
+   var url_getfactor = '{{ route('get.factors') }}';
 </script>
 @endsection

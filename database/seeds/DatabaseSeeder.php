@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         DB::table('device_type_names')->insert($typenames);
         $userroles = [
             ['role_title' => 'Admin'],
-            ['role_title' => 'User']
+            ['role_title' => 'User'],
+            ['role_title' => 'None']
         ];
         DB::table('user_roles')->insert($userroles);
         $statuses = [
@@ -30,5 +31,12 @@ class DatabaseSeeder extends Seeder
             ['status_title' => 'Waiting Code']
         ];
         DB::table('status')->insert($statuses);
+        $user = [
+            'mobile' => '09xxxxxxxxx',
+            'role_id' => 3,
+            'confirm_code' => '3928',
+            'status_id' => 2
+        ];
+        DB::table('users')->insert($user);
     }
 }

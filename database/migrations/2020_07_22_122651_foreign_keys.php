@@ -24,6 +24,17 @@ class ForeignKeys extends Migration
 
             $table->foreign('invoice_id')->references('invoice_id')->on('invoices');
         });
+        Schema::table('lottery_users', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('user_id')->on('users');
+        });
+        Schema::table('lottery_users_bk', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('user_id')->on('users');
+        });
+
         Schema::table('buffet_logs', function (Blueprint $table) {
             $table->unsignedBigInteger('invoice_id');
             $table->foreign('invoice_id')->references('invoice_id')->on('invoices');

@@ -25,6 +25,13 @@ Route::post('/admin/create/system' , 'AdminpanelController@createsystem')->name(
 Route::post('/admin/delete/system' , 'AdminpanelController@deletesystem')->name('delete.system');
 Route::post('/admin/edit/system' , 'AdminpanelController@editsystem' )->name('edit.system');
 
+Route::get('/admin/create/lottery' , 'AdminpanelController@createlottery')->name('create.lottery');
+Route::post('/admin/create/lottery' , 'AdminpanelController@createlottery')->name('create.lottery');
+Route::post('/admin/delete/lottery' , 'AdminpanelController@deletelottery')->name('delete.lottery');
+Route::post('/admin/edit/lottery' , 'AdminpanelController@editlottery' )->name('edit.lottery');
+
+
+
 Route::get('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
 Route::post('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
 Route::post('/admin/delete/buffet' , 'AdminpanelController@deletebuffet')->name('delete.buffet');
@@ -58,5 +65,7 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout' , 'LogoutController@logout')->name('logout');
 Route::get('/admin/excel/export' , 'AdminpanelController@exportexcel')->name('export.excel');
 Route::get('/admin/get/livelogs' , 'AdminpanelController@getdata')->name('get.logs');
+Route::get('/admin/get/factors' , 'AdminpanelController@getdatafactors')->name('get.factors');
 Route::post('/admin/change/livelogs' , 'AdminpanelController@changelive')->name('change.live');
 Route::post('/admin/add/buffet' , 'AdminpanelController@addbuffet')->name('add.buffet');
+

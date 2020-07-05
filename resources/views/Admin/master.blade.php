@@ -606,18 +606,25 @@
                                 <span>  دستگاه </span>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('create.game') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
                                 <span>  بازی </span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{ route('create.buffet') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
                                 <span>  خوراکی </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('create.lottery') }}">
+                                <i data-feather="airplay"></i>
+                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <span>  مسابقه </span>
                             </a>
                         </li>
                     </ul>
