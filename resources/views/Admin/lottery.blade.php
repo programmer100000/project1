@@ -151,6 +151,7 @@
                                         <td>
                                             <button type="button" class="edit-system btn btn-success waves-effect waves-light editlottery" data-url="{{ route('edit.lottery') }}" data-id="{{ $t->lottery_id }}" >ویرایش</button>
                                             <button data-id="{{ $t->lottery_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                                            <button data-id="{{ $t->lottery_id }}" type="button" class="btn btn-info add-user-lottery" data-toggle="modal" data-target="#add-alert-modal">افزودن شرکت کننده</button>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -191,7 +192,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="con-خروج-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -228,6 +229,53 @@
         </div>
     </div>
 </div><!-- /.modal -->
+
+<div id="add-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">عضو جدید <span id="row-num-model"></span> </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body p-4">
+                <form action="{{ route('add.lottery.user') }}" method="post">
+                    <input type="hidden" id="lottery-user-id" name="lottery_id" value="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="modal-system-typs" class="control-label">نام</label>
+                                <input type="text" name="fname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="modal-system-typs" class="control-label"> نام خانوادگی</label>
+                                <input type="text" name="lname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="modal-system-typs" class="control-label">موبایل</label>
+                                <input type="text" name="mobile" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
+                    <button type="button" id="lottery_user_btn" class="btn btn-info waves-effect waves-light">ثبت</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->
+
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
 
 
 <!-- ============================================================== -->

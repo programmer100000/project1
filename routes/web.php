@@ -30,7 +30,7 @@ Route::post('/admin/create/lottery' , 'AdminpanelController@createlottery')->nam
 Route::post('/admin/delete/lottery' , 'AdminpanelController@deletelottery')->name('delete.lottery');
 Route::post('/admin/edit/lottery' , 'AdminpanelController@editlottery' )->name('edit.lottery');
 
-
+Route::post('/admin/add/lottery/user' , 'AdminpanelController@addlotteryuser')->name('add.lottery.user');
 
 Route::get('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
 Route::post('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');

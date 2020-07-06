@@ -58,6 +58,23 @@ $(document).ready(function () {
         });
     });
 
+    $("#lottery_user_btn").click(function (e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function (data) {
+                location.reload();
+            }
+        });
+    });
+
     $("#lottery_form_btn").click(function (e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
@@ -83,6 +100,14 @@ $(document).ready(function () {
         let data_id = that.attr('data-id');
 
         $("#remove-system").attr('data-id', data_id);
+
+    });
+
+    $(document).on('click', '.add-user-lottery', function () {
+        let that = $(this);
+        let data_id = that.attr('data-id');
+
+        $("#lottery-user-id").val(data_id);
 
     });
 

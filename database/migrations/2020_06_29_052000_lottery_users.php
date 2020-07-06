@@ -17,7 +17,7 @@ class LotteryUsers extends Migration
             $table->bigIncrements('lottery_user_id');
             $table->string('fname' , 50);
             $table->string('lname' , 50);
-            $table->string('mobile' , 11);
+            $table->string('mobile' , 11)->nullable();
             $table->smallInteger('user_num');
             $table->smallInteger('level_num');
             $table->smallInteger('goal');

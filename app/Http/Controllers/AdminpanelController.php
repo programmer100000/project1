@@ -16,6 +16,7 @@ use App\Invoice;
 use App\live;
 use App\livelog;
 use App\lottery;
+use App\lotteryuser;
 use App\System;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -749,23 +750,22 @@ class AdminpanelController extends Controller
                             return false;
                         }
                     } else {
-                        $lottery = lottery::select()->where('lottery_id' , $lottery_id)->first();
+                        $lottery = lottery::select()->where('lottery_id', $lottery_id)->first();
                         $lottery->lottery_name = $lotteryname;
                         $lottery->game_title = $gametitle;
                         $lottery->award_title = $award;
                         $lottery->lottery_price = $price;
                         $lottery->lottery_desc = $desc;
                         $lottery->date = $date;
-                        if($image != ''){
+                        if ($image != '') {
                             $imageName = time() . '.' . request()->file('image')->getClientOriginalExtension();
 
                             $image->move(public_path('images'), $imageName);
                             $lottery->lottery_image = public_path('images') . DIRECTORY_SEPARATOR . $imageName;
                         }
-                        if($lottery->save()){
+                        if ($lottery->save()) {
                             return true;
-                        }
-                        else{
+                        } else {
                             return false;
                         }
                     }
@@ -787,5 +787,34 @@ class AdminpanelController extends Controller
         $id = $request->input('id');
         $lottery = lottery::select()->where('lottery_id', $id)->first();
         return json_encode([$lottery]);
+    }
+    public function addlotteryuser(Request $request)
+    {
+        $lottery_id = $request->input('lottery_id');
+        $fname = $request->input('fname');
+        $lname = $request->input('lname');
+        $mobile = $request->input('mobile');
+
+        $lottery = lottery::select()->where('lottery_id', $lottery_id)->first();
+        $last_lottery_user = lotteryuser::where('lottery_id', $lottery_id)->orderBy('user_num' , 'desc')->first();
+        print_r($last_lottery_user);
+        $lottery_user = new lotteryuser();
+        $lottery_user->fname = $fname;
+        $lottery_user->lname = $lname;
+        $lottery_user->mobile = $mobile;
+        if ($last_lottery_user == null) {
+            $lottery_user->user_num = 1;
+        } else {
+            $lottery_user->user_num = $last_lottery_user->user_num + 1;
+        }
+        $lottery_user->level_num  = 0;
+        $lottery_user->goal  = 0;
+        $lottery_user->lottery_id = $lottery_id;
+        $lottery_user->user_id = 1;
+        if ($lottery_user->save()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
