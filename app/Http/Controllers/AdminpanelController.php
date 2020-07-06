@@ -817,4 +817,15 @@ class AdminpanelController extends Controller
             return false;
         }
     }
+    public function deletelotteryuser(Request $request){
+        $lottery_user_id = $request->input('id');
+
+        $dlotteryuser = lotteryuser::select()->where('lottery_user_id' , $lottery_user_id)->delete();
+        if($dlotteryuser){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

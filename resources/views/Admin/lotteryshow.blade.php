@@ -1,12 +1,5 @@
 @extends('Admin.master')
 @section('title', 'خانه')
-@section('head')
-<link type="text/css" rel="stylesheet" href={{ asset('assets/css/persian-datepicker.css') }} />
-
-<link type="text/css" rel="stylesheet"
-    href={{ asset('assets/css/persianDatepicker-dark.css') }} />
-
-@endsection
 
 @section('content')
 <!-- ============================================================== -->
@@ -49,82 +42,17 @@
             </div>
             <!-- end page title -->
             <div class="row">
-
                 <div class="col-xl-12">
                     <div class="card-box">
-                        <h4 class="header-title mb-3">افزودن</h4>
-                        <form id="lottery_form" action="{{ route('create.lottery') }}"
-                            onsubmit="return false;" enctype="multipart/form-data">
-                            <input type="hidden" name="lottery_id" id="lottery_id" value="">
-                            <div class="form-row">
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label>نام مسابقه</label>
-                                        <input class="form-control" type="text" name="lotteryname" id="lotteryname">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label> جایزه</label>
-                                        <input class="form-control" type="text" name="award" id="award">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label> ورودی</label>
-                                        <input class="form-control" type="text" name="price" id="price">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label> عکس مسابقه</label>
-                                        <input class="form-control-file" type="file" name="image" id="image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label> توضیحات</label>
-                                        <input class="form-control" type="text" name="desc" id="desc">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label>تاریخ</label>
-                                        <input class="form-control formdate" type="text" name="date" id="tarikh"
-                                            dir="auto" autocomplete="off">
-                                        <div class="formdate"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="form-group mb-3">
-                                    <label>نام بازی</label>
-                                    <input class="form-control" type="text" name="gamename" id="gamename">
-                                </div>
-                            </div>
-                            <button type="button" id="lottery_form_btn" class="btn btn-primary">ثبت</button>
-                            <p style="color: red;" id="device_type_form_msg"></p>
-                        </form>
-                    </div> <!-- end card-box-->
-                </div> <!-- end col -->
-                <div class="col-xl-12">
-                    <div class="card-box">
-                        <h4 class="header-title mb-3">مسابقه های ثبت شده </h4>
-
+                        <h4 class="header-title mb-3">افراد شرکت کننده </h4>
+                        <button data-id="{{ $id }}" type="button" class="btn btn-info add-user-lottery" data-toggle="modal" data-target="#add-alert-modal">افزودن شرکت کننده</button>
                         <div class="table-responsive">
                             <table class="table table-borderless table-hover table-nowrap table-centered m-0">
 
                                 <thead class="thead-light">
                                     <tr>
                                         <th class="font-weight-medium">ردیف</th>
-                                        <th class="font-weight-medium">نام مسابقه</th>
-                                        <th class="font-weight-medium">جایزه</th>
-                                        <th class="font-weight-medium">نام بازی</th>
+                                        <th class="font-weight-medium">نام کاربر</th>
                                         <th class="font-weight-medium">عملیات</th>
                                     </tr>
                                 </thead>
@@ -132,7 +60,7 @@
                                     @php
                                     $i = 1;
                                 @endphp
-                                    @foreach ($lotteries as $t)
+                                    @foreach ($lottery_users as $t)
 
                                     <tr>
                                         <td>
@@ -140,19 +68,10 @@
                                         </td>
 
                                         <td>
-                                            {{ $t->lottery_name }}
+                                            {{ $t->fname }}
                                         </td>
                                         <td>
-                                            {{ $t->award_title }}
-                                        </td>
-                                        <td>
-                                            {{ $t->game_title }}
-                                        </td>
-                                        <td>
-                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light editlottery" data-url="{{ route('edit.lottery') }}" data-id="{{ $t->lottery_id }}" >ویرایش</button>
-                                            <button data-id="{{ $t->lottery_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
-                                            <button data-id="{{ $t->lottery_id }}" type="button" class="btn btn-info add-user-lottery" data-toggle="modal" data-target="#add-alert-modal">افزودن شرکت کننده</button>
-                                            <a class="btn btn-light" href="/admin/lottery/show/{{ $t->lottery_id }}" title="{{ $t->lottery_name }}">نمایش</a>
+                                            <button data-id="{{ $t->lottery_user_id }}" type="button" class="btn btn-danger remove-user-lottery" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -185,7 +104,7 @@
                     <h4 class="mt-2 text-white">توجه</h4>
                     <p class="mt-3 text-white">درصورت حذف این مورد تمام دستگاه های ثبت شده ی شما که به آن مرتبط هستند
                         حذف خواهند شد.</p>
-                    <button id="remove-system" data-url="{{ route('delete.lottery') }}" type="button"
+                    <button id="remove-user-lottery" data-url="{{ route('delete.lottery.user') }}" type="button"
                         class="btn btn-light my-2" data-dismiss="modal">حذف</button>
                 </div>
             </div>
@@ -284,10 +203,6 @@
 <!-- ============================================================== -->
 
 <!-- END wrapper -->
-<script type="text/javascript" src="{{ asset('assets/js/persian-date.js') }}" defer></script>
-
-<script type="text/javascript" src="{{ asset('assets/js/persian-datepicker.js') }}" defer>
-</script>
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 
 

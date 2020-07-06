@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminLoginController;
+use App\lottery;
+use App\lotteryuser;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +33,9 @@ Route::post('/admin/delete/lottery' , 'AdminpanelController@deletelottery')->nam
 Route::post('/admin/edit/lottery' , 'AdminpanelController@editlottery' )->name('edit.lottery');
 
 Route::post('/admin/add/lottery/user' , 'AdminpanelController@addlotteryuser')->name('add.lottery.user');
+
+Route::post('/admin/lottery/user/delete' , 'AdminpanelController@deletelotteryuser')->name('delete.lottery.user');
+
 
 Route::get('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
 Route::post('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
@@ -69,3 +74,10 @@ Route::get('/admin/get/factors' , 'AdminpanelController@getdatafactors')->name('
 Route::post('/admin/change/livelogs' , 'AdminpanelController@changelive')->name('change.live');
 Route::post('/admin/add/buffet' , 'AdminpanelController@addbuffet')->name('add.buffet');
 
+Route::get('/admin/lottery/show/{id}' , function($id){
+    $lottery_users = lotteryuser::select()
+                        ->join('lotteries' , 'lotteries.lottery_id' , '=' , 'lottery_users.lottery_id')
+                        ->where('lottery_users.lottery_id' , $id)->get();
+
+    return view('Admin.lotteryshow' , compact('lottery_users' , 'id'));
+})->middleware('CheckAdminLogin')->name('lottery.show');

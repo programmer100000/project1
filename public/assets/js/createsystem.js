@@ -17,30 +17,33 @@ $(document).ready(function () {
         }
 
     });
-    $('.formdate').persianDatepicker({
-        autoClose: true,
-        altField: '#tarikh',
-        altFormat: 'YYYY/MM/DD H:mm:ss',
-        toolbox: {
-            enabled: false,
-            calendarSwitch: {
-                enabled: false
+    if($.persianDatepicker){
+        $('.formdate').persianDatepicker({
+            autoClose: true,
+            altField: '#tarikh',
+            altFormat: 'YYYY/MM/DD H:mm:ss',
+            toolbox: {
+                enabled: false,
+                calendarSwitch: {
+                    enabled: false
+                }
+            },
+            navigator: {
+                scroll: {
+                    enabled: false
+                }
+            },
+            maxDate: new persianDate().add('month', 3).valueOf(),
+            minDate: new persianDate().subtract('month', 3).valueOf(),
+            timePicker: {
+                enabled: true,
+                meridiem: {
+                    enabled: true
+                }
             }
-        },
-        navigator: {
-            scroll: {
-                enabled: false
-            }
-        },
-        maxDate: new persianDate().add('month', 3).valueOf(),
-        minDate: new persianDate().subtract('month', 3).valueOf(),
-        timePicker: {
-            enabled: true,
-            meridiem: {
-                enabled: true
-            }
-        }
-    });
+        });
+    }
+
 
     $("#types_form_btn").click(function (e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -102,6 +105,32 @@ $(document).ready(function () {
         $("#remove-system").attr('data-id', data_id);
 
     });
+
+    $(document).on('click', '.remove-user-lottery', function () {
+        let that = $(this);
+        let data_id = that.attr('data-id');
+        console.log(data_id);
+        $("#remove-user-lottery").attr('data-id', data_id);
+
+    });
+
+    $(document).on('click', '#remove-user-lottery', function () {
+        let that = $(this);
+        let data_id = that.attr('data-id');
+        let url = that.attr('data-url');
+        console.log(data_id);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id: data_id
+            }, // serializes the form's elements.
+            success: function (data) {
+                location.reload();
+            }
+        });
+    });
+
 
     $(document).on('click', '.add-user-lottery', function () {
         let that = $(this);
