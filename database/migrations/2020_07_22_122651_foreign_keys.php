@@ -43,6 +43,14 @@ class ForeignKeys extends Migration
             $table->foreign('gnet_buffet_id')->references('gnet_buffet_id')->on('gnet_buffets');
         });
 
+        Schema::table('lottery_matchs', function (Blueprint $table) {
+            $table->unsignedBigInteger('lottery_user_1');
+            $table->foreign('lottery_user_1')->references('lottery_user_id')->on('lottery_users');
+            $table->unsignedBigInteger('lottery_user_2');
+            $table->foreign('lottery_user_2')->references('lottery_user_id')->on('lottery_users');
+
+
+        });
     }
 
     /**

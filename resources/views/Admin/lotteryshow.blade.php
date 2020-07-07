@@ -49,6 +49,8 @@
                     <div class="card-box">
                         <h4 class="header-title mb-3">افراد شرکت کننده </h4>
                         <button data-id="{{ $id }}" type="button" class="btn btn-info add-user-lottery" data-toggle="modal" data-target="#add-alert-modal">افزودن شرکت کننده</button>
+                        <button data-id="{{ $id }}" data-url="{{ route('create.match') }}" id="btn-create-match" type="button" class="btn btn-info add-user-lottery">شروع</button>
+
                         <div class="table-responsive">
                             <table class="table table-borderless table-hover table-nowrap table-centered m-0">
 
@@ -93,7 +95,11 @@
                         </div>
                     </div>
                 </div> <!-- end col -->
-
+                <div class="col-12">
+                    <div id='bracket' dir="ltr">
+                        <div class="demo"></div>
+                    </div>
+                </div>
             </div>
             <!-- end row -->
 
@@ -220,7 +226,7 @@
 <!-- ============================================================== -->
 
 <!-- END wrapper -->
-<script type="text/javascript" src="{{ asset('assets/js/jquery.bracket.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery.bracket.min.js') }}" defer></script>
 
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 

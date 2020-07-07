@@ -16,6 +16,7 @@ use App\Invoice;
 use App\live;
 use App\livelog;
 use App\lottery;
+use App\LotteryMatch;
 use App\lotteryuser;
 use App\System;
 use Carbon\Carbon;
@@ -796,7 +797,7 @@ class AdminpanelController extends Controller
         $mobile = $request->input('mobile');
 
         $lottery = lottery::select()->where('lottery_id', $lottery_id)->first();
-        $last_lottery_user = lotteryuser::where('lottery_id', $lottery_id)->orderBy('user_num' , 'desc')->first();
+        $last_lottery_user = lotteryuser::where('lottery_id', $lottery_id)->orderBy('user_num', 'desc')->first();
         print_r($last_lottery_user);
         $lottery_user = new lotteryuser();
         $lottery_user->fname = $fname;
@@ -807,8 +808,6 @@ class AdminpanelController extends Controller
         } else {
             $lottery_user->user_num = $last_lottery_user->user_num + 1;
         }
-        $lottery_user->level_num  = 0;
-        $lottery_user->goal  = 0;
         $lottery_user->lottery_id = $lottery_id;
         $lottery_user->user_id = 1;
         if ($lottery_user->save()) {
@@ -817,34 +816,57 @@ class AdminpanelController extends Controller
             return false;
         }
     }
-    public function deletelotteryuser(Request $request){
+    public function deletelotteryuser(Request $request)
+    {
         $lottery_user_id = $request->input('id');
 
-        $dlotteryuser = lotteryuser::select()->where('lottery_user_id' , $lottery_user_id)->delete();
-        if($dlotteryuser){
+        $dlotteryuser = lotteryuser::select()->where('lottery_user_id', $lottery_user_id)->delete();
+        if ($dlotteryuser) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
-    public function editlotteryuser(Request $request){
+    public function editlotteryuser(Request $request)
+    {
         $id = $request->input('lottery_user_id');
         $fname = $request->input('fname');
         $lname = $request->input('lname');
         $mobile = $request->input('mobile');
 
-        $lottery_user = lotteryuser::select()->where('lottery_user_id' , $id)->first();
-        $lottery_user->fname = ($fname!=null ? $fname: $lottery_user->fname);
-        $lottery_user->lname = ($lname!=null ? $lname: $lottery_user->lname);
-        $lottery_user->mobile = ($mobile!=null ? $mobile: $lottery_user->mobile);
+        $lottery_user = lotteryuser::select()->where('lottery_user_id', $id)->first();
+        $lottery_user->fname = ($fname != null ? $fname : $lottery_user->fname);
+        $lottery_user->lname = ($lname != null ? $lname : $lottery_user->lname);
+        $lottery_user->mobile = ($mobile != null ? $mobile : $lottery_user->mobile);
 
-        if($lottery_user->save()){
+        if ($lottery_user->save()) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
+    }
+    public function creatematch(Request $request){
+        $id = $request->input('id');
+
+        $lottery_users = lotteryuser::where('lottery_id' , $id)->orderBy('user_num', 'asc')->get();
+        $lottery_users_count = count($lottery_users);
+        if ($lottery_users_count % 2 !=0) {
+            return false;
+        }
+        for ($i=0; $i <$lottery_users_count ; $i+=2) {
+            $arr = array(
+                array($lottery_users[$i]),array($lottery_users[$i+1]));
+            for ($j=0; $j <count($arr) ; $j++) {
+                $lottery_match = new LotteryMatch();
+                $lottery_match->lottery_user_1 = $arr[0][0]['lottery_user_id'];
+                $lottery_match->lottery_user_2 = $arr[1][0]['lottery_user_id'];
+                $lottery_match->level =1;
+                if($lottery_match->save()){
+                break;
+                }
+            }
+        }
+
 
     }
 }

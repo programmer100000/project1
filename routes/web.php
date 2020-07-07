@@ -35,7 +35,7 @@ Route::post('/admin/edit/lottery' , 'AdminpanelController@editlottery' )->name('
 Route::post('/admin/add/lottery/user' , 'AdminpanelController@addlotteryuser')->name('add.lottery.user');
 
 Route::post('/admin/lottery/user/delete' , 'AdminpanelController@deletelotteryuser')->name('delete.lottery.user');
-
+Route::post('/admin/create/match' , 'AdminpanelController@creatematch')->name('create.match');
 
 Route::get('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');
 Route::post('/admin/create/buffet' , 'AdminpanelController@createbuffet')->name('create.buffet');

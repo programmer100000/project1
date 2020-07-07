@@ -17,7 +17,7 @@ $(document).ready(function () {
         }
 
     });
-    if($.persianDatepicker){
+    if ($().persianDatepicker) {
         $('.formdate').persianDatepicker({
             autoClose: true,
             altField: '#tarikh',
@@ -130,6 +130,24 @@ $(document).ready(function () {
             }
         });
     });
+
+    $(document).on('click', '#btn-create-match', function () {
+        let that = $(this);
+        let data_id = that.attr('data-id');
+        let url = that.attr('data-url');
+        console.log(data_id);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id: data_id
+            }, // serializes the form's elements.
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
 
 
     $(document).on('click', '.add-user-lottery', function () {
@@ -350,5 +368,29 @@ $(document).ready(function () {
             }
         });
     });
+
+
+    if ($().bracket) {
+        var minimalData = {
+            teams: [
+                ["Team 1", "Team 2"], /* first matchup */
+                ["Team 3", "Team 4"] /* second matchup */
+            ],
+            results: [
+                [
+                    [1, 2],
+                    [3, 4]
+                ], /* first round */
+                [
+                    [4, 6],
+                    [2, 1]
+                ] /* second round */
+            ]
+        }
+        $('#bracket .demo').bracket({
+            init: minimalData /* data to initialize the bracket with */
+        })
+
+    }
 
 });
