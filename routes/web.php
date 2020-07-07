@@ -46,6 +46,7 @@ Route::get('/admin/create/device' , 'AdminpanelController@createdevice')->name('
 Route::post('/admin/create/device' , 'AdminpanelController@createdevice')->name('create.device');
 Route::post('/admin/delete/device' , 'AdminpanelController@deletedevice')->name('delete.device');
 Route::post('/admin/edit/device' , 'AdminpanelController@editdevice' )->name('edit.device');
+Route::post('/admin/edit/lottery/user' , 'AdminpanelController@editlotteryuser' )->name('edit.lottery.user');
 
 Route::post('/admin/create/live' , 'AdminpanelController@createlive')->name('create.live');
 Route::post('/admin/delete/live' , 'AdminpanelController@deletelive')->name('delete.live');

@@ -828,4 +828,23 @@ class AdminpanelController extends Controller
             return false;
         }
     }
+    public function editlotteryuser(Request $request){
+        $id = $request->input('lottery_user_id');
+        $fname = $request->input('fname');
+        $lname = $request->input('lname');
+        $mobile = $request->input('mobile');
+
+        $lottery_user = lotteryuser::select()->where('lottery_user_id' , $id)->first();
+        $lottery_user->fname = ($fname!=null ? $fname: $lottery_user->fname);
+        $lottery_user->lname = ($lname!=null ? $lname: $lottery_user->lname);
+        $lottery_user->mobile = ($mobile!=null ? $mobile: $lottery_user->mobile);
+
+        if($lottery_user->save()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
 }

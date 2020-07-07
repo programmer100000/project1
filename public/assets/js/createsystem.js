@@ -193,6 +193,11 @@ $(document).ready(function () {
         let test = $('#frm_device_type_id').val();
 
     });
+    $(document).on('click', '.edituserlottery', function () {
+        let that = $(this);
+        $("#edituserlottery").val(that.attr('data-id'));
+    });
+
     $("#editrow").click(function (e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 

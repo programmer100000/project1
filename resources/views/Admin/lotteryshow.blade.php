@@ -1,6 +1,9 @@
 @extends('Admin.master')
 @section('title', 'خانه')
+@section('head')
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.bracket.min.css') }}" />
 
+@endsection
 @section('content')
 <!-- ============================================================== -->
 <!-- Start Page Content here -->
@@ -52,7 +55,9 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th class="font-weight-medium">ردیف</th>
-                                        <th class="font-weight-medium">نام کاربر</th>
+                                        <th class="font-weight-medium">نام</th>
+                                        <th class="font-weight-medium">نام خانوادگی</th>
+                                        <th class="font-weight-medium">موبایل</th>
                                         <th class="font-weight-medium">عملیات</th>
                                     </tr>
                                 </thead>
@@ -71,6 +76,14 @@
                                             {{ $t->fname }}
                                         </td>
                                         <td>
+                                            {{ $t->lname }}
+                                        </td>
+                                        <td>
+                                            {{ $t->mobile }}
+                                        </td>
+                                        <td>
+                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light edituserlottery"  data-id="{{ $t->lottery_user_id }}" data-toggle="modal" data-target="#con-close-modal">ویرایش</button>
+
                                             <button data-id="{{ $t->lottery_user_id }}" type="button" class="btn btn-danger remove-user-lottery" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                                         </td>
                                     </tr>
@@ -121,21 +134,25 @@
                 <button type="button" class="خروج" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body p-4">
-                <form action="{{ route('edit.game') }}" method="post">
-                    <input type="hidden" id="frm_device_type_id" name="device_type_id" value="">
+                <form action="{{ route('edit.lottery.user') }}" method="post">
+                    <input type="hidden" id="edituserlottery" name="lottery_user_id" value="">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="modal-system-typs" class="control-label">نوع دستگاه</label>
-                                <select name="type" id="modal-system-typs" class="form-control">
-
-                                </select>
+                                <label for="modal-system-typs" class="control-label">نام</label>
+                                <input type="text" name="fname" class="form-control" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="field-2" class="control-label">قیمت هر ساعت</label>
-                                <input type="text" name="price" class="form-control" id="modal-system-price">
+                                <label for="field-2" class="control-label">نام خانوادگی‌</label>
+                                <input type="text" name="lname" class="form-control" id="modal-system-price">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-2" class="control-label">موبایل</label>
+                                <input type="text" name="mobile" class="form-control" id="modal-system-price">
                             </div>
                         </div>
                     </div>
@@ -203,6 +220,8 @@
 <!-- ============================================================== -->
 
 <!-- END wrapper -->
+<script type="text/javascript" src="{{ asset('assets/js/jquery.bracket.min.js') }}"></script>
+
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 
 
