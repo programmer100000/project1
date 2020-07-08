@@ -845,28 +845,29 @@ class AdminpanelController extends Controller
             return false;
         }
     }
-    public function creatematch(Request $request){
+    public function creatematch(Request $request)
+    {
         $id = $request->input('id');
 
-        $lottery_users = lotteryuser::where('lottery_id' , $id)->orderBy('user_num', 'asc')->get();
+        $lottery_users = lotteryuser::where('lottery_id', $id)->orderBy('user_num', 'asc')->get();
         $lottery_users_count = count($lottery_users);
-        if ($lottery_users_count % 2 !=0) {
+        if ($lottery_users_count % 2 != 0) {
             return false;
         }
-        for ($i=0; $i <$lottery_users_count ; $i+=2) {
+        for ($i = 0; $i < $lottery_users_count; $i += 2) {
             $arr = array(
-                array($lottery_users[$i]),array($lottery_users[$i+1]));
-            for ($j=0; $j <count($arr) ; $j++) {
+                array($lottery_users[$i]), array($lottery_users[$i + 1])
+            );
+            for ($j = 0; $j < count($arr); $j++) {
                 $lottery_match = new LotteryMatch();
                 $lottery_match->lottery_user_1 = $arr[0][0]['lottery_user_id'];
                 $lottery_match->lottery_user_2 = $arr[1][0]['lottery_user_id'];
-                $lottery_match->level =1;
-                if($lottery_match->save()){
-                break;
+                $lottery_match->level = 1;
+                $lottery_match->lottery_id = $id;
+                if ($lottery_match->save()) {
+                    break;
                 }
             }
         }
-
-
     }
 }

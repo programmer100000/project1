@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminLoginController;
 use App\lottery;
+use App\LotteryMatch;
 use App\lotteryuser;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -80,5 +81,9 @@ Route::get('/admin/lottery/show/{id}' , function($id){
                         ->join('lotteries' , 'lotteries.lottery_id' , '=' , 'lottery_users.lottery_id')
                         ->where('lottery_users.lottery_id' , $id)->get();
 
-    return view('Admin.lotteryshow' , compact('lottery_users' , 'id'));
+                        $lottery_match = LotteryMatch::select()
+                        ->join('lottery_users' ,'lottery_users.lottery_id' ,'=', 'lottery_matchs.lottery_id')
+                        ->where('lottery_matchs.lottery_id' , $id)->get();
+
+    return view('Admin.lotteryshow' , compact('lottery_users' , 'lottery_match' , 'id'));
 })->middleware('CheckAdminLogin')->name('lottery.show');

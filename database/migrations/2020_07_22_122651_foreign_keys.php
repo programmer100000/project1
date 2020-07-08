@@ -48,6 +48,9 @@ class ForeignKeys extends Migration
             $table->foreign('lottery_user_1')->references('lottery_user_id')->on('lottery_users');
             $table->unsignedBigInteger('lottery_user_2');
             $table->foreign('lottery_user_2')->references('lottery_user_id')->on('lottery_users');
+            $table->unsignedBigInteger('lottery_id');
+
+            $table->foreign('lottery_id')->references('lottery_id')->on('lotteries')->onDelete('cascade');
 
 
         });
