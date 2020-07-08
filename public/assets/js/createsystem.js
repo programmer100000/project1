@@ -371,25 +371,26 @@ $(document).ready(function () {
 
 
     if ($().bracket) {
-        var minimalData = {
-            teams: [
-                ["Team 1", "Team 2"], /* first matchup */
-                ["Team 3", "Team 4"], /* second matchup */
-                ["Team 5", "Team 6"], /* second matchup */
-                ["Team 7", "Team 8"] /* second matchup */
-            ],
-            results: [
-                [
-                    [0, 0],
-                    [0, 0],
-                    [0, 0],
-                    [0, 0]
-                ]
-            ]
-        }
+        // var minimalData = {
+        //     teams: [
+
+        //         ["Team 1", "Team 2"], /* first matchup */
+        //         ["Team 3", "Team 4"], /* second matchup */
+        //         ["Team 5", "Team 6"], /* second matchup */
+        //         ["Team 7", "Team 8"] /* second matchup */
+        //     ],
+        //     results: [
+        //         [
+        //             [0, 0],
+        //             [0, 0],
+        //             [0, 0],
+        //             [0, 0]
+        //         ]
+        //     ]
+        // }
         $('#bracket .demo').bracket({
             init: minimalData /* data to initialize the bracket with */
-        })
+        });
 
     }
 

@@ -183,7 +183,7 @@
             </div>
             <div class="modal-body p-4">
                 <form action="{{ route('add.lottery.user') }}" method="post">
-                    <input type="hidden" id="lottery-user-id" name="lottery_id" value="">
+                    <input type="hidden" id="lottery-user-id" name="lottery_id" value="{{ $id }}">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -226,9 +226,43 @@
 <!-- ============================================================== -->
 
 <!-- END wrapper -->
+<script>
+
+
+    var minimalData = {
+        teams: [
+            @php
+
+            
+            $lottery_match_count = count($arr);
+            for ($i = 0; $i < $lottery_match_count; $i++) {
+                $user1 = $arr[$i]['user1'];
+                $user2 = $arr[$i]['user2'];
+                echo "['$user1','$user2'],";
+            }
+            @endphp
+        ],
+        results: [
+            [
+                @php
+                for ($i = 0; $i < $lottery_match_count; $i++) {
+                    $goal1 = intval($arr[$i]['user1_goal']);
+                    $goal2 = intval($arr[$i]['user2_goal']);
+                    echo "[$goal1,$goal2],";
+
+                }
+                @endphp
+            ]
+        ]
+    }
+
+</script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.bracket.min.js') }}" defer></script>
 
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
+
+
+
 
 
 @endsection
