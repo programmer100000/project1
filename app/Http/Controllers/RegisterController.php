@@ -68,8 +68,13 @@ class RegisterController extends Controller
         if($user_confirm_code == $confirm_code && $password == $passwordd){
             $user->status_id = 1;
             $user->password = Hash::make($password);
-            $user->save();
-            return view('admin.index');
+            if($user->save()){
+                return redirect()->route('admin');
+            }
+            else{
+                return redirect()->route('admin.loginfirad');
+
+            }
         }
         else{
             return "no";

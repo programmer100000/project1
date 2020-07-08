@@ -249,7 +249,6 @@
                     $goal1 = intval($arr[$i]['user1_goal']);
                     $goal2 = intval($arr[$i]['user2_goal']);
                     echo "[$goal1,$goal2],";
-
                 }
                 @endphp
             ]
