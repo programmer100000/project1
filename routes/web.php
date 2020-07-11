@@ -84,18 +84,26 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
     // $lottery_match = LotteryMatch::
     // join('lottery_users' ,'lottery_users.lottery_id' ,'=', 'lottery_matchs.lottery_id')
     // ->where('lottery_matchs.lottery_id' , $id)->orderBy('lottery_matchs.lottery_match_id', 'asc')->distinct()->get();
-    $lottery_match = LotteryMatch::select()->where('lottery_id', $id)->get();
+    // $lottery_match = LotteryMatch::select()->where('lottery_id', $id)->get();
 
-    foreach ($lottery_match as $l) {
-        $user1 = lotteryuser::select()->where('lottery_user_id', $l->lottery_user_1)->first();
-        $user2 = lotteryuser::select()->where('lottery_user_id', $l->lottery_user_2)->first();
-        $arr[] = [
-            'user1' => $user1->fname . ' ' . $user1->lname,
-            'user2' => $user2->fname . ' ' . $user2->lname,
-            'user1_goal' => $l->goal_user_1,
-            'user2_goal' => $l->goal_user_2
-
-        ];
+    // foreach ($lottery_match as $l) {
+    //     $user1 = lotteryuser::select()->where('lottery_user_id', $l->lottery_user_1)->first();
+    //     $user2 = lotteryuser::select()->where('lottery_user_id', $l->lottery_user_2)->first();
+    //     $arr[] = [
+    //         'user1' => $user1->fname . ' ' . $user1->lname,
+    //         'user2' => $user2->fname . ' ' . $user2->lname
+    //     ];
+    // }
+    $lottery_users_1  = lotteryuser::select()->where('lottery_id' , $id)->get();
+    $lottery_match_last_level = LotteryMatch::select('level')->where('lottery_id', $id)->orderBy('level', 'desc')->first();
+    $last_level = $lottery_match_last_level->level;
+    $arrgoal = array();
+    for ($i = 1; $i <= $last_level; $i++) {
+        $lottery_match_by_level = LotteryMatch::select()->where('level', $i)->get();
+        for ($j = 0; $j < count($lottery_match_by_level); $j++) {
+            $arrgoal[$i][]   = [$lottery_match_by_level[$j]["goal_user_1"] . ',' . $lottery_match_by_level[$j]["goal_user_2"]];
+        }
     }
-    return view('Admin.lotteryshow', compact('lottery_users', 'arr', 'id'));
+    // dd($arrgoal);
+    return view('Admin.lotteryshow', compact('lottery_users',  'id', 'arrgoal', 'last_level' , 'lottery_users_1'));
 })->middleware('CheckAdminLogin')->name('lottery.show');

@@ -392,6 +392,6 @@ $(document).ready(function () {
             init: minimalData /* data to initialize the bracket with */
         });
 
-    }
+     }
 
 });

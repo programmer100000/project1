@@ -229,31 +229,53 @@
 <script>
 
 
-    var minimalData = {
-        teams: [
-            @php
 
-            
-            $lottery_match_count = count($arr);
-            for ($i = 0; $i < $lottery_match_count; $i++) {
-                $user1 = $arr[$i]['user1'];
-                $user2 = $arr[$i]['user2'];
-                echo "['$user1','$user2'],";
+            // var minimalData = {
+            //     teams: [
+
+            //         ["Team 1", "Team 2"], /* first matchup */
+            //         ["Team 3", "Team 4"], /* second matchup */
+            //         ["Team 5", "Team 6"], /* second matchup */
+            //         ["Team 7", "Team 8"] /* second matchup */
+            //     ],
+            //     results: [
+            //         [
+            //             [0, 0],
+            //             [0, 0],
+            //             [0, 0],
+            //             [0, 0]
+            //         ]
+            //     ]
+            // }
+
+            var minimalData = {
+                teams: [
+                    @php
+
+                    
+                    $lottery_users_count = count($lottery_users_1);
+                    for ($i = 0; $i < $lottery_users_count; $i+=2) {
+                        $user1 = $lottery_users[$i]['fname'] . ' ' . $lottery_users[$i]['lname'];
+                        $user2 = $lottery_users[$i+1]['fname'] . ' '. $lottery_users[$i+1]['lname'];
+                        echo "['$user1','$user2'],";
+                    }
+                    @endphp
+                ],
+                results: [
+                        @php
+                        foreach($arrgoal as $key => $val){
+                            echo "[";
+                            $ret = [];
+                            foreach ($val as $key2 => $val2) {
+                                $ret[] = "[$val2[0]]";
+                            }
+                            echo join(",",$ret);
+                            echo "],";
+                        }
+                        @endphp
+
+                ]
             }
-            @endphp
-        ],
-        results: [
-            [
-                @php
-                for ($i = 0; $i < $lottery_match_count; $i++) {
-                    $goal1 = intval($arr[$i]['user1_goal']);
-                    $goal2 = intval($arr[$i]['user2_goal']);
-                    echo "[$goal1,$goal2],";
-                }
-                @endphp
-            ]
-        ]
-    }
 
 </script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.bracket.min.js') }}" defer></script>
