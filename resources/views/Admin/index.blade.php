@@ -117,6 +117,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card-box">
+                                <a class="btn btn-primary" href="{{route('export.excel.livelogs')}}">فایل اکسل </a>
                                 <div id="jsGrid"></div>
                             </div>
                         </div>
@@ -128,6 +129,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card-box">
+                                <a class="btn btn-primary" href="{{route('export.excel.factors')}}">فایل اکسل </a>
                                 <div id="jsgrid"></div>
                             </div>
                         </div>

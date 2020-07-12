@@ -70,7 +70,7 @@ Route::post('/register/confirm', 'RegisterController@confirm')->name('confirm');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LogoutController@logout')->name('logout');
-Route::get('/admin/excel/export', 'AdminpanelController@exportexcel')->name('export.excel');
+
 Route::get('/admin/get/livelogs', 'AdminpanelController@getdata')->name('get.logs');
 Route::get('/admin/get/factors', 'AdminpanelController@getdatafactors')->name('get.factors');
 Route::post('/admin/change/livelogs', 'AdminpanelController@changelive')->name('change.live');
@@ -107,3 +107,5 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
     // dd($arrgoal);
     return view('Admin.lotteryshow', compact('lottery_users',  'id', 'arrgoal', 'last_level' , 'lottery_users_1'));
 })->middleware('CheckAdminLogin')->name('lottery.show');
+Route::get('/admin/excel/export/livelogs', 'AdminpanelController@exportexcellivelogs')->name('export.excel.livelogs');
+Route::get('/admin/excel/export/factors', 'AdminpanelController@exportexcelfactors')->name('export.excel.factors');

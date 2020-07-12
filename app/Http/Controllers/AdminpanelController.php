@@ -8,6 +8,7 @@ use App\DeviceGame;
 use App\Devices;
 use App\Devicesystem;
 use App\DeviceType;
+use App\Exports\FactorExport;
 use App\Exports\LivesLogExport;
 use App\Game;
 use App\GameDevice;
@@ -31,10 +32,16 @@ use Morilog\Jalali\Jalalian;
 
 class AdminpanelController extends Controller
 {
-
+    
     public function __construct()
     {
         $this->middleware('CheckAdminLogin');
+
+        session(['sortfieldlivelog' => 'gnet_live_log_id']);
+        session(['sortorderlivelog' => 'asc']);
+        session(['sortfieldfactor' => 'invoices.invoice_id']);
+        session(['sortorderfactor' => 'asc']);
+        
     }
 
     function convert_number($num)
@@ -487,11 +494,6 @@ class AdminpanelController extends Controller
         return $aslepolBdoneKhord;
     }
 
-    public function exportexcel()
-    {
-        return FacadesExcel::download(new LivesLogExport, 'log.xlsx');
-    }
-
     public function getdata(Request $request)
     {
         $user = Auth::user();
@@ -530,6 +532,8 @@ class AdminpanelController extends Controller
                 $sortOrder = 'asc';
                 break;
         }
+        session(['sortfieldlivelog' => $sortSql]);
+        session(['sortorderlivelog' => $sortOrder]);
         $livelogs = livelog::select()
             ->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_live_logs.gnet_device_id')
             ->where('gnet_live_logs.gnet_id', $gnet_id)
@@ -594,6 +598,8 @@ class AdminpanelController extends Controller
                 $sortOrder = 'asc';
                 break;
         }
+        session(['sortfieldfactor' => $sortSql]);
+        session(['sortorderfactor' => $sortOrder]);
         $invoice = invoice::select()
             ->where('gnet_id', $gnet_id)
             ->offset($offset)
@@ -870,4 +876,14 @@ class AdminpanelController extends Controller
             }
         }
     }
+    public function exportexcellivelogs(){
+       $sf = session('sortfieldlivelog');
+       $so = session('sortorderlivelog'); 
+       return FacadesExcel::download(new LivesLogExport($sf , $so), 'log.xlsx');
+    }
+    public function exportexcelfactors(){
+        $sf = session('sortfieldfactor');
+        $so = session('sortorderfactor'); 
+        return FacadesExcel::download(new FactorExport($sf , $so), 'log.xlsx');
+     }
 }

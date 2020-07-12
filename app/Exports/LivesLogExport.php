@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Gamenet;
 class LivesLogExport implements FromCollection
 {
+
+    protected $so , $sf; 
+
+    function __construct($sf , $so)
+    {
+        $this->sf = $sf;
+        $this->so = $so;
+        
+        
+    }
     /**
     * @return \Illuminate\Support\Collection
     */
@@ -23,6 +33,6 @@ class LivesLogExport implements FromCollection
         ->select(
             'gnet_devices.device_name as نام دستگاه',
             'start_time','end_time','joystick_count', 'price'
-        )->get();
+        )->orderBy($this->sf , $this->so)->get();
     }
 }

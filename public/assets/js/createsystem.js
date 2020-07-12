@@ -130,6 +130,18 @@ $(document).ready(function () {
             }
         });
     });
+    $(document).on('click', '#livelog-excel', function () {
+        let that = $(this);
+        let url = that.attr('data-url');
+        console.log(url);
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (data) {
+                
+            }
+        });
+    });
 
     $(document).on('click', '#btn-create-match', function () {
         let that = $(this);
