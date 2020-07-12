@@ -881,9 +881,47 @@ class AdminpanelController extends Controller
        $so = session('sortorderlivelog'); 
        return FacadesExcel::download(new LivesLogExport($sf , $so), 'log.xlsx');
     }
+    
     public function exportexcelfactors(){
         $sf = session('sortfieldfactor');
         $so = session('sortorderfactor'); 
         return FacadesExcel::download(new FactorExport($sf , $so), 'log.xlsx');
+     }
+
+     public function editprofile(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        switch ($request->method()) {
+            case 'GET':
+                $gamenet = Gamenet::select()
+                ->join('users' , 'users.user_id' , '=' , 'gamenets.user_id')
+                ->where('gamenets.gamenet_id' , $gnet_id)->get();
+
+                return view('Admin.editinfo', compact('gamenet'));
+                break;
+            case 'POST':
+                $gamenet_id = $request->input('gamenet_id');
+                $gamenetname = $request->input('gamenetname');
+                $address = $request->input('address');
+                $desc = $request->input('desc');
+                $tel = $request->input('tel');
+                $gamenet1 = Gamenet::select()->where('gamenet_id' , $gnet_id)->first();
+                $gamenet1->title = $gamenetname;
+                $gamenet1->address = $address;
+                $gamenet1->description = $desc;
+                $gamenet1->tel = $tel;
+                $gamenet1->approve = 0;
+
+                if($gamenet1->save()){
+                    return true;
+                }else {
+                    return false;
+                }
+
+                break;
+            default:
+                return -1;
+        }
      }
 }

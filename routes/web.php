@@ -27,7 +27,8 @@ Route::get('/admin/create/system', 'AdminpanelController@createsystem')->name('c
 Route::post('/admin/create/system', 'AdminpanelController@createsystem')->name('create.system');
 Route::post('/admin/delete/system', 'AdminpanelController@deletesystem')->name('delete.system');
 Route::post('/admin/edit/system', 'AdminpanelController@editsystem')->name('edit.system');
-
+Route::get('/admin/edit/info' , 'AdminpanelController@editprofile')->name('edit.profile');
+Route::post('/admin/edit/info' , 'AdminpanelController@editprofile')->name('edit.profile');
 Route::get('/admin/create/lottery', 'AdminpanelController@createlottery')->name('create.lottery');
 Route::post('/admin/create/lottery', 'AdminpanelController@createlottery')->name('create.lottery');
 Route::post('/admin/delete/lottery', 'AdminpanelController@deletelottery')->name('delete.lottery');

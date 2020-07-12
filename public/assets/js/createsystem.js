@@ -130,6 +130,7 @@ $(document).ready(function () {
             }
         });
     });
+
     $(document).on('click', '#livelog-excel', function () {
         let that = $(this);
         let url = that.attr('data-url');
@@ -244,6 +245,21 @@ $(document).ready(function () {
         });
     });
     $("#changerow").click(function (e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function (data) {
+                location.reload();
+            }
+        });
+    });
+    $("#edit-profile-btn").click(function (e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');

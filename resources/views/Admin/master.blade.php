@@ -242,6 +242,13 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('edit.profile') }}">
+                                <i data-feather="airplay"></i>
+                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <span>  ویرایش مشخصات </span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('create.system') }}">
                                 <i data-feather="airplay"></i>
                                 <span class="badge badge-success badge-pill float-right">4</span>
@@ -275,7 +282,13 @@
                                 <span class="badge badge-success badge-pill float-right">4</span>
                                 <span>  مسابقه </span>
                             </a>
-                        </li>
+                            <li>
+                                <a href="{{ route('logout') }}">
+                                    <i data-feather="airplay"></i>
+                                    <span class="badge badge-success badge-pill float-right">4</span>
+                                    <span>  خروج </span>
+                                </a>
+                            </li>
                     </ul>
                 </div>
 
