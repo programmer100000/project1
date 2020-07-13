@@ -6,6 +6,9 @@ use App\LotteryMatch;
 use App\lotteryuser;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Gamenet;
+use App\GamenetBk;
+use App\GamenetTemp;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +24,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+/*Admin Routes*/
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
-
 Route::get('/admin/create/system', 'AdminpanelController@createsystem')->name('create.system');
 Route::post('/admin/create/system', 'AdminpanelController@createsystem')->name('create.system');
 Route::post('/admin/delete/system', 'AdminpanelController@deletesystem')->name('delete.system');
@@ -64,13 +67,6 @@ Route::post('/admin/login', 'AdminLoginController@login')->name('admin.login.aut
 Route::get('/admin/register', 'AdminRegisterController@index');
 Route::post('/admin/register', 'AdminRegisterController@register')->name('admin.register');
 Route::post('/admin/register/confirm', 'AdminRegisterController@confirm')->name('admin.confirm');
-Route::get('/register', 'RegisterController@index');
-
-Route::post('/register', 'RegisterController@register')->name('register');
-Route::post('/register/confirm', 'RegisterController@confirm')->name('confirm');
-Route::get('/login', 'LoginController@index');
-Route::post('/login', 'LoginController@login')->name('login');
-Route::get('/logout', 'LogoutController@logout')->name('logout');
 
 Route::get('/admin/get/livelogs', 'AdminpanelController@getdata')->name('get.logs');
 Route::get('/admin/get/factors', 'AdminpanelController@getdatafactors')->name('get.factors');
@@ -110,3 +106,55 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
 })->middleware('CheckAdminLogin')->name('lottery.show');
 Route::get('/admin/excel/export/livelogs', 'AdminpanelController@exportexcellivelogs')->name('export.excel.livelogs');
 Route::get('/admin/excel/export/factors', 'AdminpanelController@exportexcelfactors')->name('export.excel.factors');
+/*End Admin Routes*/
+
+/*User Routes*/
+Route::get('/register', 'RegisterController@index');
+
+Route::post('/register', 'RegisterController@register')->name('register');
+Route::post('/register/confirm', 'RegisterController@confirm')->name('confirm');
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login')->name('login');
+Route::get('/logout', 'LogoutController@logout')->name('logout');
+/*End User Routes*/
+
+
+
+
+
+/*Test Routes*/
+Route::get('/active/gamenet/edit/{gamenet_id}' ,function($gamenet_id){
+    $gamenet = Gamenet::select()->where('gamenet_id' , $gamenet_id)->first();
+    $gamenet_bk = new GamenetBk();
+    $gamenet_bk->gnet_id = $gamenet_id;
+    $gamenet_bk->title = $gamenet->title;
+    $gamenet_bk->address = $gamenet->address;
+    $gamenet_bk->tel = $gamenet->tel;
+    $gamenet_bk->lat = $gamenet->lat;
+    $gamenet_bk->long = $gamenet->long;
+    $gamenet_bk->rate = $gamenet->rate;
+    $gamenet_bk->status = $gamenet->status;
+    $gamenet_bk->approve = $gamenet->approve;
+    $gamenet_bk->description = $gamenet->description;
+    $gamenet_bk->user_id = $gamenet->user_id;
+    if($gamenet_bk->save()){
+        $gamenet_temp = GamenetTemp::select()->where('gnet_id' , $gamenet_id)->first();
+        $gamenet->title = $gamenet_temp->title;
+        $gamenet->address = $gamenet_temp->address;
+        $gamenet->tel = $gamenet_temp->tel;
+        $gamenet->description = $gamenet_temp->description;
+        if($gamenet->save()){
+            $gamenet_temp->delete();
+            return "yesss";
+        }
+    }
+    else{
+        return false;
+    }
+
+
+
+});
+
+
+/*End Test Routes*/

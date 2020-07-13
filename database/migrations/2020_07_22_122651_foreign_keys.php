@@ -51,8 +51,23 @@ class ForeignKeys extends Migration
             $table->unsignedBigInteger('lottery_id');
 
             $table->foreign('lottery_id')->references('lottery_id')->on('lotteries')->onDelete('cascade');
+        });
+        Schema::table('gamenets', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
 
-
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('gamenets_temp', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('gnet_id');
+            $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        });
+        Schema::table('gamenets_bk', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('gnet_id');
+            $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
     }
 

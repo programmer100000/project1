@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGamenetsTable extends Migration
+class CreateGamenetsBkTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateGamenetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gamenets', function (Blueprint $table) {
-            $table->bigIncrements('gamenet_id');
+        Schema::create('gamenets_bk', function (Blueprint $table) {
+            $table->bigIncrements('gamenet_bk_id');
             $table->string('title')->index();
             $table->string('address' , 500);
             $table->string('tel' , 11);
@@ -35,6 +35,6 @@ class CreateGamenetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gamenets');
+        Schema::dropIfExists('gamenets_bk');
     }
 }

@@ -13,6 +13,7 @@ use App\Exports\LivesLogExport;
 use App\Game;
 use App\GameDevice;
 use App\Gamenet;
+use App\GamenetTemp;
 use App\Invoice;
 use App\live;
 use App\livelog;
@@ -906,19 +907,26 @@ class AdminpanelController extends Controller
                 $address = $request->input('address');
                 $desc = $request->input('desc');
                 $tel = $request->input('tel');
-                $gamenet1 = Gamenet::select()->where('gamenet_id' , $gnet_id)->first();
-                $gamenet1->title = $gamenetname;
-                $gamenet1->address = $address;
-                $gamenet1->description = $desc;
-                $gamenet1->tel = $tel;
-                $gamenet1->approve = 0;
 
-                if($gamenet1->save()){
+                $gamenet_s = Gamenet::select()->where('gamenet_id' , $gnet_id)->first();
+                $gamenet_temp = new GamenetTemp();
+                $gamenet_temp->title = $gamenetname;
+                $gamenet_temp->address = $address;
+                $gamenet_temp->tel = $tel;
+                $gamenet_temp->lat = 0;
+                $gamenet_temp->long = 0;
+                $gamenet_temp->status = 0;
+                $gamenet_temp->rate = $gamenet_s->rate;
+                $gamenet_temp->approve = 0;
+                $gamenet_temp->description = $desc;
+                $gamenet_temp->gnet_id = $gnet_id;
+                $gamenet_temp->user_id = $user->user_id;
+                if($gamenet_temp->save()){
                     return true;
-                }else {
+                }
+                else {
                     return false;
                 }
-
                 break;
             default:
                 return -1;
