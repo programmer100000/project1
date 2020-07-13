@@ -898,8 +898,9 @@ class AdminpanelController extends Controller
                 $gamenet = Gamenet::select()
                 ->join('users' , 'users.user_id' , '=' , 'gamenets.user_id')
                 ->where('gamenets.gamenet_id' , $gnet_id)->get();
+                $gamenet_temp = GamenetTemp::select()->where('gnet_id' , $gnet_id)->first();
 
-                return view('Admin.editinfo', compact('gamenet'));
+                return view('Admin.editinfo', compact('gamenet' , 'gamenet_temp'));
                 break;
             case 'POST':
                 $gamenet_id = $request->input('gamenet_id');
@@ -909,24 +910,31 @@ class AdminpanelController extends Controller
                 $tel = $request->input('tel');
 
                 $gamenet_s = Gamenet::select()->where('gamenet_id' , $gnet_id)->first();
-                $gamenet_temp = new GamenetTemp();
-                $gamenet_temp->title = $gamenetname;
-                $gamenet_temp->address = $address;
-                $gamenet_temp->tel = $tel;
-                $gamenet_temp->lat = 0;
-                $gamenet_temp->long = 0;
-                $gamenet_temp->status = 0;
-                $gamenet_temp->rate = $gamenet_s->rate;
-                $gamenet_temp->approve = 0;
-                $gamenet_temp->description = $desc;
-                $gamenet_temp->gnet_id = $gnet_id;
-                $gamenet_temp->user_id = $user->user_id;
-                if($gamenet_temp->save()){
-                    return true;
+                $g_temp = GamenetTemp::select()->where('gnet_id' , $gnet_id)->first();
+                if($g_temp == null){
+                    $gamenet_temp = new GamenetTemp();
+                    $gamenet_temp->title = $gamenetname;
+                    $gamenet_temp->address = $address;
+                    $gamenet_temp->tel = $tel;
+                    $gamenet_temp->lat = 0;
+                    $gamenet_temp->long = 0;
+                    $gamenet_temp->status = 0;
+                    $gamenet_temp->rate = $gamenet_s->rate;
+                    $gamenet_temp->approve = 0;
+                    $gamenet_temp->description = $desc;
+                    $gamenet_temp->gnet_id = $gnet_id;
+                    $gamenet_temp->user_id = $user->user_id;
+                    if($gamenet_temp->save()){
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 }
-                else {
+                else{
                     return false;
                 }
+                
                 break;
             default:
                 return -1;

@@ -53,6 +53,16 @@
                 <div class="col-xl-12">
                     <div class="card-box">
                         <h4 class="header-title mb-3">ویرایش</h4>
+                        @if($gamenet_temp != null)
+                        <p class="text-danger">اطاعات ویرایش شده شما ثبت و در انتظار تایید است لطفا صبور باشید</p>
+                        @endif
+                        @php 
+                        if($gamenet_temp != null){
+                            $readonlyval = "readonly";
+                        }else{
+                            $readonlyval = "";
+                        }
+                        @endphp
                         <form  action="{{ route('edit.profile') }}"
                             onsubmit="return false;" enctype="multipart/form-data">
                             @foreach ($gamenet as $g)
@@ -61,13 +71,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
                                         <label>نام گیم نت</label>
-                                    <input class="form-control" type="text" name="gamenetname"  value="{{ $g->title }}" >
+                                    <input class="form-control" type="text" name="gamenetname"  value="{{ $g->title }}" @php echo $readonlyval; @endphp>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
                                         <label> آدرس</label>
-                                    <input class="form-control" type="text" name="address" id="address" value="{{ $g->address }}">
+                                    <input class="form-control" type="text" name="address" id="address" value="{{ $g->address }}" @php echo $readonlyval; @endphp>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +85,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
                                         <label> توضیحات</label>
-                                    <input class="form-control" type="text" name="desc" id="description" value="{{ $g->description }}">
+                                    <input class="form-control" type="text" name="desc" id="description" value="{{ $g->description }}" @php echo $readonlyval; @endphp>
                                     </div>
                                 </div>
                             </div>
@@ -83,10 +93,12 @@
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
                                     <label>تلفن</label>
-                                <input class="form-control" type="text" name="tel" id="tel" value="{{ $g->tel }}">
+                                <input class="form-control" type="text" name="tel" id="tel" value="{{ $g->tel }}" @php echo $readonlyval; @endphp>
                                 </div>
                             </div>
+                            @if($gamenet_temp ==null)
                             <button type="button" id="edit-profile-btn" class="btn btn-primary">ثبت</button>
+                            @endif
                             <p style="color: red;" id="device_type_form_msg"></p>
                             @endforeach
                         </form>
