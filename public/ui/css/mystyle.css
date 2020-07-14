@@ -90,18 +90,18 @@
     background-color: #fff;
     box-shadow: 0 0 20px #F83950 inset;
 }
-.pricingTable.blue{ background-color: #0b39c4;}
+.pricingTable.blue{ background-color: #240424;}
 .pricingTable.blue .pricingTable-header{
-    background: linear-gradient(100deg,#0B43FA,#49A8FF);
+    background: linear-gradient(100deg,#1f041f,#30367b);
 }
-.pricingTable.blue .icon{ color: #0b39c4; }
-.pricingTable.blue .title{ color: #0b39c4; }
-.pricingTable.blue .title:after{ background-color: #0b39c4; }
-.pricingTable.blue .pricingTable-signup{ background-color: #0b39c4; }
+.pricingTable.blue .icon{ color: #1f041f; }
+.pricingTable.blue .title{ color: #1f041f; }
+.pricingTable.blue .title:after{ background-color: #1f041f; }
+.pricingTable.blue .pricingTable-signup{ background-color: #1f041f; }
 .pricingTable.blue .pricingTable-signup:hover{
-    color: #0b39c4;
+    color: #1f041f;
     background-color: #fff;
-    box-shadow: 0 0 20px #0b39c4 inset;
+    box-shadow: 0 0 20px #1f041f inset;
 }
 .pricingTable.green{ background-color: #17b568;}
 .pricingTable.green .pricingTable-header{
@@ -132,4 +132,40 @@
 @media only screen and (max-width: 990px){
     .pricingTable{ margin: 0 0 30px; }
 }
-License Terms
+#particles-js{ position:relative; width: 100%; height: 100%;
+     /* background:  linear-gradient(90deg, rgba(15,6,29,1) 34%, rgba(85,3,8,1) 79%, rgba(123,5,13,1) 95%) !important; */
+      background-image: url('/ui/img/Lastofus2.jpg'); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
+#particles-js canvas {
+    height: 450px !important;
+}
+#finter-header-text{
+    top: 44%;
+    position: absolute;
+    left:28%;
+    color:#f696a5;
+    -webkit-text-stroke: 4px #000;
+    font-size: 6rem;
+    color: #fff;
+
+}
+#about{
+    background:  linear-gradient(90deg, rgba(15,6,29,1) 34%, rgba(85,3,8,1) 79%, rgba(123,5,13,1) 95%)!important;
+}
+#sendMessageButton{
+    background-color: #1f041f;
+    border-color: #1f041f;
+}
+#mainNav{
+    background-color: rgba(0,0,0,0.5) !important;
+    height:79px;
+}
+.divider-custom-line {
+    color:#fff !important;
+    background-color:#fff !important;
+}
+.divider-custom .divider-custom-icon {
+    color:#fff !important;
+}
+.back-dark{
+    background: #0e0c07;
+}

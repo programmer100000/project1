@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label>قیمت هر ساعت</label>
+                                    <label>قیمت</label>
                                     <input class="form-control" type="text" name="price" id="selectize-tags">
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                 <div class="text-center">
                     <i class="dripicons-wrong h1 text-white"></i>
                     <h4 class="mt-2 text-white">توجه</h4>
-                    <p class="mt-3 text-white">درصورت حذف این مورد تمام دستگاه های ثبت شده ی شما که به آن مرتبط هستند حذف خواهند شد.</p>
+                    <p class="mt-3 text-white">چنانچه از حذف این مورد اطمینان کامل دارید روی دکمه حذف کلیک کنید</p>
                     <button id="remove-system" data-url="{{ route('delete.buffet') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">حذف</button>
                 </div>
             </div>

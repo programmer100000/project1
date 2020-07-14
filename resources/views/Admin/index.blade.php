@@ -156,8 +156,7 @@
                 <div class="text-center">
                     <i class="dripicons-wrong h1 text-white"></i>
                     <h4 class="mt-2 text-white">توجه</h4>
-                    <p class="mt-3 text-white">درصورت حذف این مورد تمام دستگاه های ثبت شده ی شما که به آن مرتبط هستند
-                        حذف خواهند شد.</p>
+                    <p class="mt-3 text-white">چنانچه از حذف این مورد اطمینان دارید روی دکمه حذف کلیک کنید </p>
                     <button id="remove-system" data-url="{{ route('delete.live') }}" type="button"
                         class="btn btn-light my-2" data-dismiss="modal">حذف</button>
                 </div>
@@ -171,14 +170,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">ویرایش ردیف - <span id="row-num-model"></span> </h4>
+                <h4 class="modal-title">در صورت اطمینان در خصوص اتمام سفارش کلیک کنید  <span id="row-num-model"></span> </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body p-4">
                 <form action="{{ route('finish.live') }}" method="post">
                     <input type="hidden" id="frm_device_type_id" name="id" value="">
                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
-                    <button type="button" id="finishfactor" class="btn btn-info waves-effect waves-light">ثبت</button>
+                    <button type="button" id="finishfactor" class="btn btn-info waves-effect waves-light">تمام </button>
                 </form>
             </div>
             <div class="modal-footer">

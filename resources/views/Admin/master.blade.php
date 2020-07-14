@@ -237,55 +237,56 @@
                         <li>
                             <a href="{{ route('admin') }}">
                                 <i data-feather="airplay"></i>
-                                <span class="badge badge-success badge-pill float-right">4</span>
+                                {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                 <span>  داشبورد </span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('edit.profile') }}">
-                                <i data-feather="airplay"></i>
-                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <i data-feather="edit"></i>
+                                {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                 <span>  ویرایش مشخصات </span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('create.system') }}">
-                                <i data-feather="airplay"></i>
-                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <i data-feather="monitor"></i>
+                                {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                 <span>  سیستم </span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('create.device') }}">
-                                <i data-feather="airplay"></i>
-                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <i data-feather="server"></i>
+                                {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                 <span>  دستگاه </span>
                             </a>
                         </li>
                         {{-- <li>
                             <a href="{{ route('create.game') }}">
                                 <i data-feather="airplay"></i>
-                                <span class="badge badge-success badge-pill float-right">4</span>
+                             <span class="badge badge-success badge-pill float-right">4</span> 
                                 <span>  بازی </span>
                             </a>
-                        </li> --}}
+                        </li>
+                        --}}
                         <li>
                             <a href="{{ route('create.buffet') }}">
                                 <i data-feather="airplay"></i>
-                                <span class="badge badge-success badge-pill float-right">4</span>
+                                {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                 <span>  خوراکی </span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('create.lottery') }}">
-                                <i data-feather="airplay"></i>
-                                <span class="badge badge-success badge-pill float-right">4</span>
+                                <i data-feather="play"></i>
+                                {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                 <span>  مسابقه </span>
                             </a>
                             <li>
                                 <a href="{{ route('logout') }}">
-                                    <i data-feather="airplay"></i>
-                                    <span class="badge badge-success badge-pill float-right">4</span>
+                                    <i data-feather="log-out"></i>
+                                    {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                     <span>  خروج </span>
                                 </a>
                             </li>

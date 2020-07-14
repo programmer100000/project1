@@ -118,7 +118,12 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LogoutController@logout')->name('logout');
 /*End User Routes*/
 
+/*Public Routes */
+Route::get('/guide', function(){
+    return view('Guide');
+})->name('guide');
 
+/*End Public Routes */
 
 
 
