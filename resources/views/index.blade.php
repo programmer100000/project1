@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <header id="particles-js" class=" bg-primary text-white text-center" style="position: relative">
-  <h1 class="animate__animated animate__fadeIn" id="finter-header-text">Game Waze</h1>
+  {{-- <h1 class="animate__animated animate__fadeIn" id="finter-header-text">Game Waze</h1> --}}
   </header>
   <!-- Portfolio Section-->
   <section class="page-section portfolio back-dark" id="portfolio">
@@ -20,8 +20,8 @@
         <div class="demo m-auto w-100">
             <div class="container ">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="pricingTable blue">
+                    <div class="col-md-3 col-sm-6 wow animate__slideInLeft" data-wow-duration="3s">
+                        <div class="pricingTable green">
                             <div class="pricingTable-header">
                                 <div class="price-value">
                                     <span class="amount">100</span>
@@ -38,12 +38,22 @@
                                     <li>عنوان چهار</li>
                                     <li>عنوان پنج</li>
                                 </ul>
-                                <a href="#" class="pricingTable-signup">سفارش</a>
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+                                  <defs>
+                                    <filter id="filter-glitch-1">
+                                      <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+                                      <feOffset dx="-90" dy="-90" result="warpOffset" />
+                                      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+                                    </filter>
+                                  </defs>
+                                </svg>
+                                <a href=""><button id="component-5" class="button button--5 pricingTable-signup">سفارش</button></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="pricingTable blue">
+                    <div class="col-md-3 col-sm-6 wow animate__slideInLeft" data-wow-duration="1s" >
+                        <div class="pricingTable green">
                             <div class="pricingTable-header">
                                 <div class="price-value">
                                     <span class="amount">100</span>
@@ -60,12 +70,21 @@
                                     <li>عنوان چهار</li>
                                     <li>عنوان پنج</li>
                                 </ul>
-                                <a href="#" class="pricingTable-signup">سفارش</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+                                  <defs>
+                                    <filter id="filter-glitch-1">
+                                      <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+                                      <feOffset dx="-90" dy="-90" result="warpOffset" />
+                                      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+                                    </filter>
+                                  </defs>
+                                </svg>
+                                <a href=""><button id="component-5" class="button button--5 pricingTable-signup">سفارش</button></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="pricingTable blue">
+                    <div class="col-md-3 col-sm-6 wow animate__slideInRight"  data-wow-duration="1s" >
+                        <div class="pricingTable green">
                             <div class="pricingTable-header">
                                 <div class="price-value">
                                     <span class="amount">100</span>
@@ -82,12 +101,21 @@
                                     <li>عنوان چهار</li>
                                     <li>عنوان پنج</li>
                                 </ul>
-                                <a href="#" class="pricingTable-signup">سفارش</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+                                  <defs>
+                                    <filter id="filter-glitch-1">
+                                      <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+                                      <feOffset dx="-90" dy="-90" result="warpOffset" />
+                                      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+                                    </filter>
+                                  </defs>
+                                </svg>
+                                <a href=""><button id="component-5" class="button button--5 pricingTable-signup">سفارش</button></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="pricingTable blue">
+                    <div class="col-md-3 col-sm-6 wow animate__slideInRight"  data-wow-duration="3s" >
+                        <div class="pricingTable green">
                             <div class="pricingTable-header">
                                 <div class="price-value">
                                     <span class="amount">$20</span>
@@ -104,7 +132,16 @@
                                     <li>عنوان چهار</li>
                                     <li>عنوان پنج</li>
                                 </ul>
-                                <a href="#" class="pricingTable-signup">سفارش</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+                                  <defs>
+                                    <filter id="filter-glitch-1">
+                                      <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+                                      <feOffset dx="-90" dy="-90" result="warpOffset" />
+                                      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+                                    </filter>
+                                  </defs>
+                                </svg>
+                                <a href=""><button id="component-5" class="button button--5 pricingTable-signup">سفارش</button></a>
                             </div>
                         </div>
                     </div>
@@ -114,78 +151,37 @@
       </div>
     </div>
   </section>
-  <!-- About Section-->
-  <section class="page-section bg-primary text-white mb-0" id="about">
-    <div class="container">
-      <!-- About Section Heading-->
-      <h2 class="page-section-heading text-center text-uppercase text-white">درباره ما</h2>
-      <!-- Icon Divider-->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
+  <section class="page-section slider back-dark" id="gamenets">
+    <div class="row m-0 p-0">
+    <div class="col-lg-4 mb-4 text-center" dir="rtl">
+      <div class="card">
+        <img src="{{ url('/ui/img/test1.jpg') }}" alt="" class="card-img-top">
+        <div class="card-body text-white">
+          <h5 class="card-title m-0">گیم نت یاران</h5>
+          <p class="card-text text-right mt-1">این یک متن ساختگی توسط مهراب کردبچه است هر گونه استفاده غیر مجاز از آن پیگرد قانونی دارد‌</p>
+         <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+          <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+        </div>
+       </div>
       </div>
-      <!-- About Section Content-->
-      <div class="row">
-        <div class="col-lg-8 m-auto">
-          <p class="lead text-center" dir="rtl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+      <div class="col-lg-4 mb-4 text-center" dir="rtl">
+        <div class="card">
+          <img src="{{ url('/ui/img/test1.jpg') }}" alt="" class="card-img-top">
+          <div class="card-body text-white">
+            <h5 class="card-title m-0">گیم نت انصارالحسین</h5>
+            <p class="card-text text-right mt-1">این یک متن ساختگی توسط مهراب کردبچه است هر گونه استفاده غیر مجاز از آن پیگرد قانونی دارد‌</p>
+           <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+            <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+          </div>
+         </div>
         </div>
       </div>
-      <!-- About Section Button-->
-
-    </div>
   </section>
-  <!-- Contact Section-->
-  <section class="page-section back-dark" id="contact">
-    <div class="container">
-      <!-- Contact Section Heading-->
-      <h2 class="page-section-heading text-center text-uppercase text-white mb-0">تماس با ما</h2>
-      <!-- Icon Divider-->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-        <div class="divider-custom-line"></div>
-      </div>
-      <!-- Contact Section Form-->
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-          <form id="contactForm" name="sentMessage" novalidate="novalidate" dir="rtl">
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Name</label>
-                <input class="form-control" id="name" type="text" placeholder="نام" required="required" data-validation-required-message="Please enter your name." />
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Email Address</label>
-                <input class="form-control" id="email" type="email" placeholder="ایمیل" required="required" data-validation-required-message="Please enter your email address." />
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Phone Number</label>
-                <input class="form-control" id="phone" type="tel" placeholder="شماره موبایل" required="required" data-validation-required-message="Please enter your phone number." />
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Message</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="پیام" required="required" data-validation-required-message="Please enter a message."></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <br />
-            <div id="success"></div>
-            <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">ارسال</button></div>
-          </form>
-        </div>
-      </div>
+  <div class="container-fluid m-0 p-0">
+    <div class="row col-12 m-0 p-0 back-dark img-footer">
+    <img src="{{ url('ui/img/tfooter.png') }}" alt="">
     </div>
-  </section>
+  </div>
+  <script src="{{ asset('ui/js/wow.min.js') }}" defer></script>
 <script src="{{asset('ui/js/particles.js')}}" defer></script>
   @endsection

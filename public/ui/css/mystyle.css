@@ -88,7 +88,7 @@
 .pricingTable .pricingTable-signup:hover{
     color: #d62035;
     background-color: #fff;
-    box-shadow: 0 0 20px #F83950 inset;
+    /* box-shadow: 0 0 20px #F83950 inset; */
 }
 .pricingTable.blue{ background-color: #240424;}
 .pricingTable.blue .pricingTable-header{
@@ -103,18 +103,18 @@
     background-color: #fff;
     box-shadow: 0 0 20px #1f041f inset;
 }
-.pricingTable.green{ background-color: #17b568;}
+.pricingTable.green{ background-color: #0d3b3c;}
 .pricingTable.green .pricingTable-header{
-    background: linear-gradient(100deg,#27CE7F,#5BF095);
+    background: linear-gradient(100deg,#051a18,#0d3b3c);
 }
-.pricingTable.green .icon{ color: #27CE7F; }
-.pricingTable.green .title{ color: #27CE7F; }
-.pricingTable.green .title:after{ background-color: #27CE7F; }
-.pricingTable.green .pricingTable-signup{ background-color: #17b568; }
+.pricingTable.green .icon{ color: #051a18; }
+.pricingTable.green .title{ color: #051a18; }
+.pricingTable.green .title:after{ background-color: #051a18; }
+.pricingTable.green .pricingTable-signup{ background-color: #051a18; }
 .pricingTable.green .pricingTable-signup:hover{
-    color: #17b568;
-    background-color: #fff;
-    box-shadow: 0 0 20px #17b568 inset;
+    color: #fff;
+    background-color: #0d3b3c !important;
+    /* box-shadow: 0 0 20px #0d3b3c #0d3b3c inset !important; */
 }
 .pricingTable.purple{ background-color: #451a5e;}
 .pricingTable.purple .pricingTable-header{
@@ -149,7 +149,7 @@
 
 }
 #about{
-    background:  linear-gradient(90deg, rgba(15,6,29,1) 34%, rgba(85,3,8,1) 79%, rgba(123,5,13,1) 95%)!important;
+    background:#151717 !important;
 }
 #sendMessageButton{
     background-color: #1f041f;
@@ -169,3 +169,88 @@
 .back-dark{
     background: #0e0c07;
 }
+.button-bargi{
+    color: #fff;
+    background: #051a18 !important;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    margin: 0 auto;
+    border-radius: 40px 0;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.button-bargi .icon{ color: #051a18; }
+.button-bargi .title{ color: #051a18; }
+.button-bargi .title:after{ background-color: #051a18; }
+.button-bargi .pricingTable-signup{ background-color: #051a18; }
+.button-bargi .pricingTable-signup:hover{
+    color: #fff;
+    background-color: #0d3b3c !important;
+    /* box-shadow: 0 0 20px #0d3b3c #0d3b3c inset !important; */
+}
+footer{
+    padding-top: 2rem !important;
+    padding-bottom: 0rem !important;
+    background :#000 !important;
+}
+.copyright{
+    background :#000 !important;
+}
+.carousel {
+    background: transparent;
+  }
+  
+  .carousel-cell {
+    width: 18%;
+    height: 200px;
+    margin-right: 15px;
+    background: #8C8;
+    border-radius: 30px;
+    counter-increment: carousel-cell;
+  }
+  
+  .carousel-cell.is-selected {
+    background: #ED2;
+  }
+  
+  /* cell number */
+  .carousel-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(carousel-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  }
+  .img-footer{
+      height: 100px;
+  }
+  .img-footer img{
+      width: 100% !important;
+      height: 100% !important;
+  }
+  #gamenets .card {
+    background: linear-gradient(100deg,#081015,#17252c) !important;
+  }
+
+ .sefide-cherk{
+     color: #dddddd !important;
+ }
+ .lajan{
+     color: #0d3821 !important;
+ }
+ #gamenets .card-text{
+     font-size : 1rem !important;
+ }
+ #gamenets .card{
+    background : linear-gradient(100deg,#101817,#003b36) !important;
+ }
+ #gamenets .card .readmore{
+    color: #81b3ae !important;
+    border-color: #81b3ae !important;
+ }
