@@ -53,7 +53,11 @@
   </nav>
 
   @yield('content')
-
+  <div class="container-fluid m-0 p-0">
+    <div class="row col-12 m-0 p-0 back-dark img-footer">
+    <img src="{{ url('ui/img/tfooter.png') }}" alt="">
+    </div>
+  </div>
   <footer class="footer text-center">
     <div class="container">
       <div class="row">

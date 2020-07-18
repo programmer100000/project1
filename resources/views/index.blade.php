@@ -155,12 +155,25 @@
     <div class="row m-0 p-0">
     <div class="col-lg-4 mb-4 text-center" dir="rtl">
       <div class="card">
+        <div class="glassback m-0 p-0">
+          <div class="stars">
+            <!-- RATING - Form -->
+            <span>
+              ★
+              3.6
+          </span>
+          </div>
+          <div class="status w-50 m-0 p-0">
+            <button class="btn btn-success">باز</button>
+            <button class="btn btn-danger">بسته</button>
+          </div>
+        </div>
         <img src="{{ url('/ui/img/test1.jpg') }}" alt="" class="card-img-top">
         <div class="card-body text-white">
           <h5 class="card-title m-0">گیم نت یاران</h5>
           <p class="card-text text-right mt-1">این یک متن ساختگی توسط مهراب کردبچه است هر گونه استفاده غیر مجاز از آن پیگرد قانونی دارد‌</p>
-         <a href="" class="btn btn-outline-success btn-sm">Read More</a>
-          <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+         <a href="" class="btn btn-outline-success btn-sm readmore">Read More</a>
+          <a href="" class="btn btn-outline-danger btn-sm like"><i class="far fa-heart"></i></a>
         </div>
        </div>
       </div>
@@ -170,18 +183,13 @@
           <div class="card-body text-white">
             <h5 class="card-title m-0">گیم نت انصارالحسین</h5>
             <p class="card-text text-right mt-1">این یک متن ساختگی توسط مهراب کردبچه است هر گونه استفاده غیر مجاز از آن پیگرد قانونی دارد‌</p>
-           <a href="" class="btn btn-outline-success btn-sm">Read More</a>
-            <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+           <a href="" class="btn btn-outline-success btn-sm readmore">Read More</a>
+            <a href="" class="btn btn-outline-danger btn-sm like"><i class="far fa-heart"></i></a>
           </div>
          </div>
         </div>
       </div>
   </section>
-  <div class="container-fluid m-0 p-0">
-    <div class="row col-12 m-0 p-0 back-dark img-footer">
-    <img src="{{ url('ui/img/tfooter.png') }}" alt="">
-    </div>
-  </div>
   <script src="{{ asset('ui/js/wow.min.js') }}" defer></script>
 <script src="{{asset('ui/js/particles.js')}}" defer></script>
   @endsection

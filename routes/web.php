@@ -122,7 +122,9 @@ Route::get('/logout', 'LogoutController@logout')->name('logout');
 Route::get('/guide', function(){
     return view('Guide');
 })->name('guide');
-
+Route::get('/gamenet' , function(){
+    return view('gamenet');
+});
 /*End Public Routes */
 
 
