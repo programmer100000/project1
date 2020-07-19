@@ -69,6 +69,11 @@ class ForeignKeys extends Migration
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets')->onDelete('cascade');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
+        Schema::table('gamenet_pictures', function (Blueprint $table) {
+            $table->unsignedBigInteger('gnet_id');
+
+            $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
+        });
     }
 
     /**

@@ -28,7 +28,7 @@
                                 <p class="text-muted mb-4 mt-3">ثبت نام گیم نت</p>
                             </div>
 
-                            <form action="{{ route('admin.register') }}" method="POST">
+                            <form action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @if($errors->any())
                                 <p class="text-danger">{{ $errors->first() }}</p>
@@ -68,6 +68,12 @@
                                 <div class="form-group">
                                     <label for="description">توضیحات</label>
                                     <input class="form-control" name="description" type="text" id="description" placeholder="توضیحات" required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-3">
+                                        <label> عکس گیم نت</label>
+                                        <input class="form-control-file" type="file" name="image" id="image">
+                                    </div>
                                 </div>
                                 <input type="hidden" name="lat" value="0">
                                 <input type="hidden" name="long" value="0">
