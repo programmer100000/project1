@@ -158,6 +158,10 @@
 #mainNav{
     background-color: rgba(0,0,0,0.5) !important;
     height:79px;
+    
+}
+.navbar{
+  font-family: IRANSans !important;
 }
 .divider-custom-line {
     color:#fff !important;

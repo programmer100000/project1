@@ -1,5 +1,10 @@
 @extends('Admin.base')
 
+@section('head')
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
+<script src="{{ asset('/js/locationpicker.min.js') }}"></script>
+@endsection
+
 @section('body')
 <body class="loading authentication-bg authentication-bg-pattern">
 
@@ -78,8 +83,8 @@
                                         <input class="form-control-file" type="file" name="image" id="image">
                                     </div>
                                 </div>
-                                <input type="hidden" name="lat" value="0">
-                                <input type="hidden" name="long" value="0">
+                                <input type="hidden" name="lat" id='lat_register' value="0">
+                                <input type="hidden" name="long" id='long_register' value="0">
                                 <div class="form-group mb-0 text-center">
                                     <button class="btn btn-success btn-block" type="submit"> ثبت نام </button>
                                 </div>
@@ -112,12 +117,12 @@
 
     <!-- Vendor js -->
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }} "></script>
-    <!-- App js -->
-    <script src="{{ asset('assets/js/app.min.js') }}"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg}" defer></script>
-    <script src="https://unpkg.com/location-picker/dist/location-picker.min.js" defer></script>
     
+    <!-- App js -->
+    
+    
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }} "></script>
 </body>
 @endsection
 

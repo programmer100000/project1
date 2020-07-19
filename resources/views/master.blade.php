@@ -8,6 +8,7 @@
   <meta name="author" content="" />
   <title>فینتر</title>
   <!-- Favicon-->
+
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
   <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
@@ -21,6 +22,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('ui/buttonsplugin/css/main.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('ui/css/flickity.css')}}" media="screen">
+<link rel="stylesheet" href="{{ asset('/fonts/css/style.css') }}">
+@yield('head')
 </head>
 
 <body id="page-top">

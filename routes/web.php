@@ -8,6 +8,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Gamenet;
 use App\GamenetBk;
+use App\GamenetPic;
 use App\GamenetTemp;
 
 /*
@@ -164,9 +165,10 @@ Route::get('/active/gamenet/edit/{gamenet_id}', function ($gamenet_id) {
 
 Route::get('/gamenet/{gamenet_id}/{gamenet_name}' , function($gamanet_id , $gamenet_name){
     $gamenet = Gamenet::select()
-    ->join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , '=' , 'gamenets.gamenet_id')
-    ->where('gamenets.gamenet_id' , $gamanet_id)->get();
-    return view('gamenet' , compact('gamenet'));
+    ->where('gamenet_id' , $gamanet_id)->first();
+    $gamenet_images = GamenetPic::select()
+    ->where('gnet_id' , $gamanet_id)->get();
+    return view('gamenet' , compact('gamenet' , 'gamenet_images'));
 })->name('show.gamenet');
 
 /*End Test Routes*/

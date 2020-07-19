@@ -1,19 +1,22 @@
 @extends('master')
+@section('head')
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
+<script src="{{ asset('/js/locationpicker.min.js') }}"></script>
+@endsection
 @section('content')
 <div class="wrapper-gamenet container-fluid m-0 p-0" dir="rtl">
     <div class="g-info row m-0 p-1">
         <div class="col-md-4 m-0 p-0">
             <div class="carousel" data-flickity='{ "wrapAround": true }'>
-
-                <img class="carousel-cell" src="{{ url('/ui/img/test1.jpg') }}" alt="">
-
-                <img class="carousel-cell" src="{{ url('/ui/img/test2.jpg') }}" alt="">
-                <img class="carousel-cell" src="{{ url('/ui/img/test2.jpg') }}" alt="">
+                @foreach ($gamenet_images as $gp)
+                <img class="carousel-cell" src="{{ url($gp->gamenet_image) }}" alt="">
+                @endforeach
             </div>
         </div>
+        
         <div class="peroperties col-md-7 m-0 p-0 text-right">
             <div class="item-header d-flex w-100 m-0 p-2">
-                <div class="title text-right float-right m-0 p-0 w-50"><h2>پردیس</h2></div>
+            <div class="title text-right float-right m-0 p-0 w-50"><h2>{{ $gamenet->title }}</h2></div>
                 <div class="stars text-left float-left m-0 p-0 w-50">
                     <form class="rating-form" action="#" method="post" name="rating-movie">
                         <fieldset class="form-group">
@@ -68,32 +71,26 @@
                     </form>
                 </div>
             </div>
-            <div class="desc-item">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
-                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
-                کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده
-                شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و
-                دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
-                اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+            <div class="desc-item">{{ $gamenet->description }}
             </div>
         </div>
         <div class="contact col-md-4 m-0 p-0">
             <div class="address">
                 <i class="fa fa-home" aria-hidden="true"></i>
-                ورامین خیابان شهید چمران ولیعصر ۳ پلاک ۵
+                {{ $gamenet->address }}
             </div>
             <div class="phone">
                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                02136241852
+                {{ $gamenet->tel }}
             </div>
         </div>
         <div class="empty-div col-md-2 m-0 p-0 ">
 
         </div>
-        <div class="map col-md-4 m-0 p-0">
-        <img src="{{ url('/ui/img/testmap.png') }}" width="200" height="150" style="border-radius:50%;" alt="">
+        <div class="map col-md-4 m-0 p-0" id="map-show">    
         </div>
+
+
     </div>
     <div class="row mt-4" dir="rtl">
         <div class="col-12">
@@ -117,4 +114,16 @@
 
     </div>
 </div>
+<script>
+  var locationPicker = new locationPicker('map-show', {
+    setCurrentPosition: true,
+    lat: {{ $gamenet->lat }},
+    lng: {{ $gamenet->long }}
+    
+    // You can omit this, defaults to true
+}, {
+    zoom: 15 // You can set any google map options here, zoom defaults to 15
+});
+
+</script>
 @endsection
