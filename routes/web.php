@@ -22,7 +22,10 @@ use App\GamenetTemp;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $gamenets_active = Gamenet::select()
+        ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
+        ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->get();
+    return view('index', compact('gamenets_active'));
 })->name('home');
 /*Admin Routes*/
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
@@ -30,8 +33,8 @@ Route::get('/admin/create/system', 'AdminpanelController@createsystem')->name('c
 Route::post('/admin/create/system', 'AdminpanelController@createsystem')->name('create.system');
 Route::post('/admin/delete/system', 'AdminpanelController@deletesystem')->name('delete.system');
 Route::post('/admin/edit/system', 'AdminpanelController@editsystem')->name('edit.system');
-Route::get('/admin/edit/info' , 'AdminpanelController@editprofile')->name('edit.profile');
-Route::post('/admin/edit/info' , 'AdminpanelController@editprofile')->name('edit.profile');
+Route::get('/admin/edit/info', 'AdminpanelController@editprofile')->name('edit.profile');
+Route::post('/admin/edit/info', 'AdminpanelController@editprofile')->name('edit.profile');
 Route::get('/admin/create/lottery', 'AdminpanelController@createlottery')->name('create.lottery');
 Route::post('/admin/create/lottery', 'AdminpanelController@createlottery')->name('create.lottery');
 Route::post('/admin/delete/lottery', 'AdminpanelController@deletelottery')->name('delete.lottery');
@@ -91,7 +94,7 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
     //         'user2' => $user2->fname . ' ' . $user2->lname
     //     ];
     // }
-    $lottery_users_1  = lotteryuser::select()->where('lottery_id' , $id)->get();
+    $lottery_users_1  = lotteryuser::select()->where('lottery_id', $id)->get();
     $lottery_match_last_level = LotteryMatch::select('level')->where('lottery_id', $id)->orderBy('level', 'desc')->first();
     $last_level = $lottery_match_last_level->level;
     $arrgoal = array();
@@ -102,7 +105,7 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
         }
     }
     // dd($arrgoal);
-    return view('Admin.lotteryshow', compact('lottery_users',  'id', 'arrgoal', 'last_level' , 'lottery_users_1'));
+    return view('Admin.lotteryshow', compact('lottery_users',  'id', 'arrgoal', 'last_level', 'lottery_users_1'));
 })->middleware('CheckAdminLogin')->name('lottery.show');
 Route::get('/admin/excel/export/livelogs', 'AdminpanelController@exportexcellivelogs')->name('export.excel.livelogs');
 Route::get('/admin/excel/export/factors', 'AdminpanelController@exportexcelfactors')->name('export.excel.factors');
@@ -119,19 +122,19 @@ Route::get('/logout', 'LogoutController@logout')->name('logout');
 /*End User Routes*/
 
 /*Public Routes */
-Route::get('/guide', function(){
+Route::get('/guide', function () {
     return view('Guide');
 })->name('guide');
-Route::get('/gamenet' , function(){
-    return view('gamenet');
-});
+// Route::get('/gamenet' , function(){
+//     return view('gamenet');
+// });
 /*End Public Routes */
 
 
 
 /*Test Routes*/
-Route::get('/active/gamenet/edit/{gamenet_id}' ,function($gamenet_id){
-    $gamenet = Gamenet::select()->where('gamenet_id' , $gamenet_id)->first();
+Route::get('/active/gamenet/edit/{gamenet_id}', function ($gamenet_id) {
+    $gamenet = Gamenet::select()->where('gamenet_id', $gamenet_id)->first();
     $gamenet_bk = new GamenetBk();
     $gamenet_bk->gnet_id = $gamenet_id;
     $gamenet_bk->title = $gamenet->title;
@@ -144,24 +147,26 @@ Route::get('/active/gamenet/edit/{gamenet_id}' ,function($gamenet_id){
     $gamenet_bk->approve = $gamenet->approve;
     $gamenet_bk->description = $gamenet->description;
     $gamenet_bk->user_id = $gamenet->user_id;
-    if($gamenet_bk->save()){
-        $gamenet_temp = GamenetTemp::select()->where('gnet_id' , $gamenet_id)->first();
+    if ($gamenet_bk->save()) {
+        $gamenet_temp = GamenetTemp::select()->where('gnet_id', $gamenet_id)->first();
         $gamenet->title = $gamenet_temp->title;
         $gamenet->address = $gamenet_temp->address;
         $gamenet->tel = $gamenet_temp->tel;
         $gamenet->description = $gamenet_temp->description;
-        if($gamenet->save()){
+        if ($gamenet->save()) {
             $gamenet_temp->delete();
             return "yesss";
         }
-    }
-    else{
+    } else {
         return false;
     }
-
-
-
 });
 
+Route::get('/gamenet/{gamenet_id}/{gamenet_name}' , function($gamanet_id , $gamenet_name){
+    $gamenet = Gamenet::select()
+    ->join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , '=' , 'gamenets.gamenet_id')
+    ->where('gamenets.gamenet_id' , $gamanet_id)->get();
+    return view('gamenet' , compact('gamenet'));
+})->name('show.gamenet');
 
 /*End Test Routes*/

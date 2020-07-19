@@ -751,7 +751,7 @@ class AdminpanelController extends Controller
                         $lottery->lottery_price = $price;
                         $lottery->lottery_desc = $desc;
                         $lottery->date = $date;
-                        $lottery->lottery_image = public_path('images') . DIRECTORY_SEPARATOR . $imageName;
+                        $lottery->lottery_image = 'images' . DIRECTORY_SEPARATOR . $imageName;
                         if ($lottery->save()) {
                             return true;
                         } else {

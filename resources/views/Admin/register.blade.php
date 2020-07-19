@@ -62,6 +62,9 @@
                                     <input class="form-control" name="address" type="text" id="address" placeholder="آدرس گیم نت " required>
                                 </div>
                                 <div class="form-group">
+                                    <div id="map" style="width: 100%; height: 480px;"></div>
+                                </div>
+                                <div class="form-group">
                                     <label for="tel">تلفن</label>
                                     <input class="form-control" name="tel" type="text" id="tel" placeholder="تلفن" required>
                                 </div>
@@ -109,10 +112,12 @@
 
     <!-- Vendor js -->
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-
+    <script src="{{ asset('js/main.js') }} "></script>
     <!-- App js -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg}" defer></script>
+    <script src="https://unpkg.com/location-picker/dist/location-picker.min.js" defer></script>
+    
 </body>
 @endsection
 

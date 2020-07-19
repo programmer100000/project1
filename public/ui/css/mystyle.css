@@ -235,6 +235,10 @@ footer{
      color : #893030!important;
      border-color : #893030 !important;
  }
+ #gamenets .card .bookmark{
+  color : #99cdc5!important;
+  border-color : #99cdc5 !important;
+}
  #gamenets .card .glassback {
      top : 0;
      left : 0 ;

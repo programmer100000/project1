@@ -72,7 +72,7 @@ class AdminRegisterController extends Controller
                         $gpic = new GamenetPic();
                         $gpic->gnet_id = $gamenet->gamenet_id;
                         $gpic->flag = 'main';
-                        $gpic->gamenet_image = public_path('images') . DIRECTORY_SEPARATOR . $imageName;
+                        $gpic->gamenet_image = 'images' . DIRECTORY_SEPARATOR . $imageName;
                         if($gpic->save()){
                             return view('confirm');
                         }
