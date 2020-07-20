@@ -307,16 +307,10 @@
     lng: {{ $gamenet->long }}
     
     // You can omit this, defaults to true
-<<<<<<< HEAD
 },
-
-, {
-    zoom: 15 // You can set any google map options here, zoom defaults to 15
-=======
-}, {
+ {
     zoom: 15,
     styles: customstyle // You can set any google map options here, zoom defaults to 15
->>>>>>> 2bb44bfee7dcfbbb8aaccaf1b48a62f2dc781ba3
 });
 
 
