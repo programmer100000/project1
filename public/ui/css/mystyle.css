@@ -562,16 +562,16 @@ body {
   border-color: #ddd;
 }
 .card-white .h5 {
-    font-size:14px;
+   /* font-size:14px;*/
     //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .card-white .time {
-    font-size:12px;
+    /*font-size:12px;*/
     //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .post .post-heading {
-  height: 95px;
-  padding: 20px 15px;
+  /*height: 95px;*/
+  padding:1rem;
 }
 .post .post-heading .avatar {
   width: 60px;
@@ -673,3 +673,41 @@ body {
 .item .form-item {
     text-align: right;
 }
+
+
+
+
+/**/
+body{
+  font-size:16px
+}
+@media screen and (max-width: 678px) {
+  body {
+    font-size: 14px!important;
+  }
+  .desc-item{
+    font-size:1rem!important;
+  }
+}
+.desc-item{
+  text-align: justify;
+  padding: .5rem;
+  font-size: 1.3rem;
+}
+
+.post .post-heading{
+  padding: 1rem;
+    font-size: 1rem;
+    display: flex;
+}
+.post .post-heading .meta{
+  text-align: justify;
+}
+.post .post-heading .avatar{
+  
+  margin: 1.5rem .5rem;
+}
+
+
+
+
