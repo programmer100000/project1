@@ -51,6 +51,7 @@ class AdminRegisterController extends Controller
             $user->role_id = 1;
             $user->status_id = 3;
             $user->confirm_code = $confirm_code;
+            $this->sendsms($mobile , $confirm_code);
 
             if ($user->save()) {
                 Auth::login($user);
@@ -105,6 +106,30 @@ class AdminRegisterController extends Controller
             return redirect()->route('admin');
         } else {
             return "no";
+        }
+    }
+    public function sendsms($mobile , $code){
+        require __DIR__ . '/vendor/autoload.php';
+        try{
+            
+            $api = new \Kavenegar\KavenegarApi( "576A7043685356796B4A4F304474703731734D70667061795165616A6D727644364A5254353430456739733D" );
+            $sender = "10004346";
+            $message = "کد فعالسازی شما:" . $code;
+            $receptor = array($mobile);
+            $result = $api->Send($sender,$receptor,$message);
+            if($result){
+                foreach($result as $r){
+                    return $r->status;
+                }		
+            }
+        }
+        catch(\Kavenegar\Exceptions\ApiException $e){
+            // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
+            echo $e->errorMessage();
+        }
+        catch(\Kavenegar\Exceptions\HttpException $e){
+            // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
+            echo $e->errorMessage();
         }
     }
 }
