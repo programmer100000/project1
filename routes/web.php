@@ -120,6 +120,8 @@ Route::post('/register/confirm', 'RegisterController@confirm')->name('confirm');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LogoutController@logout')->name('logout');
+Route::get('/forget/password' , 'LoginController@forgetpassword')->name('forget.password');
+Route::post('/forget/password' , 'LoginController@forgetpassword')->name('forget.password');
 /*End User Routes*/
 
 /*Public Routes */
@@ -130,7 +132,6 @@ Route::get('/guide', function () {
 //     return view('gamenet');
 // });
 /*End Public Routes */
-
 
 
 /*Test Routes*/
