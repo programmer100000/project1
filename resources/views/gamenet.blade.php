@@ -84,10 +84,10 @@
                 {{ $gamenet->tel }}
             </div>
         </div>
-        <div class="empty-div col-md-2 m-0 p-0 ">
+        
 
-        </div>
-        <div class="map col-md-4 m-0 p-0" id="map-show">    
+     
+        <div class="map col-md-6 m-0 p-0" id="map-show">    
         </div>
 
 

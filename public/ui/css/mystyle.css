@@ -706,6 +706,7 @@ body{
   text-align: justify;
   padding: .5rem;
   font-size: 1.3rem;
+  overflow: hidden;
 }
 
 .post .post-heading{
@@ -736,3 +737,11 @@ display: block;
   display: none;
 }
 
+#map-show{
+  height: 300px;
+  margin-bottom: 2%!important;
+  margin-left: 1%!important;
+}
+.peroperties{
+  margin: 1% 1% 5% 0px!important;
+}
