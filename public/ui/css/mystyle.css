@@ -810,3 +810,13 @@ border-color  :#003b36!important;
   text-align: justify!important;
   line-height: 20px;
 }
+
+/*  */
+.nav-tabs li a:hover{
+  color: #fff!important;
+  text-decoration: none!important;
+
+}
+.nav-tabs li{
+  padding: 5px!important;
+}
