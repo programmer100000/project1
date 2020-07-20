@@ -678,7 +678,7 @@ body {
 
 
 
-/**/
+/*responsive*/
 body{
   font-size:16px
 }
@@ -706,6 +706,7 @@ body{
   text-align: justify;
   padding: .5rem;
   font-size: 1.3rem;
+  overflow: hidden;
 }
 
 .post .post-heading{
@@ -736,3 +737,76 @@ display: block;
   display: none;
 }
 
+#map-show{
+  height: 300px;
+  margin-bottom: 2%!important;
+  margin-left: 1%!important;
+}
+.peroperties{
+  margin: 1% 1% 5% 0px!important;
+}
+/* gamenets */
+.gamenets{
+  padding: 10% 5%!important;
+}
+.gamenets .card-text{
+  font-size : 1rem !important;
+}
+.gamenets .card{
+ background : linear-gradient(100deg,#101817,#003b36) !important;
+}
+.gamenets .card .readmore{
+ color: #81b3ae !important;
+ border-color: #81b3ae !important;
+}
+.gamenets .card .readmore:hover{
+  background: #455f5c!important;
+}
+.gamenets .card .like{
+  color : #893030!important;
+  border-color : #893030 !important;
+}
+.gamenets .card .bookmark{
+color : #99cdc5!important;
+border-color : #99cdc5 !important;
+}
+.gamenets .card .glassback {
+  top : 0;
+  left : 0 ;
+  width: 100%;
+  height: 28px ;
+  position: absolute;
+  background : rgba(14, 12, 7 , 0.7)
+}
+.gamenets .card .glassback .stars {
+  height: 100% ;
+  width: 50%;
+  float: left;
+}
+
+.gamenets fieldset{
+top: 0%;
+font-size: 1.5rem;
+padding: 0%;
+}
+.gamenets .card .glassback .status{
+text-align : right;
+}
+.gamenets .card .glassback .status button {
+border-radius : 50px;
+margin-right: 3px;
+margin-top : 1px;
+}
+.gamenets .card .glassback .status .btn-success {
+font-weight: bold;
+background : #003b36!important;
+border-color  :#003b36!important;
+}
+.card-body a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+.card-body a p{
+  text-align: justify!important;
+  line-height: 20px;
+}
