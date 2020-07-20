@@ -31,9 +31,9 @@
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Game Waze</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
-        Menu
+        
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -58,7 +58,8 @@
   @yield('content')
   <div class="container-fluid m-0 p-0">
     <div class="row col-12 m-0 p-0 back-dark img-footer">
-    <img src="{{ url('ui/img/tfooter.png') }}" alt="">
+    <img class="img-desktop-footer" src="{{ url('ui/img/tfooter.png') }}" alt="">
+    <img class="img-mobile-footer" src="{{ url('ui/img/sarbaz.png') }}" alt="">
     </div>
   </div>
   <footer class="footer text-center">
