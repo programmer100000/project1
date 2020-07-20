@@ -171,5 +171,7 @@ Route::get('/gamenet/{gamenet_id}/{gamenet_name}' , function($gamanet_id , $game
     ->where('gnet_id' , $gamanet_id)->get();
     return view('gamenet' , compact('gamenet' , 'gamenet_images'));
 })->name('show.gamenet');
-
+Route::get('/gamenets' , function(){
+    return  view('gamenets');
+})->name('gamenets');
 /*End Test Routes*/
