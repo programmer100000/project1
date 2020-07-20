@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
 <div class="wrapper-gamenets container-fluid m-0 p-0" dir="rtl">
+<<<<<<< HEAD
     <div class="gamenets">
         <div class="row">
         
@@ -39,6 +40,26 @@
                     </div>
                 </div>
             </div>
+=======
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+</div>
+>>>>>>> e7899c9ac4b021708e035130d952268781cc538d
 
             <div class="col-md-4 mb-4 p-2 text-center" dir="rtl">
                 <a href="/gamenet/1/دستگاه گارانتی شده ">
