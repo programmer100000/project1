@@ -136,6 +136,10 @@ $(".my-rating").starRating({
         // make a server call here
     }
 });
+if (ratestatus != 0) {
+    $('.my-rating').starRating('setRating', ratestatus);
+    $('.my-rating').starRating('setReadOnly', true);
+}
 $(document).on('click', '#btnrate', function () {
     let that = $(this);
     let data_id = that.attr('data-id');

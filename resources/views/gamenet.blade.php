@@ -254,4 +254,8 @@
 
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
+<script>
+  var ratestatus = {{ $s }};
+
+</script>
 @endsection

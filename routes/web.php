@@ -11,6 +11,7 @@ use App\GamenetBk;
 use App\GamenetPic;
 use App\GamenetTemp;
 use App\Rate;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -166,11 +167,18 @@ Route::get('/active/gamenet/edit/{gamenet_id}', function ($gamenet_id) {
 });
 
 Route::get('/gamenet/{gamenet_id}/{gamenet_name}' , function($gamanet_id , $gamenet_name){
+    $user = Auth::user();
     $gamenet = Gamenet::select()
     ->where('gamenet_id' , $gamanet_id)->first();
     $gamenet_images = GamenetPic::select()
     ->where('gnet_id' , $gamanet_id)->get();
-    return view('gamenet' , compact('gamenet' , 'gamenet_images'));
+    $rate_status = Rate::select()->where([['gnet_id' , '=' , $gamanet_id] , ['user_id' , '=' , $user->user_id]])->first();
+    if($rate_status == null){
+        $s = 0;
+    }else{
+        $s = $rate_status->rate;
+    }
+    return view('gamenet' , compact('gamenet' , 'gamenet_images' , 's'));
 })->name('show.gamenet');
 Route::get('/gamenets' , function(){
     return  view('gamenets');
