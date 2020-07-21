@@ -19,7 +19,7 @@ class CheckLogin
     {
         $user = Auth::user();
         if(Auth::check() && $user->status_id == 1){
-            return redirect()->route('home');
+            return redirect()->route('login');            
         }
         return $next($request);
     }
