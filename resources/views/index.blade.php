@@ -174,7 +174,7 @@
                                 <!-- RATING - Form -->
                                 <span>
                                     ★
-                                    3.6
+                                    {{ $ga->rate }}
                                 </span>
                             </div>
                             <div class="status w-50 m-0 p-0">

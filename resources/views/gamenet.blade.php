@@ -2,6 +2,7 @@
 @section('head')
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
 <script src="{{ asset('/js/locationpicker.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('/ui/css/star-rating-svg.css') }}">
 @endsection
 @section('content')
 <div class="wrapper-gamenet container-fluid m-0 p-0" dir="rtl">
@@ -20,57 +21,7 @@
           <h2>{{ $gamenet->title }}</h2>
         </div>
         <div class="stars text-left float-left m-0 p-0 w-50">
-          <form class="rating-form" action="#" method="post" name="rating-movie">
-            <fieldset class="form-group">
-
-              <legend class="form-legend">Rating:</legend>
-
-              <div class="form-item">
-
-                <input id="rating-5" name="rating" type="radio" value="5" />
-                <label for="rating-5" data-value="5">
-                  <span class="rating-star">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="ir">5</span>
-                </label>
-                <input id="rating-4" name="rating" type="radio" value="4" />
-                <label for="rating-4" data-value="4">
-                  <span class="rating-star">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="ir">4</span>
-                </label>
-                <input id="rating-3" name="rating" type="radio" value="3" />
-                <label for="rating-3" data-value="3">
-                  <span class="rating-star">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="ir">3</span>
-                </label>
-                <input id="rating-2" name="rating" type="radio" value="2" />
-                <label for="rating-2" data-value="2">
-                  <span class="rating-star">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="ir">2</span>
-                </label>
-                <input id="rating-1" name="rating" type="radio" value="1" />
-                <label for="rating-1" data-value="1">
-                  <span class="rating-star">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star"></i>
-                  </span>
-                  <span class="ir">1</span>
-                </label>
-              </div>
-
-            </fieldset>
-          </form>
+        <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
         </div>
       </div>
       <div class="desc-item">{{ $gamenet->description }}
@@ -127,7 +78,20 @@
 
     </div>
   </div>
-
+  <div id="rate-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content modal-filled bg-danger">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <i class="dripicons-wrong h1 text-white"></i>
+                    <h4 class="mt-2 text-white">توجه</h4>
+                    <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
+                    <button id="btnrate" data-csrf={{ csrf_token() }} data-id={{ $gamenet->gamenet_id }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 </div>
@@ -285,5 +249,9 @@
     zoom: 15,
     styles: customstyle // You can set any google map options here, zoom defaults to 15
   });
+
 </script>
+
+<script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
+<script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
 @endsection

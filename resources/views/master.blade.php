@@ -8,7 +8,7 @@
   <meta name="author" content="" />
   <title>فینتر</title>
   <!-- Favicon-->
-
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
   <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>

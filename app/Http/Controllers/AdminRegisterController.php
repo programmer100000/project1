@@ -109,7 +109,6 @@ class AdminRegisterController extends Controller
         }
     }
     public function sendsms($mobile , $code){
-        require __DIR__ . '/vendor/autoload.php';
         try{
             
             $api = new \Kavenegar\KavenegarApi( "576A7043685356796B4A4F304474703731734D70667061795165616A6D727644364A5254353430456739733D" );

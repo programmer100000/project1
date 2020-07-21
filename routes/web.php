@@ -10,6 +10,7 @@ use App\Gamenet;
 use App\GamenetBk;
 use App\GamenetPic;
 use App\GamenetTemp;
+use App\Rate;
 
 /*
 |--------------------------------------------------------------------------
@@ -117,7 +118,7 @@ Route::get('/register', 'RegisterController@index');
 
 Route::post('/register', 'RegisterController@register')->name('register');
 Route::post('/register/confirm', 'RegisterController@confirm')->name('confirm');
-Route::get('/login', 'LoginController@index');
+Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LogoutController@logout')->name('logout');
 Route::get('/forget/password' , 'LoginController@forgetpassword')->name('forget.password');
@@ -174,4 +175,5 @@ Route::get('/gamenet/{gamenet_id}/{gamenet_name}' , function($gamanet_id , $game
 Route::get('/gamenets' , function(){
     return  view('gamenets');
 })->name('gamenets');
+Route::post('/gamenet/rate' , 'HomeController@rate')->name('gamenet.rate');
 /*End Test Routes*/
