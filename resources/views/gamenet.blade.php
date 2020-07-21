@@ -98,15 +98,36 @@
     <div class="col-12">
 
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#newComment">نظر دهید</a></li>
-        <li><a data-toggle="tab" href="#comments">نظرات کاربران</a></li>
+        <li class="active"><a data-toggle="tab" href="#comments">نظرات کاربران</a></li>
+        <li ><a data-toggle="tab" href="#newComment">نظر دهید</a></li>
       </ul>
       <div class="tab-content">
-        <div id="newComment" class="tab-pane fade in active ">
-
-          <p>نظر دهید</p>
+        <div id="newComment" class="tab-pane fade  ">
+          <form>
+            <div class='row'>
+              <div class='col-md-4 col-sm-12 '>
+                <div class='form-group'>
+                  <input type='text' class='form-control' placeholder='نام و نام خانوادگی' />
+                </div>
+                <div class='form-group'>
+                  <input type='text' class='form-control' placeholder='ایمیل' />
+                </div>
+              </div>
+              <div class='col-md-8 col-sm-12 '>
+                <div class='form-group text-input'>
+                  <textarea class='form-control' placeholder='متن'></textarea>
+                </div>
+              </div>
+              <div class='col-md-12 submit-button'>
+                <button type='submit' class='btn btn-success '>
+                  
+                  ثبت دیدگاه
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-        <div id="comments" class="tab-pane fade">
+        <div id="comments" class="tab-pane fade show in active">
 
           <div class="card card-white post text-right">
             <div class="post-heading">
@@ -117,11 +138,27 @@
                 <div class="title h5">
                   <a href="#"><b class="text-white">محمدرضا طاهری</b></a>
                 </div>
-                <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                 <h6 class="text-muted time">۱ دقیقه پیش</h6>
               </div>
             </div>
           </div>
+
+          <div class="card card-white2 post text-right">
+            <div class="post-heading">
+              <div class="float-right image">
+                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+              </div>
+              <div class="float-right mr-2 meta">
+                <div class="title h5">
+                  <a href="#"><b class="text-white">محمدرضا طاهری</b></a>
+                </div>
+                <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                <h6 class="text-muted time">۱ دقیقه پیش</h6>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -277,8 +314,8 @@
   ];
   var locationPicker = new locationPicker('map-show', {
     setCurrentPosition: true,
-    lat: {{$gamenet -> lat }},
-    lng: {{$gamenet -> long}}
+    lat: {{ $gamenet -> lat}},
+    lng: {{ $gamenet -> long}}
 
     // You can omit this, defaults to true
   }, {

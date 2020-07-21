@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-         
+
 
             <div class="col-md-4 mb-4 p-2 text-center" dir="rtl">
                 <a href="/gamenet/1/دستگاه گارانتی شده ">
@@ -333,7 +333,19 @@
             </div>
 
         </div>
-
+        <div class="row pt-8">
+            <div class="col-md-4"></div>
+            <div class='pagination-container col-md-4'>
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">صفحه قبلی</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">صفحه بعدی</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
     </div>
 </div>
 
