@@ -189,4 +189,7 @@ Route::get('/gamenets', function () {
     return  view('gamenets');
 })->name('gamenets');
 Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
+Route::get('/user/panel' , function(){
+    return view('panel');
+});
 /*End Test Routes*/

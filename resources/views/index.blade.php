@@ -188,8 +188,7 @@
                         <div class="card-body text-white">
                             <h5 class="card-title m-0">{{ $ga->title }}</h5>
                             <p class="card-text text-right mt-1">{{ $ga->description }}</p>
-                            <a href="" class="btn btn-outline-danger float-left btn-sm like"><i
-                                    class="far fa-heart"></i></a>
+                            
                             <a href="" class="btn btn-outline-info ml-2  float-left btn-sm bookmark"><i class="far fa-bookmark" aria-hidden="true"></i></a>
 
                         </div>

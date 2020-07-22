@@ -27,7 +27,7 @@
       <div class="desc-item">{{ $gamenet->description }}
       </div>
     </div>
-    <div class="contact col-md-4 m-0 p-0">
+    <div class="contact col-md-4 m-0 p-1">
       <div class="address">
         <i class="fa fa-home" aria-hidden="true"></i>
         {{ $gamenet->address }}
@@ -40,7 +40,7 @@
 
 
 
-    <div class="map col-md-6 m-0 p-0" id="map-show">
+    <div class="map col-md-7 m-0 p-0" id="map-show">
     </div>
 
 
