@@ -589,6 +589,7 @@ body {
 }
 .post .post-heading .meta .title a:hover {
   color: #aaaaaa;
+  text-decoration: none;
 }
 .post .post-heading .meta .time {
   margin-top: 8px;
@@ -991,6 +992,20 @@ border-color  :#003b36!important;
 }
 .meta .time{
   color: #fff!important;
+  display: inline-block;
+}
+.meta button{
+  margin-right: 1rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  padding: .2rem 1rem;
+}
+.meta .reply-comment-form{
+  padding: 2rem;
+  display: none;
+}
+.show-reply-comment-form{
+  display: block!important;
 }
 
 /* Pagination */

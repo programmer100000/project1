@@ -21,7 +21,7 @@
           <h2>{{ $gamenet->title }}</h2>
         </div>
         <div class="stars text-left float-left m-0 p-0 w-50">
-        <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+          <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
         </div>
       </div>
       <div class="desc-item">{{ $gamenet->description }}
@@ -50,7 +50,7 @@
 
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#comments">نظرات کاربران</a></li>
-        <li ><a data-toggle="tab" href="#newComment">نظر دهید</a></li>
+        <li><a data-toggle="tab" href="#newComment">نظر دهید</a></li>
       </ul>
       <div class="tab-content">
         <div id="newComment" class="tab-pane fade  ">
@@ -71,7 +71,7 @@
               </div>
               <div class='col-md-12 submit-button'>
                 <button type='submit' class='btn btn-success '>
-                  
+
                   ثبت دیدگاه
                 </button>
               </div>
@@ -90,7 +90,36 @@
                   <a href="#"><b class="text-white">محمدرضا طاهری</b></a>
                 </div>
                 <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-                <h6 class="text-muted time">۱ دقیقه پیش</h6>
+                <div>
+                  <h6 class="text-muted time">۱ دقیقه پیش</h6>
+                  <button id="a1" class="reply-comment-button">پاسخ</button>
+                </div>
+                <div id="a2" class="reply-comment-form">
+                  <form>
+                    <div class='row'>
+                      <div class='col-md-4 col-sm-12 '>
+                        <div class='form-group'>
+                          <input type='text' class='form-control' placeholder='نام و نام خانوادگی' />
+                        </div>
+                        <div class='form-group'>
+                          <input type='text' class='form-control' placeholder='ایمیل' />
+                        </div>
+                      </div>
+                      <div class='col-md-8 col-sm-12 '>
+                        <div class='form-group text-input'>
+                          
+                          <textarea class='form-control' placeholder='متن'></textarea>
+                        </div>
+                      </div>
+                      <div class='col-md-12 submit-button'>
+                        <button type='submit' class='btn btn-success '>
+                          
+                          ثبت دیدگاه
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -117,21 +146,22 @@
   </div>
   <div id="rate-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
-        <div class="modal-content modal-filled bg-danger">
-            <div class="modal-body p-4">
-                <div class="text-center">
-                    <i class="dripicons-wrong h1 text-white"></i>
-                    <h4 class="mt-2 text-white">توجه</h4>
-                    <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
-                    <button id="btnrate" data-csrf={{ csrf_token() }} data-id={{ $gamenet->gamenet_id }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
+      <div class="modal-content modal-filled bg-danger">
+        <div class="modal-body p-4">
+          <div class="text-center">
+            <i class="dripicons-wrong h1 text-white"></i>
+            <h4 class="mt-2 text-white">توجه</h4>
+            <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
+            <button id="btnrate" data-csrf={{ csrf_token() }} data-id={{ $gamenet->gamenet_id }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+  </div><!-- /.modal -->
 
 
 </div>
+
 <script>
   var customstyle = [{
       "elementType": "geometry",
@@ -278,21 +308,17 @@
   ];
   var locationPicker = new locationPicker('map-show', {
     setCurrentPosition: true,
-    lat: {{ $gamenet -> lat}},
-    lng: {{ $gamenet -> long}}
-
-    // You can omit this, defaults to true
+    lat: {{ $gamenet -> lat }},
+    lng: {{ $gamenet -> long }}
   }, {
     zoom: 15,
-    styles: customstyle // You can set any google map options here, zoom defaults to 15
+    styles: customstyle
   });
-
-</script>
 
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
 <script>
   var ratestatus = {{ $s }};
-
 </script>
+
 @endsection
