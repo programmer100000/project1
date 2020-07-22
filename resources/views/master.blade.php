@@ -44,7 +44,7 @@
 
         <i class="fas fa-bars"></i>
       </button>
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Game Waze</a>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75"></a>
       <div class="header-links">
         <div class="inner-header-links">
           <button id="mobile-search" class="mobile-search">
