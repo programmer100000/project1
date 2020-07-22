@@ -1,5 +1,13 @@
 @extends('Admin.base')
+@section('head')
+<script>
 
+</script>
+{!! htmlScriptTagJsApi([
+    'action' =>  '/admin/login' ,
+]) !!}
+
+@endsection
 @section('body')
 
 <body class="loading authentication-bg authentication-bg-pattern">
@@ -19,7 +27,6 @@
                                             <img src="../assets/images/logo-dark.png" alt="" height="22">
                                         </span>
                                     </a>
-
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
                                             <img src="../assets/images/logo-light.png" alt="" height="22">
