@@ -139,6 +139,7 @@ $(".my-rating").starRating({
 if (ratestatus != 0) {
     $('.my-rating').starRating('setRating', ratestatus);
     $('.my-rating').starRating('setReadOnly', true);
+    
 }
 $(document).on('click', '#btnrate', function () {
     let that = $(this);
