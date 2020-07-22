@@ -122,8 +122,8 @@ Route::post('/register/confirm', 'RegisterController@confirm')->name('confirm');
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LogoutController@logout')->name('logout');
-Route::get('/forget/password' , 'LoginController@forgetpassword')->name('forget.password');
-Route::post('/forget/password' , 'LoginController@forgetpassword')->name('forget.password');
+Route::get('/forget/password', 'LoginController@forgetpassword')->name('forget.password');
+Route::post('/forget/password', 'LoginController@forgetpassword')->name('forget.password');
 /*End User Routes*/
 
 /*Public Routes */
@@ -166,22 +166,27 @@ Route::get('/active/gamenet/edit/{gamenet_id}', function ($gamenet_id) {
     }
 });
 
-Route::get('/gamenet/{gamenet_id}/{gamenet_name}' , function($gamanet_id , $gamenet_name){
+Route::get('/gamenet/{gamenet_id}/{gamenet_name}', function ($gamanet_id, $gamenet_name) {
     $user = Auth::user();
     $gamenet = Gamenet::select()
-    ->where('gamenet_id' , $gamanet_id)->first();
+        ->where('gamenet_id', $gamanet_id)->first();
     $gamenet_images = GamenetPic::select()
-    ->where('gnet_id' , $gamanet_id)->get();
-    $rate_status = Rate::select()->where([['gnet_id' , '=' , $gamanet_id] , ['user_id' , '=' , $user->user_id]])->first();
-    if($rate_status == null){
-        $s = 0;
+        ->where('gnet_id', $gamanet_id)->get();
+    if ($user != null) {
+        $rate_status = Rate::select()->where([['gnet_id', '=', $gamanet_id], ['user_id', '=', $user->user_id]])->first();
+        if ($rate_status == null) {
+            $s = 0;
+        } else {
+            $s = $rate_status->rate;
+        }
     }else{
-        $s = $rate_status->rate;
+        $s = 0; 
     }
-    return view('gamenet' , compact('gamenet' , 'gamenet_images' , 's'));
+
+    return view('gamenet', compact('gamenet', 'gamenet_images', 's'));
 })->name('show.gamenet');
-Route::get('/gamenets' , function(){
+Route::get('/gamenets', function () {
     return  view('gamenets');
 })->name('gamenets');
-Route::post('/gamenet/rate' , 'HomeController@rate')->name('gamenet.rate');
+Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
 /*End Test Routes*/
