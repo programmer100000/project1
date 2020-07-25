@@ -34,9 +34,10 @@
                                     <ul>
                                         <li>گزارش روزانه، هفتگی و ماهیانه</li>
                                         <li>گزارش بوفه و خدمات</li>
-                                        <li>ثبت دستگاه ها</li>
-                                        <li>کمپین مسابقات</li>
                                         <li>ارائه تیزر تبلیغاتی</li>
+                                        <li>کمپین مسابقات</li>
+                                        <li>ثبت دستگاه ها</li>
+                                        
                                     </ul>
 
                                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
@@ -67,10 +68,14 @@
                                 <div class="pricing-content">
                                     <h3 class="title">استاندارد</h3>
                                     <ul>
+                                   
                                     <li>گزارش روزانه، هفتگی و ماهیانه</li>
-                                        <li>گزارش بوفه و خدمات</li>
+                                    <li>گزارش بوفه و خدمات</li>
+                                    <li>کمپین مسابقات</li>
                                         <li>ثبت دستگاه ها</li>
-                                        <li>کمپین مسابقات</li>
+                                    
+                                        
+                                        
                                     </ul>
                                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
                                         <defs>
@@ -101,8 +106,12 @@
                                     <h3 class="title">استاندارد</h3>
                                     <ul>
                                     <li>گزارش روزانه، هفتگی و ماهیانه</li>
-                                        <li>گزارش بوفه و خدمات</li>
-                                        <li>ثبت دستگاه ها</li>
+                                    <li>گزارش بوفه و خدمات</li>
+                                    <li>ثبت دستگاه ها</li>
+                                    
+                                   
+                                       
+                                        
                                     </ul>
                                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
                                         <defs>
@@ -151,8 +160,8 @@
                                     @endif
                                 </div>
                             </div> 
-                            <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
-                            <!-- <img src="{{ url($ga->gamenet_image) }}" alt="" class="card-img-top"> -->
+                            <!-- <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top"> -->
+                            <img src="{{ url($ga->gamenet_image) }}" alt="" class="card-img-top">
                         </div>
                             <div class="card-body text-white">
                                 <h5 class="card-title m-0">{{ $ga->title }}</h5>
