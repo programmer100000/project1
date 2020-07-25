@@ -2,7 +2,7 @@
 @section('content')
 <div class="wrapper-gamenets container-fluid m-0 p-0" dir="rtl">
 
-    <div class="gamenets">
+    <div class="container gamenets-container">
         <div class="row">
 
             <div class="col-md-4 mb-4 p-2 text-center" dir="rtl">
@@ -20,7 +20,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -55,7 +55,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -87,7 +87,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -122,7 +122,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -155,7 +155,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -187,7 +187,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -222,7 +222,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -255,7 +255,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -287,7 +287,7 @@
                             <div class="status w-50 m-0 p-0">
                                 <button class="btn btn-danger">بسته</button>
                             </div>
-                        </div> <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top">
+                        </div> <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
                     </a>
                     <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                             <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -306,9 +306,9 @@
             </div>
 
         </div>
-        <div class="row pt-8">
-            <div class="col-md-4"></div>
-            <div class='pagination-container col-md-4'>
+        <div class="row pagination-row pt-8">
+            
+            <div class='pagination-container '>
                 <ul class="pagination">
                     <li class="page-item disabled"><a class="page-link" href="#">صفحه قبلی</a></li>
                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -317,7 +317,7 @@
                     <li class="page-item"><a class="page-link" href="#">صفحه بعدی</a></li>
                 </ul>
             </div>
-            <div class="col-md-4"></div>
+            
         </div>
     </div>
 </div>

@@ -38,7 +38,7 @@
         </button>
       </form>
     </div>
-    <div class="container">
+    
 
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -86,7 +86,7 @@
       </div>
       <button class="login-user"> <i class="fas fa-user"></i></button>
 
-    </div>
+    
   </nav>
 
   @yield('content')
@@ -101,9 +101,9 @@
       <div class="row">
         <!-- Footer Location-->
         <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">آدرس</h4>
+          <h4 class="text-uppercase mb-4">نماد ها</h4>
           <p class="lead mb-0">
-            خیابان حافظ خیابان سرهنگ سخایی کوچه انتخابیه
+            
             <br />
           </p>
         </div>
@@ -117,11 +117,11 @@
         </div>
         <!-- Footer About Text-->
         <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">About Freelancer</h4>
+          <h4 class="text-uppercase mb-4">درباره ما</h4>
           <p class="lead mb-0">
             Freelance is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>
-            .
+            
+            
           </p>
         </div>
       </div>

@@ -1,7 +1,13 @@
 @extends('master')
 @section('content')
 
-<div class="row user-panel m-auto py-10 px-2">
+<div class="container panel-container">
+<div class="row welcome-text">
+    <div class="col-md-6">
+        <p>.کاربر گرامی خوش آمدید</p>
+    </div>
+</div>
+<div class="row user-panel  m-auto my-10 px-2">
     <div class="col-md-2 py-5">
         <div class="list-group user-panel-list-tab" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list" href="#user-fav" role="tab" aria-controls="profile">علاقه مندی ها</a>
@@ -61,7 +67,7 @@
                         </a>
                         <div class="card">
                             <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img">
-                                <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top p-2">
+                                <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top p-2">
                             </a>
                             <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                                     <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -78,7 +84,7 @@
                         </a>
                         <div class="card">
                             <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img">
-                                <img src="http://localhost:8000/images\1595223758.jpg" alt="" class="card-img-top p-2">
+                                <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top p-2">
                             </a>
                             <div class="card-body text-white"><a href="/gamenet/1/دستگاه گارانتی شده ">
                                     <h5 class="card-title m-0">دستگاه گارانتی شده</h5>
@@ -93,6 +99,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 </div>
 
