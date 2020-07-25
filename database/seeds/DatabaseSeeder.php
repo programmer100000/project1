@@ -38,5 +38,29 @@ class DatabaseSeeder extends Seeder
             'status_id' => 2
         ];
         DB::table('users')->insert($user);
+        $plans = [
+            [
+                'time' => 3,
+                'name' => 'free',
+                'price' => 0
+            ],
+            [
+                'time' => 30,
+                'name' => 'Bronze',
+                'price' => 60000
+            ],
+            [
+                'time' => 90,
+                'name' => 'silver',
+                'price' => 180000
+            ],
+            [
+                'time' => 180,
+                'name' => 'silver',
+                'price' => 540000
+            ], 
+        ];
+        DB::table('plans')->insert($plans);
+        
     }
 }
