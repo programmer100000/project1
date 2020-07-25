@@ -4,7 +4,7 @@
 
 </script>
 {!! htmlScriptTagJsApi([
-    'action' =>  '/admin/login' ,
+'action' => '/admin/login' ,
 ]) !!}
 
 @endsection
@@ -33,23 +33,26 @@
                                         </span>
                                     </a>
                                 </div>
-                                <p class="text-muted mb-4 mt-3">لطفا شماره موبایل یا نام کاربری خود را به همراه رمز عبور وارد کنید .</p>
+                                <p class="text-muted mb-4 mt-3">لطفا شماره موبایل یا نام کاربری خود را به همراه رمز عبور
+                                    وارد کنید .</p>
                             </div>
 
                             <form action="{{ route('admin.login.auth') }}" method="POST">
                                 @csrf
                                 @if($errors->any())
-                                        <p class="text-danger">{{ $errors->first() }}</p>
+                                    <p class="text-danger">{{ $errors->first() }}</p>
                                 @endif
                                 <div class="form-group mb-3">
                                     <label for="username">شماره موبایل یا نام کاربری</label>
-                                    <input class="form-control" name="username" type="text" id="username" required="" placeholder="شماره موبایل یا نام کاربری خود را وارد کنید">
+                                    <input class="form-control" name="username" type="text" id="username" required=""
+                                        placeholder="شماره موبایل یا نام کاربری خود را وارد کنید">
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="password">رمز عبور</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" id="password" name="password" class="form-control" placeholder="رمز عبور را وارد کنید">
+                                        <input type="password" id="password" name="password" class="form-control"
+                                            placeholder="رمز عبور را وارد کنید">
                                         <div class="input-group-append" data-password="false">
                                             <div class="input-group-text">
                                                 <span class="password-eye font-12"></span>
@@ -60,8 +63,10 @@
 
                                 <div class="form-group mb-3">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
-                                        <label class="custom-control-label" for="checkbox-signin">مرا به خاطر بسپار</label>
+                                        <input type="checkbox" class="custom-control-input" id="checkbox-signin"
+                                            checked>
+                                        <label class="custom-control-label" for="checkbox-signin">مرا به خاطر
+                                            بسپار</label>
                                     </div>
                                 </div>
 
@@ -75,16 +80,23 @@
                                 <h5 class="mt-3 text-muted">Sign in with</h5>
                                 <ul class="social-list list-inline mt-3 mb-0">
                                     <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                        <a href="javascript: void(0);"
+                                            class="social-list-item border-primary text-primary"><i
+                                                class="mdi mdi-facebook"></i></a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                        <a href="javascript: void(0);"
+                                            class="social-list-item border-danger text-danger"><i
+                                                class="mdi mdi-google"></i></a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i
+                                                class="mdi mdi-twitter"></i></a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                                        <a href="javascript: void(0);"
+                                            class="social-list-item border-secondary text-secondary"><i
+                                                class="mdi mdi-github"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -95,8 +107,11 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                        <p> <a href="{{ route('forget.password') }}" class="text-white-50 ml-1">رمز عبور خود را فراموش کرده اید؟</a></p>
-                        <p class="text-white-50">ثبت نام نکرده اید؟<a href="{{ route('admin.register') }}" class="text-white ml-1"><b>ثبت نام کنید</b></a></p>
+                            <p> <a href="{{ route('forget.password') }}"
+                                    class="text-white-50 ml-1">رمز عبور خود را فراموش کرده اید؟</a></p>
+                            <p class="text-white-50">ثبت نام نکرده اید؟<a
+                                    href="{{ route('admin.register') }}"
+                                    class="text-white ml-1"><b>ثبت نام کنید</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
@@ -111,7 +126,10 @@
 
 
     <footer class="footer footer-alt text-white-50">
-        2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
+        2015 - <script>
+            document.write(new Date().getFullYear())
+
+        </script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
     </footer>
 
     <!-- Vendor js -->

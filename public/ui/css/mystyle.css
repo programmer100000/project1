@@ -1,7 +1,222 @@
+<<<<<<< HEAD
     * {
         box-sizing: border-box;
     }
     
+=======
+* {
+    box-sizing: border-box;
+}
+
+.pricingTable {
+    position: relative;
+    background: #d62035;
+    text-align: center;
+    border-radius: 0 100px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.pricingTable:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.pricingTable .pricingTable-header {
+    color: #fff;
+    background: linear-gradient(100deg, #F83950, #F7700F);
+    padding: 10px 30px 50px;
+    margin: 0 0 50px;
+    border-radius: 0 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.pricingTable .amount {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.pricingTable .month {
+    font-size: 16px;
+    line-height: 10px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.pricingTable .icon {
+    color: #F83950;
+    background-color: #fff;
+    font-size: 40px;
+    line-height: 80px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.3), 0 5px 25px rgba(0, 0, 0, 0.3);
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: 120px;
+}
+
+.pricingTable .pricing-content {
+    height: 75%;
+    background-color: #fff;
+    padding: 45px 0 30px 0;
+    border-radius: 0 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pricingTable .title {
+    color: #F83950;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    display: block;
+}
+
+.pricingTable .title:after {
+    content: '';
+    background-color: #F83950;
+    height: 2px;
+    width: 40%;
+    display: block;
+    margin: 10px auto 0;
+}
+
+.pricingTable .pricing-content ul {
+    color: #202020;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    padding: 0;
+    margin: 0 0 20px;
+    list-style: none;
+}
+
+.pricingTable .pricing-content a {
+    position: absolute;
+    bottom: 2rem;
+}
+
+.pricingTable .pricingTable-signup {
+    color: #fff;
+    background: #d62035;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    margin: 0 auto;
+    border-radius: 40px 0;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+
+.pricingTable .pricingTable-signup:hover {
+    color: #d62035;
+    background-color: #fff;
+    /* box-shadow: 0 0 20px #F83950 inset; */
+}
+
+.pricingTable.blue {
+    background-color: #240424;
+}
+
+.pricingTable.blue .pricingTable-header {
+    background: linear-gradient(100deg, #1f041f, #30367b);
+}
+
+.pricingTable.blue .icon {
+    color: #1f041f;
+}
+
+.pricingTable.blue .title {
+    color: #1f041f;
+}
+
+.pricingTable.blue .title:after {
+    background-color: #1f041f;
+}
+
+.pricingTable.blue .pricingTable-signup {
+    background-color: #1f041f;
+}
+
+.pricingTable.blue .pricingTable-signup:hover {
+    color: #1f041f;
+    background-color: #fff;
+    box-shadow: 0 0 20px #1f041f inset;
+}
+
+.pricingTable.green {
+    background-color: #0d3b3c;
+    height: 500px;
+}
+
+.pricingTable.green .pricingTable-header {
+    background: linear-gradient(100deg, #051a18, #0d3b3c);
+    height: 25%;
+}
+
+.pricingTable.green .icon {
+    color: #051a18;
+}
+
+.pricingTable.green .title {
+    color: #051a18;
+}
+
+.pricingTable.green .title:after {
+    background-color: #051a18;
+}
+
+.pricingTable.green .pricingTable-signup {
+    background-color: #051a18;
+}
+
+.pricingTable.green .pricingTable-signup:hover {
+    color: #fff;
+    background-color: #0d3b3c !important;
+    /* box-shadow: 0 0 20px #0d3b3c #0d3b3c inset !important; */
+}
+
+.pricingTable.purple {
+    background-color: #451a5e;
+}
+
+.pricingTable.purple .pricingTable-header {
+    background: linear-gradient(100deg, #6b189b, #ad3bdb);
+}
+
+.pricingTable.purple .icon {
+    color: #6b189b;
+}
+
+.pricingTable.purple .title {
+    color: #6b189b;
+}
+
+.pricingTable.purple .title:after {
+    background-color: #6b189b;
+}
+
+.pricingTable.purple .pricingTable-signup {
+    background-color: #451a5e;
+}
+
+.pricingTable.purple .pricingTable-signup:hover {
+    color: #451a5e;
+    background-color: #fff;
+    box-shadow: 0 0 20px #451a5e inset;
+}
+
+@media only screen and (max-width: 990px) {
+>>>>>>> f9c59738d680d1e7a860bc81f230b5880ca772e9
     .pricingTable {
         position: relative;
         background: #d62035;
