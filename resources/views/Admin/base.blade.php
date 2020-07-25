@@ -20,7 +20,9 @@
         <link href="{{ asset('assets/css/app-modern-dark-rtl.min.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- icons -->
+        <link href="{{ asset('assets/css/mystyle.css') }}" rel="stylesheet"/>
         <link href="{{ asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('/fonts/css/style.css') }}">
         @yield('head')
     </head>
     @yield('body')

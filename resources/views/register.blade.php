@@ -15,20 +15,20 @@
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-dark.png" alt="" height="22">
+                                        <img src="http://localhost:8000/ui/img/logo.png" alt="" >
                                         </span>
                                     </a>
 
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-light.png" alt="" height="22">
+                                        <img src="http://localhost:8000/ui/img/logo.png" alt="" >
                                         </span>
                                     </a>
                                 </div>
                                 <p class="text-muted mb-4 mt-3">همین حالا در سایت ما ثبت نام کنید</p>
                             </div>
 
-                            <form action="{{ route('register') }}" method="POST">
+                            <form class="register-form" action="{{ route('register') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     @if($errors->any())
@@ -64,7 +64,7 @@
     <!-- end page -->
 
     <footer class="footer footer-alt text-white-50">
-        2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
+    <small>Copyright © Finter 2020</small>
     </footer>
 
     <!-- Vendor js -->
