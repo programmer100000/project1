@@ -1,0 +1,1 @@
+<a href="{{ route('admin.confirm') }}">پرداخت</a>
