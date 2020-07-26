@@ -16,20 +16,20 @@
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-dark.png" alt="" height="22">
+                                            <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
 
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-light.png" alt="" height="22">
+                                            <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
                                 </div>
                                 <p class="text-muted mb-4 mt-3">لطفا شماره موبایل یا نام کاربری خود را به همراه رمز عبور وارد کنید .</p>
                             </div>
 
-                            <form action="{{ route('login') }}" method="POST">
+                            <form class="user-login-form" action="{{ route('login') }}" method="POST">
                                 @csrf
                                 @if($errors->any())
                                         <p class="text-danger">{{ $errors->first() }}</p>
@@ -64,32 +64,15 @@
 
                             </form>
 
-                            <div class="text-center">
-                                <h5 class="mt-3 text-muted">Sign in with</h5>
-                                <ul class="social-list list-inline mt-3 mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-
+                            
                         </div> <!-- end card-body -->
                     </div>
                     <!-- end card -->
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p> <a href="auth-recoverpw.html" class="text-white-50 ml-1">Forgot your password?</a></p>
-                            <p class="text-white-50">Don't have an account? <a href="auth-register.html" class="text-white ml-1"><b>Sign Up</b></a></p>
+                            <p> <a href="auth-recoverpw.html" class="text-white-50 ml-1">رمز عبور خود را فراموش کرده اید؟</a></p>
+                            <p class="text-white-50">ثبت نام نکرده اید؟ <a href="auth-register.html" class="text-white ml-1"><b>ایجاد حساب کاربری</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
@@ -104,7 +87,9 @@
 
 
     <footer class="footer footer-alt text-white-50">
-        2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
+    <div class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright © Finter 2020</small></div>
+  </div>
     </footer>
 
     <!-- Vendor js -->
