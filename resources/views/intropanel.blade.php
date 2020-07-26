@@ -45,62 +45,74 @@
             </a>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row w-100 m-0 justify-content-center">
         <div class="col-md-6 text-right">
 
             <h2 class="faq-title text-center p-4">سوالات متداول</h2>
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
-                    <div id="ph1" class="panel-heading " data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <div id="ph1" class="panel-heading " data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse1">
                         <h4 class="panel-title">
-        <a >
-            سوال1</a>
-      </h4>
-      <i id="p1" class="fa fa-plus" ></i>
-      <i id="m1" class="fa fa-minus" ></i>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-        <div class="panel-body">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد.</div>
-    </div>
-</div>
-<div class="panel panel-default">
-    <div id="ph2" class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        <h4 class="panel-title">
-        <a >
-        سوال2</a>
-    </h4>
-    <i id="p2" class="fa fa-plus" aria-hidden="true"></i>
-    <i id="m2" class="fa fa-minus" aria-hidden="true"></i>
-</div>
-<div id="collapse2" class="panel-collapse collapse">
-    <div class="panel-body">متن تستی
-    به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد.2</div>
-</div>
-</div>
-<div class="panel panel-default">
-    <div id="ph3" class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        <h4 class="panel-title">
-            <a >
-                سوال3</a>
-            </h4>
-            <i id="p3" class="fa fa-plus" aria-hidden="true"></i>
-            <i id="m3" class="fa fa-minus" aria-hidden="true"></i>
+                            <a>
+                                سوال1</a>
+                        </h4>
+                        <i id="p1" class="fa fa-plus"></i>
+                        <i id="m1" class="fa fa-minus"></i>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
+                            می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
+                            شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و
+                            اندازه فونت و ظاهر متن باشد.</div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div id="ph2" class="panel-heading" data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse2">
+                        <h4 class="panel-title">
+                            <a>
+                                سوال2</a>
+                        </h4>
+                        <i id="p2" class="fa fa-plus" aria-hidden="true"></i>
+                        <i id="m2" class="fa fa-minus" aria-hidden="true"></i>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">متن تستی
+                            به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از
+                            این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح
+                            سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر
+                            متن باشد.2</div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div id="ph3" class="panel-heading" data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse3">
+                        <h4 class="panel-title">
+                            <a>
+                                سوال3</a>
+                        </h4>
+                        <i id="p3" class="fa fa-plus" aria-hidden="true"></i>
+                        <i id="m3" class="fa fa-minus" aria-hidden="true"></i>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">متن تستی
+                            به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از
+                            این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح
+                            سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر
+                            متن باشد.3</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="collapse3" class="panel-collapse collapse">
-            <div class="panel-body">متن تستی
-                به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد.3</div>
-        </div>
     </div>
-</div>
-</div>
-</div>
 
 
     <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright © Finter 2020</small></div>
     </div>
-    
+
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
@@ -140,7 +152,6 @@
         $(' #ph3').click(function () {
             $(' #p3').toggleClass("show-plus");
         });
-      
 
     </script>
 </body>
