@@ -86,21 +86,19 @@ class AdminRegisterController extends Controller
                                 $plantransaction->status = 0;
                                 if ($plantransaction->save()) {
                                     return view('confirm');
-                                }else{
+                                } else {
                                     return false;
                                 }
+                            } else {
+                                $plantransaction = new PlanTransaction();
+                                $plantransaction->gnet_id = $gamenet->gamenet_id;
+                                $plantransaction->plan_id = $plan;
+                                $plantransaction->status = 0;
+                                if ($plantransaction->save()) {
+                                    return redirect()->route('pay');
                                 } else {
-                                    $plantransaction = new PlanTransaction();
-                                    $plantransaction->gnet_id = $gamenet->gamenet_id;
-                                    $plantransaction->plan_id = $plan;
-                                    $plantransaction->status = 0;
-                                        if ($plantransaction->save()) {
-                                            return redirect()->route('pay');
-                                        }else{
-                                            return false;
-                                        }
-
- 
+                                    return false;
+                                }
                             }
                         }
                     }
