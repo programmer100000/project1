@@ -83,6 +83,16 @@
                                         <input class="form-control-file" type="file" name="image" id="image">
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="modal-system-typs" class="control-label">نوع سیستم</label>
+                                        <select name="plan" id="modal-system-typs" class="form-control">
+                                            @foreach ($plans as $p)
+                                                <option value="{{ $p->plan_id }}">{{ $p->time }}روزه</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <input type="hidden" name="lat" id='lat_register' value="0">
                                 <input type="hidden" name="long" id='long_register' value="0">
                                 <div class="form-group mb-0 text-center">

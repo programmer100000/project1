@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Gamenet;
 use App\GamenetPic;
+use App\Plan;
+use App\PlanTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -17,7 +19,8 @@ class AdminRegisterController extends Controller
     }
     public function index(Request $request)
     {
-        return view('Admin.register');
+        $plans = Plan::select()->get();
+        return view('Admin.register' , compact('plans'));
     }
     public function register(Request $request)
     {
@@ -33,6 +36,7 @@ class AdminRegisterController extends Controller
         $gamenetlong = $request->input('long');
         $gamenetdesc = $request->input('description');
         $image = $request->file('image');
+        $plan = $request->input('plan');
         $confirm_code = rand(1000, 9999);
 
         request()->validate([
@@ -75,7 +79,18 @@ class AdminRegisterController extends Controller
                         $gpic->flag = 'main';
                         $gpic->gamenet_image = 'images' . DIRECTORY_SEPARATOR . $imageName;
                         if($gpic->save()){
-                            return view('confirm');
+                            if($plan == 1){
+                                $plantransaction = new PlanTransaction();
+                                $plantransaction->gnet_id = $gamenet->gamenet_id;
+                                $plantransaction->plan_id = 1 ;
+                                $plantransaction->status=0;
+                                if($plantransaction->save()){
+                                    return view('confirm');
+                                }
+                                    return 'banking pay';
+                                
+                            }
+                            
                         }
                     }
                 }
