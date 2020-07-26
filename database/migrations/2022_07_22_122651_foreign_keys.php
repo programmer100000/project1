@@ -74,6 +74,20 @@ class ForeignKeys extends Migration
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
         });
+        Schema::table('plans_transaction', function (Blueprint $table) {
+            $table->unsignedBigInteger('gnet_id');
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('plan_id')->on('plans');
+            
+            $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
+        });
+        Schema::table('plans_transactionlog', function (Blueprint $table) {
+            $table->unsignedBigInteger('gnet_id');
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('plan_id')->on('plans');
+            
+            $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
+        });
     }
 
     /**
