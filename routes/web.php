@@ -192,4 +192,7 @@ Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
 Route::get('/user/panel' , function(){
     return view('panel');
 });
+Route::get('/intro/panel' , function(){
+    return view('intropanel');
+})->name('intro.panel');
 /*End Test Routes*/
