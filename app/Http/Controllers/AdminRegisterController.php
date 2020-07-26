@@ -85,7 +85,7 @@ class AdminRegisterController extends Controller
                                 $plantransaction->plan_id = 1;
                                 $plantransaction->status = 0;
                                 if ($plantransaction->save()) {
-                                    return view('confirm');
+                                    return view('Admin.confirm');
                                 } else {
                                     return false;
                                 }
@@ -116,19 +116,24 @@ class AdminRegisterController extends Controller
     }
     public function confirm(Request $request)
     {
-
-        $user = Auth::user();
-        $user_confirm_code = $user->confirm_code;
-        $confirm_code = $request->input('confirm_code');
-        $password = $request->input('password');
-        $passwordd = $request->input('passwordd');
-        if ($user_confirm_code == $confirm_code && $password == $passwordd) {
-            $user->status_id = 1;
-            $user->password = Hash::make($password);
-            $user->save();
-            return redirect()->route('admin');
-        } else {
-            return "no";
+        switch ($request->method()) {
+            case 'GET':
+                return view('Admin.confirm');
+                break;
+            case 'POST':
+                $user = Auth::user();
+                $user_confirm_code = $user->confirm_code;
+                $confirm_code = $request->input('confirm_code');
+                $password = $request->input('password');
+                $passwordd = $request->input('passwordd');
+                if ($user_confirm_code == $confirm_code && $password == $passwordd) {
+                    $user->status_id = 1;
+                    $user->password = Hash::make($password);
+                    $user->save();
+                    return redirect()->route('admin');
+                } else {
+                    return "no";
+                }
         }
     }
     public function sendsms($mobile, $code)
