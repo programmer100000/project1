@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Gamenet;
 use App\GamenetPic;
 use App\Plan;
+use App\PlanTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -79,13 +80,17 @@ class AdminRegisterController extends Controller
                         $gpic->gamenet_image = 'images' . DIRECTORY_SEPARATOR . $imageName;
                         if($gpic->save()){
                             if($plan == 1){
-                                $newplan = new Plan();
-                                $newplan->gnet_id = $gamenet->gamenet_id;
-                                $newplan->plan_id = 1 ;
-                                $newplan->status=0;
+                                $plantransaction = new PlanTransaction();
+                                $plantransaction->gnet_id = $gamenet->gamenet_id;
+                                $plantransaction->plan_id = 1 ;
+                                $plantransaction->status=0;
+                                if($plantransaction->save()){
+                                    return view('confirm');
+                                }
+                                    return 'banking pay';
                                 
                             }
-                            return view('confirm');
+                            
                         }
                     }
                 }
