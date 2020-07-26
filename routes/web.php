@@ -72,6 +72,7 @@ Route::get('/admin/login', 'AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'AdminLoginController@login')->name('admin.login.auth');
 Route::get('/admin/register', 'AdminRegisterController@index')->name('admin.register');
 Route::post('/admin/register', 'AdminRegisterController@register')->name('admin.register');
+Route::get('/admin/register/confirm', 'AdminRegisterController@confirm')->name('admin.confirm');
 Route::post('/admin/register/confirm', 'AdminRegisterController@confirm')->name('admin.confirm');
 
 Route::get('/admin/get/livelogs', 'AdminpanelController@getdata')->name('get.logs');
@@ -195,4 +196,7 @@ Route::get('/user/panel' , function(){
 Route::get('/intro/panel' , function(){
     return view('intropanel');
 })->name('intro.panel');
+Route::get('/pay' , function(){
+    return view('Admin.pay');
+})->name('pay');
 /*End Test Routes*/

@@ -108,7 +108,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">قبلا ثبت نام کرده اید؟ <a href="auth-login.html" class="text-white ml-1"><b>وارد شوید</b></a></p>
+                        <p class="text-white-50">قبلا ثبت نام کرده اید؟ <a href="{{ route('admin.login') }}" class="text-white ml-1"><b>وارد شوید</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
