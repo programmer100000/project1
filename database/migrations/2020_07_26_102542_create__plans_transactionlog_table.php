@@ -15,7 +15,7 @@ class CreatePlansTransactionlogTable extends Migration
     {
         Schema::create('plans_transactionlog', function (Blueprint $table) {
             $table->bigIncrements('plan_transactionlog_id');
-            $table->$table->timestamp('start_time')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('start_time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('finish_time')->nullable();
             $table->timestamps();
         });
