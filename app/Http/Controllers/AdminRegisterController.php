@@ -35,6 +35,7 @@ class AdminRegisterController extends Controller
         $gamenetlong = $request->input('long');
         $gamenetdesc = $request->input('description');
         $image = $request->file('image');
+        $plan = $request->input('plan');
         $confirm_code = rand(1000, 9999);
 
         request()->validate([
@@ -77,6 +78,13 @@ class AdminRegisterController extends Controller
                         $gpic->flag = 'main';
                         $gpic->gamenet_image = 'images' . DIRECTORY_SEPARATOR . $imageName;
                         if($gpic->save()){
+                            if($plan == 1){
+                                $newplan = new Plan();
+                                $newplan->gnet_id = $gamenet->gamenet_id;
+                                $newplan->plan_id = 1 ;
+                                $newplan->status=0;
+                                
+                            }
                             return view('confirm');
                         }
                     }
