@@ -60,5 +60,6 @@ class DatabaseSeeder extends Seeder
                 'price' => 360000
             ]
         ];
+        DB::table('plans')->insert($plans);
     }
 }

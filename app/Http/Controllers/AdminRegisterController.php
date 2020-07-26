@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gamenet;
 use App\GamenetPic;
+use App\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -17,7 +18,8 @@ class AdminRegisterController extends Controller
     }
     public function index(Request $request)
     {
-        return view('Admin.register');
+        $plans = Plan::select()->get();
+        return view('Admin.register' , compact('plans'));
     }
     public function register(Request $request)
     {
