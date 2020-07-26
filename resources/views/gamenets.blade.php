@@ -273,7 +273,7 @@
                 </div>
             </div>
             <div class="col-md-4 mb-4 p-2 text-center" dir="rtl">
-            <a href="/gamenet/1/دستگاه گارانتی شده ">
+                <a href="/gamenet/1/دستگاه گارانتی شده ">
                 </a>
                 <div class="card"><a href="/gamenet/1/دستگاه گارانتی شده ">
                         <div class="glassback m-0 p-0">

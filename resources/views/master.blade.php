@@ -23,7 +23,6 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('ui/css/flickity.css')}}" media="screen">
   <link rel="stylesheet" href="{{ asset('/fonts/css/style.css') }}">
-  
   @yield('head')
 </head>
 
@@ -69,7 +68,7 @@
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('home') }}">صفحه اصلی</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('guide') }}">راهنما</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('gamenets') }}">گیم نت ها</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-5 px-lg-3 rounded js-scroll-trigger" href="{{ route('intro.panel') }}">@php echo $register_text; @endphp</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-5 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.register') }}">@php echo $register_text; @endphp</a></li>
 
 
         </ul>
@@ -85,7 +84,7 @@
           </button>
         </form>
       </div>
-      <button class="login-user"><a href="{{ route('login') }}"> <i class="fas fa-user"></i></a></button>
+      <button class="login-user"> <i class="fas fa-user"></i></button>
 
     
   </nav>
@@ -103,7 +102,10 @@
         <!-- Footer Location-->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">نماد ها</h4>
-          <img class="img-enamad-footer" src="{{ url('ui/img/e-namad.jpg') }}" alt="">
+          <p class="lead mb-0">
+            
+            <br />
+          </p>
         </div>
         <!-- Footer Social Icons-->
         <div class="col-lg-4 mb-5 mb-lg-0">
