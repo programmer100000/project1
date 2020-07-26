@@ -1505,3 +1505,217 @@ body {
 
 
 /* end panel page */
+
+
+/* intro panel page */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #d9edfd;
+    transform: translate3d(0, 0, 0);
+}
+
+.layer-2 {
+    animation: parallax_fg linear 30s infinite both;
+    background: url('/ui/img/layer2.png') 0 100% repeat-x;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 145px;
+}
+
+.layer-3 {
+    animation: parallax_fg linear 55s infinite both;
+    background: url('/ui/img/layer3.png') 0 100% repeat-x;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 158px;
+}
+
+.layer-4 {
+    animation: parallax_fg linear 75s infinite both;
+    background: url('/ui/img/layer4.png') 0 100% repeat-x;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 468px;
+}
+
+.layer-5 {
+    animation: parallax_fg linear 95s infinite both;
+    background: url('/ui/img/layer5.png') 0 100% repeat-x;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 311px;
+}
+
+.layer-6 {
+    animation: parallax_fg linear 120s infinite both;
+    background: url('/ui/img/layer6.png') 0 100% repeat-x;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 222px;
+}
+
+.bike-1,
+.bike-2 {
+    background: url('/ui/img/bike.png') 0 100% no-repeat;
+    z-index: 1;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 75px;
+    animation: parallax_bike linear 10s infinite both;
+}
+
+.bike-2 {
+    animation: parallax_bike linear 15s infinite both;
+}
+
+@keyframes parallax_fg {
+    0% {
+        background-position: 2765px 100%;
+    }
+    100% {
+        background-position: 550px 100%;
+    }
+}
+
+@keyframes parallax_bike {
+    0% {
+        background-position: -300px 100%;
+    }
+    100% {
+        background-position: 2000px 100%;
+    }
+}
+
+.intro-panel-btns {
+    direction: rtl;
+    padding: 2rem;
+    position: fixed;
+    z-index: 100;
+}
+
+.intro-panel-btns a button {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border-color: #194258;
+}
+
+.intro-panel-register-btn {
+    margin-left: 1.5rem;
+    background-color: #194258;
+}
+
+.intro-panel-register-btn:hover,
+.intro-panel-register-btn:active,
+.intro-panel-register-btn:focus,
+.intro-panel-register-btn:visited {
+    background-color: #194258;
+    border-color: #194258;
+}
+
+.intro-panel-login-btn {
+    color: #194258;
+}
+
+.intro-panel-login-btn:hover,
+.intro-panel-login-btn:active,
+.intro-panel-login-btn:focus,
+.intro-panel-login-btn:visited {
+    background-color: transparent!important;
+    border-color: #194258!important;
+    color: #194258!important;
+    outline: none;
+}
+
+.faq-title {
+    color: #fff;
+}
+
+.panel-group {
+    height: 305px;
+    /* overflow-y: scroll; */
+    padding-left: 1rem;
+    /* margin-top: 80px; */
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.panel {
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #e6e9ed;
+    color: #fff;
+}
+
+.panel-heading {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel-heading .fa-minus {
+    display: none;
+}
+
+.show-minus {
+    display: block!important;
+}
+
+.show-plus {
+    display: none!important;
+}
+
+.panel-title a {
+    color: #fff!important;
+}
+
+.panel-title a:hover {
+    color: #fff!important;
+    text-decoration: none!important;
+}
+
+.panel-body {
+    line-height: 3rem;
+    font-size: 1.3rem;
+}
+
+
+/* end intro panel page */
