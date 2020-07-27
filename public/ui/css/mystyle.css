@@ -1666,21 +1666,13 @@ body {
     position: fixed;
     top: 150px;
     z-index: 100;
-    color: #fff;
 }
 
 .intro-panel-title h1 {
-    padding: 10px 5px;
     display: inline-block;
     color: #324558;
     background: #fff;
     opacity: .8;
-}
-
-.intro-panel-section-title {
-    color: #fff;
-    padding: 2rem auto;
-    margin-top: 6rem;
 }
 
 .panel-group {
@@ -1733,26 +1725,10 @@ body {
     font-size: 1.3rem;
 }
 
-.advantage-container {
-    padding-bottom: 3rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.advantage-item {
-    text-align: center;
-}
-
-.advantage-item-title {
-    color: #fff;
-}
-
 .advantage-item-img {
     background: url('/ui/img/advantage.png') no-repeat;
     height: 120px;
     width: 120px;
-    display: block;
-    margin: 1rem auto;
 }
 
 .description-container {
@@ -1778,7 +1754,6 @@ body {
 }
 
 .pro-container {
-    text-align: center;
     background-position: center;
     background-size: cover;
     height: 580px;
