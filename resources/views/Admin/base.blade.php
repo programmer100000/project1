@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from coderthemes.com/ubold/layouts/modern/dark-rtl.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jun 2020 05:12:28 GMT -->
 <head>
 
         <meta charset="utf-8" />
@@ -26,6 +24,4 @@
         @yield('head')
     </head>
     @yield('body')
-
-<!-- Mirrored from coderthemes.com/ubold/layouts/modern/dark-rtl.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jun 2020 05:13:38 GMT -->
 </html>
