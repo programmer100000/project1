@@ -145,6 +145,21 @@
                                     <span>  خروج </span>
                                 </a>
                             </li>
+                            <li>
+                                @if($status == 0)
+                                <div class="alert alert-warning" role="alert">
+                                    در انتظار تایید
+                                  </div>
+                                  @elseif($status == 1)
+                                  <div class="alert alert-success" role="alert">
+                                    تایید شده
+                                  </div>
+                                  @elseif($status == 2)
+                                  <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                  </div>
+                                @endif
+                            </li>
                     </ul>
                 </div>
 
