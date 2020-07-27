@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">داشبورد</h4>
+                        <h4 class="page-title">داشبورد ادمین</h4>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,6 @@
     </div> <!-- content -->
 
     @include('Admin.footer')
-
 
 </div>
 
