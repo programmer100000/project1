@@ -187,7 +187,11 @@ Route::get('/gamenet/{gamenet_id}/{gamenet_name}', function ($gamanet_id, $gamen
     return view('gamenet', compact('gamenet', 'gamenet_images', 's'));
 })->name('show.gamenet');
 Route::get('/gamenets', function () {
-    return  view('gamenets');
+    $gamenets = Gamenet::select()
+    ->join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , '=' , 'gamenets.gamenet_id')
+    ->where('gamenet_pictures.flag' , "main")
+    ->get();
+    return  view('gamenets' , compact('gamenets'));
 })->name('gamenets');
 Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
 Route::get('/user/panel' , function(){
@@ -199,4 +203,5 @@ Route::get('/intro/panel' , function(){
 Route::get('/pay' , function(){
     return view('Admin.pay');
 })->name('pay');
+
 /*End Test Routes*/
