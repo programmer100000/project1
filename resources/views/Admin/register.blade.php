@@ -33,7 +33,7 @@
                                 <h3 class="mb-4 mt-3">ثبت نام گیم نت</h3>
                             </div>
 
-                            <form class="admin-register-form" action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
+                            <form class="forms admin-register-form" action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @if($errors->any())
                                 <p class="text-danger">{{ $errors->first() }}</p>

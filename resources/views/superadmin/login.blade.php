@@ -20,12 +20,12 @@
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-dark.png" alt="" height="22">
+                                        <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-light.png" alt="" height="22">
+                                            <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
                                 </div>
@@ -33,7 +33,7 @@
                                     وارد کنید .</p>
                             </div>
 
-                            <form action="{{ route('superadmin.login') }}" method="POST">
+                            <form class="forms admin-login-form" action="{{ route('superadmin.login') }}" method="POST">
                                 @csrf
                                 @if($errors->any())
                                     <p class="text-danger">{{ $errors->first() }}</p>
@@ -72,30 +72,7 @@
 
                             </form>
 
-                            <div class="text-center">
-                                <h5 class="mt-3 text-muted">Sign in with</h5>
-                                <ul class="social-list list-inline mt-3 mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"
-                                            class="social-list-item border-primary text-primary"><i
-                                                class="mdi mdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"
-                                            class="social-list-item border-danger text-danger"><i
-                                                class="mdi mdi-google"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i
-                                                class="mdi mdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"
-                                            class="social-list-item border-secondary text-secondary"><i
-                                                class="mdi mdi-github"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+                           
 
                         </div> <!-- end card-body -->
                     </div>
@@ -112,10 +89,7 @@
 
 
     <footer class="footer footer-alt text-white-50">
-        2015 - <script>
-            document.write(new Date().getFullYear())
-
-        </script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
+    <div class="container"><small>Copyright © Finter 2020</small></div>
     </footer>
 
     <!-- Vendor js -->

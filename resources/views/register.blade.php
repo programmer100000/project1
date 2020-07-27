@@ -28,7 +28,7 @@
                                 <p class="text-muted mb-4 mt-3">همین حالا در سایت ما ثبت نام کنید</p>
                             </div>
 
-                            <form class="user-register-form" action="{{ route('register') }}" method="POST">
+                            <form class="forms user-register-form" action="{{ route('register') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     @if($errors->any())
