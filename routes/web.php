@@ -35,6 +35,9 @@ Route::get('/', function () {
 Route::get('/superadmin', 'superadmin@index')->name('superadmin');
 Route::get('/superadmin/login' , 'superadminlogin@login')->name('superadmin.login');
 Route::post('/superadmin/login' , 'superadminlogin@login')->name('superadmin.login');
+Route::post('/gamenet/data' , 'superadmin@gamenetdata')->name('gamenet.data');
+Route::post('/gamenet/Confirmation' , 'superadmin@Confirmation')->name('gamenet.Confirmation');
+
 
 /*Admin Routes*/
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
