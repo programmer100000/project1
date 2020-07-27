@@ -19,7 +19,11 @@
                                 </span>
                             </div>
                             <div class="status w-50 m-0 p-0">
-                                <button class="btn btn-danger">بسته</button>
+                                @if($g->status == 1)
+                                        <button class="btn btn-success">باز</button>
+                                    @else
+                                        <button class="btn btn-danger">بسته</button>
+                                    @endif
                             </div>
                         </div> <img src="{{ url($g->gamenet_image) }}" alt="" class="card-img-top">
                     </a>
