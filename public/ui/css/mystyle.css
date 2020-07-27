@@ -1634,38 +1634,53 @@ body {
 .intro-panel-btns a button {
     padding: 1rem 3rem;
     font-size: 1.5rem;
-    border-color: #194258;
-}
-
-.intro-panel-register-btn {
+    border-color: #0e2430;
     margin-left: 1.5rem;
-    background-color: #194258;
+    background-color: #0e2430;
 }
 
-.intro-panel-register-btn:hover,
-.intro-panel-register-btn:active,
-.intro-panel-register-btn:focus,
-.intro-panel-register-btn:visited {
-    background-color: #194258;
-    border-color: #194258;
-}
-
-.intro-panel-login-btn {
-    color: #194258;
-}
-
-.intro-panel-login-btn:hover,
-.intro-panel-login-btn:active,
-.intro-panel-login-btn:focus,
-.intro-panel-login-btn:visited {
-    background-color: transparent!important;
+.intro-panel-return-btn {
+    margin-left: 1.5rem;
+    background-color: #1c485f!important;
     border-color: #194258!important;
-    color: #194258!important;
-    outline: none;
 }
 
-.faq-title {
+.intro-panel-btns a button:hover,
+.intro-panel-btns a button:active,
+.intro-panel-btns a button:focus,
+.intro-panel-btns a button:visited {
+    background-color: #468fb6;
+    border-color: #468fb6;
+}
+
+.intro-panel-return-btn:hover,
+.intro-panel-return-btn:active,
+.intro-panel-return-btn:focus,
+.intro-panel-return-btn:visited {
+    background-color: #468fb6;
+    border-color: #468fb6;
+}
+
+.intro-panel-title {
+    width: 100%;
+    position: fixed;
+    top: 150px;
+    z-index: 100;
     color: #fff;
+}
+
+.intro-panel-title h1 {
+    padding: 10px 5px;
+    display: inline-block;
+    color: #324558;
+    background: #fff;
+    opacity: .8;
+}
+
+.intro-panel-section-title {
+    color: #fff;
+    padding: 2rem auto;
+    margin-top: 6rem;
 }
 
 .panel-group {
@@ -1716,6 +1731,57 @@ body {
 .panel-body {
     line-height: 3rem;
     font-size: 1.3rem;
+}
+
+.advantage-container {
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.advantage-item {
+    text-align: center;
+}
+
+.advantage-item-title {
+    color: #fff;
+}
+
+.advantage-item-img {
+    background: url('/ui/img/advantage.png') no-repeat;
+    height: 120px;
+    width: 120px;
+    display: block;
+    margin: 1rem auto;
+}
+
+.description-container {
+    display: flex;
+    direction: rtl;
+    justify-content: space-between;
+}
+
+.description-container p {
+    text-align: justify;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 40%;
+}
+
+.description-container img {
+    width: 50%;
+    height: 100%;
+}
+
+#intro-panel-body {
+    background-color: #23262b !important;
+}
+
+.pro-container {
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    height: 580px;
 }
 
 

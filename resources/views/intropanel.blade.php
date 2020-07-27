@@ -27,7 +27,7 @@
 </head>
 
 
-<body id="page-top">
+<body id="intro-panel-body">
     <div class="hero row">
         <div class="parallax-layer layer-6"></div>
         <div class="parallax-layer layer-5"></div>
@@ -41,17 +41,114 @@
                 <button type="button" class="btn btn-primary intro-panel-register-btn">ثبت نام</button>
             </a>
             <a>
-                <button type="button" class="btn btn-outline-primary intro-panel-login-btn"> ورود به پنل</button>
+                <button type="button" class="btn btn-primary intro-panel-login-btn"> ورود به پنل</button>
+            </a>
+            <a>
+                <button type="button" class="btn btn-primary intro-panel-return-btn">بازگشت</button>
             </a>
         </div>
-    </div>
-    <div class="row w-100 m-0 justify-content-center">
-        <div class="col-md-6 text-right">
+        <div class="intro-panel-title text-center">
 
-            <h2 class="faq-title text-center p-4">سوالات متداول</h2>
+            <h1 class=" text-center p-4">ثبت نام در گیم نت</h1>
+        </div>
+    </div>
+
+    <div class="row w-100 m-0 justify-content-center">
+        <div class="col-md-8 text-right">
+            
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class='d-flex align-items-center h-100'>
+                        <img  src="{{ url('/ui/img/test1.jpg') }}" alt="" width="100%">
+                    </div>
+                </div>
+                <div class="col-md-6 text-white">
+                    <p class='d-flex align-items-justify align-items-center align-items-justify h-100'>به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند تا صرفا به مشتری یا صاحب کار خود نشان دهند که صفحه طراحی یا صفحه بندی شده بعد از اینکه متن در آن قرار گیرد چگونه به نظر می‌رسد.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row w-100 m-0 justify-content-center">
+        <div class="col-md-8 text-right">
+            <h2 class="intro-panel-section-title text-center p-4">مزایای ثبت گیم نت در سایت ما</h2>
+            <div class="advantage-container">
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+
+            </div>
+            <div class="advantage-container">
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-item-img"></span>
+                    <span class="advantage-item-title">
+                    کاهش هزینه‌های جانبی فروش تا کمترین مقدار
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row w-100 m-0 justify-content-center">
+        <div class="col-md-10 text-right">
+            <h2 class="intro-panel-section-title text-center p-4">فرآیند کار</h2>
+            <div class="pro-container" style="background: url('{{ url('/ui/img/ux.png') }}') no-repeat ;">
+            <!-- <img  src="{{ url('/ui/img/ux.png') }}" alt="" > -->
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row w-100 m-0 justify-content-center">
+        <div class="col-md-8 text-right">
+
+            <h2 class="intro-panel-section-title text-center p-4">سوالات متداول</h2>
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
-                    <div id="ph1" class="panel-heading " data-toggle="collapse" data-parent="#accordion"
+                    <div id="ph1" class="panel-heading" data-toggle="collapse" data-parent="#accordion"
                         href="#collapse1">
                         <h4 class="panel-title">
                             <a>
