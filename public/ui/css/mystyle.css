@@ -371,6 +371,7 @@ footer {
     padding-top: 2rem !important;
     padding-bottom: 0rem !important;
     background: #000 !important;
+    direction: rtl!important;
 }
 
 .copyright {
@@ -1077,6 +1078,9 @@ body {
         padding-left: 1rem!important;
         padding-right: 1rem!important;
     }
+    .navbar-nav li:last-child {
+        padding-bottom: .5rem;
+    }
     .navbar-nav li:last-child a {
         width: fit-content!important;
         padding-left: 1rem!important;
@@ -1713,6 +1717,7 @@ body {
 .faq-panel-heading {
     line-height: 3rem;
     font-size: 1.3rem;
+    text-align: justify;
 }
 
 .advantage-item-img {

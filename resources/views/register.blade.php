@@ -50,7 +50,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">قبلا ثبت نام کرده اید؟ <a href="auth-login.html" class="text-white ml-1"><b>وارد شوید</b></a></p>
+                            <p class="text-white-50">قبلا ثبت نام کرده اید؟ <a href="{{ route('login') }}" class="text-white ml-1"><b>وارد شوید</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
@@ -64,7 +64,7 @@
     <!-- end page -->
 
     <footer class="footer footer-alt text-white-50">
-        2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
+    <div class="container"><small>Copyright © Finter 2020</small></div>
     </footer>
 
     <!-- Vendor js -->

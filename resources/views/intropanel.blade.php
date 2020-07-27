@@ -37,7 +37,7 @@
         <div class="parallax-layer layer-3"></div>
         <div class="parallax-layer layer-2"></div>
         <div class="intro-panel-btn return-btn p-4">
-            <a>
+            <a href="{{ route('home') }}">
                 <button type="button" class="btn btn-primary intro-panel-return-btn">بازگشت</button>
             </a>
         </div>
@@ -45,10 +45,10 @@
             <h1 class=" text-center  p-4">ثبت نام در گیم نت</h1>
         </div>
         <div class="intro-panel-btn btns w-100 text-center mb-5 p-4">
-            <a>
+            <a href="{{ route('admin.register') }}">
                 <button type="button" class="btn btn-primary intro-panel-register-btn">ثبت نام</button>
             </a>
-            <a>
+            <a href="{{ route('admin.login') }}">
                 <button type="button" class="btn btn-primary intro-panel-login-btn"> ورود به پنل</button>
             </a>
         </div>
@@ -74,7 +74,7 @@
     <div class="row w-100 m-0 mb-5 justify-content-center">
         <div class="col-md-8 text-right">
             <h2 class="intro-panel-section-title text-center p-5 text-white">مزایای ثبت گیم نت در سایت ما</h2>
-            <div class="row advantage-container pb-5">
+            <div class="row advantage-container ">
                 <div class="col-md-3 col-6 p-4 advantage-item text-center">
                     <span class="advantage-item-img d-block my-2 mx-auto "></span>
                     <span class="advantage-item-title text-white">
@@ -100,7 +100,7 @@
                     </span>
                 </div>
             </div>
-            <div class="row advantage-container pb-5">
+            <div class="row advantage-container ">
                 <div class="col-md-3 col-6 p-4 advantage-item text-center">
                     <span class="advantage-item-img d-block my-2 mx-auto "></span>
                     <span class="advantage-item-title text-white">
@@ -155,7 +155,7 @@
                         <i id="m1" class="fa fa-minus d-none"></i>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
-                        <div class="panel-body faq-panel-heading">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
+                        <div class="panel-body faq-panel-heading justify-content-right">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
                             می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
                             شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و
                             اندازه فونت و ظاهر متن باشد.</div>

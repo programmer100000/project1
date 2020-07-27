@@ -12,3 +12,18 @@
     background: #003b36!important;
     border-color: #003b36!important;
 }
+
+.user-forget-pass-form .form-group .btn-success {
+    background: #003b36!important;
+    border-color: #003b36!important;
+}
+
+.admin-register-form .form-group .btn-success {
+    background: #003b36!important;
+    border-color: #003b36!important;
+}
+
+.admin-login-form .form-group .btn-primary {
+    background: #003b36!important;
+    border-color: #003b36!important;
+}

@@ -20,20 +20,20 @@
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('ui/img/logo.png') }}" alt="" height="100">
+                                        <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
 
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('ui/img/logo.png') }}" alt="" height="100">
+                                        <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
                                 </div>
                                 <h3 class="mb-4 mt-3">ثبت نام گیم نت</h3>
                             </div>
 
-                            <form action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
+                            <form class="admin-register-form" action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @if($errors->any())
                                 <p class="text-danger">{{ $errors->first() }}</p>
@@ -123,7 +123,7 @@
     <!-- end page -->
 
     <footer class="footer footer-alt text-white-50">
-        2020 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="http://finter.ir" target="_blank" class="text-white-50">finter.ir</a>
+    <div class="container"><small>Copyright © Finter 2020</small></div>
     </footer>
 
     <!-- Vendor js -->
