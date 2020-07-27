@@ -61,14 +61,6 @@
                                                     data-toggle="modal" data-target="#view-gamenet-data"
                                                     data-id="{{ $u->user_id }}"
                                                     data-url={{ route('gamenet.data') }}>مشاهده</button>
-                                                <button type="button"
-                                                    class="change-system btn btn-success waves-effect waves-light"
-                                                    data-toggle="modal" data-target="#chcon-close-modal"
-                                                    data-id="{{ $u->user_id }}">تایید</button>
-
-                                                <button data-id="{{ $u->user_id }}" type="button"
-                                                    class="btn btn-danger remove-system" data-toggle="modal"
-                                                    data-target="#danger-alert-modal">حذف</button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -164,11 +156,19 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">حذف</button>
+                    
                     <button type="button" id="btnconfirmation"
                         class="btn btn-info waves-effect waves-light">تایید</button>
-                        <input type="text" id="xcv1" value="0">
-                        <input type="text" id="xcv2" value="0">
+                </form>
+            <form action="{{ route('gamenet.disapproval') }}">
+                    <input type="hidden" id="user_id_report" name="user_id_report" value="">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="report">توضیحات عدم تایید</label>
+                            <textarea name="report" id="report" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div type="button" id="disapproval" class="btn btn-danger" >عدم تایید</div>
                 </form>
             </div>
             <div class="modal-footer">

@@ -37,6 +37,7 @@ Route::get('/superadmin/login' , 'superadminlogin@login')->name('superadmin.logi
 Route::post('/superadmin/login' , 'superadminlogin@login')->name('superadmin.login');
 Route::post('/gamenet/data' , 'superadmin@gamenetdata')->name('gamenet.data');
 Route::post('/gamenet/Confirmation' , 'superadmin@Confirmation')->name('gamenet.Confirmation');
+Route::post('/gamenet/disapproval' , 'superadmin@disapproval')->name('gamenet.disapproval');
 
 
 /*Admin Routes*/

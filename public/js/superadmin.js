@@ -1,6 +1,4 @@
-
-
-$(document).ready(function(){
+$(document).ready(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -20,6 +18,7 @@ $(document).ready(function(){
                 console.log(res.fname);
                 res = jQuery.parseJSON(res);
                 $('#user_id').val(res.user_id);
+                $('#user_id_report').val(res.user_id);
                 $('#gdfname').val(res.fname);
                 $('#gdlname').val(res.lname);
                 $('#gdusername').val(res.username);
@@ -31,7 +30,7 @@ $(document).ready(function(){
                 $('#gddesc').val(res.description);
                 glat = res.lat;
                 glng = res.long;
-                changeloc(glat , glng);
+                changeloc(glat, glng);
             }
         });
 
@@ -54,5 +53,20 @@ $(document).ready(function(){
             }
         });
     });
+    $("#disapproval").click(function (e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
 
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function (data) {
+                location.reload();
+            }
+        });
+    });
 });
