@@ -6,7 +6,7 @@
     <div class="container">
       <!-- Contact Section Form-->
       <div class="row">
-        <div class="col-lg-8 mx-auto pt-10">
+        <div class="col-lg-10 mx-auto pt-10">
          <p class="guide-text">لورم‌ساز
             داشبورد
            ابزارهای برنامه‌نویسی و گرافیکی

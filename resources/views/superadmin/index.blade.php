@@ -90,7 +90,6 @@
 
     @include('Admin.footer')
 
-
 </div>
 <div id="view-gamenet-data" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">

@@ -71,8 +71,8 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p> <a href="auth-recoverpw.html" class="text-white-50 ml-1">رمز عبور خود را فراموش کرده اید؟</a></p>
-                            <p class="text-white-50">ثبت نام نکرده اید؟ <a href="auth-register.html" class="text-white ml-1"><b>ایجاد حساب کاربری</b></a></p>
+                            <p> <a href="{{ route('forget.password') }}" class="text-white-50 ml-1">رمز عبور خود را فراموش کرده اید؟</a></p>
+                            <p class="text-white-50">ثبت نام نکرده اید؟ <a href="{{ route('register') }}" class="text-white ml-1"><b>ایجاد حساب کاربری</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->

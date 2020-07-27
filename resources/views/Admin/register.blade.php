@@ -20,20 +20,20 @@
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-dark.png" alt="" height="22">
+                                        <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
 
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
-                                            <img src="../assets/images/logo-light.png" alt="" height="22">
+                                        <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
                                         </span>
                                     </a>
                                 </div>
-                                <p class="text-muted mb-4 mt-3">ثبت نام گیم نت</p>
+                                <h3 class="mb-4 mt-3">ثبت نام گیم نت</h3>
                             </div>
 
-                            <form action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
+                            <form class="admin-register-form" action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @if($errors->any())
                                 <p class="text-danger">{{ $errors->first() }}</p>
@@ -74,25 +74,26 @@
                                     <input class="form-control" name="tel" type="text" id="tel" placeholder="تلفن" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">توضیحات</label>
+                                    <label for="description">توضیحات گیم نت</label>
                                     <input class="form-control" name="description" type="text" id="description" placeholder="توضیحات" required>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label> عکس گیم نت</label>
-                                        <input class="form-control-file" type="file" name="image" id="image">
+                                <div class="form-group mb-3">
+                                    <label> عکس گیم نت</label>
+                                    {{-- <input class="form-control-file" type="file" > --}}
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="image" id="image">
+                                        <label class="custom-file-label" for="image">Choose file</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="modal-system-typs" class="control-label">نوع سیستم</label>
-                                        <select name="plan" id="modal-system-typs" class="form-control">
-                                            @foreach ($plans as $p)
-                                                <option value="{{ $p->plan_id }}">{{ $p->time }}روزه</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="modal-system-typs" class="control-label">نوع پلن</label>
+                                    <select name="plan" id="modal-system-typs" class="form-control">
+                                        @foreach ($plans as $p)
+                                            <option value="{{ $p->plan_id }}">{{ $p->time }}روزه</option>
+                                        @endforeach
+                                    </select>
                                 </div>
+                                
                                 <input type="hidden" name="lat" id='lat_register' value="0">
                                 <input type="hidden" name="long" id='long_register' value="0">
                                 <div class="form-group mb-0 text-center">
@@ -122,7 +123,7 @@
     <!-- end page -->
 
     <footer class="footer footer-alt text-white-50">
-        2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
+    <div class="container"><small>Copyright © Finter 2020</small></div>
     </footer>
 
     <!-- Vendor js -->
