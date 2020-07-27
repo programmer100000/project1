@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -33,30 +35,42 @@ class DatabaseSeeder extends Seeder
         ];
         DB::table('status')->insert($statuses);
         $user = [
+
             'mobile' => '09xxxxxxxxx',
             'role_id' => 3,
             'confirm_code' => '3928',
             'status_id' => 2
+
         ];
         DB::table('users')->insert($user);
+        $superadmin = [
+
+            'mobile' => '0912xxxxxxx',
+            'role_id' => 4,
+            'username' => 'superadmin',
+            'confirm_code' => '3928',
+            'status_id' => 1,
+            'password' => Hash::make('superadmin@#$')
+        ];
+        DB::table('users')->insert($superadmin);
         $plans = [
             [
-                'time' => 3 ,
+                'time' => 3,
                 'name' => 'free',
                 'price' => 0
             ],
             [
-                'time' => 30 ,
+                'time' => 30,
                 'name' => 'bronze',
                 'price' => 30000
             ],
             [
-                'time' => 90 ,
+                'time' => 90,
                 'name' => 'silver',
                 'price' => 180000
             ],
             [
-                'time' => 180 ,
+                'time' => 180,
                 'name' => 'gold',
                 'price' => 360000
             ]
