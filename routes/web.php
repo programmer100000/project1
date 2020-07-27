@@ -30,6 +30,10 @@ Route::get('/', function () {
         ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->get();
     return view('index', compact('gamenets_active'));
 })->name('home');
+
+// super admin
+Route::get('/superadmin', 'superadmin@index')->name('superadmin');
+
 /*Admin Routes*/
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
 Route::get('/admin/create/system', 'AdminpanelController@createsystem')->name('create.system');

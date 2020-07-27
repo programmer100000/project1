@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         $userroles = [
             ['role_title' => 'Admin'],
             ['role_title' => 'User'],
-            ['role_title' => 'None']
+            ['role_title' => 'None'],
+            ['role_title' => 'SuperAdmin']
         ];
         DB::table('user_roles')->insert($userroles);
         $statuses = [
