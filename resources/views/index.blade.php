@@ -151,8 +151,8 @@
                                     @endif
                                 </div>
                             </div> 
-                            <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top">
-                            <!-- <img src="{{ url($ga->gamenet_image) }}" alt="" class="card-img-top"> -->
+                            
+                            <img src="{{ url($ga->gamenet_image) }}" alt="" class="card-img-top">
                         </div>
                             <div class="card-body text-white">
                                 <h5 class="card-title m-0">{{ $ga->title }}</h5>

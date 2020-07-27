@@ -33,6 +33,8 @@ Route::get('/', function () {
 
 // super admin
 Route::get('/superadmin', 'superadmin@index')->name('superadmin');
+Route::get('/superadmin/login' , 'superadminlogin@login')->name('superadmin.login');
+Route::post('/superadmin/login' , 'superadminlogin@login')->name('superadmin.login');
 
 /*Admin Routes*/
 Route::get('/admin', 'AdminpanelController@index')->name('admin');

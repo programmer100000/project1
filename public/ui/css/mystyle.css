@@ -1624,31 +1624,42 @@ body {
     }
 }
 
-.intro-panel-btns {
+.return-btn {
     direction: rtl;
-    padding: 2rem;
     position: fixed;
     z-index: 100;
 }
 
-.intro-panel-btns a button {
+.btns {
+    direction: rtl;
+    position: fixed;
+    z-index: 100;
+    top: 350px;
+}
+
+.intro-panel-btn a button {
     padding: 1rem 3rem;
     font-size: 1.5rem;
-    border-color: #0e2430;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     background-color: #0e2430;
 }
 
-.intro-panel-return-btn {
-    margin-left: 1.5rem;
-    background-color: #1c485f!important;
-    border-color: #194258!important;
+.intro-panel-register-btn,
+.intro-panel-login-btn {
+    border: 1px solid #fff;
 }
 
-.intro-panel-btns a button:hover,
-.intro-panel-btns a button:active,
-.intro-panel-btns a button:focus,
-.intro-panel-btns a button:visited {
+.intro-panel-return-btn {
+    margin-left: 1rem;
+    background-color: #1c485f!important;
+    border-color: #194258!important;
+    border-color: #0e2430;
+}
+
+.intro-panel-btn a button:hover,
+.intro-panel-btn a button:active,
+.intro-panel-btn a button:focus,
+.intro-panel-btn a button:visited {
     background-color: #468fb6;
     border-color: #468fb6;
 }
@@ -1675,32 +1686,15 @@ body {
     opacity: .8;
 }
 
-.panel-group {
+.faq-container {
     height: 305px;
-    /* overflow-y: scroll; */
-    padding-left: 1rem;
-    /* margin-top: 80px; */
-    width: 100%;
     overflow-x: hidden;
 }
 
-.panel {
+.faq-panel {
     position: relative;
-    margin-top: 1rem;
-    padding: 1rem;
     border-radius: 10px;
     border: 1px solid #e6e9ed;
-    color: #fff;
-}
-
-.panel-heading {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.panel-heading .fa-minus {
-    display: none;
 }
 
 .show-minus {
@@ -1711,16 +1705,12 @@ body {
     display: none!important;
 }
 
-.panel-title a {
-    color: #fff!important;
-}
-
-.panel-title a:hover {
+.faq-panel-heading-title a:hover {
     color: #fff!important;
     text-decoration: none!important;
 }
 
-.panel-body {
+.faq-panel-heading {
     line-height: 3rem;
     font-size: 1.3rem;
 }
@@ -1756,7 +1746,12 @@ body {
 .pro-container {
     background-position: center;
     background-size: cover;
-    height: 580px;
+    height: 600px;
+}
+
+.intro-panel-about-text {
+    text-align: justify!important;
+    direction: rtl!important;
 }
 
 
