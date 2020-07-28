@@ -10,7 +10,7 @@ function showMoney(nStr) {
     return x1 + x2;
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -45,7 +45,7 @@ $(document).ready(function () {
     }
 
 
-    $("#types_form_btn").click(function (e) {
+    $("#types_form_btn").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -55,13 +55,13 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            success: function (data) {
-                location.reload();
+            success: function(data) {
+                window.alert(data);
             }
         });
     });
 
-    $("#lottery_user_btn").click(function (e) {
+    $("#lottery_user_btn").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -72,13 +72,13 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 location.reload();
             }
         });
     });
 
-    $("#lottery_form_btn").click(function (e) {
+    $("#lottery_form_btn").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -92,13 +92,13 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 location.reload();
             }
         });
     });
 
-    $(document).on('click', '.remove-system', function () {
+    $(document).on('click', '.remove-system', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
 
@@ -106,7 +106,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '.remove-user-lottery', function () {
+    $(document).on('click', '.remove-user-lottery', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
         console.log(data_id);
@@ -114,7 +114,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '#remove-user-lottery', function () {
+    $(document).on('click', '#remove-user-lottery', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
         let url = that.attr('data-url');
@@ -125,26 +125,26 @@ $(document).ready(function () {
             data: {
                 id: data_id
             }, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 location.reload();
             }
         });
     });
 
-    $(document).on('click', '#livelog-excel', function () {
+    $(document).on('click', '#livelog-excel', function() {
         let that = $(this);
         let url = that.attr('data-url');
         console.log(url);
         $.ajax({
             type: "GET",
             url: url,
-            success: function (data) {
-                
+            success: function(data) {
+
             }
         });
     });
 
-    $(document).on('click', '#btn-create-match', function () {
+    $(document).on('click', '#btn-create-match', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
         let url = that.attr('data-url');
@@ -155,7 +155,7 @@ $(document).ready(function () {
             data: {
                 id: data_id
             }, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 console.log(data);
             }
         });
@@ -163,7 +163,7 @@ $(document).ready(function () {
 
 
 
-    $(document).on('click', '.add-user-lottery', function () {
+    $(document).on('click', '.add-user-lottery', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
 
@@ -171,7 +171,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '#remove-system', function () {
+    $(document).on('click', '#remove-system', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
         let url = that.attr('data-url');
@@ -182,13 +182,13 @@ $(document).ready(function () {
             data: {
                 id: data_id
             }, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 location.reload();
             }
         });
     });
 
-    $(document).on('click', '.editlottery', function () {
+    $(document).on('click', '.editlottery', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
         let url = that.attr('data-url');
@@ -199,7 +199,7 @@ $(document).ready(function () {
             data: {
                 id: data_id
             }, // serializes the form's elements.
-            success: function (res) {
+            success: function(res) {
                 res = JSON.parse(res)[0];
                 $('#lottery_id').val(res.lottery_id);
                 $('#lotteryname').val(res.lottery_name);
@@ -211,7 +211,7 @@ $(document).ready(function () {
             }
         });
     });
-    $(document).on('click', '.edit-system', function () {
+    $(document).on('click', '.edit-system', function() {
         let that = $(this);
 
         let modal_system_typs = $('#modal-system-typs');
@@ -224,12 +224,12 @@ $(document).ready(function () {
         let test = $('#frm_device_type_id').val();
 
     });
-    $(document).on('click', '.edituserlottery', function () {
+    $(document).on('click', '.edituserlottery', function() {
         let that = $(this);
         $("#edituserlottery").val(that.attr('data-id'));
     });
 
-    $("#editrow").click(function (e) {
+    $("#editrow").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -239,12 +239,12 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 location.reload();
             }
         });
     });
-    $("#changerow").click(function (e) {
+    $("#changerow").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -254,12 +254,12 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 location.reload();
             }
         });
     });
-    $("#edit-profile-btn").click(function (e) {
+    $("#edit-profile-btn").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -269,14 +269,14 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 location.reload();
             }
         });
     });
 
 
-    $(document).on('click', '.change-system', function () {
+    $(document).on('click', '.change-system', function() {
         let that = $(this);
 
         let modal_system_typs = $('#modal-system-typs');
@@ -290,14 +290,14 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '.add-buffet', function () {
+    $(document).on('click', '.add-buffet', function() {
         let that = $(this);
         $("#buffet_live_id").val(that.attr('data-id'));
         let test = $('#frm_device_type_id').val();
 
     });
 
-    $(document).on('click', '#add-buffet', function () {
+    $(document).on('click', '#add-buffet', function() {
         let that = $(this);
         let div_buffet = $('#div-buffet');
         let new_buffet = $('<div class="new-buffet row"></div>');
@@ -322,12 +322,12 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '.remove-buffet', function () {
+    $(document).on('click', '.remove-buffet', function() {
         let that = $(this);
         that.closest('.new-buffet').remove();
     });
 
-    $("#submit_buffet_form").click(function (e) {
+    $("#submit_buffet_form").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -337,12 +337,12 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 $('#bcon-close-modal').modal('hide');
             }
         });
     });
-    $("#finishfactor").click(function (e) {
+    $("#finishfactor").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -355,7 +355,7 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 $('#con-close-modal').modal('hide');
                 $('#ModalForm').modal('show');
 
@@ -420,6 +420,6 @@ $(document).ready(function () {
             init: minimalData /* data to initialize the bracket with */
         });
 
-     }
+    }
 
 });

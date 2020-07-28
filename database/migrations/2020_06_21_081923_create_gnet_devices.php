@@ -18,11 +18,11 @@ class CreateGnetDevices extends Migration
             $table->unsignedBigInteger('gnet_id');
             $table->string('device_name' , 50);
             $table->boolean('status');
-            $table->unsignedBigInteger('device_type_id');
+            $table->unsignedBigInteger('device_type_name_id');
             $table->timestamps();
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets')->onDelete('cascade');
-            $table->foreign('device_type_id')->references('device_type_id')->on('device_types')->onDelete('cascade');
+            $table->foreign('device_type_name_id')->references('device_type_name_id')->on('device_type_names')->onDelete('cascade');
         });
     }
 

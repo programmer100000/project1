@@ -102,8 +102,13 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label> تعداد دسته اضافه</label>
-                                    <input class="form-control" type="text" name="joystick_count" id="selectize-tags">
+                                    <label> تعداد دسته</label>
+                                    <select name="joystick_count" class="form-control" id="">
+                                    @for($i = 1 ; $i<=5  ; $i++)
+                                    <option value = "{{$i}}">{{ $i }}</option>
+                                    
+                                    @endfor
+                                    </select>
                                 </div>
                             </div>
                             <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>
@@ -329,7 +334,7 @@
 
 <!-- END wrapper -->
 
-<script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
+<script src="{{ asset('assets/js/createsystem.js') }}" charset="utf-8" defer></script>
 
 <!-- JsGrid js -->
 <script src="{{ asset('assets/libs/jsgrid/jsgrid.min.js') }}" defer></script>

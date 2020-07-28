@@ -104,7 +104,7 @@
                                     <label>نوع سیستم</label> <br />
                                     <select name="system_type" id="selectize-select" class="form-control">
                                         @foreach ($systems as $system)
-                                            <option value="{{ $system->device_type_id }}">{{ $system->type_name }}</option>
+                                            <option value="{{ $system->device_type_name_id }}">{{ $system->type_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

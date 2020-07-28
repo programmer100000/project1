@@ -105,16 +105,17 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label>قیمت هر ساعت</label>
-                                    <input class="form-control" type="text" name="price" id="selectize-tags">
+                                    <label>تعداد دسته</label>
+                                    <input class="form-control" type="text" name="joystick_count" id="selectize-tags">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label>قیمت دسته اضافه</label>
-                                    <input class="form-control" type="text" name="joystick_price" id="selectize-tags">
+                                    <label>قیمت هر ساعت</label>
+                                    <input class="form-control" type="text" name="price" id="selectize-tags">
                                 </div>
                             </div>
+
                             <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>

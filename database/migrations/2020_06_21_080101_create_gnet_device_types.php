@@ -18,7 +18,7 @@ class CreateGnetDeviceTypes extends Migration
             $table->unsignedBigInteger('device_type_name_id');
             $table->decimal('type_price');
             $table->unsignedBigInteger('gnet_id');
-            $table->decimal('joystick_price');
+            $table->integer('joystick_count');
             $table->timestamps();
 
             $table->foreign('device_type_name_id')->references('device_type_name_id')->on('device_type_names')->onDelete('cascade');
