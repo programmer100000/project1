@@ -207,9 +207,9 @@ Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
 Route::get('/user/panel' , function(){
     return view('panel');
 });
-Route::get('/intro/panel' , function(){
+Route::get('/intro' , function(){
     return view('intropanel');
-})->name('intro.panel');
+})->name('intro');
 Route::get('/pay' , function(){
     return view('Admin.pay');
 })->name('pay');
