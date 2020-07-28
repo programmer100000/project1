@@ -80,6 +80,7 @@ $(document).ready(function() {
             }
         });
     });
+    
 
     $("#lottery_user_btn").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
