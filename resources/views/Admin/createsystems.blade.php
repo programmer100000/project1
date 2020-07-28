@@ -45,52 +45,6 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="card-box">
-                        <h4 class="header-title mb-3">سیستم های ثبت شده</h4>
-
-                        <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
-
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th class="font-weight-medium">ردیف</th>
-                                        <th class="font-weight-medium">نام سیستم</th>
-                                        <th class="font-weight-medium">قیمت هر ساعت</th>
-                                        <th class="font-weight-medium">عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $i = 1;
-                                @endphp
-                                    @foreach ($mysystemtypes as $t)
-
-                                    <tr>
-                                        <td>
-                                            {{ $i++ }}
-                                        </td>
-
-                                        <td>
-                                            {{ $t->type_name }}
-                                        </td>
-
-                                        <td>
-                                            {{ number_format($t->type_price, 0) }}
-                                        </td>
-
-                                        <td>
-                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="{{ $t->device_type_id }}" data-dtnid="{{ $t->device_type_name_id }}" data-price="{{ $t->type_price }}">ویرایش</button>
-                                            <button data-id="{{ $t->device_type_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div> <!-- end col -->
-
-                <div class="col-xl-6">
-                    <div class="card-box">
                         <h4 class="header-title mb-3">افزودن</h4>
                         <form id="types_form" action="{{ route('create.system') }}"  onsubmit="return false;">
                             <div class="col-lg-6">
@@ -120,6 +74,56 @@
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
                     </div> <!-- end card-box-->
+                </div> <!-- end col -->
+                <div class="col-xl-6">
+                    <div class="card-box">
+                        <h4 class="header-title mb-3">سیستم های ثبت شده</h4>
+
+                        <div class="table-responsive">
+                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="font-weight-medium">ردیف</th>
+                                        <th class="font-weight-medium">نام سیستم</th>
+                                        <th class="font-weight-medium">تعداد دسته</th>
+                                        <th class="font-weight-medium">قیمت هر ساعت</th>
+                                        <th class="font-weight-medium">عملیات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                    $i = 1;
+                                @endphp
+                                    @foreach ($mysystemtypes as $t)
+
+                                    <tr>
+                                        <td>
+                                            {{ $i++ }}
+                                        </td>
+
+                                        <td>
+                                            {{ $t->type_name }}
+                                        </td>
+
+                                        <td>
+                                            {{ $t->joystick_count }}
+                                        </td>
+
+                                        <td>
+                                            {{ number_format($t->type_price, 0) }}
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="{{ $t->device_type_id }}" data-dtnid="{{ $t->device_type_name_id }}" data-price="{{ $t->type_price }}">ویرایش</button>
+                                            <button data-id="{{ $t->device_type_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div> <!-- end col -->
             </div>
             <!-- end row -->

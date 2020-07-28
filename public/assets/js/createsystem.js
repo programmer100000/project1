@@ -45,7 +45,7 @@ $(document).ready(function() {
     }
 
 
-    $("#types_form_btn").click(function(e) {
+    $("#add_invoice").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -57,6 +57,26 @@ $(document).ready(function() {
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
                 window.alert(data);
+            }
+        });
+    });
+
+    $("#types_form_btn").click(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                Swal.fire(data.responseJSON.message);
+
+            },
+            error:function(data) {
+                Swal.fire('خطا', data.responseJSON.message, 'error');
             }
         });
     });

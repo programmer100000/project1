@@ -31,6 +31,7 @@ use App\GamenetReport;
 use Maatwebsite\Excel\Excel;
 use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
 use Morilog\Jalali\Jalalian;
+use Illuminate\Support\Facades\Response;
 
 class AdminpanelController extends Controller
 {
@@ -138,8 +139,6 @@ class AdminpanelController extends Controller
                     ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
                     ->where('gnet_id', $gnet_id)
                     ->get();
-
-
                 $systemtypes = Devicesystem::all();
 
                 return view('Admin.createsystems', compact('systems', 'mysystemtypes', 'systemtypes'));
@@ -149,17 +148,31 @@ class AdminpanelController extends Controller
                 $price = $request->input('price');
                 $joystick_count = $request->input('joystick_count');
 
-                $devicetype = new DeviceType();
-                $devicetype->device_type_name_id = $systemtype;
-                $devicetype->type_price = $price;
-                $devicetype->gnet_id = $gnet_id;
-                $devicetype->joystick_count = $joystick_count;
-                if ($devicetype->save()) {
-                    return json_encode('با موفقیت ثبت شد');
-                } else {
-                    return json_encode('مشکلی رخ داده است');
-                }
+                $device = DeviceType::select()->where([['device_type_name_id', '=', $systemtype], ['joystick_count', '=', $joystick_count], ['gnet_id' , '=', $gnet_id]])->get();
 
+                if(count($device) > 0) {
+                    return Response::json(array(
+                        'code'      =>  450,
+                        'message'   =>  'این دستگاه قبلا اضافه شده'
+                    ), 450);
+                } else {
+                    $devicetype = new DeviceType();
+                    $devicetype->device_type_name_id = $systemtype;
+                    $devicetype->type_price = $price;
+                    $devicetype->gnet_id = $gnet_id;
+                    $devicetype->joystick_count = $joystick_count;
+                    if ($devicetype->save()) {
+                        return Response::json(array(
+                            'code'      =>  200,
+                            'message'   =>  'با موفقیت ثبت شد'
+                        ), 200);
+                    } else {
+                        return Response::json(array(
+                            'code'      =>  451,
+                            'message'   =>  'مشکلی رخ داده است'
+                        ), 451);
+                    }
+                }
 
                 break;
             default:

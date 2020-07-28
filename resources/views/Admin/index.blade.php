@@ -111,7 +111,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>
+                            <button type="button" id="add_invoice" class="btn btn-primary">ثبت</button>
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
                     </div> <!-- end card-box-->
