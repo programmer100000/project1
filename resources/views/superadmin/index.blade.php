@@ -165,7 +165,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="report">توضیحات عدم تایید</label>
-                            <textarea name="report" id="report" cols="30" rows="10"></textarea>
+                            <textarea name="report" id="report" class="form-control" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                     <div type="button" id="disapproval" class="btn btn-danger" >عدم تایید</div>

@@ -27,13 +27,14 @@ use PDO;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Global_;
 use Illuminate\Support\Facades\DB;
+use App\GamenetReport;
 use Maatwebsite\Excel\Excel;
 use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
 use Morilog\Jalali\Jalalian;
 
 class AdminpanelController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('CheckAdminLogin');
@@ -42,7 +43,6 @@ class AdminpanelController extends Controller
         session(['sortorderlivelog' => 'asc']);
         session(['sortfieldfactor' => 'invoices.invoice_id']);
         session(['sortorderfactor' => 'asc']);
-        
     }
 
     function convert_number($num)
@@ -97,7 +97,27 @@ class AdminpanelController extends Controller
                 ->where('gnet_lives.gnet_id', $gnet_id)->get();
             $buffets = Buffet::all();
             $falsedevices = Devices::select()->where('status', 0)->get();
-            return view('Admin.index', compact('lives', 'falsedevices', 'buffets'));
+            $approve = Gamenet::select()->where('gamenet_id', $gnet_id)->first();
+            $message = '';
+            $status = 0;
+            switch ($approve->approve) {
+                case '0':
+                    $status = 0;
+                    break;
+                case '1':
+                    $status = 1;
+                    break;
+                case '2':
+                    $status = 2;
+                    $report = GamenetReport::select()->where('gnet_id', $gnet_id)->first();
+                    $message = $report->report;
+
+                    break;
+                default:
+                    $message = 'ناموفق';
+                    break;
+            }
+            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status' ,  'message'));
         } else {
             return redirect()->route('admin.login');
         }
@@ -877,30 +897,33 @@ class AdminpanelController extends Controller
             }
         }
     }
-    public function exportexcellivelogs(){
-       $sf = session('sortfieldlivelog');
-       $so = session('sortorderlivelog'); 
-       return FacadesExcel::download(new LivesLogExport($sf , $so), 'log.xlsx');
+    public function exportexcellivelogs()
+    {
+        $sf = session('sortfieldlivelog');
+        $so = session('sortorderlivelog');
+        return FacadesExcel::download(new LivesLogExport($sf, $so), 'log.xlsx');
     }
-    
-    public function exportexcelfactors(){
-        $sf = session('sortfieldfactor');
-        $so = session('sortorderfactor'); 
-        return FacadesExcel::download(new FactorExport($sf , $so), 'log.xlsx');
-     }
 
-     public function editprofile(Request $request){
+    public function exportexcelfactors()
+    {
+        $sf = session('sortfieldfactor');
+        $so = session('sortorderfactor');
+        return FacadesExcel::download(new FactorExport($sf, $so), 'log.xlsx');
+    }
+
+    public function editprofile(Request $request)
+    {
         $user = Auth::user();
         $gnet = Gamenet::where('user_id', $user->user_id)->first();
         $gnet_id = $gnet->gamenet_id;
         switch ($request->method()) {
             case 'GET':
                 $gamenet = Gamenet::select()
-                ->join('users' , 'users.user_id' , '=' , 'gamenets.user_id')
-                ->where('gamenets.gamenet_id' , $gnet_id)->get();
-                $gamenet_temp = GamenetTemp::select()->where('gnet_id' , $gnet_id)->first();
+                    ->join('users', 'users.user_id', '=', 'gamenets.user_id')
+                    ->where('gamenets.gamenet_id', $gnet_id)->get();
+                $gamenet_temp = GamenetTemp::select()->where('gnet_id', $gnet_id)->first();
 
-                return view('Admin.editinfo', compact('gamenet' , 'gamenet_temp'));
+                return view('Admin.editinfo', compact('gamenet', 'gamenet_temp'));
                 break;
             case 'POST':
                 $gamenet_id = $request->input('gamenet_id');
@@ -909,9 +932,9 @@ class AdminpanelController extends Controller
                 $desc = $request->input('desc');
                 $tel = $request->input('tel');
 
-                $gamenet_s = Gamenet::select()->where('gamenet_id' , $gnet_id)->first();
-                $g_temp = GamenetTemp::select()->where('gnet_id' , $gnet_id)->first();
-                if($g_temp == null){
+                $gamenet_s = Gamenet::select()->where('gamenet_id', $gnet_id)->first();
+                $g_temp = GamenetTemp::select()->where('gnet_id', $gnet_id)->first();
+                if ($g_temp == null) {
                     $gamenet_temp = new GamenetTemp();
                     $gamenet_temp->title = $gamenetname;
                     $gamenet_temp->address = $address;
@@ -924,20 +947,18 @@ class AdminpanelController extends Controller
                     $gamenet_temp->description = $desc;
                     $gamenet_temp->gnet_id = $gnet_id;
                     $gamenet_temp->user_id = $user->user_id;
-                    if($gamenet_temp->save()){
+                    if ($gamenet_temp->save()) {
                         return true;
-                    }
-                    else {
+                    } else {
                         return false;
                     }
-                }
-                else{
+                } else {
                     return false;
                 }
-                
+
                 break;
             default:
                 return -1;
         }
-     }
+    }
 }
