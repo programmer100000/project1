@@ -345,11 +345,12 @@ class AdminpanelController extends Controller
             case 'POST':
                 $buffetname = $request->input('buffetname');
                 $price = $request->input('price');
-
+                $count = $request->input('count');
                 $buffet = new Buffet();
                 $buffet->buffet_name = $buffetname;
                 $buffet->buffet_price = $price;
                 $buffet->gnet_id = $gnet_id;
+                $buffet->count = $count;
                 if ($buffet->save()) {
                     return json_encode('با موفقیت ثبت شد');
                 } else {
