@@ -105,7 +105,7 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
     //     ];
     // }
     $lottery_users_1  = lotteryuser::select()->where('lottery_id', $id)->get();
-    $lottery_match_last_level = LotteryMatch::select('level')->where('lottery_id', $id)->orderBy('level', 'desc')->first();
+    $lottery_match_last_level = LotteryMatch::select()->where('lottery_match_id', $id)->orderBy('level', 'desc')->first();
     $last_level = $lottery_match_last_level->level;
     $arrgoal = array();
     for ($i = 1; $i <= $last_level; $i++) {
