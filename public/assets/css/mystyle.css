@@ -1,29 +1,23 @@
-.user-login-form .form-group .btn-primary {
-    background: #003b36!important;
-    border-color: #003b36!important;
-}
-
 .custom-control-input:checked~.custom-control-label::before {
     background: #003b36!important;
     border-color: #003b36!important;
 }
 
-.user-register-form .form-group .btn-success {
+.forms .form-group .btn-success {
     background: #003b36!important;
     border-color: #003b36!important;
 }
 
-.user-forget-pass-form .form-group .btn-success {
+.forms .form-group .btn-primary {
     background: #003b36!important;
     border-color: #003b36!important;
+    outline: none;
 }
 
-.admin-register-form .form-group .btn-success {
-    background: #003b36!important;
-    border-color: #003b36!important;
-}
-
-.admin-login-form .form-group .btn-primary {
-    background: #003b36!important;
-    border-color: #003b36!important;
+.forms .form-group button:hover,
+.intro-panel-btn a button:active,
+.intro-panel-btn a button:focus,
+.intro-panel-btn a button:visited {
+    outline: none!important;
+    box-shadow: none!important;
 }

@@ -1636,9 +1636,7 @@ body {
 
 .btns {
     direction: rtl;
-    position: fixed;
     z-index: 100;
-    top: 350px;
 }
 
 .intro-panel-btn a button {
@@ -1679,7 +1677,7 @@ body {
 .intro-panel-title {
     width: 100%;
     position: fixed;
-    top: 150px;
+    top: 350px;
     z-index: 100;
 }
 
@@ -1721,9 +1719,14 @@ body {
 }
 
 .advantage-item-img {
-    background: url('/ui/img/advantage.png') no-repeat;
+    /* background: url('/ui/img/advantage.png') no-repeat; */
     height: 120px;
     width: 120px;
+}
+
+.mobo-marahel-img {
+    margin: 0 auto;
+    display: none;
 }
 
 .description-container {
@@ -1751,12 +1754,21 @@ body {
 .pro-container {
     background-position: center;
     background-size: cover;
-    height: 600px;
+    /* height: 600px; */
 }
 
 .intro-panel-about-text {
     text-align: justify!important;
     direction: rtl!important;
+}
+
+@media screen and (max-width: 678px) {
+    .mobo-marahel-img {
+        display: block;
+    }
+    .marahel-img {
+        display: none;
+    }
 }
 
 

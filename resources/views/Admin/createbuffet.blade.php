@@ -55,6 +55,7 @@
                                         <th class="font-weight-medium">ردیف</th>
                                         <th class="font-weight-medium">نام خوراکی</th>
                                         <th class="font-weight-medium">قیمت </th>
+                                        <th class="font-weight-medium">تعداد </th>
                                         <th class="font-weight-medium">عملیات</th>
                                     </tr>
                                 </thead>
@@ -76,7 +77,9 @@
                                         <td>
                                             {{ $t->buffet_price }}
                                         </td>
-
+                                        <td>
+                                            {{ $t->count }}
+                                        </td>
                                         <td>
                                             <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="{{ $t->gnet_buffet_id }}" data-dtnid="{{ $t->device_type_name_id }}" data-price="{{ $t->type_price }}">ویرایش</button>
                                             <button data-id="{{ $t->gnet_buffet_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
@@ -103,6 +106,12 @@
                                 <div class="form-group mb-3">
                                     <label>قیمت</label>
                                     <input class="form-control" type="text" name="price" id="selectize-tags">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label>تعداد</label>
+                                    <input class="form-control" type="text" name="count" id="selectize-tags">
                                 </div>
                             </div>
                             <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>

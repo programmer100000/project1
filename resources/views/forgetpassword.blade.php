@@ -28,7 +28,7 @@
                                 <p class="text-muted mb-4 mt-3">برای بازیابی رمز عبور خود شماره موبایل را وارد کنید</p>
                             </div>
 
-                            <form class="user-forget-pass-form" action="{{ route('forget.password') }}" method="POST">
+                            <form class="forms user-forget-pass-form" action="{{ route('forget.password') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     @if($errors->any())
