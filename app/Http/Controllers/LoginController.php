@@ -50,13 +50,14 @@ class LoginController extends Controller
                 $db_user = User::where('mobile', $mobile)->first();
                 if ($db_user == null) {
                     return redirect()->back()->withErrors(['شما در سایت ثبت نام نکرده اید', 'msg']);
-                } elseif ($db_user->status_id == 3) {
-                    return redirect()->back()->withErrors(['وضعیت شما در سایت معلق است لطفا از صفحه ی ثبت نام دوباره اقدام کنید', 'msg']);
+                // } elseif ($db_user->status_id == 3) {
+                //     return redirect()->back()->withErrors(['وضعیت شما در سایت معلق است لطفا از صفحه ی ثبت نام دوباره اقدام کنید', 'msg']);
                 } else {
                     $db_user->confirm_code = $confirm_code;
                     $db_user->status_id = 3 ;
                     if($db_user->save()){
                         Auth::login($db_user);
+                        $this->sendsms($mobile,$confirm_code);
                         return view('confirm');
                     }
 
@@ -64,6 +65,29 @@ class LoginController extends Controller
                 break;
             default:
                 return false;
+        }
+    }
+    public function sendsms($mobile , $code){
+        try{
+            
+            $api = new \Kavenegar\KavenegarApi( "576A7043685356796B4A4F304474703731734D70667061795165616A6D727644364A5254353430456739733D" );
+            $sender = "10004346";
+            $message = "کد فعالسازی شما:" . $code;
+            $receptor = array($mobile);
+            $result = $api->Send($sender,$receptor,$message);
+            if($result){
+                foreach($result as $r){
+                    return $r->status;
+                }		
+            }
+        }
+        catch(\Kavenegar\Exceptions\ApiException $e){
+            // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
+            echo $e->errorMessage();
+        }
+        catch(\Kavenegar\Exceptions\HttpException $e){
+            // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
+            echo $e->errorMessage();
         }
     }
     public function forgetpasswordconfirm(Request $request){

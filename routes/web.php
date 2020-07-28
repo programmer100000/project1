@@ -33,11 +33,11 @@ Route::get('/', function () {
 
 // super admin
 Route::get('/superadmin', 'superadmin@index')->name('superadmin');
-Route::get('/superadmin/login' , 'superadminlogin@login')->name('superadmin.login');
-Route::post('/superadmin/login' , 'superadminlogin@login')->name('superadmin.login');
-Route::post('/gamenet/data' , 'superadmin@gamenetdata')->name('gamenet.data');
-Route::post('/gamenet/Confirmation' , 'superadmin@Confirmation')->name('gamenet.Confirmation');
-Route::post('/gamenet/disapproval' , 'superadmin@disapproval')->name('gamenet.disapproval');
+Route::get('/superadmin/login', 'superadminlogin@login')->name('superadmin.login');
+Route::post('/superadmin/login', 'superadminlogin@login')->name('superadmin.login');
+Route::post('/gamenet/data', 'superadmin@gamenetdata')->name('gamenet.data');
+Route::post('/gamenet/Confirmation', 'superadmin@Confirmation')->name('gamenet.Confirmation');
+Route::post('/gamenet/disapproval', 'superadmin@disapproval')->name('gamenet.disapproval');
 
 
 /*Admin Routes*/
@@ -113,10 +113,9 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
     $arrgoal = array();
     if ($lottery_match_last_level == null) {
         $last_level = 0;
-        
-    }else{
+    } else {
         $last_level = $lottery_match_last_level->level;
-        
+
         for ($i = 1; $i <= $last_level; $i++) {
             $lottery_match_by_level = LotteryMatch::select()->where('level', $i)->get();
             for ($j = 0; $j < count($lottery_match_by_level); $j++) {
@@ -197,27 +196,27 @@ Route::get('/gamenet/{gamenet_id}/{gamenet_name}', function ($gamanet_id, $gamen
         } else {
             $s = $rate_status->rate;
         }
-    }else{
-        $s = 0; 
+    } else {
+        $s = 0;
     }
 
     return view('gamenet', compact('gamenet', 'gamenet_images', 's'));
 })->name('show.gamenet');
 Route::get('/gamenets', function () {
     $gamenets = Gamenet::select()
-    ->join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , '=' , 'gamenets.gamenet_id')
-    ->where('gamenet_pictures.flag' , "main")
-    ->get();
-    return  view('gamenets' , compact('gamenets'));
+        ->join('gamenet_pictures', 'gamenet_pictures.gnet_id', '=', 'gamenets.gamenet_id')
+        ->where('gamenet_pictures.flag', "main")
+        ->get();
+    return  view('gamenets', compact('gamenets'));
 })->name('gamenets');
 Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
-Route::get('/user/panel' , function(){
+Route::get('/user/panel', function () {
     return view('panel');
 });
-Route::get('/intro' , function(){
+Route::get('/intro', function () {
     return view('intropanel');
 })->name('intro');
-Route::get('/pay' , function(){
+Route::get('/pay', function () {
     return view('Admin.pay');
 })->name('pay');
 
