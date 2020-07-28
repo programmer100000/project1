@@ -214,7 +214,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group mb-3">
-                            <label> تعداد دسته اضافه</label>
+                            <label> تعداد دسته</label>
                             <input class="form-control" type="text" name="joystick_count" id="selectize-tags">
                         </div>
                     </div>
