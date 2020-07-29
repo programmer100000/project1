@@ -117,14 +117,13 @@
                                 <span>  دستگاه </span>
                             </a>
                         </li>
-                        {{-- <li>
+                        <li>
                             <a href="{{ route('create.game') }}">
                                 <i data-feather="airplay"></i>
-                             <span class="badge badge-success badge-pill float-right">4</span> 
-                                <span>  بازی </span>
+                                <span>   امکانات و بازی ها</span>
                             </a>
                         </li>
-                        --}}
+                       
                         <li>
                             <a href="{{ route('create.buffet') }}">
                                 <i data-feather="airplay"></i>

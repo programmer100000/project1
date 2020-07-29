@@ -72,15 +72,35 @@ $(document).ready(function() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                Swal.fire(data.responseJSON.message);
+                Swal.fire('با موفقیت ثبت شد');
 
             },
-            error:function(data) {
+            error: function(data) {
                 Swal.fire('خطا', data.responseJSON.message, 'error');
             }
         });
     });
-    
+    $("#btnformpossibility").click(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                Swal.fire('با موفقیت ثبت شد');
+
+            },
+            error: function(data) {
+                Swal.fire('خطا', data.responseJSON.message, 'error');
+            }
+        });
+    });
+
+
 
     $("#lottery_user_btn").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -126,13 +146,42 @@ $(document).ready(function() {
         $("#remove-system").attr('data-id', data_id);
 
     });
+    $(document).on('click', '.remove-possibility', function() {
+        let that = $(this);
+        let data_id = that.attr('data-id');
 
+        $("#remove-possibility").attr('data-id', data_id);
+
+    });
+    $(document).on('click', '.edit-possibility', function() {
+        let that = $(this);
+        let data_id = that.attr('data-id');
+
+        $("#possibilityid").val(data_id);
+
+    });
     $(document).on('click', '.remove-user-lottery', function() {
         let that = $(this);
         let data_id = that.attr('data-id');
         console.log(data_id);
         $("#remove-user-lottery").attr('data-id', data_id);
 
+    });
+    $(document).on('click', '#remove-possibility', function() {
+        let that = $(this);
+        let data_id = that.attr('data-id');
+        let url = that.attr('data-url');
+        console.log(data_id);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id: data_id
+            }, // serializes the form's elements.
+            success: function(data) {
+                location.reload();
+            }
+        });
     });
 
     $(document).on('click', '#remove-user-lottery', function() {
@@ -232,6 +281,7 @@ $(document).ready(function() {
             }
         });
     });
+
     $(document).on('click', '.edit-system', function() {
         let that = $(this);
 
@@ -265,6 +315,22 @@ $(document).ready(function() {
             }
         });
     });
+    $("#editpossibility").click(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                location.reload();
+            }
+        });
+    });
+
     $("#changerow").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 

@@ -78,6 +78,10 @@ Route::post('/admin/create/game', 'AdminpanelController@creategame')->name('crea
 Route::post('/admin/delete/game', 'AdminpanelController@deletegame')->name('delete.game');
 Route::post('/admin/edit/game', 'AdminpanelController@editgame')->name('edit.game');
 
+Route::post('/admin/create/possibility', 'AdminpanelController@createpossibility')->name('create.possibility');
+Route::post('/admin/delete/possibility', 'AdminpanelController@deletepossibility')->name('delete.possibility');
+Route::post('/admin/edit/possibility', 'AdminpanelController@editpossibility')->name('edit.possibility');
+
 Route::get('/admin/login', 'AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'AdminLoginController@login')->name('admin.login.auth');
 Route::get('/admin/register', 'AdminRegisterController@index')->name('admin.register');

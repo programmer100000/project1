@@ -22,6 +22,7 @@ use App\LotteryMatch;
 use App\lotteryuser;
 use App\System;
 use Carbon\Carbon;
+use App\Possibilities;
 use Illuminate\Http\Request;
 use PDO;
 use Illuminate\Support\Facades\Auth;
@@ -279,34 +280,43 @@ class AdminpanelController extends Controller
         switch ($request->method()) {
             case 'GET':
                 $games =  Game::select()->where('gnet_id', $gnet_id)->get();
-                $mydevices = Devices::select()
-                    ->join('device_types', 'gnet_devices.device_type_id', '=', 'device_types.device_type_id')
-                    ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
-                    ->where('gnet_devices.gnet_id', $gnet_id)
-                    ->get();
-                $systemtypes = Devices::select();
-
-                return view('Admin.creategame', compact('games', 'mydevices', 'systemtypes'));
+                $possibilities = Possibilities::select()->where('gnet_id', $gnet_id)->get();
+                return view('Admin.creategame', compact('games' , 'possibilities'));
                 break;
             case 'POST':
-                $devices = $request->input('devices');
                 $gamename = $request->input('gamename');
 
                 $game = new Game();
                 $game->gnet_id = $gnet_id;
                 $game->game_name = $gamename;
                 if ($game->save()) {
-                    foreach ($devices as $item) {
-                        $game_device = new GameDevice();
-                        $game_device->gnet_game_id = $game->gnet_game_id;
-                        $game_device->gnet_device_id = $item;
-                        $game_device->save();
-                    }
+                    return Response::json(array(
+                        'code'      =>  200,
+                        'message'   =>  'با موفقیت ثبت شد'
+                    ), 200);
                 }
                 break;
             default:
                 return -1;
         }
+    }
+    public function createpossibility(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $text = $request->input('possibilityname');
+        $possibility = new Possibilities();
+        $possibility->gnet_id = $gnet_id; 
+        $possibility->text = $text;
+        if($possibility->save()){
+            return Response::json(array(
+                'code' => 200,
+                'message' => 'با موفقیت ثبت شد'
+            ), 200);
+        }else{
+            return -1 ;
+        }
+        
     }
     public function deletegame(Request $request)
     {
@@ -315,26 +325,57 @@ class AdminpanelController extends Controller
         $deletegame = Game::select()->where('gnet_game_id', $id)->delete();
 
         if ($deletegame) {
-            GameDevice::select()->where('gnet_game_id', $id)->delete();
-            return true;
+            return Response::json(array(
+                'code' => '200',
+                'message' => 'با موفقیت حذف شد'
+            ), 200);
         } else {
-            return false;
+            return -1;
+        }
+    }
+    public function deletepossibility(Request $request){
+        $id = $request->input('id');
+
+        $possibility = Possibilities::select()->where('possibility_id', $id)->delete();
+
+        if ($possibility) {
+            return Response::json(array(
+                'code' => '200',
+                'message' => 'با موفقیت حذف شد'
+            ), 200);
+        } else {
+            return -1;
         }
     }
 
     public function editgame(Request $request)
     {
-        $gnet_device_id = $request->input('gnet_device_id');
-        $device_name = $request->input('device_name');
-        $system_type = $request->input('system_type');
-
-        $device = Devices::where('gnet_device_id', $gnet_device_id)->first();
-        $device->device_name = $device_name;
-        $device->device_type_id = $system_type;
-        if ($device->save()) {
-            return true;
+        $gameid = $request->input('gameid');
+        $gamename = $request->input('gamename');
+        $game = Game::select()->where('gnet_game_id' , $gameid)->first();
+        $game->game_name = $gamename;
+        if ($game->save()) {
+            return Response::json(array(
+                'code' => '200',
+                'message' => 'با موفقیت ویرایش شد'
+            ), 200);
         } else {
-            return false;
+            return -1;
+        }
+    }
+    public function editpossibility(Request $request)
+    {
+        $possibilityid = $request->input('possibilityid');
+        $possibilityname = $request->input('possibilityname');
+        $possibility = Possibilities::select()->where('possibility_id' , $possibilityid)->first();
+        $possibility->text = $possibilityname;
+        if ($possibility->save()) {
+            return Response::json(array(
+                'code' => '200',
+                'message' => 'با موفقیت ویرایش شد'
+            ), 200);
+        } else {
+            return -1;
         }
     }
     public function createbuffet(Request $request)
