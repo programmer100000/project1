@@ -390,6 +390,7 @@ class AdminpanelController extends Controller
                     ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
                     ->where('gnet_id', $gnet_id)
                     ->get();
+                    
 
                 $systemtypes = Devicesystem::all();
 
