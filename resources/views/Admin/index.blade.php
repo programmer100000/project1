@@ -32,7 +32,7 @@
                 <div class="col-xl-12">
                     <div class="card-box">
                         <h4 class="header-title mb-3">دستگاه های مشغول</h4>
-
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#live-form">افزودن</button>
                         <div class="table-responsive">
                             <table class="table table-borderless table-hover table-nowrap table-centered m-0">
 
@@ -60,6 +60,7 @@
 
 
                                         <td>
+                                        <span id="livetime">{{ $t->created_at->format('h:m:i') }}</span>
                                             <button type="button"
                                                 class="edit-system btn btn-success waves-effect waves-light"
                                                 data-toggle="modal" data-target="#con-close-modal"
@@ -85,7 +86,7 @@
                     </div>
                 </div> <!-- end col -->
 
-                <div class="col-xl-6">
+                {{-- <div class="col-xl-6">
                     <div class="card-box">
                         <h4 class="header-title mb-3">افزودن</h4>
                         <form id="types_form" action="{{ route('create.live') }}" onsubmit="return false;">
@@ -115,7 +116,7 @@
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
                     </div> <!-- end card-box-->
-                </div> <!-- end col -->
+                </div> <!-- end col --> --}}
 
                 <div class="col-xl-12">
 
@@ -269,6 +270,48 @@
     </div>
 </div><!-- /.modal -->
 
+<div id="live-form" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title mr-2">افزودن <span id="row-num-model"></span> </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body p-4">
+                        <h4 class="header-title mb-3">افزودن</h4>
+                        <form id="types_form" action="{{ route('create.live') }}" onsubmit="return false;">
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label>نام دستگاه</label> <br />
+                                    <select name="deviceid" id="selectize-select" class="form-control ">
+                                        @foreach ($falsedevices as $system)
+                                        <option value="{{ $system->gnet_device_id }}">{{ $system->device_name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label> تعداد دسته</label>
+                                    <select name="joystick_count" class="form-control" id="">
+                                    @for($i = 1 ; $i<=5  ; $i++)
+                                    <option value = "{{$i}}">{{ $i }}</option>
+                                    
+                                    @endfor
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="button" id="add_invoice" class="btn btn-primary">ثبت</button>
+                            <p style="color: red;" id="device_type_form_msg"></p>
+                        </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->
 <!-- Modal -->
 <div id="ModalForm" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">

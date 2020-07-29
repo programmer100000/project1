@@ -120,7 +120,13 @@ class AdminpanelController extends Controller
                     $message = 'ناموفق';
                     break;
             }
-            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status' ,  'message'));
+            $onday = livelog::select()->whereDate('created_at', Carbon::today())->get();
+            $onweek = livelog::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            $currentMonth = date('m');
+            $onmonth = DB::table("gnet_live_logs")
+                ->whereRaw('MONTH(created_at) = ?', [$currentMonth])
+                ->get();
+            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status',  'message'));
         } else {
             return redirect()->route('admin.login');
         }
@@ -150,9 +156,9 @@ class AdminpanelController extends Controller
                 $price = $request->input('price');
                 $joystick_count = $request->input('joystick_count');
 
-                $device = DeviceType::select()->where([['device_type_name_id', '=', $systemtype], ['joystick_count', '=', $joystick_count], ['gnet_id' , '=', $gnet_id]])->get();
+                $device = DeviceType::select()->where([['device_type_name_id', '=', $systemtype], ['joystick_count', '=', $joystick_count], ['gnet_id', '=', $gnet_id]])->get();
 
-                if(count($device) > 0) {
+                if (count($device) > 0) {
                     return Response::json(array(
                         'code'      =>  450,
                         'message'   =>  'این دستگاه قبلا اضافه شده'
@@ -215,8 +221,8 @@ class AdminpanelController extends Controller
         $gnet_id = $gnet->gamenet_id;
         switch ($request->method()) {
             case 'GET':
-                $systems = Devicesystem ::select()
-                ->whereIn('device_type_name_id', DeviceType::select('device_type_name_id')->where('gnet_id' , $gnet_id)->get())->get();
+                $systems = Devicesystem::select()
+                    ->whereIn('device_type_name_id', DeviceType::select('device_type_name_id')->where('gnet_id', $gnet_id)->get())->get();
                 $mysystemtypes = Devices::select()
                     ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'gnet_devices.device_type_name_id')
                     ->where('gnet_devices.gnet_id', $gnet_id)
@@ -282,7 +288,7 @@ class AdminpanelController extends Controller
             case 'GET':
                 $games =  Game::select()->where('gnet_id', $gnet_id)->get();
                 $possibilities = Possibilities::select()->where('gnet_id', $gnet_id)->get();
-                return view('Admin.creategame', compact('games' , 'possibilities'));
+                return view('Admin.creategame', compact('games', 'possibilities'));
                 break;
             case 'POST':
                 $gamename = $request->input('gamename');
@@ -301,23 +307,23 @@ class AdminpanelController extends Controller
                 return -1;
         }
     }
-    public function createpossibility(Request $request){
+    public function createpossibility(Request $request)
+    {
         $user = Auth::user();
         $gnet = Gamenet::where('user_id', $user->user_id)->first();
         $gnet_id = $gnet->gamenet_id;
         $text = $request->input('possibilityname');
         $possibility = new Possibilities();
-        $possibility->gnet_id = $gnet_id; 
+        $possibility->gnet_id = $gnet_id;
         $possibility->text = $text;
-        if($possibility->save()){
+        if ($possibility->save()) {
             return Response::json(array(
                 'code' => 200,
                 'message' => 'با موفقیت ثبت شد'
             ), 200);
-        }else{
-            return -1 ;
+        } else {
+            return -1;
         }
-        
     }
     public function deletegame(Request $request)
     {
@@ -334,7 +340,8 @@ class AdminpanelController extends Controller
             return -1;
         }
     }
-    public function deletepossibility(Request $request){
+    public function deletepossibility(Request $request)
+    {
         $id = $request->input('id');
 
         $possibility = Possibilities::select()->where('possibility_id', $id)->delete();
@@ -353,7 +360,7 @@ class AdminpanelController extends Controller
     {
         $gameid = $request->input('gameid');
         $gamename = $request->input('gamename');
-        $game = Game::select()->where('gnet_game_id' , $gameid)->first();
+        $game = Game::select()->where('gnet_game_id', $gameid)->first();
         $game->game_name = $gamename;
         if ($game->save()) {
             return Response::json(array(
@@ -368,7 +375,7 @@ class AdminpanelController extends Controller
     {
         $possibilityid = $request->input('possibilityid');
         $possibilityname = $request->input('possibilityname');
-        $possibility = Possibilities::select()->where('possibility_id' , $possibilityid)->first();
+        $possibility = Possibilities::select()->where('possibility_id', $possibilityid)->first();
         $possibility->text = $possibilityname;
         if ($possibility->save()) {
             return Response::json(array(
@@ -386,17 +393,17 @@ class AdminpanelController extends Controller
         $gnet_id = $gnet->gamenet_id;
         switch ($request->method()) {
             case 'GET':
-                $buffets =  Buffet::select()->where('gnet_id' , $gnet_id)->get();
+                $buffets =  Buffet::select()->where('gnet_id', $gnet_id)->get();
                 $mysystemtypes = DeviceType::select()
                     ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
                     ->where('gnet_id', $gnet_id)
                     ->get();
-                    
+
 
                 $systemtypes = Devicesystem::all();
-                
 
-                return view('Admin.createbuffet', compact('buffets', 'mysystemtypes', 'systemtypes' ));
+
+                return view('Admin.createbuffet', compact('buffets', 'mysystemtypes', 'systemtypes'));
                 break;
             case 'POST':
                 $buffetname = $request->input('buffetname');
@@ -451,10 +458,10 @@ class AdminpanelController extends Controller
         $gnet_id = $gnet->gamenet_id;
         $joystick_count = $request->input('joystick_count');
         $deviceid = $request->input('deviceid');
-        $device = Devices::select()->where([['gnet_device_id' , '=' ,$deviceid] , ['gnet_id' , '=' , $gnet_id]])->first();
+        $device = Devices::select()->where([['gnet_device_id', '=', $deviceid], ['gnet_id', '=', $gnet_id]])->first();
         $dtypenameid = $device->device_type_name_id;
-        $devicetype = DeviceType::select()->where([['device_type_name_id' , '=' , $dtypenameid] , ['joystick_count' , '=' , $joystick_count] , ['gnet_id' , '=' , $gnet_id]])->first();
-        if($devicetype != null){
+        $devicetype = DeviceType::select()->where([['device_type_name_id', '=', $dtypenameid], ['joystick_count', '=', $joystick_count], ['gnet_id', '=', $gnet_id]])->first();
+        if ($devicetype != null) {
             if ($request->method() == 'POST') {
                 $invoicenum = $user->user_id
                     . Jalalian::forge('today')->format('%y')
@@ -468,10 +475,10 @@ class AdminpanelController extends Controller
                 $invoice->user_id  = $user->user_id;
                 $invoice->invoice_num  = $invoicenum;
                 $invoice->price = 0;
-    
+
                 if ($invoice->save()) {
                     $price = $request->input('price');
-    
+
                     $live = new live();
                     $live->gnet_device_id = $deviceid;
                     $live->gnet_id = $gnet_id;
@@ -488,10 +495,9 @@ class AdminpanelController extends Controller
                     }
                 }
             }
-        }else{
+        } else {
             return json_encode('تعداد دسته انتخابی شده صحیح نیست');
         }
-
     }
     public function deletelive(Request $request)
     {
@@ -522,7 +528,7 @@ class AdminpanelController extends Controller
         $livelog->joystick_count = $live->joystick_count;
 
         $device = Devices::select()
-            ->join('device_type_names' , 'device_type_names.device_type_name_id' , '=' , 'gnet_devices.device_type_name_id')
+            ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'gnet_devices.device_type_name_id')
             ->join('device_types', 'device_types.device_type_name_id', '=', 'device_type_names.device_type_name_id')
             ->where('gnet_devices.gnet_device_id', $live->gnet_device_id)->first();
         $deviceprice = $device->type_price;
@@ -731,10 +737,10 @@ class AdminpanelController extends Controller
         $deviceid = $request->input('deviceid');
         $joystick_count = $request->input('joystick_count');
         $now = Carbon::now();
-        $device = Devices::select()->where([['gnet_device_id' , '=' ,$deviceid] , ['gnet_id' , '=' , $gnet_id]])->first();
+        $device = Devices::select()->where([['gnet_device_id', '=', $deviceid], ['gnet_id', '=', $gnet_id]])->first();
         $dtypenameid = $device->device_type_name_id;
-        $devicetype = DeviceType::select()->where([['device_type_name_id' , '=' , $dtypenameid] , ['joystick_count' , '=' , $joystick_count] , ['gnet_id' , '=' , $gnet_id]])->first();
-        if($devicetype != null){
+        $devicetype = DeviceType::select()->where([['device_type_name_id', '=', $dtypenameid], ['joystick_count', '=', $joystick_count], ['gnet_id', '=', $gnet_id]])->first();
+        if ($devicetype != null) {
             $live = live::select()->where('gnet_live_id', $id)->first();
             $livelog = new livelog();
             $livelog->gnet_id = $gnet_id;
@@ -743,25 +749,25 @@ class AdminpanelController extends Controller
             $livelog->invoice_id = $live->invoice_id;
             $livelog->end_time = $now->toDateTimeString();
             $livelog->joystick_count = $live->joystick_count;
-    
+
             $device = Devices::select()
-            ->join('device_type_names' , 'device_type_names.device_type_name_id' , '=' , 'gnet_devices.device_type_name_id')
-            ->join('device_types', 'device_types.device_type_name_id', '=', 'device_type_names.device_type_name_id')
-            ->where('gnet_devices.gnet_device_id', $live->gnet_device_id)->first();
+                ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'gnet_devices.device_type_name_id')
+                ->join('device_types', 'device_types.device_type_name_id', '=', 'device_type_names.device_type_name_id')
+                ->where('gnet_devices.gnet_device_id', $live->gnet_device_id)->first();
             $deviceprice = $device->type_price;
-    
+
             $start = strtotime($live->start_time);
             $end = strtotime($now);
             $jcount = $live->joystick_count;
             $mins = ((($end - $start) / 60) / 60) * $deviceprice;
-    
+
             $price = $this->calculateprice($mins);
             // if ($jcount == 0) {
 
             // } else {
             //     $joystickprice  = $device->joystick_price;
             //     $mins = ((($end - $start) / 60) / 60) * $deviceprice + $jcount * $joystickprice;
-    
+
             //     $price = $this->calculateprice($mins);
             // }
             $livelog->price = $price;
@@ -786,10 +792,9 @@ class AdminpanelController extends Controller
                     }
                 }
             }
-        }else {
+        } else {
             return json_encode('مشکلی رخ داده است');
         }
-
     }
     public function addbuffet(Request $request)
     {
@@ -801,18 +806,17 @@ class AdminpanelController extends Controller
         foreach ($buffetnames as $key => $value) {
             $buffet = Buffet::select()->where('gnet_buffet_id', $value)->first();
             $buffet->count = $buffet->count - $counts[$key];
-            if($buffet->save()){
+            if ($buffet->save()) {
                 $price = $buffet->buffet_price;
-            $buffet_log = new BuffetLog();
-            $buffet_log->count = $counts[$key];
-            $buffet_log->invoice_id = $live->invoice_id;
-            $buffet_log->gnet_buffet_id = $buffet->gnet_buffet_id;
-            $buffet_log->price = $counts[$key] * $price;
-            if($buffet_log->save()){
-                return true;
+                $buffet_log = new BuffetLog();
+                $buffet_log->count = $counts[$key];
+                $buffet_log->invoice_id = $live->invoice_id;
+                $buffet_log->gnet_buffet_id = $buffet->gnet_buffet_id;
+                $buffet_log->price = $counts[$key] * $price;
+                if ($buffet_log->save()) {
+                    return true;
+                }
             }
-            } 
-            
         }
     }
     public function createlottery(Request $request)
@@ -1025,7 +1029,7 @@ class AdminpanelController extends Controller
                     $gamenet_temp->address = $address;
                     $gamenet_temp->tel = $tel;
                     $gamenet_temp->lat = $lat;
-                    $gamenet_temp->long =$lng;
+                    $gamenet_temp->long = $lng;
                     $gamenet_temp->status = 0;
                     $gamenet_temp->rate = $gamenet_s->rate;
                     $gamenet_temp->approve = 0;
@@ -1046,45 +1050,46 @@ class AdminpanelController extends Controller
                 return -1;
         }
     }
-    public function buffetcount(Request $request){
+    public function buffetcount(Request $request)
+    {
         $id = $request->input('id');
-        $buffet = Buffet::select()->where('gnet_buffet_id' , $id)->first();
+        $buffet = Buffet::select()->where('gnet_buffet_id', $id)->first();
         return $buffet->count;
     }
-    public function buybuffet(Request $request){
+    public function buybuffet(Request $request)
+    {
 
         $user = Auth::user();
         $gnet = Gamenet::where('user_id', $user->user_id)->first();
         $gnet_id = $gnet->gamenet_id;
         $buffet_id = $request->input('buffetid');
         $count = $request->input('count');
-        $buffet = Buffet::select()->where('gnet_buffet_id' , $buffet_id)->first();
-        if($count <= $buffet->count){
+        $buffet = Buffet::select()->where('gnet_buffet_id', $buffet_id)->first();
+        if ($count <= $buffet->count) {
             $buffet->count = $buffet->count - $count;
-            if($buffet->save()){
+            if ($buffet->save()) {
                 $bbuffetlog = new buybuffetlog();
                 $bbuffetlog->price = $buffet->buffet_price;
                 $bbuffetlog->count = $count;
                 $bbuffetlog->gnet_id = $gnet_id;
-                $bbuffetlog->gnet_buffet_id	 = $buffet_id;
-                if($bbuffetlog->save())
-                {
+                $bbuffetlog->gnet_buffet_id     = $buffet_id;
+                if ($bbuffetlog->save()) {
                     return Response::json(array(
                         'code' => 200,
                         'message' => 'با موفقیت ثبت شد'
-                    ) , 200);
-                }else{
+                    ), 200);
+                } else {
                     return Response::json(array(
                         'code' => 450,
                         'message' => 'خطایی رخ داده است '
                     ), 450);
                 }
-            }else{
+            } else {
                 return Response::json(array(
                     'code' => 450,
                     'message' => 'مقدار وارد شده صحیح نیست '
                 ), 450);
             }
-        }    
+        }
     }
 }

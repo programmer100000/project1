@@ -17,7 +17,7 @@ class CreateGnetBuffets extends Migration
             $table->bigIncrements('gnet_buffet_id');
             $table->unsignedBigInteger('gnet_id');
             $table->string('buffet_name' , 50);
-            $table->decimal('buffet_price');
+            $table->decimal('buffet_price' , 8 ,0);
             $table->integer('count');
             $table->timestamps();
 

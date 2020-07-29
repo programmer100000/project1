@@ -16,7 +16,7 @@ class CreateGnetDeviceTypes extends Migration
         Schema::create('device_types', function (Blueprint $table) {
             $table->bigIncrements('device_type_id');
             $table->unsignedBigInteger('device_type_name_id');
-            $table->decimal('type_price');
+            $table->decimal('type_price' , 8 , 0);
             $table->unsignedBigInteger('gnet_id');
             $table->integer('joystick_count');
             $table->timestamps();
