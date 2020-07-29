@@ -1004,7 +1004,7 @@ class AdminpanelController extends Controller
             case 'GET':
                 $gamenet = Gamenet::select()
                     ->join('users', 'users.user_id', '=', 'gamenets.user_id')
-                    ->where('gamenets.gamenet_id', $gnet_id)->get();
+                    ->where('gamenets.gamenet_id', $gnet_id)->first();
                 $gamenet_temp = GamenetTemp::select()->where('gnet_id', $gnet_id)->first();
 
                 return view('Admin.editinfo', compact('gamenet', 'gamenet_temp'));
@@ -1015,7 +1015,8 @@ class AdminpanelController extends Controller
                 $address = $request->input('address');
                 $desc = $request->input('desc');
                 $tel = $request->input('tel');
-
+                $lat = $request->input('lat');
+                $lng = $request->input('long');
                 $gamenet_s = Gamenet::select()->where('gamenet_id', $gnet_id)->first();
                 $g_temp = GamenetTemp::select()->where('gnet_id', $gnet_id)->first();
                 if ($g_temp == null) {
@@ -1023,8 +1024,8 @@ class AdminpanelController extends Controller
                     $gamenet_temp->title = $gamenetname;
                     $gamenet_temp->address = $address;
                     $gamenet_temp->tel = $tel;
-                    $gamenet_temp->lat = 0;
-                    $gamenet_temp->long = 0;
+                    $gamenet_temp->lat = $lat;
+                    $gamenet_temp->long =$lng;
                     $gamenet_temp->status = 0;
                     $gamenet_temp->rate = $gamenet_s->rate;
                     $gamenet_temp->approve = 0;

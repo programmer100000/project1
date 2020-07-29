@@ -29,7 +29,7 @@
             </div>
             <!-- end page title -->
             <div class="row">
-                <div class="col-xl-6">
+                <div class="col-xl-12">
                     <div class="card-box">
                         <h4 class="header-title mb-3">دستگاه های مشغول</h4>
 
