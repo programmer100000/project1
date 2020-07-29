@@ -93,7 +93,8 @@ Route::get('/admin/get/livelogs', 'AdminpanelController@getdata')->name('get.log
 Route::get('/admin/get/factors', 'AdminpanelController@getdatafactors')->name('get.factors');
 Route::post('/admin/change/livelogs', 'AdminpanelController@changelive')->name('change.live');
 Route::post('/admin/add/buffet', 'AdminpanelController@addbuffet')->name('add.buffet');
-
+Route::post('/buffet/count' , 'AdminpanelController@buffetcount')->name('buffet.count');
+Route::post('/buy/buffet' , 'AdminpanelController@buybuffet')->name('buy.buffet');
 Route::get('/admin/lottery/show/{id}', function ($id) {
     $lottery_users = lotteryuser::select()
         ->join('lotteries', 'lotteries.lottery_id', '=', 'lottery_users.lottery_id')

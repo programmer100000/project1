@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Buffet;
 use App\BuffetLog;
+use App\buybuffetlog;
 use App\DeviceGame;
 use App\Devices;
 use App\Devicesystem;
@@ -385,15 +386,16 @@ class AdminpanelController extends Controller
         $gnet_id = $gnet->gamenet_id;
         switch ($request->method()) {
             case 'GET':
-                $buffets =  Buffet::all();
+                $buffets =  Buffet::select()->where('gnet_id' , $gnet_id)->get();
                 $mysystemtypes = DeviceType::select()
                     ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
                     ->where('gnet_id', $gnet_id)
                     ->get();
 
                 $systemtypes = Devicesystem::all();
+                
 
-                return view('Admin.createbuffet', compact('buffets', 'mysystemtypes', 'systemtypes'));
+                return view('Admin.createbuffet', compact('buffets', 'mysystemtypes', 'systemtypes' ));
                 break;
             case 'POST':
                 $buffetname = $request->input('buffetname');
@@ -1041,5 +1043,46 @@ class AdminpanelController extends Controller
             default:
                 return -1;
         }
+    }
+    public function buffetcount(Request $request){
+        $id = $request->input('id');
+        $buffet = Buffet::select()->where('gnet_buffet_id' , $id)->first();
+        return $buffet->count;
+    }
+    public function buybuffet(Request $request){
+
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $buffet_id = $request->input('buffetid');
+        $count = $request->input('count');
+        $buffet = Buffet::select()->where('gnet_buffet_id' , $buffet_id)->first();
+        if($count <= $buffet->count){
+            $buffet->count = $buffet->count - $count;
+            if($buffet->save()){
+                $bbuffetlog = new buybuffetlog();
+                $bbuffetlog->price = $buffet->buffet_price;
+                $bbuffetlog->count = $count;
+                $bbuffetlog->gnet_id = $gnet_id;
+                $bbuffetlog->gnet_buffet_id	 = $buffet_id;
+                if($bbuffetlog->save())
+                {
+                    return Response::json(array(
+                        'code' => 200,
+                        'message' => 'با موفقیت ثبت شد'
+                    ) , 200);
+                }else{
+                    return Response::json(array(
+                        'code' => 450,
+                        'message' => 'خطایی رخ داده است '
+                    ), 450);
+                }
+            }else{
+                return Response::json(array(
+                    'code' => 450,
+                    'message' => 'مقدار وارد شده صحیح نیست '
+                ), 450);
+            }
+        }    
     }
 }
