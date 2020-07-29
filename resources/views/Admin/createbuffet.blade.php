@@ -119,6 +119,7 @@
                         </form>
                     </div> <!-- end card-box-->
                 </div> <!-- end col -->
+<<<<<<< HEAD
                 <div class="col-xl-6">
                     <div class="card-box">
                         <h4 class="header-title mb-3">خرید</h4>
@@ -131,10 +132,29 @@
                                     <option value="{{ $b->gnet_buffet_id }}">{{ $b->buffet_name }}</option>
                                         @endforeach
                                     </select>
+=======
+
+                <div class="col-xl-6">
+                    <div class="card-box">
+                        <h4 class="header-title mb-3">افزودن</h4>
+                        <form id="types_form" action="{{ route('create.buffet.buy') }}"  onsubmit="return false;">
+                            <div class="col-lg-6">
+                               <select name="buffetname" id="">
+                                   @foreach ($buffets as $b)
+                               <option value="{{ $b->gnet_buffet_id }}">{{ $b->buffet_name }}</option>   
+                                   @endforeach
+                               </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label>قیمت</label>
+                                    <input class="form-control" type="text" name="price" id="selectize-tags">
+>>>>>>> 919bfad9f501c9b13ca2bfd79d9413d4f5a00040
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
+<<<<<<< HEAD
                                     <label>تعداد</label> <br />
                                     <select name="count" class="form-control" id="buffetbuycount">
                                         
@@ -142,6 +162,13 @@
                                 </div>
                             </div>
                             <button type="button" id="btnformbuybuffet" class="btn btn-primary">ثبت</button>
+=======
+                                    <label>تعداد</label>
+                                    <input class="form-control" type="text" name="count" id="selectize-tags">
+                                </div>
+                            </div>
+                            <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>
+>>>>>>> 919bfad9f501c9b13ca2bfd79d9413d4f5a00040
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
                     </div> <!-- end card-box-->
