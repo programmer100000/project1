@@ -166,7 +166,6 @@
                                         <td>
                                             {{ $i++ }}
                                         </td>
-
                                         <td>
                                             {{ $devrep['devicename'] }}
                                         </td>
