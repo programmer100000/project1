@@ -141,6 +141,52 @@
                         </div>
                     </div>
                 </div> <!-- end col -->
+                <div class="col-xl-12">
+                    <div class="card-box">
+                        <h4 class="header-title mb-3">گزارش دستگاه ها</h4>
+                        <div class="table-responsive">
+                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="font-weight-medium">ردیف</th>
+                                        <th class="font-weight-medium">نام دستگاه</th>
+                                        <th class="font-weight-medium">درآمد روز</th>
+                                        <th class="font-weight-medium">درآمد هفته</th>
+                                        <th class="font-weight-medium">درآمد ماه</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                    $i = 1;
+                                    @endphp
+                                    @foreach ($arraydevicesreport as $devrep)
+
+                                    <tr>
+                                        <td>
+                                            {{ $i++ }}
+                                        </td>
+
+                                        <td>
+                                            {{ $devrep['devicename'] }}
+                                        </td>
+                                        <td>
+                                            {{ number_format($devrep['onday']) }}
+                                        </td>
+                                        <td>
+                                            {{ number_format($devrep['onweek']) }}
+                                        </td>
+                                        <td>
+                                            {{  number_format($devrep['onmonth']) }}
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+
             </div>
             <!-- end row -->
 

@@ -120,13 +120,43 @@ class AdminpanelController extends Controller
                     $message = 'ناموفق';
                     break;
             }
+            $devices = Devices::select()->where('gnet_id', $gnet_id)->get();
             $onday = livelog::select()->whereDate('created_at', Carbon::today())->get();
             $onweek = livelog::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
             $currentMonth = date('m');
             $onmonth = DB::table("gnet_live_logs")
                 ->whereRaw('MONTH(created_at) = ?', [$currentMonth])
                 ->get();
-            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status',  'message'));
+            $arraydevicesreport = [];
+            foreach ($devices as $key => $value) {
+                $dayprice = 0 ;
+                $weekprice = 0 ;
+                $monthprice = 0;
+                foreach ($onday as $day) {
+                    if ($day->gnet_device_id == $value->gnet_device_id) {
+                        $dayprice = $dayprice +$day->price;
+                    }
+                }
+                foreach($onweek as $week){
+                    if($week->gnet_device_id == $value->gnet_device_id){
+                        $weekprice = $weekprice +$week->price;
+                    }
+                }
+                foreach($onmonth as $month){
+                    if($month->gnet_device_id == $value->gnet_device_id){
+                        $monthprice = $monthprice +$month->price;
+                    }
+                }
+                $arraydevicesreport[$key] = [
+                    'devicename' => $value->device_name,
+                    'onday' => $dayprice,
+                    'onweek' => $weekprice , 
+                    'onmonth' => $monthprice
+                ];
+            }
+
+
+            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status',  'message' , 'arraydevicesreport'));
         } else {
             return redirect()->route('admin.login');
         }
