@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Buffet;
 use App\BuffetLog;
+use App\buybuffetlog;
 use App\DeviceGame;
 use App\Devices;
 use App\Devicesystem;
@@ -119,7 +120,44 @@ class AdminpanelController extends Controller
                     $message = 'ناموفق';
                     break;
             }
-            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status',  'message'));
+
+            $devices = Devices::select()->where('gnet_id', $gnet_id)->get();
+            $onday = livelog::select()->whereDate('created_at', Carbon::today())->get();
+            $onweek = livelog::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            $currentMonth = date('m');
+            $onmonth = DB::table("gnet_live_logs")
+                ->whereRaw('MONTH(created_at) = ?', [$currentMonth])
+                ->get();
+            $arraydevicesreport = [];
+            foreach ($devices as $key => $value) {
+                $dayprice = 0 ;
+                $weekprice = 0 ;
+                $monthprice = 0;
+                foreach ($onday as $day) {
+                    if ($day->gnet_device_id == $value->gnet_device_id) {
+                        $dayprice = $dayprice +$day->price;
+                    }
+                }
+                foreach($onweek as $week){
+                    if($week->gnet_device_id == $value->gnet_device_id){
+                        $weekprice = $weekprice +$week->price;
+                    }
+                }
+                foreach($onmonth as $month){
+                    if($month->gnet_device_id == $value->gnet_device_id){
+                        $monthprice = $monthprice +$month->price;
+                    }
+                }
+                $arraydevicesreport[$key] = [
+                    'devicename' => $value->device_name,
+                    'onday' => $dayprice,
+                    'onweek' => $weekprice , 
+                    'onmonth' => $monthprice
+                ];
+            }
+
+
+            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status',  'message' , 'arraydevicesreport'));
         } else {
             return redirect()->route('admin.login');
         }
@@ -401,14 +439,15 @@ class AdminpanelController extends Controller
         $gnet_id = $gnet->gamenet_id;
         switch ($request->method()) {
             case 'GET':
-                $buffets =  Buffet::all();
+                $buffets =  Buffet::select()->where('gnet_id', $gnet_id)->get();
                 $mysystemtypes = DeviceType::select()
                     ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
                     ->where('gnet_id', $gnet_id)
                     ->get();
-                    
+
 
                 $systemtypes = Devicesystem::all();
+
 
                 return view('Admin.createbuffet', compact('buffets', 'mysystemtypes', 'systemtypes'));
                 break;
@@ -1015,7 +1054,7 @@ class AdminpanelController extends Controller
             case 'GET':
                 $gamenet = Gamenet::select()
                     ->join('users', 'users.user_id', '=', 'gamenets.user_id')
-                    ->where('gamenets.gamenet_id', $gnet_id)->get();
+                    ->where('gamenets.gamenet_id', $gnet_id)->first();
                 $gamenet_temp = GamenetTemp::select()->where('gnet_id', $gnet_id)->first();
 
                 return view('Admin.editinfo', compact('gamenet', 'gamenet_temp'));
@@ -1026,7 +1065,8 @@ class AdminpanelController extends Controller
                 $address = $request->input('address');
                 $desc = $request->input('desc');
                 $tel = $request->input('tel');
-
+                $lat = $request->input('lat');
+                $lng = $request->input('long');
                 $gamenet_s = Gamenet::select()->where('gamenet_id', $gnet_id)->first();
                 $g_temp = GamenetTemp::select()->where('gnet_id', $gnet_id)->first();
                 if ($g_temp == null) {
@@ -1034,8 +1074,8 @@ class AdminpanelController extends Controller
                     $gamenet_temp->title = $gamenetname;
                     $gamenet_temp->address = $address;
                     $gamenet_temp->tel = $tel;
-                    $gamenet_temp->lat = 0;
-                    $gamenet_temp->long = 0;
+                    $gamenet_temp->lat = $lat;
+                    $gamenet_temp->long = $lng;
                     $gamenet_temp->status = 0;
                     $gamenet_temp->rate = $gamenet_s->rate;
                     $gamenet_temp->approve = 0;
@@ -1054,6 +1094,48 @@ class AdminpanelController extends Controller
                 break;
             default:
                 return -1;
+        }
+    }
+    public function buffetcount(Request $request)
+    {
+        $id = $request->input('id');
+        $buffet = Buffet::select()->where('gnet_buffet_id', $id)->first();
+        return $buffet->count;
+    }
+    public function buybuffet(Request $request)
+    {
+
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $buffet_id = $request->input('buffetid');
+        $count = $request->input('count');
+        $buffet = Buffet::select()->where('gnet_buffet_id', $buffet_id)->first();
+        if ($count <= $buffet->count) {
+            $buffet->count = $buffet->count - $count;
+            if ($buffet->save()) {
+                $bbuffetlog = new buybuffetlog();
+                $bbuffetlog->price = $buffet->buffet_price;
+                $bbuffetlog->count = $count;
+                $bbuffetlog->gnet_id = $gnet_id;
+                $bbuffetlog->gnet_buffet_id     = $buffet_id;
+                if ($bbuffetlog->save()) {
+                    return Response::json(array(
+                        'code' => 200,
+                        'message' => 'با موفقیت ثبت شد'
+                    ), 200);
+                } else {
+                    return Response::json(array(
+                        'code' => 450,
+                        'message' => 'خطایی رخ داده است '
+                    ), 450);
+                }
+            } else {
+                return Response::json(array(
+                    'code' => 450,
+                    'message' => 'مقدار وارد شده صحیح نیست '
+                ), 450);
+            }
         }
     }
 }

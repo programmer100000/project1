@@ -20,7 +20,7 @@ class CreateGnetLiveLogs extends Migration
             $table->timestamp('start_time');
             $table->timestamp('end_time')->nullable();
             $table->smallInteger('joystick_count');
-            $table->decimal('price');
+            $table->decimal('price' , 8 ,0);
             $table->timestamps();
 
             $table->foreign('gnet_id')->references('gamenet_id')->on('gamenets');
