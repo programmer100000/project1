@@ -10,6 +10,8 @@ function showMoney(nStr) {
     return x1 + x2;
 }
 
+var xxx;
+
 $(document).ready(function() {
     $.ajaxSetup({
         headers: {
@@ -80,6 +82,71 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(document).on('click', '#btn-add-system', function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                // Swal.fire('با موفقیت ثبت شد');
+                Swal.fire('ثبت شد', data.message, 'success');
+                // tbl-createsystems
+                refresh_tbl_createsystems();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                Swal.fire('خطا', jqXHR.responseJSON.message, 'error');
+            }
+        });
+    });
+    
+    function refresh_tbl_createsystems() {
+        $.ajax({
+            type: "POST",
+            url: json_system,
+            data: {}, // serializes the form's elements.
+            success: function(data) {
+                $('#tbl-createsystems tbody').empty();
+                var i = 1;
+                data = JSON.parse(data);
+                for (let index = 0; index < data.length; index++) {
+                    i = index + 1;
+                    let element = data[index];
+                    $('#tbl-createsystems tbody').append(`<tr>
+                        <td>
+                            ${i}
+                        </td>
+
+                        <td>
+                            ${ element.type_name }
+                        </td>
+
+                        <td>
+                            ${ element.joystick_count }
+                        </td>
+
+                        <td>
+                            ${ numberWithCommas(element.type_price)  }
+                        </td>
+
+                        <td>
+                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${ element.device_type_id }" data-dtnid="${ element.device_type_name_id }" data-price="${ element.type_price }">ویرایش</button>
+                            <button data-id="${ element.device_type_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                        </td>
+                    </tr>`);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+            }
+        });
+    }
+
     $("#btnformpossibility").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 

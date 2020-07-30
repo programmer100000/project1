@@ -120,6 +120,7 @@ class AdminpanelController extends Controller
                     $message = 'ناموفق';
                     break;
             }
+
             $devices = Devices::select()->where('gnet_id', $gnet_id)->get();
             $onday = livelog::select()->whereDate('created_at', Carbon::today())->get();
             $onweek = livelog::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
@@ -217,6 +218,20 @@ class AdminpanelController extends Controller
                 return -1;
         }
     }
+
+    public function createsystem_tbl(Request $request)
+    {
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $mysystemtypes = DeviceType::select()
+        ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
+        ->where('gnet_id', $gnet_id)
+        ->get();
+    
+        return $mysystemtypes->toJson();
+    }
+
     public function deletesystem(Request $request)
     {
         $id = $request->input('id');
@@ -228,6 +243,7 @@ class AdminpanelController extends Controller
             return true;
         }
     }
+
     public function editsystem(Request $request)
     {
         $device_type_id = $request->input('device_type_id');

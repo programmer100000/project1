@@ -44,6 +44,7 @@ Route::post('/gamenet/disapproval', 'superadmin@disapproval')->name('gamenet.dis
 Route::get('/admin', 'AdminpanelController@index')->name('admin');
 Route::get('/admin/create/system', 'AdminpanelController@createsystem')->name('create.system');
 Route::post('/admin/create/system', 'AdminpanelController@createsystem')->name('create.system');
+Route::post('/admin/create/system/json', 'AdminpanelController@createsystem_tbl')->name('json.system');
 Route::post('/admin/delete/system', 'AdminpanelController@deletesystem')->name('delete.system');
 Route::post('/admin/edit/system', 'AdminpanelController@editsystem')->name('edit.system');
 Route::get('/admin/edit/info', 'AdminpanelController@editprofile')->name('edit.profile');
