@@ -119,6 +119,35 @@
                         </form>
                     </div> <!-- end card-box-->
                 </div> <!-- end col -->
+
+                <div class="col-xl-6">
+                    <div class="card-box">
+                        <h4 class="header-title mb-3">افزودن</h4>
+                        <form id="types_form" action="{{ route('create.buffet.buy') }}"  onsubmit="return false;">
+                            <div class="col-lg-6">
+                               <select name="buffetname" id="">
+                                   @foreach ($buffets as $b)
+                               <option value="{{ $b->gnet_buffet_id }}">{{ $b->buffet_name }}</option>   
+                                   @endforeach
+                               </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label>قیمت</label>
+                                    <input class="form-control" type="text" name="price" id="selectize-tags">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label>تعداد</label>
+                                    <input class="form-control" type="text" name="count" id="selectize-tags">
+                                </div>
+                            </div>
+                            <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>
+                            <p style="color: red;" id="device_type_form_msg"></p>
+                        </form>
+                    </div> <!-- end card-box-->
+                </div> <!-- end col -->
             </div>
             <!-- end row -->
 
