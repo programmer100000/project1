@@ -135,6 +135,7 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
 })->middleware('CheckAdminLogin')->name('lottery.show');
 Route::get('/admin/excel/export/livelogs', 'AdminpanelController@exportexcellivelogs')->name('export.excel.livelogs');
 Route::get('/admin/excel/export/factors', 'AdminpanelController@exportexcelfactors')->name('export.excel.factors');
+Route::get('/admin/excel/export/report' , 'AdminpanelController@exportexcelreport')->name('export.excel.reports');
 /*End Admin Routes*/
 
 /*User Routes*/

@@ -11,6 +11,7 @@ use App\Devicesystem;
 use App\DeviceType;
 use App\Exports\FactorExport;
 use App\Exports\LivesLogExport;
+use App\Exports\ReportExport;
 use App\Game;
 use App\GameDevice;
 use App\Gamenet;
@@ -34,6 +35,7 @@ use Maatwebsite\Excel\Excel;
 use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
 use Morilog\Jalali\Jalalian;
 use Illuminate\Support\Facades\Response;
+use App\Rules\captcha;
 
 class AdminpanelController extends Controller
 {
@@ -1033,8 +1035,31 @@ class AdminpanelController extends Controller
     }
     public function exportexcellivelogs()
     {
+    //     $user = Auth::user();
+    //     $gnet = Gamenet::where('user_id', $user->user_id)->first();
+    //     $gnet_id = $gnet->gamenet_id;
         $sf = session('sortfieldlivelog');
         $so = session('sortorderlivelog');
+        // $data = DB::table('gnet_live_logs')
+        // ->join('gnet_devices' , 'gnet_devices.gnet_device_id' , '=' , 'gnet_live_logs.gnet_device_id')
+        // ->where('gnet_live_logs.gnet_id' , $gnet_id)
+        // ->select()->orderBy($sf , $so)->get();
+        // return Excel::create('laravelcode', function($excel) use ($data) {
+        //     $excel->sheet('mySheet', function($sheet) use ($data)
+        //     {
+        //         $sheet->cell('A1', function($cell) {$cell->setValue('First Name');   });
+        //         $sheet->cell('B1', function($cell) {$cell->setValue('Last Name');   });
+        //         $sheet->cell('C1', function($cell) {$cell->setValue('Email');   });
+        //         if (!empty($data)) {
+        //             foreach ($data as $key => $value) {
+        //                 $i= $key+2;
+        //                 $sheet->cell('A'.$i, $value['firstname']); 
+        //                 $sheet->cell('B'.$i, $value['lastname']); 
+        //                 $sheet->cell('C'.$i, $value['email']); 
+        //             }
+        //         }
+        //     });
+        // })->download($type);
         return FacadesExcel::download(new LivesLogExport($sf, $so), 'log.xlsx');
     }
 
@@ -1043,6 +1068,12 @@ class AdminpanelController extends Controller
         $sf = session('sortfieldfactor');
         $so = session('sortorderfactor');
         return FacadesExcel::download(new FactorExport($sf, $so), 'log.xlsx');
+    }
+    public function exportexcelreport()
+    {
+        $sf = session('sortfieldfactor');
+        $so = session('sortorderfactor');
+        return FacadesExcel::download(new ReportExport($sf, $so), 'log.xlsx');
     }
 
     public function editprofile(Request $request)

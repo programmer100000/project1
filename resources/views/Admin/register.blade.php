@@ -74,6 +74,10 @@
                                     <input class="form-control" name="tel" type="text" id="tel" placeholder="تلفن" required>
                                 </div>
                                 <div class="form-group">
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
+                                </div>
+                                <div class="form-group">
                                     <label for="description">توضیحات گیم نت</label>
                                     <input class="form-control" name="description" type="text" id="description" placeholder="توضیحات" required>
                                 </div>
@@ -93,7 +97,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                
+
                                 <input type="hidden" name="lat" id='lat_register' value="0">
                                 <input type="hidden" name="long" id='long_register' value="0">
                                 <div class="form-group mb-0 text-center">
@@ -128,10 +132,10 @@
 
     <!-- Vendor js -->
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-    
+
     <!-- App js -->
-    
-    
+
+
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }} "></script>
 </body>
