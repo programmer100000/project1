@@ -27,6 +27,31 @@ $('#buffetid').change(function() {
         }
     });
 });
+
+$(document).on('change' ,'.selectbuffet', function() {
+    let count = $(this).closest('.row').find('.counts');
+    let value = $('.selectbuffet').val();
+    let url = buffetcountroute;
+    count.empty();
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {
+            id: value
+        }, // serializes the form's elements.
+        success: function(data) {
+            for (var i = 1; i <= data; i++) {
+                count.append(new Option(i, i));
+            }
+
+        },
+        error: function(data) {
+            Swal.fire('خطا', data.responseJSON.message, 'error');
+        }
+    });
+});
+
+
 $("#btnformbuybuffet").click(function(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
 

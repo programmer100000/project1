@@ -53,9 +53,9 @@ class ReportExport implements FromArray
             }
             $arraydevicesreport[] = [
                 'devicename' => $value->device_name,
-                'onday' => $dayprice,
-                'onweek' => $weekprice , 
-                'onmonth' => $monthprice
+                'onday' => number_format($dayprice),
+                'onweek' => number_format($weekprice) ,
+                'onmonth' => number_format($monthprice)
             ];
         }
         return $arraydevicesreport;

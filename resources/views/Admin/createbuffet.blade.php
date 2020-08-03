@@ -48,7 +48,7 @@
                         <h4 class="header-title mb-3">خوراکی های های ثبت شده</h4>
 
                         <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+                            <table class="table table-borderless table-hover table-nowrap table-centered m-0" id="tbl_buffets">
 
                                 <thead class="thead-light">
                                     <tr>
@@ -137,7 +137,11 @@
                                 <div class="form-group mb-3">
                                     <label>تعداد</label> <br />
                                     <select name="count" class="form-control" id="buffetbuycount">
-                                        
+                                        @if($buffets[0])
+                                            @for($i = 1; $i<= $buffets[0]->count ; $i++ )
+                                                <option value="{{ $i  }}"> {{ $i  }} </option>
+                                            @endfor
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -218,6 +222,7 @@
 <!-- END wrapper -->
 <script>
     var buffetcountroute = '{{ route('buffet.count') }}';
+    var jsonbuffet = '{{ route('json.buffet')  }}'
 </script>
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 <script src="{{ asset('assets/js/adminpanel.js') }}" defer></script>

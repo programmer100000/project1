@@ -43,6 +43,7 @@ class AdminRegisterController extends Controller
         request()->validate([
 
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048000',
+            'g-recaptcha-response' => 'required|captcha',
 
         ]);
         $db_user = User::where('mobile', $mobile)->first();

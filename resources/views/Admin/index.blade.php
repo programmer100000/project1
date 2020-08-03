@@ -69,10 +69,17 @@
                                                 class="change-system btn btn-success waves-effect waves-light"
                                                 data-toggle="modal" data-target="#chcon-close-modal"
                                                 data-id="{{ $t->gnet_live_id }}">انتقال</button>
+                                            @if($bindex == 0)
                                                 <button type="button"
                                                 class="add-buffet btn btn-success waves-effect waves-light"
                                                 data-toggle="modal" data-target="#bcon-close-modal"
-                                                data-id="{{ $t->gnet_live_id }}">افزودن خوراکی</button>
+                                                data-id="{{ $t->gnet_live_id }}" disabled>افزودن خوراکی</button>
+                                            @elseif($bindex == 1)
+                                                <button type="button"
+                                                        class="add-buffet btn btn-success waves-effect waves-light"
+                                                        data-toggle="modal" data-target="#bcon-close-modal"
+                                                        data-id="{{ $t->gnet_live_id }}">افزودن خوراکی</button>
+                                            @endif
 
                                             <button data-id="{{ $t->gnet_live_id }}" type="button"
                                                 class="btn btn-danger remove-system" data-toggle="modal"
@@ -107,7 +114,7 @@
                                     <select name="joystick_count" class="form-control" id="">
                                     @for($i = 1 ; $i<=5  ; $i++)
                                     <option value = "{{$i}}">{{ $i }}</option>
-                                    
+
                                     @endfor
                                     </select>
                                 </div>
@@ -143,8 +150,8 @@
                 </div> <!-- end col -->
                 <div class="col-xl-12">
                     <div class="card-box">
-                    <a class="btn btn-primary" href="{{route('export.excel.reports')}}">فایل اکسل </a>
-                        <h4 class="header-title mb-3">گزارش دستگاه ها</h4>
+
+                        <h4 class="header-title mb-3">گزارش دستگاه ها - <a class="btn btn-primary" href="{{route('export.excel.reports')}}">فایل اکسل </a></h4>
                         <div class="table-responsive">
                             <table class="table table-borderless table-hover table-nowrap table-centered m-0">
 
@@ -291,7 +298,7 @@
                         <div class="col-md-6" id="dbf-1">
                             <div class="form-group mb-3">
                                 <label>نام خوراکی</label> <br />
-                                <select name="buffetnames[]" id="selectize-select" class="form-control">
+                                <select name="buffetnames[]" id="selectize-select" class="form-control selectbuffet" >
                                     @foreach ($buffets as $system)
                                     <option value="{{ $system->gnet_buffet_id }}">{{ $system->buffet_name }}
                                     </option>
@@ -302,7 +309,7 @@
                         <div class="col-md-6" id="dbf-2">
                             <div class="form-group mb-3">
                                 <label> تعداد</label>
-                                <input class="form-control" type="text" name="counts[]" id="selectize-tags" value='1'>
+                                <select name="counts[]" id="counts" class="form-control counts" ></select>
                             </div>
                         </div>
                     </div>
@@ -344,7 +351,7 @@
                                     <select name="joystick_count" class="form-control" id="">
                                     @for($i = 1 ; $i<=5  ; $i++)
                                     <option value = "{{$i}}">{{ $i }}</option>
-                                    
+
                                     @endfor
                                     </select>
                                 </div>
@@ -436,5 +443,7 @@
 <script>
    var url_getLiveLog = '{{ route('get.logs') }}';
    var url_getfactor = '{{ route('get.factors') }}';
+   var buffetcountroute = '{{ route('buffet.count') }}';
 </script>
+<script src="{{ asset('assets/js/adminpanel.js') }}" defer></script>
 @endsection

@@ -22,21 +22,24 @@ class AdminLoginController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
         $passwordhash = Hash::make($password);
+        request()->validate([
+            'g-recaptcha-response' => 'required|captcha',
 
+        ]);
         $user = User::where('username' , $username )->orwhere('mobile' , $username)->first();
+        if(validator()){
+            if($user == null){
+                return redirect()->back()->withErrors(['شما در سایت ثبت نام نکرده اید' , 'msg']);
 
-        if($user == null){
-            return redirect()->back()->withErrors(['شما در سایت ثبت نام نکرده اید' , 'msg']);
-
-        }
-        else{
-            if(Hash::check($password, $user->password)){
-                Auth::login($user);
-                return redirect()->route('admin');
-            }else{
-                return redirect()->back()->withErrors(['نام کاربری یا رمز عبور اشتباه است' , 'msg']);
+            }
+            else{
+                if(Hash::check($password, $user->password)){
+                    Auth::login($user);
+                    return redirect()->route('admin');
+                }else{
+                    return redirect()->back()->withErrors(['نام کاربری یا رمز عبور اشتباه است' , 'msg']);
+                }
             }
         }
-
     }
 }

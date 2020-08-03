@@ -73,10 +73,7 @@
                                     <label for="tel">تلفن</label>
                                     <input class="form-control" name="tel" type="text" id="tel" placeholder="تلفن" required>
                                 </div>
-                                <div class="form-group">
-                                    {!! NoCaptcha::renderJs() !!}
-                                    {!! NoCaptcha::display() !!}
-                                </div>
+
                                 <div class="form-group">
                                     <label for="description">توضیحات گیم نت</label>
                                     <input class="form-control" name="description" type="text" id="description" placeholder="توضیحات" required>
@@ -97,7 +94,15 @@
                                         @endforeach
                                     </select>
                                 </div>
-
+                                <div class="form-group m-auto">
+                                    {!! NoCaptcha::renderJs('fa', true, 'recaptchaCallback') !!}
+                                    {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                                 <input type="hidden" name="lat" id='lat_register' value="0">
                                 <input type="hidden" name="long" id='long_register' value="0">
                                 <div class="form-group mb-0 text-center">

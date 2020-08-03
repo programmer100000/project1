@@ -8,17 +8,19 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\FromArray;
 use App\Gamenet;
+use Morilog\Jalali\Jalalian;
+
 class LivesLogExport implements FromArray
 {
 
-    protected $so , $sf; 
+    protected $so , $sf;
 
     function __construct($sf , $so)
     {
         $this->sf = $sf;
         $this->so = $so;
-        
-        
+
+
     }
     /**
     * @return \Illuminate\Support\Collection
@@ -37,8 +39,8 @@ class LivesLogExport implements FromArray
         foreach($data as $d){
             $arr[] = [
                 $d->device_name
-                 , Jalalian::forge($l->start_time)->format($d->start_time) 
-                 , Jalalian::forge($l->start_time)->format($d->end_time) 
+                 , Jalalian::forge($d->start_time)->format('Y/m/d h:i:s  ')
+                 , Jalalian::forge($d->end_time)->format('Y/m/d h:i:s')
                  , number_format($d->price)];
         }
         // dd($arr);

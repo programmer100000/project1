@@ -105,6 +105,12 @@ class AdminpanelController extends Controller
             $approve = Gamenet::select()->where('gamenet_id', $gnet_id)->first();
             $message = '';
             $status = 0;
+            $bindex = 0 ;
+            if($buffets == null){
+                $bindex = 0 ;
+            }else{
+                $bindex = 1;
+            }
             switch ($approve->approve) {
                 case '0':
                     $status = 0;
@@ -153,13 +159,13 @@ class AdminpanelController extends Controller
                 $arraydevicesreport[$key] = [
                     'devicename' => $value->device_name,
                     'onday' => $dayprice,
-                    'onweek' => $weekprice , 
+                    'onweek' => $weekprice ,
                     'onmonth' => $monthprice
                 ];
             }
 
 
-            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status',  'message' , 'arraydevicesreport'));
+            return view('Admin.index', compact('lives', 'falsedevices', 'buffets', 'status',  'message' , 'arraydevicesreport' , 'bindex'));
         } else {
             return redirect()->route('admin.login');
         }
@@ -230,10 +236,18 @@ class AdminpanelController extends Controller
         ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
         ->where('gnet_id', $gnet_id)
         ->get();
-    
+
         return $mysystemtypes->toJson();
     }
+    public function buffets_tbl(Request $request)
+    {
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $buffets =  Buffet::select()->where('gnet_id', $gnet_id)->get();
 
+        return $buffets->toJson();
+    }
     public function deletesystem(Request $request)
     {
         $id = $request->input('id');
@@ -603,7 +617,7 @@ class AdminpanelController extends Controller
             if ($device->save()) {
                 $invoiceid = $livelog->invoice_id;
                 $livelogsb = livelog::select()->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_live_logs.gnet_device_id')->where('gnet_live_logs.invoice_id', $invoiceid)->get();
-                $buffetsb = BuffetLog::select()->join('gnet_buffets', 'gnet_buffets.gnet_buffet_id', '=', 'buffet_logs.gnet_buffet_id')->where('buffet_logs.invoice_id', $invoiceid)->get();
+                $buffetsb = BuffetLog::select('gnet_buffets.buffet_name'  , 'buffet_logs.count' , 'buffet_logs.price')->join('gnet_buffets', 'gnet_buffets.gnet_buffet_id', '=', 'buffet_logs.gnet_buffet_id')->where('buffet_logs.invoice_id', $invoiceid)->get();
                 $invoicep = Invoice::select()->where('invoice_id', $invoiceid)->first();
                 foreach ($livelogsb as $l) {
                     $invoicep->price += $l->price;
@@ -705,8 +719,8 @@ class AdminpanelController extends Controller
             $arr[] = [
                 'ردیف' => $rownum,
                 'نام دستگاه' => $l->device_name,
-                'زمان شروع' => Jalalian::forge($l->start_time)->format('Y/M/d h:i:s'),
-                'زمان پایان' => Jalalian::forge($l->end_time)->format('Y/M/d h:i:s'),
+                'زمان شروع' => Jalalian::forge($l->start_time)->format('h:i:s Y/m/d '),
+                'زمان پایان' => Jalalian::forge($l->end_time)->format('h:i:s Y/m/d '),
                 'قیمت' => number_format($l->price)
             ];
         }
@@ -851,18 +865,20 @@ class AdminpanelController extends Controller
         $counts = $request->input('counts');
 
         $live = live::select()->where('gnet_live_id', $buffet_live_id)->first();
-        foreach ($buffetnames as $key => $value) {
-            $buffet = Buffet::select()->where('gnet_buffet_id', $value)->first();
-            $buffet->count = $buffet->count - $counts[$key];
-            if ($buffet->save()) {
-                $price = $buffet->buffet_price;
-                $buffet_log = new BuffetLog();
-                $buffet_log->count = $counts[$key];
-                $buffet_log->invoice_id = $live->invoice_id;
-                $buffet_log->gnet_buffet_id = $buffet->gnet_buffet_id;
-                $buffet_log->price = $counts[$key] * $price;
-                if ($buffet_log->save()) {
-                    return true;
+        if($counts >= 1){
+            foreach ($buffetnames as $key => $value) {
+                $buffet = Buffet::select()->where('gnet_buffet_id', $value)->first();
+                $buffet->count = $buffet->count - $counts[$key];
+                if ($buffet->save()) {
+                    $price = $buffet->buffet_price;
+                    $buffet_log = new BuffetLog();
+                    $buffet_log->count = $counts[$key];
+                    $buffet_log->invoice_id = $live->invoice_id;
+                    $buffet_log->gnet_buffet_id = $buffet->gnet_buffet_id;
+                    $buffet_log->price = $counts[$key] * $price;
+                    if ($buffet_log->save()) {
+                        return true;
+                    }
                 }
             }
         }
@@ -1053,9 +1069,9 @@ class AdminpanelController extends Controller
         //         if (!empty($data)) {
         //             foreach ($data as $key => $value) {
         //                 $i= $key+2;
-        //                 $sheet->cell('A'.$i, $value['firstname']); 
-        //                 $sheet->cell('B'.$i, $value['lastname']); 
-        //                 $sheet->cell('C'.$i, $value['email']); 
+        //                 $sheet->cell('A'.$i, $value['firstname']);
+        //                 $sheet->cell('B'.$i, $value['lastname']);
+        //                 $sheet->cell('C'.$i, $value['email']);
         //             }
         //         }
         //     });

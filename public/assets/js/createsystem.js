@@ -62,8 +62,7 @@ $(document).ready(function() {
             }
         });
     });
-
-    $("#types_form_btn").click(function(e) {
+    $(document).on('click', '#types_form_btn', function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         var form = $(this).closest('form');
@@ -75,7 +74,7 @@ $(document).ready(function() {
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
                 Swal.fire('با موفقیت ثبت شد');
-
+                refresh_tbl_buffets();
             },
             error: function(data) {
                 Swal.fire('خطا', data.responseJSON.message, 'error');
@@ -104,13 +103,14 @@ $(document).ready(function() {
             }
         });
     });
-    
+
+
     function refresh_tbl_createsystems() {
         $.ajax({
             type: "POST",
             url: json_system,
             data: {}, // serializes the form's elements.
-            success: function(data) {
+            success: function (data) {
                 $('#tbl-createsystems tbody').empty();
                 var i = 1;
                 data = JSON.parse(data);
@@ -123,28 +123,70 @@ $(document).ready(function() {
                         </td>
 
                         <td>
-                            ${ element.type_name }
+                            ${element.type_name}
                         </td>
 
                         <td>
-                            ${ element.joystick_count }
+                            ${element.joystick_count}
                         </td>
 
                         <td>
-                            ${ numberWithCommas(element.type_price)  }
+                            ${numberWithCommas(element.type_price)}
                         </td>
 
                         <td>
-                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${ element.device_type_id }" data-dtnid="${ element.device_type_name_id }" data-price="${ element.type_price }">ویرایش</button>
-                            <button data-id="${ element.device_type_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${element.device_type_id}" data-dtnid="${element.device_type_name_id}" data-price="${element.type_price}">ویرایش</button>
+                            <button data-id="${element.device_type_id}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                         </td>
                     </tr>`);
                 }
             },
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
             }
         });
+    }
+
+        function refresh_tbl_buffets() {
+            $.ajax({
+                type: "POST",
+                url: jsonbuffet,
+                data: {}, // serializes the form's elements.
+                success: function(data) {
+                    $('#tbl_buffets tbody').empty();
+                    var i = 1;
+                    data = JSON.parse(data);
+                    for (let index = 0; index < data.length; index++) {
+                        i = index + 1;
+                        let element = data[index];
+                        $('#tbl_buffets tbody').append(`<tr>
+                        <td>
+                            ${i}
+                        </td>
+
+                        <td>
+                            ${ element.buffet_name }
+                        </td>
+
+                        <td>
+                            ${ element.count }
+                        </td>
+
+                        <td>
+                            ${ numberWithCommas(element.buffet_price)  }
+                        </td>
+
+                        <td>
+                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${ element.gnet_buffet_id }" data-dtnid="${ element.device_type_name_id }" data-price="${ element.type_price }">ویرایش</button>
+                            <button data-id="${ element.device_type_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                        </td>
+                    </tr>`);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+                }
+            });
     }
 
     $("#btnformpossibility").click(function(e) {

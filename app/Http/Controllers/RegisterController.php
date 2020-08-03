@@ -31,7 +31,12 @@ class RegisterController extends Controller
         $mobile = $request->input('mobile');
         $confirm_code = rand(1000 , 9999);
 
+        request()->validate([
+            'g-recaptcha-response' => 'required|captcha',
+
+        ]);
         $db_user = User::where('mobile' , $mobile)->first();
+        if(validator()){
             if($db_user == null){
                 $user = new User();
                 $user->mobile = $mobile;
@@ -55,6 +60,8 @@ class RegisterController extends Controller
                 return redirect()->back()->withErrors(['این شماره موبایل قبلا ثبت شده است.' , 'msg']);
 
             }
+        }
+
 
     }
 

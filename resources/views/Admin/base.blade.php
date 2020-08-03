@@ -13,7 +13,7 @@
         <!-- Plugins css -->
         <link href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/libs/selectize/css/selectize.bootstrap3.css') }}" rel="stylesheet" type="text/css" />
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js?hl=fa"></script>
         <link href="{{ asset('assets/css/bootstrap-modern-dark.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/app-modern-dark-rtl.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/mystyle.css') }}" rel="stylesheet" type="text/css" />

@@ -50,6 +50,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group m-auto">
+                                    {!! NoCaptcha::renderJs('fa', true, 'recaptchaCallback') !!}
+                                    {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
 
                                 <div class="form-group mb-3">
                                     <div class="custom-control custom-checkbox">
@@ -64,7 +73,7 @@
 
                             </form>
 
-                            
+
                         </div> <!-- end card-body -->
                     </div>
                     <!-- end card -->
