@@ -58,7 +58,11 @@ $(document).ready(function() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                window.alert(data);
+                Swal.fire('با موفقیت ثبت شد');
+                refresh_tbl_livelogs();
+            },
+            error:function (data) {
+                Swal.fire('خطا');
             }
         });
     });
@@ -103,7 +107,58 @@ $(document).ready(function() {
             }
         });
     });
+    function refresh_tbl_livelogs() {
+        $.ajax({
+            type: "POST",
+            url: livelogurlajax,
+            data: {}, // serializes the form's elements.
+            success: function (data) {
+                $('#tbllivelogs tbody').empty();
+                var i = 1;
+                data = JSON.parse(data);
+                for (let index = 0; index < data.length; index++) {
+                    i = index + 1;
+                    let element = data[index];
+                    let t = new Date(element.created_at);
+                    var ti = t.getHours() + ':' + t.getMinutes() + ':' + t.getSeconds();
+                    $('#tbllivelogs tbody').append(`<tr>
+                        <td>
+                            ${i}
+                        </td>
 
+                        <td>
+                            ${element.device_name}
+                        </td>
+ <td>
+
+                                        <span id="livetime"> ${ti}</span>
+                                            <button type="button"
+                                                class="edit-system btn btn-success waves-effect waves-light"
+                                                data-toggle="modal" data-target="#con-close-modal"
+                                                data-id="${element.gnet_live_id}   ">تمام</button>
+                                            <button type="button"
+                                                class="change-system btn btn-success waves-effect waves-light"
+                                                data-toggle="modal" data-target="#chcon-close-modal"
+                                                data-id="${element.gnet_live_id}">انتقال</button>
+
+                                                <button type="button"
+                                                        class="add-buffet btn btn-success waves-effect waves-light"
+                                                        data-toggle="modal" data-target="#bcon-close-modal"
+                                                        data-id="${element.gnet_live_id}">افزودن خوراکی</button>
+
+
+                                            <button data-id="${element.gnet_live_id}" type="button"
+                                                class="btn btn-danger remove-system" data-toggle="modal"
+                                                data-target="#danger-alert-modal">حذف</button>
+                                        </td>
+                    </tr>`);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+            }
+        });
+    }
 
     function refresh_tbl_createsystems() {
         $.ajax({
@@ -268,6 +323,43 @@ $(document).ready(function() {
 
         $("#possibilityid").val(data_id);
 
+
+
+    });
+    $(document).on('click' , '.edit-buffet' , function(){
+       let that = $(this);
+       let data_id = that.attr('data-id');
+        let url = buffetlivename;
+
+       $("#buffet_edit_id").val(data_id);
+        $.ajax({
+            type : "POST",
+            url : url,
+            data:{
+                id : data_id
+            },
+            success: function (data) {
+                $('#buffetnameedit').val(data.buffet_name);
+                $('#buffetcountedit').val(data.count);
+                $('#modal-system-price').val(data.buffet_price);
+
+            }
+        })
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image_show').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#lottery_image").change(function(){
+        readURL(this);
     });
     $(document).on('click', '.remove-user-lottery', function() {
         let that = $(this);
@@ -420,7 +512,8 @@ $(document).ready(function() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                location.reload();
+                Swal.fire('ثبت' , 'با موفقیت ثبت شد');
+                refresh_tbl_createsystems();
             }
         });
     });
@@ -451,7 +544,8 @@ $(document).ready(function() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                location.reload();
+                Swal.fire( 'ثبت' , 'با موفقیت ثبت شد ');
+                refresh_tbl_livelogs();
             }
         });
     });
@@ -588,6 +682,7 @@ $(document).ready(function() {
                 table_factor_buffets.after(`<p>جمع کل : ${showMoney(invoice.price)}</p>`);
 
 
+                refresh_tbl_livelogs();
 
             }
         });

@@ -80,7 +80,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
                                         <label> عکس مسابقه</label>
-                                        <input class="form-control-file" type="file" name="image" id="image">
+                                        <input class="form-control-file" type="file" name="image" id="lottery_image">
+                                        <img src="" alt="" id="image_show" width="300" height="300">
                                     </div>
                                 </div>
                             </div>

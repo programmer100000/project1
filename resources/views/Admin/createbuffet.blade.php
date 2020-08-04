@@ -81,7 +81,7 @@
                                             {{ $t->count }}
                                         </td>
                                         <td>
-                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="{{ $t->gnet_buffet_id }}" data-dtnid="{{ $t->device_type_name_id }}" data-price="{{ $t->type_price }}">ویرایش</button>
+                                            <button type="button" class="edit-buffet btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="{{ $t->gnet_buffet_id }}" data-dtnid="{{ $t->device_type_name_id }}" data-price="{{ $t->type_price }}">ویرایش</button>
                                             <button data-id="{{ $t->gnet_buffet_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                                         </td>
                                     </tr>
@@ -188,12 +188,18 @@
             </div>
             <div class="modal-body p-4">
                 <form action="{{ route('edit.buffet') }}" method="post">
-                    <input type="hidden" id="frm_device_type_id" name="gnet_buffet_id" value="">
+                    <input type="hidden" id="buffet_edit_id" name="gnet_buffet_id" value="">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="modal-system-typs" class="control-label">نام خوراکی</label>
-                                <input type="text" name="buffetname" class="form-control">
+                                <input type="text" name="buffetname" id="buffetnameedit" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="modal-system-typs" class="control-label">تعداد</label>
+                                <input type="text" name="beffet_count" id="buffetcountedit" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -222,7 +228,8 @@
 <!-- END wrapper -->
 <script>
     var buffetcountroute = '{{ route('buffet.count') }}';
-    var jsonbuffet = '{{ route('json.buffet')  }}'
+    var jsonbuffet = '{{ route('json.buffet')  }}';
+    var buffetlivename = '{{  route('buffet.name')  }}';
 </script>
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 <script src="{{ asset('assets/js/adminpanel.js') }}" defer></script>

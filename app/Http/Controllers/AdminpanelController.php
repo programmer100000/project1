@@ -265,9 +265,11 @@ class AdminpanelController extends Controller
         $device_type_id = $request->input('device_type_id');
         $type = $request->input('type');
         $price = $request->input('price');
+        $joysticcount = $request->input('joystick_count');
 
         $devicetype = DeviceType::where('device_type_id', $device_type_id)->first();
         $devicetype->device_type_name_id = $type;
+        $devicetype->joystick_count = $joysticcount;
         $devicetype->type_price = $price;
         if ($devicetype->save()) {
             return true;
@@ -502,17 +504,32 @@ class AdminpanelController extends Controller
     public function editbuffet(Request $request)
     {
         $gnet_buffet_id = $request->input('gnet_buffet_id');
+        $buffet_count = $request->input('buffet_count');
         $buffetname = $request->input('buffetname');
         $price = $request->input('price');
 
         $buffet = Buffet::where('gnet_buffet_id', $gnet_buffet_id)->first();
         $buffet->buffet_name = $buffetname;
+        $buffet->count = $buffet_count;
         $buffet->buffet_price = $price;
         if ($buffet->save()) {
             return true;
         }
     }
+    public function livelogstbl(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $lives = live::select()->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_lives.gnet_device_id')
+            ->where('gnet_lives.gnet_id', $gnet_id)->get();
+        return json_encode($lives);
 
+    }
+    public function livebuffetname(Request $request){
+        $buffet_id = $request->input('id');
+        $buffet = Buffet::select()->where('gnet_buffet_id' , $buffet_id)->first();
+        return $buffet;
+    }
     public function createlive(Request $request)
     {
         $user = Auth::user();

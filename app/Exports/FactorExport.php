@@ -45,23 +45,22 @@ class FactorExport implements FromArray
                         .'قیمت' . ":" . $l->price . "\n";
                 }
             }
-            $buffetsb = BuffetLog::select('gnet_buffets.buffet_name'  , 'buffet_logs.count' , 'buffet_logs.price')->join('gnet_buffets', 'gnet_buffets.gnet_buffet_id', '=', 'buffet_logs.gnet_buffet_id')->where('buffet_logs.invoice_id', $d->invoice_id)->get();
+            $buffetsb = BuffetLog::select()->join('gnet_buffets', 'gnet_buffets.gnet_buffet_id', '=', 'buffet_logs.gnet_buffet_id')->where('buffet_logs.invoice_id', $d->invoice_id)->get();
             foreach ($buffetsb as $b){
                 if($b->invoice_id == $d->invoice_id){
                     $strbuffetlog .= 'نام خوراکی' . ":" . $b->buffet_name . "\n"
                         .'تعداد' . ":" . $b->count . "\n"
-                        .'قیمت' . ":" . $b->price;
+                        .'قیمت' . ":" . number_format($b->price);
                 }
             }
+
             $arr[] = [
                 $d->invoice_id
                  , number_format($d->price),
                 $strlivelog . $strbuffetlog,
-
-
-
                 ];
         }
+//        dd($arr);
         // dd($arr);
         return $arr;
     }

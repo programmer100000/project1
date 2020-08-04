@@ -34,7 +34,7 @@
                         <h4 class="header-title mb-3">دستگاه های مشغول</h4>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#live-form">افزودن</button>
                         <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+                            <table class="table table-borderless table-hover table-nowrap table-centered m-0" id="tbllivelogs">
 
                                 <thead class="thead-light">
                                     <tr>
@@ -64,7 +64,7 @@
                                             <button type="button"
                                                 class="edit-system btn btn-success waves-effect waves-light"
                                                 data-toggle="modal" data-target="#con-close-modal"
-                                                data-id="{{ $t->gnet_live_id }}">تمام</button>
+                                                data-id="{{ $t->gnet_live_id }}" >تمام</button>
                                             <button type="button"
                                                 class="change-system btn btn-success waves-effect waves-light"
                                                 data-toggle="modal" data-target="#chcon-close-modal"
@@ -274,7 +274,7 @@
                     </div>
 
                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
-                    <button type="button" id="changerow" class="btn btn-info waves-effect waves-light">ثبت</button>
+                    <button type="button" id="changerow" class="btn btn-info waves-effect waves-light" data-dismiss="modal">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -356,7 +356,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="button" id="add_invoice" class="btn btn-primary">ثبت</button>
+                            <button type="button" id="add_invoice" class="btn btn-primary" data-dismiss="modal" >ثبت</button>
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
             </div>
@@ -441,6 +441,7 @@
 
 
 <script>
+   var livelogurlajax = '{{ route('livelog.tbl') }}';
    var url_getLiveLog = '{{ route('get.logs') }}';
    var url_getfactor = '{{ route('get.factors') }}';
    var buffetcountroute = '{{ route('buffet.count') }}';

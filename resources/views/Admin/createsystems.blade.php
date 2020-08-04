@@ -183,14 +183,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="field-2" class="control-label">قیمت دسته اضافه</label>
-                                <input type="text" name="joystick_price" class="form-control" id="modal-system-price">
+                                <label for="field-2" class="control-label">تعداد دسته</label>
+                                <input type="text" name="joystick_count" class="form-control" id="modal-system-price">
                             </div>
                         </div>
                     </div>
 
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
-                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">ثبت</button>
+                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light" data-dismiss="modal">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
