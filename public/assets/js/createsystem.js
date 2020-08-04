@@ -86,6 +86,26 @@ $(document).ready(function() {
         });
     });
 
+    $(document).on('click', '#btn-submit-device', function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                Swal.fire('با موفقیت ثبت شد');
+                refresh_tbl_devices();
+            },
+            error: function(data) {
+                Swal.fire('خطا', data.responseJSON.message, 'error');
+            }
+        });
+    });
+
     $(document).on('click', '#btn-add-system', function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
@@ -202,7 +222,47 @@ $(document).ready(function() {
         });
     }
 
-        function refresh_tbl_buffets() {
+    function refresh_tbl_devices() {
+        $.ajax({
+            type: "POST",
+            url: url_device_live,
+            data: {}, // serializes the form's elements.
+            success: function (data) {
+                $('#tbl-devices tbody').empty();
+                var i = 1;
+                data = JSON.parse(data);
+                for (let index = 0; index < data.length; index++) {
+                    i = index + 1;
+                    let element = data[index];
+                    $('#tbl-devices tbody').append(`<tr>
+                        <td>
+                            ${i}
+                        </td>
+
+                        <td>
+                            ${element.device_name}
+                        </td>
+
+                        <td>
+                            ${element.type_name}
+                        </td>
+                        <td>
+                                <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${element.gnet_device_id}" data-dtnid="${element.device_type_id }" data-price="${element.device_name}">ویرایش</button>
+                                            <button data-id="${element.gnet_device_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                        </td>
+                    </tr>`);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+            }
+        });
+    }
+
+
+
+
+    function refresh_tbl_buffets() {
             $.ajax({
                 type: "POST",
                 url: jsonbuffet,
@@ -454,7 +514,8 @@ $(document).ready(function() {
                 id: data_id
             }, // serializes the form's elements.
             success: function(data) {
-                location.reload();
+                refresh_tbl_devices();
+                refresh_tbl_createsystems();
             }
         });
     });
@@ -517,6 +578,24 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("#editdevice").click(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                Swal.fire('ثبت' , 'با موفقیت ثبت شد');
+                refresh_tbl_devices();
+            }
+        });
+    });
+
     $("#editpossibility").click(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
 

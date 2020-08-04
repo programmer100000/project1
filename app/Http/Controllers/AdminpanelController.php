@@ -332,14 +332,22 @@ class AdminpanelController extends Controller
 
         $device = Devices::where('gnet_device_id', $gnet_device_id)->first();
         $device->device_name = $device_name;
-        $device->device_type_id = $system_type;
+        $device->device_type_name_id = $system_type;
         if ($device->save()) {
             return true;
         } else {
             return false;
         }
     }
-
+    public function livedevices(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $devices = Devices::select()
+            ->join('device_type_names' , 'device_type_names.device_type_name_id' , '=' , 'gnet_devices.device_type_name_id')
+            ->where('gnet_id', $gnet_id)->get();
+        return json_encode($devices);
+    }
     //Create/Delete/Edit Game Page
 
 

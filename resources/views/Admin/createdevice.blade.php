@@ -48,7 +48,7 @@
                         <h4 class="header-title mb-3">دستگاه های ثبت شده</h4>
 
                         <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+                            <table class="table table-borderless table-hover table-nowrap table-centered m-0" id="tbl-devices">
 
                                 <thead class="thead-light">
                                     <tr>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
 
-                            <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>
+                            <button type="button" id="btn-submit-device" class="btn btn-primary" >ثبت</button>
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
                     </div> <!-- end card-box-->
@@ -160,7 +160,7 @@
                                 <label for="modal-system-typs" class="control-label">نوع سیستم</label>
                                 <select name="system_type" id="modal-system-typs" class="form-control">
                                     @foreach ($systems as $systemtype)
-                                        <option value="{{ $systemtype->device_type_id }}">{{ $systemtype->type_name }}</option>
+                                        <option value="{{ $systemtype->device_type_name_id }}">{{ $systemtype->type_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -174,7 +174,7 @@
                     </div>
 
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
-                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">ثبت</button>
+                <button type="button" id="editdevice" class="btn btn-info waves-effect waves-light">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -189,6 +189,8 @@
 <!-- ============================================================== -->
 
 <!-- END wrapper -->
-
+<script>
+    var url_device_live = '{{  route('live.device') }}';
+</script>
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 @endsection
