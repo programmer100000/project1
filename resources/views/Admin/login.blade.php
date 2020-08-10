@@ -3,9 +3,6 @@
 <script>
 
 </script>
-{!! htmlScriptTagJsApi([
-'action' => '/admin/login' ,
-]) !!}
 
 @endsection
 @section('body')
@@ -37,7 +34,7 @@
                                     وارد کنید .</p>
                             </div>
 
-                            <form class="admin-login-form" action="{{ route('admin.login.auth') }}" method="POST">
+                            <form class="admin-login-form" action="{{ route('admin.login.auth') }}" method="POST" novalidate>
                                 @csrf
                                 @if($errors->any())
                                     <p class="text-danger">{{ $errors->first() }}</p>
@@ -119,6 +116,8 @@
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 
     <!-- App js -->
+    <script src="{{ asset('assets/js/bootstrapValidator.min.js') }}"></script>
+    <script src="{{ asset('assets/js/adminpanelvalidation.js') }}" defer></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
 
 </body>

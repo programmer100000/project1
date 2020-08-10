@@ -28,7 +28,7 @@
                                 <p class="text-muted mb-4 mt-3">لطفا کد ارسال شده را وارد نمایید </p>
                             </div>
 
-                            <form action="{{ route('admin.confirm') }}" method="POST">
+                            <form class="confirm-form" action="{{ route('admin.confirm') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="confirm_code">کد</label>
@@ -76,6 +76,8 @@
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 
     <!-- App js -->
+    <script src="{{ asset('assets/js/bootstrapValidator.min.js') }}"></script>
+    <script src="{{ asset('assets/js/adminpanelvalidation.js') }}" defer></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
 
 </body>

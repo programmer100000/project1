@@ -41,8 +41,14 @@ class AdminRegisterController extends Controller
         $confirm_code = rand(1000, 9999);
 
         request()->validate([
-
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048000',
+            'fname' => 'required|max:30',
+            'lname' => 'required|max:30',
+            'username' => 'required|max:30',
+            'mobile' => 'required|max:11',
+            'email' => 'required|email',
+            'title' => 'required',
+            'address' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048000',
             'g-recaptcha-response' => 'required|captcha',
 
         ]);

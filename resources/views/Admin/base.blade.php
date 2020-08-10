@@ -18,6 +18,7 @@
         <link href="{{ asset('assets/css/app-modern-dark-rtl.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/mystyle.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="{{ asset('/fonts/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrapValidator.min.css') }}">
 
         <link rel="stylesheet" href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}">
         <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>

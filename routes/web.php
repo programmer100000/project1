@@ -100,6 +100,9 @@ Route::post('/buy/buffet' , 'AdminpanelController@buybuffet')->name('buy.buffet'
 Route::post('/live/buffet/name' , 'AdminpanelController@livebuffetname')->name('buffet.name');
 Route::post('/get/livelogs/ajax' , 'AdminpanelController@livelogstbl')->name('livelog.tbl');
 Route::post('/get/devices/ajax' , 'AdminpanelController@livedevices')->name('live.device');
+Route::post('/get/games/ajax' , 'AdminpanelController@gameajax')->name('game.ajax');
+Route::post('/get/factor/info' , 'AdminpanelController@getfactorinfo')->name('factor.info');
+Route::post('/get/possibility/ajax' , 'AdminpanelController@possibilityajax')->name('possibility.ajax');
 Route::get('/admin/lottery/show/{id}', function ($id) {
     $lottery_users = lotteryuser::select()
         ->join('lotteries', 'lotteries.lottery_id', '=', 'lottery_users.lottery_id')

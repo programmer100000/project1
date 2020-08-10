@@ -97,6 +97,7 @@ class AdminpanelController extends Controller
         $user = Auth::user();
         $gnet = Gamenet::where('user_id', $user->user_id)->first();
         $gnet_id = $gnet->gamenet_id;
+        // dd($user); 
         if (Auth::check() && $user->status_id == 1 && $user->role_id == 1) {
             $lives = live::select()->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_lives.gnet_device_id')
                 ->where('gnet_lives.gnet_id', $gnet_id)->get();
@@ -239,6 +240,13 @@ class AdminpanelController extends Controller
 
         return $mysystemtypes->toJson();
     }
+    public function possibilityajax(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $possibility = possibilities::where('gnet_id' , $gnet_id)->get();
+        return $possibility->toJson();
+    }
     public function buffets_tbl(Request $request)
     {
         $user = Auth::user();
@@ -318,10 +326,17 @@ class AdminpanelController extends Controller
     }
     public function deletedevice(Request $request)
     {
-        $id = $request->input('id');
 
-        Devices::select()->where('gnet_device_id', $id)->delete();
-        return true;
+        $id = $request->input('id');
+        $livelog = livelog::where('gnet_device_id' , $id)->get();
+        if($livelog == null){
+            Devices::select()->where('gnet_device_id', $id)->delete();
+            return true;
+        }else{
+            return 'دستگاه حذف نشد';
+        }
+
+        
     }
 
     public function editdevice(Request $request)
@@ -466,16 +481,7 @@ class AdminpanelController extends Controller
         switch ($request->method()) {
             case 'GET':
                 $buffets =  Buffet::select()->where('gnet_id', $gnet_id)->get();
-                $mysystemtypes = DeviceType::select()
-                    ->join('device_type_names', 'device_type_names.device_type_name_id', '=', 'device_types.device_type_name_id')
-                    ->where('gnet_id', $gnet_id)
-                    ->get();
-
-
-                $systemtypes = Devicesystem::all();
-
-
-                return view('Admin.createbuffet', compact('buffets', 'mysystemtypes', 'systemtypes'));
+                return view('Admin.createbuffet', compact('buffets'));
                 break;
             case 'POST':
                 $buffetname = $request->input('buffetname');
@@ -512,10 +518,9 @@ class AdminpanelController extends Controller
     public function editbuffet(Request $request)
     {
         $gnet_buffet_id = $request->input('gnet_buffet_id');
-        $buffet_count = $request->input('buffet_count');
+        $buffet_count = $request->input('beffet_count');
         $buffetname = $request->input('buffetname');
         $price = $request->input('price');
-
         $buffet = Buffet::where('gnet_buffet_id', $gnet_buffet_id)->first();
         $buffet->buffet_name = $buffetname;
         $buffet->count = $buffet_count;
@@ -908,6 +913,14 @@ class AdminpanelController extends Controller
             }
         }
     }
+    public function gameajax(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $games = Game::where('gnet_id' , $gnet_id)->get();
+        return json_encode($games);
+        
+    }
     public function createlottery(Request $request)
     {
 
@@ -1210,4 +1223,18 @@ class AdminpanelController extends Controller
             }
         }
     }
+    public function getfactorinfo(Request $request){
+        $user = Auth::user();
+        $gnet = Gamenet::where('user_id', $user->user_id)->first();
+        $gnet_id = $gnet->gamenet_id;
+        $invoice_num = $request->input('invoice_num');
+        $invoice = Invoice::where([['invoices.gnet_id' , '=' , $gnet_id] , ['invoices.invoice_num' ,'=' , $invoice_num]])->first();
+        $livelogsb = livelog::select()->join('gnet_devices', 'gnet_devices.gnet_device_id', '=', 'gnet_live_logs.gnet_device_id')->where('gnet_live_logs.invoice_id', $invoice->invoice_id)->get();
+        $buffetsb = BuffetLog::select('gnet_buffets.buffet_name'  , 'buffet_logs.count' , 'buffet_logs.price')->join('gnet_buffets', 'gnet_buffets.gnet_buffet_id', '=', 'buffet_logs.gnet_buffet_id')->where('buffet_logs.invoice_id', $invoice->invoice_id)->get();
+        return response()->json([
+            'livelogs' => $livelogsb,
+            'buffets' => $buffetsb,
+            'invoice' => $invoice
+        ]);
+    } 
 }

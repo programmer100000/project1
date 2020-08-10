@@ -137,7 +137,7 @@
                                 <div class="form-group mb-3">
                                     <label>تعداد</label> <br />
                                     <select name="count" class="form-control" id="buffetbuycount">
-                                        @if($buffets[0])
+                                        @if(count($buffets)>0)
                                             @for($i = 1; $i<= $buffets[0]->count ; $i++ )
                                                 <option value="{{ $i  }}"> {{ $i  }} </option>
                                             @endfor
@@ -211,7 +211,7 @@
                     </div>
 
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
-                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">ثبت</button>
+                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light" data-dismiss="modal">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -227,9 +227,7 @@
 
 <!-- END wrapper -->
 <script>
-    var buffetcountroute = '{{ route('buffet.count') }}';
-    var jsonbuffet = '{{ route('json.buffet')  }}';
-    var buffetlivename = '{{  route('buffet.name')  }}';
+
 </script>
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 <script src="{{ asset('assets/js/adminpanel.js') }}" defer></script>

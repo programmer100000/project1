@@ -178,7 +178,16 @@
 
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
+<script>
+    var buffetcountroute = '{{ route('buffet.count') }}';
+    var jsonbuffet = '{{ route('json.buffet')  }}';
+    var buffetlivename = '{{  route('buffet.name')  }}';
+    var url_device_live = '{{  route('live.device') }}';
+    var url_game_live = '{{ route('game.ajax') }}';
+    var json_system = '{{ route('json.system') }}';
+    var possibility_url = '{{ route('possibility.ajax') }}';
 
+</script>
     <!-- Vendor js -->
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 
@@ -188,7 +197,7 @@
 
     <script src="{{ asset('assets/libs/selectize/js/standalone/selectize.min.js') }}">
     </script>
-
+ 
     <!-- Dashboar 1 init js-->
     <script src="{{ asset('assets/js/pages/dashboard-1.init.js') }}"></script>
 

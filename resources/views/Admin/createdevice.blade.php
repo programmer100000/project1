@@ -190,7 +190,6 @@
 
 <!-- END wrapper -->
 <script>
-    var url_device_live = '{{  route('live.device') }}';
 </script>
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 @endsection

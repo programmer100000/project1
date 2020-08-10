@@ -79,12 +79,35 @@ $(document).ready(function() {
             success: function(data) {
                 Swal.fire('با موفقیت ثبت شد');
                 refresh_tbl_buffets();
+                
             },
             error: function(data) {
                 Swal.fire('خطا', data.responseJSON.message, 'error');
             }
         });
     });
+
+    $(document).on('click', '#game_form_btn', function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this).closest('form');
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                Swal.fire('با موفقیت ثبت شد');
+                refresh_tbl_games();
+                
+            },
+            error: function(data) {
+                Swal.fire('خطا', data.responseJSON.message, 'error');
+            }
+        });
+    });
+
 
     $(document).on('click', '#btn-submit-device', function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -105,6 +128,7 @@ $(document).ready(function() {
             }
         });
     });
+
 
     $(document).on('click', '#btn-add-system', function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -259,8 +283,75 @@ $(document).ready(function() {
         });
     }
 
+function refresh_tbl_games() {
+        $.ajax({
+            type: "POST",
+            url: url_game_live,
+            data: {}, // serializes the form's elements.
+            success: function (data) {
+                $('#tbl-games tbody').empty();
+                var i = 1;
+                data = JSON.parse(data);
+                for (let index = 0; index < data.length; index++) {
+                    i = index + 1;
+                    let element = data[index];
+                    $('#tbl-games tbody').append(`<tr>
+                        <td>
+                            ${i}
+                        </td>
+
+                        <td>
+                            ${element.game_name}
+                        </td>
+                        <td>
+                        <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${element.gnet_game_id }">ویرایش</button>
+                        <button data-id="${element.gnet_game_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
+                     </td>
+                    </tr>`);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+            }
+        });
+    }
+
+    function refresh_tbl_possibility() {
+        $.ajax({
+            type: "POST",
+            url: possibility_url,
+            data: {}, // serializes the form's elements.
+            success: function (data) {
+                $('#tbl_possibility tbody').empty();
+                var i = 1;
+                data = JSON.parse(data);
+                for (let index = 0; index < data.length; index++) {
+                    i = index + 1;
+                    let element = data[index];
+                    $('#tbl_possibility tbody').append(`<tr>
+                        <td>
+                            ${i}
+                        </td>
+
+                        <td>
+                            ${element.text}
+                        </td>
+                        <td>
+                        <button type="button" class="edit-possibility btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-modal" data-id="${element.possibility_id }">ویرایش</button>
+                        <button data-id="${element.possibility_id }" type="button" class="btn btn-danger remove-possibility" data-toggle="modal" data-target="#danger-modal">حذف</button>
+                     </td>
+                    </tr>`);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+            }
+        });
+    }
 
 
+
+  
 
     function refresh_tbl_buffets() {
             $.ajax({
@@ -284,15 +375,15 @@ $(document).ready(function() {
                         </td>
 
                         <td>
-                            ${ element.count }
-                        </td>
-
-                        <td>
                             ${ numberWithCommas(element.buffet_price)  }
                         </td>
 
                         <td>
-                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${ element.gnet_buffet_id }" data-dtnid="${ element.device_type_name_id }" data-price="${ element.type_price }">ویرایش</button>
+                            ${ element.count }
+                        </td>
+
+                        <td>
+                            <button type="button" class="edit-system btn btn-success waves-effect waves-light" data-toggle="modal" data-target="#con-خروج-modal" data-id="${ element.gnet_buffet_id }" data-dtnid="${ element.gnet_buffet_id }" data-price="${ element.buffet_price }">ویرایش</button>
                             <button data-id="${ element.device_type_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                         </td>
                     </tr>`);
@@ -316,6 +407,7 @@ $(document).ready(function() {
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
                 Swal.fire('با موفقیت ثبت شد');
+                refresh_tbl_possibility();
 
             },
             error: function(data) {
@@ -440,7 +532,7 @@ $(document).ready(function() {
                 id: data_id
             }, // serializes the form's elements.
             success: function(data) {
-                location.reload();
+                refresh_tbl_possibility();
             }
         });
     });
@@ -516,6 +608,8 @@ $(document).ready(function() {
             success: function(data) {
                 refresh_tbl_devices();
                 refresh_tbl_createsystems();
+                refresh_tbl_games();
+
             }
         });
     });
@@ -575,6 +669,8 @@ $(document).ready(function() {
             success: function(data) {
                 Swal.fire('ثبت' , 'با موفقیت ثبت شد');
                 refresh_tbl_createsystems();
+                refresh_tbl_games();
+                refresh_tbl_buffets();
             }
         });
     });
@@ -607,7 +703,8 @@ $(document).ready(function() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                location.reload();
+                Swal.fire('ثبت' , 'با موفقیت ثبت شد');
+                refresh_tbl_possibility();
             }
         });
     });

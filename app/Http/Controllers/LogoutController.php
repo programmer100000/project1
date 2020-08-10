@@ -8,6 +8,6 @@ class LogoutController extends Controller
 {
     public function logout(Request $request){
         Auth::logout();
-        echo 'user logout';
+        return redirect()->route('home');
     }
 }

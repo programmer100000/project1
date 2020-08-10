@@ -254,6 +254,7 @@
 
                     
                     $lottery_users_count = count($lottery_users_1);
+                    if($lottery_users_count % 2 == 0){
                     for ($i = 0; $i < $lottery_users_count; $i+=2) {
                         $user1 = $lottery_users[$i]['fname'] . ' ' . $lottery_users[$i]['lname'];
                         $user2 = $lottery_users[$i+1]['fname'] . ' '. $lottery_users[$i+1]['lname'];
@@ -272,6 +273,7 @@
                             echo join(",",$ret);
                             echo "],";
                         }
+                    }
                         @endphp
 
                 ]

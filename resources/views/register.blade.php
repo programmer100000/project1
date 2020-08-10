@@ -80,6 +80,8 @@
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 
     <!-- App js -->
+    <script src="{{ asset('assets/js/bootstrapValidator.min.js') }}"></script>
+    <script src="{{ asset('assets/js/adminpanelvalidation.js') }}" defer></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
 
 </body>

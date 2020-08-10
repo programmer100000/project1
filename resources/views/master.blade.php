@@ -23,6 +23,7 @@
     <link href="{{ asset('ui/css/mystyle.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/buttonsplugin/css/normalize.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/buttonsplugin/css/main.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/bootstrapValidator.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('ui/css/flickity.css')}}" media="screen">
     <link rel="stylesheet" href="{{ asset('/fonts/css/style.css') }}">
@@ -162,6 +163,7 @@
     <script src="{{ asset('ui/buttonsplugin/js/TweenMax.min.js') }}"></script>
     <script src="{{ asset('ui/buttonsplugin/js/main.js') }}"></script>
     <script src="{{ asset('ui/js/flickity.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrapValidator.min.js') }}"></script>
     <script>
         $(function () {
             new WOW().init();

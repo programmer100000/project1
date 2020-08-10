@@ -48,7 +48,7 @@
                         <h4 class="header-title mb-3">بازی های ثبت شده</h4>
 
                         <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+                            <table id="tbl-games" class="table table-borderless table-hover table-nowrap table-centered m-0">
 
                                 <thead class="thead-light">
                                     <tr>
@@ -104,7 +104,7 @@
                                     <input class="form-control" type="text" name="gamename" id="selectize-tags">
                                 </div>
                             </div>
-                            <button type="button" id="types_form_btn" class="btn btn-primary">ثبت</button>
+                            <button type="button" id="game_form_btn" class="btn btn-primary">ثبت</button>
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
                     </div> <!-- end card-box-->
@@ -115,7 +115,7 @@
                         <h4 class="header-title mb-3">امکانات ثبت شده</h4>
 
                         <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
+                            <table id="tbl_possibility" class="table table-borderless table-hover table-nowrap table-centered m-0">
 
                                 <thead class="thead-light">
                                     <tr>
@@ -251,7 +251,7 @@
                     </div>
 
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
-                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light">ثبت</button>
+                <button type="button" id="editrow" class="btn btn-info waves-effect waves-light" data-dismiss="modal">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -289,7 +289,7 @@
                     </div>
 
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">خروج</button>
-                <button type="button" id="editpossibility" class="btn btn-info waves-effect waves-light">ثبت</button>
+                <button type="button" id="editpossibility" class="btn btn-info waves-effect waves-light" data-dismiss="modal">ثبت</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -304,6 +304,7 @@
 <!-- ============================================================== -->
 
 <!-- END wrapper -->
-
+<script>
+</script>
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
 @endsection

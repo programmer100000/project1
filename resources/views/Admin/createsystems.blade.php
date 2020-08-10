@@ -206,7 +206,6 @@
 
 <!-- END wrapper -->
 <script>
-    var json_system = '{{ route('json.system') }}';
 </script>
 
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
