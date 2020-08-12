@@ -54,9 +54,7 @@ function getCities(ostanID) {
                 <div class="col-md-10 m-0 p-0 name" data-id="${city.id}">
                   <span>${city.title}</span>
                 </div>
-                <div class="col-md-2 m-0 p-0 text-center icon">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                </div>
+               
               </div>`);
             }
 
