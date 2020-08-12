@@ -1,0 +1,543 @@
+@font-face {
+    font-family: 'IRANYekan';
+    src: url('../fonts/IRANYekanWeb.ttf') format('ttf'), url('../fonts/IRANYekanWeb.woff') format('woff'), url('../fonts/BYekan-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+    font-family: IRANYekan!important;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background: #2B1E59!important;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px !important;
+    }
+}
+
+header {
+    overflow: hidden;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none!important;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+h1 {
+    font-size: 1.2rem !important;
+}
+
+h2 {
+    font-size: 1.1rem !important;
+}
+
+h3 {
+    font-size: 1rem !important;
+}
+
+h4 {
+    font-size: 0.8rem !important;
+}
+
+.total-content {
+    /* background-color: #231553; */
+}
+
+.inner-plan-header {
+    top: 425px;
+}
+
+.plan-body {
+    /* padding-top: 10rem!important; */
+    padding: 3rem;
+    /* border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-radius: 50% 50% 0 0; */
+}
+
+.popular {
+    background-color: #34256a;
+    height: 300px;
+}
+
+.introduce {
+    height: 300px;
+    background-color: #34256a;
+}
+
+#mainNav {
+    background-color: #2c1e59!important;
+}
+
+.card {
+    background-color: #34256a!important;
+}
+
+.card-header i {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-left: 3px;
+}
+
+.searchbar {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input {
+    float: right;
+    width: 90%;
+    outline: 0;
+    background: none;
+    caret-color: transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_icon {
+    color: #e80767;
+    opacity: .8;
+}
+
+.search_icon a:hover,
+a:active,
+a:visited {
+    color: #fff!important;
+    background-color: #e80767!important;
+}
+
+.inner-slider {
+    background-image: url(../img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1109px;
+}
+
+.plan-header {
+    position: relative;
+    top: -406px;
+    height: 111px;
+}
+
+footer {
+    height: 700px;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/group.svg');
+    background-size: 100%;
+    /* background-attachment: fixed; */
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.inner-slider {
+    background-image: url(../img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1109px;
+}
+
+.plan-header {
+    position: relative;
+    top: -406px;
+}
+
+.plan-header svg {
+    width: 100%;
+}
+
+.contact-secttion {
+    margin-bottom: 11rem!important;
+    background-image: url(../img/about.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 800px;
+    padding: 1.5rem;
+}
+
+.plan-body {
+    padding-top: 15rem;
+}
+
+.inner-top-footer svg {
+    width: 100%;
+}
+
+.main-contact {
+    background-color: #34256a;
+}
+
+.main-contact-form .form-control {
+    outline: none!important;
+    background-color: transparent;
+}
+
+.captcha p {
+    background: #513c9c;
+    opacity: .8;
+    line-height: 2;
+}
+
+.main-contact-form .form-control:focus {
+    border-color: #CCC;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+ ::placeholder {
+    color: #ccc!important;
+    opacity: 1;
+}
+
+.main-form-btn {
+    border-radius: 1.25rem!important;
+    background-color: #e80767!important;
+    border-color: #e80767!important;
+}
+
+.about {
+    background-color: #34256a;
+}
+
+.about-body {
+    background-image: url(../img/Artboard.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 700px;
+}
+
+.top-about,
+.bottom-about,
+.card,
+.main-contact,
+.popular,
+.popular-img {
+    border-radius: 1.3rem!important;
+}
+
+.inner-slider {
+    height: 400px;
+}
+
+.plan {
+    background-color: #34256a;
+    border-radius: 15px;
+    height: 780px;
+}
+
+
+/* 
+.plan .text-info-plan {
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+} */
+
+.plan .icon svg {
+    width: 60%;
+}
+
+.plan svg {
+    width: 100%;
+    height: 100%;
+}
+
+.plan .header h3 {
+    font-size: 2.5rem!important;
+    width: 100%;
+    text-align: center;
+    top: 8%;
+    position: absolute;
+}
+
+.plan-body {
+    /* padding-top: 10rem!important; */
+    padding: 3rem;
+    /* border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-radius: 50% 50% 0 0; */
+}
+
+.plan button {
+    width: 35%;
+    background-color: #34256A;
+    line-height: 2.5;
+    border-radius: 30px;
+    color: #fff;
+    border-color: transparent;
+    font-size: 1.4rem;
+}
+
+.plan .khorshid {
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
+    -moz-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
+    box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
+    position: absolute;
+    top: 745px;
+}
+
+.plan .almas {
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
+    -moz-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
+    box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
+    position: absolute;
+    top: 745px;
+}
+
+.plan .kahkeshan {
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
+    -moz-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
+    box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
+    position: absolute;
+    top: 745px;
+}
+
+.popular {
+    background-color: #34256a;
+    height: 600px;
+}
+
+.popular-img {
+    background-image: url(../img/art.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.introduce {
+    height: 600px;
+    background-color: #34256a;
+}
+
+.introduce2-img {
+    background-image: url(../img/MaskGroup3.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.introduce1-img {
+    height: 300px;
+    background-image: url(../img/MaskGroup4.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.introduce1-data {
+    height: 250px;
+}
+
+#mainNav {
+    background-color: #2c1e59!important;
+}
+
+.card {
+    background-color: #34256a!important;
+}
+
+.searchbar {
+    height: 60px;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: .5rem;
+}
+
+.search_icon {
+    height: 52px;
+    width: 10%;
+    float: right;
+    background: #e80767;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.inner-slider {
+    background-image: url(../img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1109px;
+}
+
+.plan-header {
+    position: relative;
+    top: -406px;
+    height: 111px;
+}
+
+footer {
+    height: 700px;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Group313.png');
+    background-size: 100% 100%;
+    /* background-attachment: fixed; */
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.inner-slider {
+    margin-top: 50px;
+    background-image: url(../img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1109px;
+}
+
+.plan-header {
+    position: relative;
+    top: -406px;
+}
+
+.plan .header img {
+    width: 100%;
+}
+
+.about-section {
+    background-image: url(../img/about.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+
+.plan-body {
+    padding-top: 15rem;
+}
+
+.top-footer {
+    position: relative;
+    bottom: 510px;
+    height: 185px;
+}
+
+.inner-plan-header {
+    top: 375px
+}
+
+.footer-call {
+    text-align: left;
+}
+
+.plan-item {
+    padding: 1rem;
+}
+
+.Provinces {
+    cursor: pointer;
+    overflow-y: scroll;
+    height: 200px;
+}
+
+.Provinces .back {
+    color: red;
+    direction: ltr;
+    text-align: center;
+}
+
+.Provinces .icon {
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .title-img {
+        width: 40%!important;
+    }
+    footer {
+        height: 400px!important;
+    }
+    .footer-call {
+        text-align: right!important;
+    }
+    .footer-call-icon svg {
+        height: 30px;
+    }
+    .footer-location-icon svg {
+        height: 30px;
+    }
+    .top-footer {
+        height: 69px!important;
+        bottom: 425px!important;
+    }
+    .contact-secttion {
+        height: 650px!important;
+        margin-bottom: 0!important;
+        padding-bottom: 6rem!important;
+    }
+    .popular-data {
+        height: 290px;
+    }
+    .popular-img {
+        height: 250px;
+    }
+    .introduce {
+        height: 650px!important;
+    }
+    .introduce1 {
+        flex-direction: column-reverse;
+    }
+    .introduce1-img {
+        height: 46%;
+    }
+    .introduce2-img {
+        height: 46%;
+        margin-bottom: .5rem;
+    }
+    .introduce-data {
+        height: 50%;
+    }
+    .inner-slider {
+        height: 270px;
+    }
+    .searchbar {
+        height: 35px;
+    }
+    .search_icon {
+        height: 30px;
+        width: 15%;
+    }
+    .plan-body {
+        padding-top: 0;
+    }
+    .text-info-plan {
+        font-size: 1rem!important;
+    }
+    .plan {
+        height: 580px;
+    }
+    .plan-item {
+        /* padding: 0!important; */
+    }
+    .plan .header h3 {
+        top: 5%!important;
+        font-size: 2rem!important;
+    }
+    .khorshid,
+    .almas,
+    .kahkeshan {
+        position: absolute!important;
+        top: 542px!important;
+    }
+}

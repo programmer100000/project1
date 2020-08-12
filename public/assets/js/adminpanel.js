@@ -1,10 +1,40 @@
+var jsonprovices;
 $(document).ready(function() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    $.ajax({
+        url: urlprovinces,
+        DataType: 'json',
+        success: function(data) {
+            jsonprovices = data.states;
+            for (let i = 0; i < jsonprovices.length; i++) {
+                let state = jsonprovices[i];
+                $('.state').append(`<option value="${state.id}">${state.title}</option>`);
+            };
+        }
+    });
 });
+
+function getCities(ostanID) {
+    $('.city').empty();
+    for (let i = 0; i < jsonprovices.length; i++) {
+        let state = jsonprovices[i];
+        if (state.id == ostanID) {
+            for (let j = 0; j < state.cities.length; j++) {
+                let city = state.cities[j];
+                $('.city').append(`<option value="${city.id}">${city.title}</option>`);
+            }
+
+        }
+    }
+};
+$(document).on('change', '.state', function() {
+    let id = $(this).children("option:selected").attr("value");
+    getCities(id);
+})
 
 $('#buffetid').change(function() {
     let value = $('#buffetid').val();
@@ -28,7 +58,7 @@ $('#buffetid').change(function() {
     });
 });
 
-$(document).on('change' ,'.selectbuffet', function() {
+$(document).on('change', '.selectbuffet', function() {
     let count = $(this).closest('.row').find('.counts');
     let value = $('.selectbuffet').val();
     let url = buffetcountroute;
@@ -70,21 +100,21 @@ $("#btnformbuybuffet").click(function(e) {
             Swal.fire('خطا', data.responseJSON.message, 'error');
         }
     });
-
 });
- function refresh_tbl_buffets() {
-            $.ajax({
-                type: "POST",
-                url: jsonbuffet,
-                data: {}, // serializes the form's elements.
-                success: function(data) {
-                    $('#tbl_buffets tbody').empty();
-                    var i = 1;
-                    data = JSON.parse(data);
-                    for (let index = 0; index < data.length; index++) {
-                        i = index + 1;
-                        let element = data[index];
-                        $('#tbl_buffets tbody').append(`<tr>
+
+function refresh_tbl_buffets() {
+    $.ajax({
+        type: "POST",
+        url: jsonbuffet,
+        data: {}, // serializes the form's elements.
+        success: function(data) {
+            $('#tbl_buffets tbody').empty();
+            var i = 1;
+            data = JSON.parse(data);
+            for (let index = 0; index < data.length; index++) {
+                i = index + 1;
+                let element = data[index];
+                $('#tbl_buffets tbody').append(`<tr>
                         <td>
                             ${i}
                         </td>
@@ -106,10 +136,10 @@ $("#btnformbuybuffet").click(function(e) {
                             <button data-id="${ element.device_type_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                         </td>
                     </tr>`);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
-                }
-            });
-    }
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+        }
+    });
+}

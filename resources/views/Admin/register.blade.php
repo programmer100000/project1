@@ -63,6 +63,15 @@
                                     <input class="form-control" name="title" type="text" id="title" placeholder="نام گیم نت" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="title">استان</label>
+                                    <select name="state" class="form-control state"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="title">شهر</label>
+                                    <select name="city" class="form-control city"></select>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="address">آدرس گیم نت </label>
                                     <input class="form-control" name="address" type="text" id="address" placeholder="آدرس گیم نت " required>
                                 </div>
@@ -137,10 +146,13 @@
 
     <!-- Vendor js -->
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-
+    <script>
+        var urlprovinces = '{{ asset('js/Provinces.json') }}';
+    </script>
     <!-- App js -->
     <script src="{{ asset('assets/js/bootstrapValidator.min.js') }}"></script>
     <script src="{{ asset('assets/js/adminpanelvalidation.js') }}" defer></script>
+    <script src="{{ asset('assets/js/adminpanel.js')}}" defer></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }} "></script>
 </body>

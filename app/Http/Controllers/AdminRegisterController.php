@@ -35,6 +35,8 @@ class AdminRegisterController extends Controller
         $gamenettel = $request->input('tel');
         $gamenetlat = $request->input('lat');
         $gamenetlong = $request->input('long');
+        $gamenetstate = $request->input('state');
+        $gamenetcity = $request->input('city');
         $gamenetdesc = $request->input('description');
         $image = $request->file('image');
         $plan = $request->input('plan');
@@ -74,6 +76,8 @@ class AdminRegisterController extends Controller
                 $gamenet->tel = $gamenettel;
                 $gamenet->lat = $gamenetlat;
                 $gamenet->rate = 0;
+                $gamenet->state_id = $gamenetstate;
+                $gamenet->city_id = $gamenetcity;   
                 $gamenet->status = 0;
                 $gamenet->approve = 0;
                 $gamenet->long = $gamenetlong;

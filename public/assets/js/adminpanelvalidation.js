@@ -36,6 +36,20 @@ $(document).ready(function() {
                     }
                 }
             },
+            state: {
+                validators: {
+                    notEmpty: {
+                        message: 'این قسمت نمیتواند خالی باشد '
+                    }
+                }
+            },
+            city: {
+                validators: {
+                    notEmpty: {
+                        message: 'این قسمت نمیتواند خالی باشد '
+                    }
+                }
+            },
             lname: {
                 validators: {
                     notEmpty: {

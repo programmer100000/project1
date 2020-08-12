@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="95" height="95" viewBox="0 0 95 95">
+  <g id="email_2_" data-name="email (2)" transform="translate(17.4 -50.466)">
+    <g id="Ellipse_77" data-name="Ellipse 77" transform="translate(-17.4 50.466)" fill="#3b227d" stroke="#e80766" stroke-width="3">
+      <circle cx="47.5" cy="47.5" r="47.5" stroke="none"/>
+      <circle cx="47.5" cy="47.5" r="46" fill="none"/>
+    </g>
+    <g id="Group_309" data-name="Group 309" transform="translate(7.327 88.636)">
+      <g id="Group_308" data-name="Group 308" transform="translate(0 0)">
+        <path id="Path_1674" data-name="Path 1674" d="M118.783,165.926l-10-9.433,8.883-4.066a1.31,1.31,0,0,0,.675-1.98,2.067,2.067,0,0,0-2.468-.542l-18.4,8.422-18.4-8.422a2.067,2.067,0,0,0-2.468.542,1.31,1.31,0,0,0,.675,1.98l8.883,4.066-10,9.433a1.263,1.263,0,0,0,.206,2.046,2.131,2.131,0,0,0,2.55-.165l10.443-9.85,7.218,3.3a2.2,2.2,0,0,0,1.793,0l7.218-3.3,10.443,9.85a2.131,2.131,0,0,0,2.55.165A1.263,1.263,0,0,0,118.783,165.926Z" transform="translate(-75.726 -149.716)" fill="#e80766"/>
+      </g>
+    </g>
+    <g id="Group_311" data-name="Group 311" transform="translate(0 81)">
+      <g id="Group_310" data-name="Group 310" transform="translate(0 0)">
+        <path id="Path_1675" data-name="Path 1675" d="M53.033,81H5.11A4.9,4.9,0,0,0,0,85.646v26.842a4.9,4.9,0,0,0,5.11,4.646H53.033a4.9,4.9,0,0,0,5.11-4.646V85.646A4.9,4.9,0,0,0,53.033,81Zm1.7,31.487a1.633,1.633,0,0,1-1.7,1.549H5.11a1.633,1.633,0,0,1-1.7-1.549V85.646A1.633,1.633,0,0,1,5.11,84.1H53.033a1.633,1.633,0,0,1,1.7,1.549Z" transform="translate(0 -81)" fill="#e80766"/>
+      </g>
+    </g>
+  </g>
+</svg>

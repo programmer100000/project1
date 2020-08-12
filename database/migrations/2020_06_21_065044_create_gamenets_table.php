@@ -24,6 +24,8 @@ class CreateGamenetsTable extends Migration
             $table->boolean('status' , false);
             $table->boolean('approve' , false);
             $table->string('description' , 2000);
+            $table->smallInteger('state_id');
+            $table->smallInteger('city_id');
             $table->timestamps();
         });
     }

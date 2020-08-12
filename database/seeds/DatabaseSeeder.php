@@ -40,7 +40,6 @@ class DatabaseSeeder extends Seeder
             'role_id' => 3,
             'confirm_code' => '3928',
             'status_id' => 2
-
         ];
         DB::table('users')->insert($user);
         $superadmin = [

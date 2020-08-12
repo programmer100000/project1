@@ -24,13 +24,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    $gamenets_active = Gamenet::select()
-        ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
-        ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->get();
-    return view('index', compact('gamenets_active'));
-})->name('home');
+// Route::get('/', function () {
+//     $gamenets_active = Gamenet::select()
+//         ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
+//         ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->get();
+//     return view('index', compact('gamenets_active'));
+// })->name('home');
 
+Route::get('/',function(){
+    $gamenets_active = Gamenet::select()
+    ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
+    ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->get();
+    return view('newui.index' , compact('gamenets_active'));
+})->name('home');
 // super admin
 Route::get('/superadmin', 'superadmin@index')->name('superadmin');
 Route::get('/superadmin/login', 'superadminlogin@login')->name('superadmin.login');
