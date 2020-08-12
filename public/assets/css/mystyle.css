@@ -1,3 +1,32 @@
+@font-face {
+    font-family: 'IRANYekan';
+    src: url('../fonts/IRANYekanWeb.ttf') format('ttf'), url('../fonts/IRANYekanWeb.woff') format('woff'), url('../fonts/BYekan-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    direction: rtl;
+    font-family: IRANYekan!important;
+}
+
+* {
+    direction: rtl;
+    font-family: IRANYekan!important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    direction: rtl;
+    font-family: IRANYekan!important;
+}
+
 .custom-control-input:checked~.custom-control-label::before {
     background: #003b36!important;
     border-color: #003b36!important;
