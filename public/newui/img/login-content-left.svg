@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="721" height="867" viewBox="0 0 721 867">
+  <defs>
+    <filter id="Rectangle_219" x="-90" y="-87" width="897" height="1047" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feFlood flood-color="#f0eff3" flood-opacity="0"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Artboard_13">
+      <rect width="721" height="867"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_13" data-name="Artboard – 13" clip-path="url(#clip-Artboard_13)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_219)">
+      <path id="Rectangle_219-2" data-name="Rectangle 219" d="M53,0H717a0,0,0,0,1,0,0V867a0,0,0,0,1,0,0H53A53,53,0,0,1,0,814V53A53,53,0,0,1,53,0Z" fill="#2e005a"/>
+    </g>
+  </g>
+</svg>

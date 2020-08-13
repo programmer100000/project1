@@ -241,3 +241,7 @@ Route::get('/pay', function () {
 })->name('pay');
 
 /*End Test Routes*/
+
+
+// new
+Route::post('/newlogin', 'LoginController@login')->name('newlogin');

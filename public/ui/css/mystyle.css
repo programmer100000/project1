@@ -1773,3 +1773,16 @@ body {
 
 
 /* end intro panel page */
+
+
+/* login page */
+
+.login-content {
+    background-image: url(../img/login-bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 800px;
+}
+
+
+/* end login page */

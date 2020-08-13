@@ -15,21 +15,30 @@
 
 
         <header>
-            <nav class="navbar navbar-expand-lg bg-secondary text-uppercase text-white fixed-top" id="mainNav">
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-              </button>
+            <nav class="navbar navbar-expand-lg bg-secondary text-uppercase text-white fixed-top d-flex justify-content-between" id="mainNav">
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded" type="button" data-toggle="collapse"      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <div class="mobile-header-btns">
+                <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                    استان ها
+                  </button>
+                  <button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button>
+              </div>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-right ml-auto ">
                         <li class="nav-item mx-0 mx-lg-1 text-white"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#">صفحه اصلی</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">گیم نت ها</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">درباره ما</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">تماس با ما</a></li>
+                        <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">درباره ما</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">تماس با ما</a></li> -->
                     </ul>
                 </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                  انتخاب استان
-                </button>
+              <div class="header-btns">
+                <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                    استان ها
+                  </button>
+                  <button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button>
+              </div>
                 
             </nav>
         </header>
@@ -214,8 +223,11 @@
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
+        <div class="modal-content p-4">
+          <div class="modal-header justify-content-between align-items-center">
+            <span>
+              انتخاب شهر
+            </span>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

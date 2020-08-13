@@ -445,20 +445,83 @@ footer {
     padding: 1rem;
 }
 
+.login-header-btn {
+    border-color: #e80767!important;
+    background-color: #e80767!important;
+    border-radius: 30px!important;
+}
+
+.provinces-header-btn {
+    color: #fff!important;
+    border-color: #e80767!important;
+    border-radius: 30px!important;
+}
+
+.provinces-header-btn:hover {
+    background-color: #e80767!important;
+}
+
+.provinces-header-btn:hover,
+.provinces-header-btn:focus,
+.provinces-header-btn:active,
+.provinces-header-btn:visited,
+.logib-header-btn:hover,
+.login-header-btn:focus,
+.login-header-btn:active,
+.login-header-btn:visited {
+    outline: none!important;
+    box-shadow: none!important;
+}
+
 .Provinces {
     cursor: pointer;
     overflow-y: scroll;
     height: 200px;
+    margin-left: 1.4rem;
+    border-top: 1px solid #9887bd;
 }
 
 .Provinces .back {
-    color: red;
+    color: #5a44ab;
     direction: ltr;
-    text-align: center;
+    text-align: right;
 }
 
 .Provinces .icon {
     font-size: 1.5rem;
+    color: #5a44ab!important;
+}
+
+.modal-header {
+    border-bottom: none!important;
+    padding: 1rem 0rem 1rem 1.1rem!important;
+}
+
+.close {
+    margin: 0!important;
+    padding: 0!important;
+    color: #5a44ab!important;
+}
+
+.modal-body {
+    border-top: 1px solid #9887bd!important;
+}
+
+.mobile-header-btns {
+    display: none;
+}
+
+.Provinces .row {
+    border-top: 1px solid #cbbee7!important;
+    margin-left: 1rem!important;
+}
+
+.Provinces .row:first-child {
+    border-top: none!important;
+}
+
+.province {
+    margin-left: 1rem!important;
 }
 
 @media screen and (max-width: 768px) {
@@ -541,4 +604,43 @@ footer {
         position: absolute!important;
         top: 542px!important;
     }
+    .mobile-header-btns {
+        display: block!important;
+    }
+    .header-btns {
+        display: none!important;
+    }
 }
+
+
+/* login page */
+
+.login-bg {
+    background-image: url(../img/login-bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1000px;
+}
+
+.login-content {
+    background-image: url(../img/login-content.svg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 800px;
+}
+
+.login-content-left {
+    background-image: url(../img/login-content-left.svg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.inner-bg {
+    background-image: url(../img/Group425.svg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+
+
+/* end login page */
