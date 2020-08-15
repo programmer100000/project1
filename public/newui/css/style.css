@@ -451,13 +451,15 @@ footer {
     border-radius: 30px!important;
 }
 
-.provinces-header-btn {
+.provinces-header-btn,
+.login-page-register-btn {
     color: #fff!important;
     border-color: #e80767!important;
     border-radius: 30px!important;
 }
 
-.provinces-header-btn:hover {
+.provinces-header-btn:hover,
+.login-page-register-btn:hover {
     background-color: #e80767!important;
 }
 
@@ -468,7 +470,8 @@ footer {
 .logib-header-btn:hover,
 .login-header-btn:focus,
 .login-header-btn:active,
-.login-header-btn:visited {
+.login-header-btn:visited,
+.login-page-register-btn {
     outline: none!important;
     box-shadow: none!important;
 }
@@ -610,6 +613,26 @@ footer {
     .header-btns {
         display: none!important;
     }
+    .login-content-left {
+        height: 50%!important;
+    }
+    .login-content-right {
+        padding: 0 1rem!important;
+    }
+    .login-content {
+        flex-direction: column-reverse!important;
+    }
+    .login-right {
+        height: 50%!important;
+    }
+    .inner-register-btn {
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    .login-input {
+        padding-bottom: .4rem!important;
+        padding-top: .4rem!important;
+    }
 }
 
 
@@ -623,23 +646,76 @@ footer {
 }
 
 .login-content {
-    background-image: url(../img/login-content.svg);
-    background-size: 100% 100%;
+    background-image: url(../img/Artboard11.svg);
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 800px;
+    opacity: .95;
 }
 
 .login-content-left {
     background-image: url(../img/login-content-left.svg);
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
+}
+
+.login-content-right {
+    background-image: url(../img/login-content-right.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 3rem;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.inner-login-content-right {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
 }
 
 .inner-bg {
     background-image: url(../img/Group425.svg);
-    background-size: 100% 100%;
+    background-size: 100% 110%;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 78%;
+}
+
+.login-page-register-btn {}
+
+.forget-text {
+    color: #2AC4B5;
+}
+
+.login-input {
+    padding: .7rem .75rem;
+    color: #707070;
+    background-color: transparent;
+    border: 1px solid #707070;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.login-form .form-control {
+    padding: .375rem .75rem;
+    background-color: transparent;
+    border: none;
+}
+
+.inner-register-btn {
+    align-self: start;
+    height: 30%;
+}
+
+.right-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 

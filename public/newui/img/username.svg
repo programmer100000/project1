@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="49" viewBox="0 0 47 49">
+  <defs>
+    <clipPath id="clip-Artboard_3">
+      <rect width="47" height="49"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_3" data-name="Artboard – 3" clip-path="url(#clip-Artboard_3)">
+    <g id="User_Icon" data-name="User Icon">
+      <rect id="UI_Dark_Icons_Person_background" data-name="UI/Dark/Icons/Person background" width="49" height="49" fill="none"/>
+      <g id="Person_Icon" data-name="Person Icon">
+        <rect id="bg" width="49" height="49" fill="none"/>
+        <g id="ico" transform="translate(8.167 6.125)">
+          <path id="Path" d="M32.667,12.25V8.167A8.167,8.167,0,0,0,24.5,0H8.167A8.167,8.167,0,0,0,0,8.167V12.25" transform="translate(0 24.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+          <ellipse id="Oval" cx="8.5" cy="8" rx="8.5" ry="8" transform="translate(7.833 -0.125)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
