@@ -227,7 +227,7 @@ Route::get('/gamenets', function () {
         ->join('gamenet_pictures', 'gamenet_pictures.gnet_id', '=', 'gamenets.gamenet_id')
         ->where('gamenet_pictures.flag', "main")
         ->get();
-    return  view('gamenets', compact('gamenets'));
+    return  view('newui/gamenets', compact('gamenets'));
 })->name('gamenets');
 Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
 Route::get('/user/panel', function () {
