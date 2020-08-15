@@ -240,7 +240,7 @@ footer {
     border-color: #e80767!important;
 }
 
-.about {
+.main-form-btn .about {
     background-color: #34256a;
 }
 
@@ -510,7 +510,8 @@ footer {
 .login-header-btn:focus,
 .login-header-btn:active,
 .login-header-btn:visited,
-.login-page-register-btn {
+.login-page-register-btn,
+.main-form-btn {
     outline: none!important;
     box-shadow: none!important;
 }
@@ -666,11 +667,14 @@ footer {
     }
     .inner-register-btn {
         margin-top: 1.5rem;
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
     }
     .login-input {
         padding-bottom: .4rem!important;
         padding-top: .4rem!important;
+    }
+    .right-btn {
+        display: none!important;
     }
 }
 
@@ -718,9 +722,9 @@ footer {
 
 .inner-bg {
     background-image: url(../img/Group425.svg);
-    background-size: 100% 110%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: 78%;
+    height: 75%;
 }
 
 .login-page-register-btn {}
@@ -747,7 +751,7 @@ footer {
 
 .inner-register-btn {
     align-self: start;
-    height: 30%;
+    height: 15%;
 }
 
 .right-btn {
@@ -755,6 +759,14 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.login-form .form-control:focus {
+    border-color: #CCC;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: #fff;
 }
 
 

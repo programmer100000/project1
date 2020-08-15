@@ -25,7 +25,7 @@
                                 <form class="login-form">
                                     <h1 class="text-white text-center">ورود کاربر</h1>
                                     <div class="my-4 login-input">
-                                        <span>
+                                        <span class="ml-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 47 49">
                                                 <defs>
                                                   <clipPath id="clip-Artboard_3">
@@ -52,7 +52,7 @@
 
 
                                     <div class="my-4 login-input">
-                                        <span>
+                                        <span class="ml-1">
                                             <svg id="Number_Icon" data-name="Number Icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 49 49">
                                                 <rect id="UI_Dark_Icons_Number_background" data-name="UI/Dark/Icons/Number background" width="49" height="49" fill="none"/>
                                                 <g id="Number_Icon-2" data-name="Number Icon">
@@ -85,7 +85,7 @@
 
                 <div class="col-md-6 p-0 login-content-left">
                     <div class="row h-100 p-0  m-0 justify-content-center align-items-center ">
-                        <div class="col-10 inner-bg m-0 "></div>
+                        <div class="col-10 inner-bg m-0 py-4 "></div>
                         <div class="col-8  d-flex inner-register-btn justify-content-center align-content-center">
                             <button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
                                     ثبت نام

@@ -1,83 +1,141 @@
-@extends('Admin.base')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('body')
-<body class="loading authentication-bg authentication-bg-pattern">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
 
-    <div class="account-pages mt-5 mb-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6 col-xl-5">
-                    <div class="card bg-pattern">
+<body>
 
-                        <div class="card-body p-4">
+    <div class="row w-100  m-0 d-flex login-bg align-items-center justify-content-center">
+        <div class="col-10 p-0 h-75 m-0 ">
+            <div class="row w-100 p-0 m-0 h-100 login-content align-items-center justify-content-center">
+                <div class="col-md-6  login-right p-0 m-0  ">
+                    <div class="login-content-right p-0">
 
-                            <div class="text-center w-75 m-auto">
-                                <div class="auth-logo">
-                                    <a href="index.html" class="logo logo-dark text-center">
-                                        <span class="logo-lg">
-                                            <img src="../assets/images/logo-dark.png" alt="" height="22">
-                                        </span>
+                    </div>
+                    <div class="inner-login-content-right">
+                        <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
+                            <div class="col-10 p-0 m-0 ">
+                                <form class="login-form">
+                                    <h1 class="text-white text-center">ثبت نام کاربر</h1>
+                                    
+                                        <p class="forget-text text-center">
+                                           کد ارسال شده را وارد کنید.
+                                        </p>
+                                    
+                                    <div class="my-4 login-input">
+                                       
+                                        <input type="text" class="form-control p-0 " id="username" placeholder="نام و نام خانوادگی" name="name">
+                                    </div>
+
+
+                                    <div class="my-4 login-input">
+                                       
+                                        <input type="text" class="form-control p-0 " id="password" placeholder="شماره موبایل" name="password">
+                                    </div>
+                                    <div class="my-4 login-input">
+                                       
+                                       <input type="text" class="form-control p-0 " id="username" placeholder="نام و نام خانوادگی" name="name">
+                                   </div>
+
+
+                                   <div class="my-4 login-input">
+                                      
+                                       <input type="text" class="form-control p-0 " id="password" placeholder="شماره موبایل" name="password">
+                                   </div>
+                                   <a>
+                                        <p class="forget-text text-center">
+                                            کدی دریافت نکردم!
+                                        </p>
                                     </a>
+                                    <div class="row justify-content-center">
+                                        <button type="button" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
+                                    </div>
 
-                                    <a href="index.html" class="logo logo-light text-center">
-                                        <span class="logo-lg">
-                                            <img src="../assets/images/logo-light.png" alt="" height="22">
-                                        </span>
-                                    </a>
-                                </div>
-                                <p class="text-muted mb-4 mt-3">لطفا کد ارسال شده را وارد نمایید </p>
+                                </form>
                             </div>
-
-                            <form action="{{ route('confirm') }}" method="POST">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="confirm_code">کد</label>
-                                    <input class="form-control" name="confirm_code" type="text" id="confirm_code" placeholder="کد فعالسازی" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">رمز عبور</label>
-                                    <input class="form-control" name="password" type="password" id="password" placeholder="رمز عبور" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="passwordd">تکرار رمز عبور </label>
-                                    <input type="password" class="form-control" name="passwordd" id="passwordd" placeholder="تکرار رمز عبور" required>
-                                </div>
-                                <div class="form-group mb-0 text-center">
-                                    <button class="btn btn-success btn-block" type="submit">اعتبارسنجی</button>
-                                </div>
-
-                            </form>
-
-
-                        </div> <!-- end card-body -->
+                        </div>
                     </div>
-                    <!-- end card -->
+                </div>
 
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <p class="text-white-50">قبلا ثبت نام کرده اید؟ <a href="auth-login.html" class="text-white ml-1"><b>وارد شوید</b></a></p>
-                        </div> <!-- end col -->
+
+                <div class="col-md-6 p-0 login-content-left">
+                    <div class="row h-100 p-0  m-0 justify-content-center align-items-center ">
+                        <div class="col-10 inner-bg m-0 py-4 "></div>
+                        <div class="col-8  d-flex inner-register-btn justify-content-center align-content-center">
+                            <button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+                                   ورود کاربر
+                                </button>
+                        </div>
                     </div>
-                    <!-- end row -->
+                </div>
 
-                </div> <!-- end col -->
+                <span class="right-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 189 189">
+                        <defs>
+                          <linearGradient id="linear-gradient" x1="9.012" y1="15.644" x2="10.012" y2="15.644" gradientUnits="objectBoundingBox">
+                            <stop offset="0" stop-color="#81005f"/>
+                            <stop offset="0.012" stop-color="#81005f" stop-opacity="0.937"/>
+                            <stop offset="0.064" stop-color="#81005f" stop-opacity="0.694"/>
+                            <stop offset="0.121" stop-color="#81005f" stop-opacity="0.494"/>
+                            <stop offset="0.184" stop-color="#81005f" stop-opacity="0.341"/>
+                            <stop offset="0.255" stop-color="#81005f" stop-opacity="0.231"/>
+                            <stop offset="0.344" stop-color="#81005f" stop-opacity="0.169"/>
+                            <stop offset="0.498" stop-color="#81005f" stop-opacity="0.149"/>
+                          </linearGradient>
+                          <linearGradient id="linear-gradient-2" x1="10.835" y1="18.706" x2="11.836" y2="18.706" xlink:href="#linear-gradient"/>
+                          <linearGradient id="linear-gradient-3" x1="11.939" y1="20.569" x2="12.939" y2="20.569" xlink:href="#linear-gradient"/>
+                          <clipPath id="clip-Artboard_1">
+                            <rect width="189" height="189"/>
+                          </clipPath>
+                        </defs>
+                        <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+                          <g id="Group_516" data-name="Group 516" transform="translate(-1371.047 -655.438)">
+                            <path id="Path_3033" data-name="Path 3033" d="M1463.945,841.3a92.874,92.874,0,1,1,65.712-27.219A92.319,92.319,0,0,1,1463.945,841.3Z" opacity="0.25" fill="url(#linear-gradient)"/>
+                            <path id="Path_3034" data-name="Path 3034" d="M1463.945,825.671a77.3,77.3,0,1,1,54.66-22.64A76.794,76.794,0,0,1,1463.945,825.671Z" fill="url(#linear-gradient-2)"/>
+                            <circle id="Ellipse_249" data-name="Ellipse 249" cx="70.124" cy="70.124" r="70.124" transform="translate(1393.821 678.246)" fill="url(#linear-gradient-3)"/>
+                            <g id="Group_441" data-name="Group 441" transform="translate(504.047 206.438)">
+                              <g id="up-arrow" transform="matrix(0.017, 1, -1, 0.017, 965.232, 516.8)" opacity="0.33">
+                                <g id="Group_269" data-name="Group 269" transform="translate(0 0)">
+                                  <g id="Group_268" data-name="Group 268">
+                                    <path id="Path_1506" data-name="Path 1506" d="M46.921,20.462,26.754,1.128a4.15,4.15,0,0,0-5.679-.008L.966,20.4a3.738,3.738,0,0,0,.008,5.024,4.154,4.154,0,0,0,5.68.429L23.907,9.31,41.251,25.9a4.15,4.15,0,0,0,5.679.008A3.747,3.747,0,0,0,46.921,20.462Z" fill="#fff"/>
+                                  </g>
+                                </g>
+                              </g>
+                              <g id="Group_269-2" data-name="Group 269" transform="matrix(0.017, 1, -1, 0.017, 989.581, 516.8)">
+                                <g id="Group_268-2" data-name="Group 268" transform="translate(0)">
+                                  <path id="Path_1506-2" data-name="Path 1506" d="M46.921,20.462,26.754,1.128a4.15,4.15,0,0,0-5.679-.008L.966,20.4a3.738,3.738,0,0,0,.008,5.024,4.154,4.154,0,0,0,5.68.429L23.907,9.31,41.251,25.9a4.15,4.15,0,0,0,5.679.008A3.747,3.747,0,0,0,46.921,20.462Z" fill="#fff"/>
+                                </g>
+                              </g>
+                            </g>
+                            <g id="Group_515" data-name="Group 515" transform="translate(504.047 206.438)">
+                              <g id="up-arrow-2" data-name="up-arrow" transform="matrix(0.017, 1, -1, 0.017, 965.232, 516.8)" opacity="0.33">
+                                <g id="Group_269-3" data-name="Group 269" transform="translate(0 0)">
+                                  <g id="Group_268-3" data-name="Group 268">
+                                    <path id="Path_1506-3" data-name="Path 1506" d="M46.921,20.462,26.754,1.128a4.15,4.15,0,0,0-5.679-.008L.966,20.4a3.738,3.738,0,0,0,.008,5.024,4.154,4.154,0,0,0,5.68.429L23.907,9.31,41.251,25.9a4.15,4.15,0,0,0,5.679.008A3.747,3.747,0,0,0,46.921,20.462Z" fill="#fff"/>
+                                  </g>
+                                </g>
+                              </g>
+                              <g id="Group_269-4" data-name="Group 269" transform="matrix(0.017, 1, -1, 0.017, 989.581, 516.8)">
+                                <g id="Group_268-4" data-name="Group 268" transform="translate(0)">
+                                  <path id="Path_1506-4" data-name="Path 1506" d="M46.921,20.462,26.754,1.128a4.15,4.15,0,0,0-5.679-.008L.966,20.4a3.738,3.738,0,0,0,.008,5.024,4.154,4.154,0,0,0,5.68.429L23.907,9.31,41.251,25.9a4.15,4.15,0,0,0,5.679.008A3.747,3.747,0,0,0,46.921,20.462Z" fill="#fff"/>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      
+                </span>
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-    <!-- end page -->
-
-    <footer class="footer footer-alt text-white-50">
-        2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
-    </footer>
-
-    <!-- Vendor js -->
-    <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-
-    <!-- App js -->
-    <script src="{{ asset('assets/js/app.min.js') }}"></script>
-
 </body>
-@endsection
 
+</html>
