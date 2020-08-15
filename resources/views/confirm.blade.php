@@ -22,34 +22,36 @@
                     <div class="inner-login-content-right">
                         <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
                             <div class="col-10 p-0 m-0 ">
-                                <form class="login-form">
+                                <form class="login-form confirm">
                                     <h1 class="text-white text-center">ثبت نام کاربر</h1>
-                                    
-                                        <p class="forget-text text-center">
-                                           کد ارسال شده را وارد کنید.
-                                        </p>
-                                    
-                                    <div class="my-4 login-input">
-                                       
-                                        <input type="text" class="form-control p-0 " id="username" placeholder="نام و نام خانوادگی" name="name">
+
+                                    <p class="text-white text-center my-2">
+                                        کد ارسال شده را وارد کنید.
+                                    </p>
+                                    <div class="row p-4">
+                                        <div class="col mx-4 login-input">
+                                            <label for="usr"></label>
+                                            <input type="text" class="form-control p-0 text-white " id="input1" placeholder="" name="input1">
+                                        </div>
+
+
+                                        <div class="col mx-4 login-input">
+
+                                            <input type="text" class="form-control p-0 text-white " id="input2" placeholder="" name="input2">
+                                        </div>
+                                        <div class="col mx-4 login-input">
+
+                                            <input type="text" class="form-control p-0 text-white " id="input3" placeholder="" name="input3">
+                                        </div>
+
+
+                                        <div class="col mx-4 login-input">
+
+                                            <input type="text" class="form-control p-0 text-white " id="input4" placeholder="" name="input4">
+                                        </div>
                                     </div>
 
-
-                                    <div class="my-4 login-input">
-                                       
-                                        <input type="text" class="form-control p-0 " id="password" placeholder="شماره موبایل" name="password">
-                                    </div>
-                                    <div class="my-4 login-input">
-                                       
-                                       <input type="text" class="form-control p-0 " id="username" placeholder="نام و نام خانوادگی" name="name">
-                                   </div>
-
-
-                                   <div class="my-4 login-input">
-                                      
-                                       <input type="text" class="form-control p-0 " id="password" placeholder="شماره موبایل" name="password">
-                                   </div>
-                                   <a>
+                                    <a>
                                         <p class="forget-text text-center">
                                             کدی دریافت نکردم!
                                         </p>

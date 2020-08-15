@@ -68,7 +68,7 @@
                     <div class="row h-100 p-0  m-0 justify-content-center align-items-center ">
                         <div class="col-10 inner-bg m-0 py-4 "></div>
                         <div class="col-8  d-flex inner-register-btn justify-content-center align-content-center">
-                            <button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+                            <button type="submit" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
                                    ورود کاربر
                                 </button>
                         </div>
