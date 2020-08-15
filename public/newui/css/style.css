@@ -67,6 +67,24 @@ h4 {
 
 .inner-plan-header {
     top: 425px;
+    z-index: 99;
+}
+
+.gamenets-row {
+    margin: 25% auto !important;
+}
+
+.nazdiktarin {
+    border-bottom: 5px solid #1A0E46;
+    text-align: right;
+    color: #fff;
+    margin-bottom: 44px;
+    padding-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.introduce-gamenets {
+    margin-top: 33%!important;
 }
 
 .plan-body {
@@ -174,7 +192,7 @@ footer {
 
 .contact-secttion {
     margin-bottom: 11rem!important;
-    background-image: url(../img/about.png);
+    background-image: url(../img/aboutus.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 800px;
@@ -250,6 +268,16 @@ footer {
     background-color: #34256a;
     border-radius: 15px;
     height: 780px;
+}
+
+.g-header-text {
+    color: #fff;
+    margin-right: 0;
+    right: 0;
+    position: absolute!important;
+    text-align: center;
+    top: 35%;
+    font-size: 5rem;
 }
 
 
@@ -377,6 +405,13 @@ footer {
 
 .inner-slider {
     background-image: url(../img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1109px;
+}
+
+.inneer-slider {
+    background-image: url(../img/bgt.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 1109px;

@@ -9,7 +9,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+    @yield('header')
+  </head>
 <body>
     <div class="total-content">
 
@@ -46,9 +47,7 @@
         <footer class="footer  text-center">
           <div class="row w-100 m-0 top-footer">
               <div class="col-12 mx-auto p-0 inner-top-footer">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
-                            <path id="Path_1645" data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"></path>
-                  </svg>
+@yield('footersvg')
               </div>
           </div>
 

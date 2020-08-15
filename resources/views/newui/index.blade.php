@@ -1,4 +1,8 @@
 @extends('newui.master')
+@section('header')
+<link rel="stylesheet" type="text/css" href="{{ asset('/ui/css/star-rating-svg.css') }}">
+
+@endsection
 @section('content')
 <div class=" content">
   <div class="row w-100 m-0 p-0 slider-secttion">
@@ -17,7 +21,7 @@
           </svg>
           <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
               <div class="title text-center">
-                  <img src="img/title.png" alt="" class="title-img">
+                  <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
               </div>
           </div>
       </div>
@@ -231,19 +235,23 @@
   </div>
   <div class="row w-100 m-0 mb-5 p-0 popular-secttion">
       <div class="row popular-header w-100 m-0 p-0 ">
-          <div class="col-md-12">
-              <h1 class="text-center text-white ">گیمنت برتر</h1>
-          </div>
+        <div class="title text-center mx-auto" >
+          <img src="{{ asset('newui/img/bestgamenet.png')}}" alt="" class="title-img">
+      </div>
       </div>
       <div class="row w-100 p-4 m-0  justify-content-center">
           <div class="col-md-10 p-0">
               <div class="row w-100 p-3 m-0 popular  ">
                   <div class="col-md-5 d-flex flex-column align-items-center justify-content-center ">
 
-                      <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
-                      <div class="mb-3 text-right align-self-start">
-                          <span class="text-white">امتیاز: </span>
-                      </div>
+                      <h1 class="text-white text-right mb-4 align-self-start">tetse</h1>
+                      <div class="mb-3 d-flex text-right align-self-start">
+                        <input type="hidden" class="rate-input" >
+                        <span class="text-white">امتیاز: </span>
+                        <div class="stars text-left float-left m-0 p-0 w-75">
+                          <div class="my-rating" dir="ltr"></div>
+                        </div>
+                    </div>
                       <div class="d-flex mb-4 text-right ">
                           <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
                           <g id="pin" transform="translate(-60.962 0)">
@@ -270,58 +278,67 @@
                   <div class="col-md-7 popular-img">
                   </div>
               </div>
+
           </div>
       </div>
   </div>
   <div class="row w-100 m-0 mb-5 p-0 introduce-secttion">
       <div class="row introduce-header w-100 m-0 p-0">
-          <div class="col-md-12">
-              <h1 class="text-center text-white m-0">معرفی گیمنت ها</h1>
-          </div>
+        <div class="title text-center mx-auto" >
+          <img src="{{ asset('newui/img/introgamenet.png')}}" alt="" class="title-img">
+      </div>
       </div>
       <div class="row introduce-body w-100 p-4 pt-4 m-0  justify-content-center">
           <div class="col-md-4 p-0 m-3">
-              <div class="row w-100 p-3 m-0  introduce ">
-                  <div class="col-12 introduce1-img ">
-                  </div>
-                  <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce-data">
-
-                      <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
-                      <div class="mb-3 text-right align-self-start">
-                          <span class="text-white">امتیاز: </span>
-                      </div>
-                      <div class="d-flex mb-4 text-right ">
-                          <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
-                        <g id="pin" transform="translate(-60.962 0)">
-                            <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
-                              <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
-                                <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
-                              </g>
-                            </g>
-                            <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
-                              <g id="Group_264" data-name="Group 264">
-                                <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </span>
-                          <span class="text-white text-justify ">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
-                      </div>
-                      <div class="row justify-content-center">
-                          <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                      </div>
-
-                  </div>
+            <div class="row w-100 p-3 m-0  introduce ">
+              <div class="col-12 introduce1-img ">
               </div>
+              <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce-data">
+
+              <h1 class="text-white text-right mb-4 align-self-start">test</h1>
+                  <div class="mb-3 d-flex text-right align-self-start">
+                    <span class="text-white">امتیاز: </span>
+                  <input type="hidden" class="rate-input" value="">
+                    <div class="stars text-left float-left m-0 p-0 w-75">
+                      <div class="my-rating" dir="ltr"></div>
+                    </div>
+                </div>
+                  <div class="d-flex mb-4 text-right ">
+                      <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
+                    <g id="pin" transform="translate(-60.962 0)">
+                        <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
+                          <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
+                            <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
+                          </g>
+                        </g>
+                        <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
+                          <g id="Group_264" data-name="Group 264">
+                            <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                  </span>
+                      <span class="text-white text-justify ">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+                  </div>
+                  <div class="row justify-content-center">
+                      <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
+                  </div>
+
+              </div>
+          </div>  
+
           </div>
           <div class="col-md-6 p-0 m-3">
               <div class="row w-100 p-3 m-0  introduce introduce1 ">
                   <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
 
                       <h1 class="text-white text-right mb-4 align-self-start">گیمنت ایرانیان</h1>
-                      <div class="mb-3 text-right align-self-start">
+                      <div class="mb-3 d-flex text-right align-self-start">
                           <span class="text-white">امتیاز: </span>
+                          <div class="stars text-left float-left m-0 p-0 w-75">
+                            <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                          </div>
                       </div>
                       <div class="d-flex mb-4 text-right ">
                           <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
@@ -423,9 +440,9 @@
   </div>
   <div class="row w-100 m-0 mb-5 p-0 about-secttion">
       <div class="row about-header w-100 m-0 mb-5 p-0">
-          <div class="col-md-12">
-              <h1 class="text-center text-white m-0">درباره ما</h1>
-          </div>
+        <div class="title text-center mx-auto" >
+          <img src="{{ asset('newui/img/about.png')}}" alt="" class="title-img">
+      </div>
       </div>
       <div class="row about-body w-100 p-4 pt-4 m-0  ">
           <div class="col-md-7 p-4 m-3 about top-about ">
@@ -585,4 +602,25 @@
       </div>
   </div>
 </div>
+<div id="rate-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content modal-filled bg-danger">
+      <div class="modal-body p-4">
+        <div class="text-center">
+          <i class="dripicons-wrong h1 text-white"></i>
+          <h4 class="mt-2 text-white">توجه</h4>
+          <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
+          <button id="btnrate" data-csrf={{ csrf_token() }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
+<script src="{{ asset('/newui/js/newui.js') }}" defer></script>
+@endsection
+@section('footersvg')
+<svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
+  <path id="Path_1645" data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"></path>
+</svg>
 @endsection
