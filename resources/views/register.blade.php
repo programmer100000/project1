@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=fa"></script>
 </head>
 
 <body>
@@ -22,34 +23,9 @@
                     <div class="inner-login-content-right">
                         <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
                             <div class="col-10 p-0 m-0 ">
-                                <form class="login-form">
+                            <form class="login-form" action="{{ route('register') }}" method="POST">
                                     <h1 class="text-white text-center">ثبت نام کاربر</h1>
-                                    <div class="my-4 login-input">
-                                        <span class="ml-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 47 49">
-                                                <defs>
-                                                  <clipPath id="clip-Artboard_3">
-                                                    <rect width="47" height="49"/>
-                                                  </clipPath>
-                                                </defs>
-                                                <g id="Artboard_3" data-name="Artboard – 3" clip-path="url(#clip-Artboard_3)">
-                                                  <g id="User_Icon" data-name="User Icon">
-                                                    <rect id="UI_Dark_Icons_Person_background" data-name="UI/Dark/Icons/Person background" width="49" height="49" fill="none"/>
-                                                    <g id="Person_Icon" data-name="Person Icon">
-                                                      <rect id="bg" width="49" height="49" fill="none"/>
-                                                      <g id="ico" transform="translate(8.167 6.125)">
-                                                        <path id="Path" d="M32.667,12.25V8.167A8.167,8.167,0,0,0,24.5,0H8.167A8.167,8.167,0,0,0,0,8.167V12.25" transform="translate(0 24.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
-                                                        <ellipse id="Oval" cx="8.5" cy="8" rx="8.5" ry="8" transform="translate(7.833 -0.125)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
-                                                      </g>
-                                                    </g>
-                                                  </g>
-                                                </g>
-                                              </svg>
-                                              
-                                        </span>
-                                        <input type="text" class="form-control p-0 " id="username" placeholder="نام و نام خانوادگی" name="name">
-                                    </div>
-
+                                    @csrf
 
                                     <div class="my-4 login-input">
                                         <span class="ml-1">
@@ -65,11 +41,20 @@
                                                 </g>
                                               </svg>
                                         </span>
-                                        <input type="text" class="form-control p-0 " id="password" placeholder="شماره موبایل" name="password">
+                                        <input type="text" class="form-control p-0 " placeholder="شماره موبایل" name="mobile">
+                                    </div>
+                                    <div class="form-group m-auto">
+                                        {!! NoCaptcha::renderJs('fa', true, 'recaptchaCallback') !!}
+                                        {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                   
                                     <div class="row justify-content-center">
-                                        <button type="button" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
+                                        <button type="submit" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
                                     </div>
 
                                 </form>
