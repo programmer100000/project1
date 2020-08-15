@@ -237,9 +237,11 @@
 </svg>
 
 <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
-  <div class="title text-center d-block display-3 text-white">
-      <h2>اینجا برای شماست </h2>
-      <button class="btn btn-primary"> ثبت نام</button>
+  <div class="title text-center d-block text-white gamenets-footer-title">
+      <span class="d-block">اینجا برای شماست </span>
+      <button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+        ثبت نام
+    </button>
   </div>
 </div>
 @endsection
