@@ -233,8 +233,8 @@
     <div class="title text-center d-block text-white gamenets-footer-title">
         <span class="d-block mb-1">اینجا برای شماست! </span>
         <button type="button" class="btn btn-outline-primary login-page-register-btn  align-self-start ">
-        ثبت نام
-    </button>
+          ثبت نام
+        </button>
     </div>
 </div>
 

@@ -970,3 +970,39 @@ footer {
 
 
 /* end gamenet */
+
+.intro-inner-slider {
+    background-image: url(../img/G.png)!important;
+}
+
+.faq {
+    margin-bottom: 25rem;
+}
+
+.hadafha {
+    margin-top: 18rem;
+}
+
+@media screen and (max-width: 768px) {
+    .faq {
+        margin-bottom: 7rem!important;
+    }
+    .proces-header,
+    .faq-header {
+        width: 60%;
+    }
+    .proces-img {
+        width: 100%;
+    }
+    .intro-inner-slider {
+        background-image: url(../img/G.png)!important;
+    }
+    .gmt-header-text {
+        font-size: 1.5rem!important;
+        position: absolute!important;
+        top: -110px;
+    }
+    .hadafha {
+        margin-top: 0!important;
+    }
+}
