@@ -413,10 +413,77 @@ footer {
     height: 1109px;
 }
 
+.inneeer-slider {
+    background-image: url(../img/G.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1109px;
+}
+
 .plan-header {
     position: relative;
     top: -406px;
     height: 111px;
+}
+
+.mazaya-back {
+    background: #34256A;
+    display: block;
+    border-radius: 45%;
+}
+
+.mazaya-back img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15%;
+}
+
+.mazaya-back span {
+    display: block;
+    width: 60%;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 2;
+    margin: 30px auto;
+}
+
+.back-game {
+    background: url('../img//bottomgamenets.svg');
+    background-size: cover;
+    height: 1000px;
+}
+
+.testsvg {
+    background: url('../img/backbig.png');
+    background-size: 100% 100%;
+    /* height: 1000px; */
+}
+
+.mazaya-row {
+    margin: 15%;
+}
+
+.hadaf-row {
+    width: 100%;
+    margin-top: 15%;
+}
+
+.gm-header-text {
+    position: absolute;
+    top: 202px;
+    margin-top: 50px!important;
+}
+
+.gmt-header-text {
+    color: #fff;
+    font-size: 3.5rem;
+}
+
+.hadafe-ma {
+    color: #fff;
+    font-size: 2rem;
+    white-space: nowrap;
+    margin-right: 5%;
 }
 
 footer {
