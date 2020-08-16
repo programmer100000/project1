@@ -788,6 +788,15 @@ footer {
     height: 75%;
 }
 
+.select-gamenets {
+    background: #2B1E59!important;
+    color: #fff !important;
+    width: 40% !important;
+    margin: 0 auto;
+    border-radius: 10px !important;
+    margin-top: 10%!important;
+}
+
 .login-page-register-btn {}
 
 .forget-text {

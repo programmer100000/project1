@@ -12,7 +12,7 @@
         </div>
         <div class="row w-100 m-0 plan-header test-svg">
             <div class="col-4 inner-plan-header mx-auto p-0 ">
-                <select name="" id="" class="form-control">
+                <select name="" id="" class="form-control select-gamenets">
                     <option value="">تست</option>
                     <option value="">تست</option>
                     <option value="">تست</option>
