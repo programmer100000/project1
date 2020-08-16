@@ -23,29 +23,29 @@
                         <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
                             <div class="col-10 p-0 m-0 ">
                                 <form class="login-form confirm">
-                                    <h1 class="text-white text-center">ثبت نام کاربر</h1>
+                                    <h1 class="text-white text-center mb-3">ثبت نام کاربر</h1>
 
                                     <p class="text-white text-center my-2">
                                         کد ارسال شده را وارد کنید.
                                     </p>
-                                    <div class="row p-4">
-                                        <div class="col mx-4 login-input">
+                                    <div class="row  confirm-inputs">
+                                        <div class="col  login-input">
                                             <label for="usr"></label>
                                             <input type="text" class="form-control p-0 text-white " id="input1" placeholder="" name="input1">
                                         </div>
 
 
-                                        <div class="col mx-4 login-input">
+                                        <div class="col  login-input">
 
                                             <input type="text" class="form-control p-0 text-white " id="input2" placeholder="" name="input2">
                                         </div>
-                                        <div class="col mx-4 login-input">
+                                        <div class="col  login-input">
 
                                             <input type="text" class="form-control p-0 text-white " id="input3" placeholder="" name="input3">
                                         </div>
 
 
-                                        <div class="col mx-4 login-input">
+                                        <div class="col login-input">
 
                                             <input type="text" class="form-control p-0 text-white " id="input4" placeholder="" name="input4">
                                         </div>
