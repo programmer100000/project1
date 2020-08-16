@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-right ml-auto ">
                         <li class="nav-item mx-0 mx-lg-1 text-white"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#">صفحه اصلی</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">گیم نت ها</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="{{ route('gamenets') }}">گیم نت ها</a></li>
                         <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">درباره ما</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">تماس با ما</a></li> -->
                     </ul>
@@ -38,7 +38,7 @@
                 <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
                     استان ها
                   </button>
-                  <button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button>
+                <a href="{{ route('register') }}"><button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button></a>
               </div>
                 
             </nav>
