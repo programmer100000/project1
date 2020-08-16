@@ -18,7 +18,7 @@
     </div>
     <div class="row w-100 mx-0  p-0 justify-content-center gamenet-row ">
         <div class="col-md-10 p-0">
-            <div class="row w-100 m-0  p-0 gamenet-info">
+            <div class="row w-100 m-0  p-0 gamenet-info justify-content-center">
 
                 <div class="col-md-3 p-4 mx-2 gamenet-item my-4 d-flex flex-column align-items-center justify-content-center  ">
 
@@ -91,16 +91,16 @@
                     </div>
                 </div>
 
-                <div class="col-md-8 gamenet-item gamenet-img  my-4 p-0 mx-2">
+                <div class="col-md-8 mx-2 gamenet-item gamenet-img  my-4 p-0 ">
 
                 </div>
             </div>
-            <div class="row w-100 p-0 m-0 ">
+            <div class="row w-100 p-0 m-0 justify-content-center">
 
-                <div class="col-12 my-2 gamenet-item gamenet-location ">
+                <div class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
 
                 </div>
-                <div class="col-12 my-4  gamenet-heading ">
+                <div class="col-11 my-4  gamenet-heading ">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
                     <defs>
                         <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
@@ -123,12 +123,12 @@
                     </svg> نظرات کاربران
 
                 </div>
-                <div class="col-12 p-0 my-2 gamenet-item gamenet-comments ">
+                <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-2">
-                            <img src="" alt="">
+                        <div class="col-md-1 comments-img d-flex  align-content-center">
+                            <img src="{{ asset('newui/img/images.jpg') }}" alt="">
                         </div>
-                        <div class="col-10">
+                        <div class="col-md-11 inner-gamenet-comments  ">
                             <div class="row p-2 gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
@@ -140,12 +140,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 p-0 my-2 gamenet-item gamenet-comments ">
+                <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-2">
-                            <img src="" alt="">
+                        <div class="col-md-1 comments-img d-flex  align-content-center">
+                            <img src="{{ asset('newui/img/images.jpg') }}" alt="">
                         </div>
-                        <div class="col-10">
+                        <div class="col-md-11 inner-gamenet-comments">
                             <div class="row p-2 gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
@@ -157,8 +157,44 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-11 my-4  gamenet-heading ">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
+                  <defs>
+                      <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
+                        <feOffset dy="3" input="SourceAlpha"/>
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feFlood flood-color="#e80766"/>
+                        <feComposite operator="in" in2="blur"/>
+                        <feComposite in="SourceGraphic"/>
+                      </filter>
+                    </defs>
+                    <g id="Group_515" data-name="Group 515" transform="translate(-175 -1492)">
+                      <g id="Ellipse_79" data-name="Ellipse 79" transform="translate(175 1492)" fill="#e80766" stroke="#707070" stroke-width="1" opacity="0.33">
+                        <circle cx="27" cy="27" r="27" stroke="none"/>
+                        <circle cx="27" cy="27" r="26.5" fill="none"/>
+                      </g>
+                      <g transform="matrix(1, 0, 0, 1, 175, 1492)" filter="url(#Ellipse_80)">
+                        <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
+                      </g>
+                    </g>
+                  </svg> نظرات کاربران
+
+                </div>
+                <div class="col-11 p-0 my-2 gamenet-item gamenet-comment p-4  ">
+                    <div class="row w-100 p-0 m-0 justify-content-center">
+                        <div class="col-11">
+                            <form class="main-contact-form">
+                                <input type="text" class="form-control mb-4 text-white" id="email" placeholder="ایمیل/نام کاربری" name="email">
+                                <textarea class="form-control mb-4" rows="5" id="comment" placeholder="متن مورد نظر"></textarea>
+                                <div class="row justify-content-center">
+                                    <button type="button" class="btn btn-primary main-form-btn px-5">ارسال</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
 
+                </div>
             </div>
 
         </div>
