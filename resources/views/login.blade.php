@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=fa"></script>
 </head>
 
 <body>
@@ -62,6 +63,15 @@
                                         </span>
                                         <input type="text" class="form-control p-0 " id="password" placeholder="رمز ورود" name="password">
                                     </div>
+                                    <div class=" form-group">
+                                      {!! NoCaptcha::renderJs('fa', true, 'recaptchaCallback') !!}
+                                      {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+                                      @if ($errors->has('g-recaptcha-response'))
+                                          <span class="help-block">
+                                              <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                          </span>
+                                      @endif
+                                  </div>
                                     <a>
                                         <p class="forget-text text-center">
                                             رمزم را فراموش کردم!

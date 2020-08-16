@@ -10,23 +10,20 @@
             </div>
   
         </div>
-        <div class="row w-100 m-0 plan-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
-              <path id="Path_1645" data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"/>
-            </svg>
-            <div class="col-4 inner-plan-header mx-auto p-0 position-absolute">
+        <div class="row w-100 m-0 plan-header test-svg">
+            <div class="col-4 inner-plan-header mx-auto p-0 ">
                 <select name="" id="" class="form-control">
                     <option value="">تست</option>
                     <option value="">تست</option>
                     <option value="">تست</option>
                 </select>
             </div>
-            <div class="col-4 inner-plan-header mx-auto p-0 position-absolute ">
+            <div class="col-4 inner-plan-header mx-auto p-0  ">
                 <div class="title text-center">
                     <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
                 </div>
             </div>
-            <div class="col-4 inner-plan-header mx-auto p-0 position-absolute">
+            <div class="col-4 inner-plan-header mx-auto p-0 ">
             <img src="{{ asset('newui/img/menu.svg') }}" alt="" width="60" height="60">
             <img src="{{ asset('newui/img/menubar.svg') }}" alt="">
             </div>
