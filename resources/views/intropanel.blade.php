@@ -1,261 +1,163 @@
-<!DOCTYPE html>
-<html lang="fa">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>فینتر</title>
-    <!-- Favicon-->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-        type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{{ asset('ui/css/styles.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ui/css/mystyle.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('ui/buttonsplugin/css/normalize.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('ui/buttonsplugin/css/main.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('ui/css/flickity.css')}}" media="screen">
-    <link rel="stylesheet" href="{{ asset('/fonts/css/style.css') }}">
-</head>
-
-
-<body id="intro-panel-body">
-    <div class="hero row">
-        <div class="parallax-layer layer-6"></div>
-        <div class="parallax-layer layer-5"></div>
-        <div class="parallax-layer layer-4"></div>
-        <div class="parallax-layer bike-1"></div>
-        <div class="parallax-layer bike-2"></div>
-        <div class="parallax-layer layer-3"></div>
-        <div class="parallax-layer layer-2"></div>
-        <div class="intro-panel-btn return-btn p-4">
-            <a href="{{ route('home') }}">
-                <button type="button" class="btn btn-primary intro-panel-return-btn">بازگشت</button>
-            </a>
-        </div>
-      
-            <div class="intro-panel-title text-center w-100 text-white">
-                <h1 class=" text-center  p-4">ثبت نام در گیم نت</h1>
-            </div>
-       
-    </div>
-  
-     
-            <div class="intro-panel-btn btns w-100 text-center mb-5 p-4">
-                <a href="{{ route('admin.register') }}">
-                    <button type="button" class="btn btn-primary intro-panel-register-btn">ثبت نام</button>
-                </a>
-                <a href="{{ route('admin.login') }}">
-                    <button type="button" class="btn btn-primary intro-panel-login-btn"> ورود به پنل</button>
-                </a>
-            </div>
-        
-
-
-
-    <div class="row w-100 m-0 mb-5 mt-5 justify-content-center">
-        <div class="col-md-8 text-right">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class='d-flex align-items-center h-100'>
-                        <img src="{{ url('/ui/img/test1.jpg') }}" alt="" width="100%">
-                    </div>
-                </div>
-                <div class="col-md-6 text-white">
-                    <p class='intro-panel-about-text d-flex align-items-justify align-items-center  h-100'>به متنی
-                        آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به
-                        عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده
-                        استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا
-                        طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند تا صرفا به
-                        مشتری یا صاحب کار خود نشان دهند که صفحه طراحی یا صفحه بندی شده بعد از اینکه متن در آن قرار گیرد
-                        چگونه به نظر می‌رسد.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row w-100 m-0 mb-5 justify-content-center">
-        <div class="col-md-8 text-right">
-            <h2 class="intro-panel-section-title text-center p-5 text-white">مزایای ثبت گیم نت در سایت ما</h2>
-            <div class="row advantage-container ">
-                <div class="col-md-4 col-6 p-4 advantage-item text-center">
-                    <span class="advantage-item-img d-block my-2 mx-auto "> <img src="{{ url('/ui/img/mazaya1.png') }}"
-                            alt="" width="100%"></span>
-                    <span class="advantage-item-title text-white">
-                        ارائه خدمات در سریع ترین زمان ممکن
-                    </span>
-                </div>
-                <div class="col-md-4 col-6 p-4 advantage-item text-center">
-                    <span class="advantage-item-img d-block my-2 mx-auto "><img src="{{ url('/ui/img/mazaya2.png') }}"
-                            alt="" width="100%"></span>
-                    <span class="advantage-item-title text-white">
-                        تایید کارشناسان با بیشترین سرعت
-                    </span>
-                </div>
-                <div class="col-md-4 col-6 p-4 advantage-item text-center">
-                    <span class="advantage-item-img d-block my-2 mx-auto "><img src="{{ url('/ui/img/mazaya3.png') }}"
-                            alt="" width="100%"></span>
-                    <span class="advantage-item-title text-white">
-                        معرفی سریع به مخاطبین بیشتر
-                    </span>
-                </div>
-
-
-
-                <div class="col-md-4 col-6 p-4 advantage-item text-center">
-                    <span class="advantage-item-img d-block my-2 mx-auto "><img src="{{ url('/ui/img/mazaya4.png') }}"
-                            alt="" width="100%"></span>
-                    <span class="advantage-item-title text-white">
-                        ارائه خدمات رایگان به مدت 3 روز
-                    </span>
-                </div>
-                <div class="col-md-4 col-6 p-4 advantage-item text-center">
-                    <span class="advantage-item-img d-block my-2 mx-auto "><img src="{{ url('/ui/img/mazaya5.png') }}"
-                            alt="" width="100%"></span>
-                    <span class="advantage-item-title text-white">
-                        کاهش هزینه های تبلیغاتی
-                    </span>
-                </div>
-                <div class="col-md-4 col-6 p-4 advantage-item text-center">
-                    <span class="advantage-item-img d-block my-2 mx-auto "><img src="{{ url('/ui/img/mazaya6.png') }}"
-                            alt="" width="100%"></span>
-                    <span class="advantage-item-title text-white">
-                        ساخت کمپین های مسابقاتی
-                    </span>
+@extends('newui/master')
+@section('content')
+<div class=" content">
+    <div class="row w-100 m-0 p-0 slider-secttion ">
+        <div class="inneeer-slider col d-flex justify-content-center align-items-center ">
+            <div class="row w-100 p-0 m-0 justify-content-center gm-header-text">
+                <div class="col-md-6 text-center gmt-header-text">
+                    حرفه ای بازی کن !
                 </div>
             </div>
 
         </div>
-    </div>
 
-    <div class="row w-100 m-0 mb-5 justify-content-center">
-        <div class="col-md-10 text-right">
-            <h2 class="intro-panel-section-title text-center p-5 text-white">فرآیند کار</h2>
-            <div class="pro-container text-center">
-                <img class="marahel-img" src="{{ url('/ui/img/ux.png') }}" alt="">
-                <img class="mobo-marahel-img" src="{{ url('/ui/img/mobo-marahel.png') }}" alt="">
+        <div class="row w-100 m-0 plan-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
+                <path id="Path_1645" data-name="Path 1645"
+                    d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z"
+                    fill="#231553" />
+            </svg>
+            <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
+                <div class="title text-center">
+                    <img src="{{ asset('newui/img/rahnamatitle.png')}}" alt="" class="title-img">
+                </div>
             </div>
-
         </div>
     </div>
+    <div class="row justify-content-center p-0 hadaf-row">
+        <div class="col-md-10 p-0 mx-auto">
+            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
+                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+                    <div class="mb-3 d-flex text-right align-self-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54"
+                            height="56" viewBox="0 0 54 56">
+                            <defs>
+                                <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
+                                    <feOffset dy="3" input="SourceAlpha" />
+                                    <feGaussianBlur stdDeviation="3" result="blur" />
+                                    <feFlood flood-color="#e80766" />
+                                    <feComposite operator="in" in2="blur" />
+                                    <feComposite in="SourceGraphic" />
+                                </filter>
+                            </defs>
+                            <g id="Group_515" data-name="Group 515" transform="translate(-175 -1492)">
+                                <g id="Ellipse_79" data-name="Ellipse 79" transform="translate(175 1492)" fill="#e80766"
+                                    stroke="#707070" stroke-width="1" opacity="0.33">
+                                    <circle cx="27" cy="27" r="27" stroke="none" />
+                                    <circle cx="27" cy="27" r="26.5" fill="none" />
+                                </g>
+                                <g transform="matrix(1, 0, 0, 1, 175, 1492)" filter="url(#Ellipse_80)">
+                                    <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5"
+                                        transform="translate(11 11)" fill="#e80766" />
+                                </g>
+                            </g>
+                        </svg>
+                        <span class="hadafe-ma">هدف ما </span>
+                    </div>
+                    <div class="d-flex mb-4 text-right ">
 
-    <div class="row w-100 m-0 mb-5 justify-content-center">
-        <div class="col-md-8 text-right">
-            <h2 class="intro-panel-section-title text-center p-5 text-white mt-6">سوالات متداول</h2>
-            <div class="panel-group faq-container w-100 pl-2" id="accordion">
-                <div class="panel panel-default faq-panel mt-3 p-2 text-white">
-                    <div id="ph1" class="panel-heading faq-panel-heading p-2 d-flex justify-content-between"
-                        data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                        <h4 class="panel-title faq-panel-heading-title">
-                            <a class="text-white">
-                                سوال1</a>
-                        </h4>
-                        <i id="p1" class="fa fa-plus"></i>
-                        <i id="m1" class="fa fa-minus d-none"></i>
+                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی
+                            گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و
+                            ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
-                        <div class="panel-body faq-panel-heading">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-                            طراحی گرافیک گفته
-                            می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                            شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و
-                            اندازه فونت و ظاهر متن باشد.</div>
+                    <div class="row justify-content-center">
+                        <button type="button" class="btn btn-primary main-form-btn px-4">ثبت نام s</button>
                     </div>
                 </div>
-                <div class="panel panel-default faq-panel mt-3 p-2 text-white">
-                    <div id="ph2" class="panel-heading faq-panel-heading p-2 d-flex justify-content-between"
-                        data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                        <h4 class="panel-title faq-panel-heading-title">
-                            <a class="text-white">
-                                سوال2</a>
-                        </h4>
-                        <i id="p2" class="fa fa-plus" aria-hidden="true"></i>
-                        <i id="m2" class="fa fa-minus d-none" aria-hidden="true"></i>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse">
-                        <div class="panel-body faq-panel-heading">متن تستی
-                            به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از
-                            این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح
-                            سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر
-                            متن باشد.2</div>
-                    </div>
+
+                <div class="col-md-6 introduce2-img">
                 </div>
-                <div class="panel panel-default faq-panel mt-3 p-2 text-white">
-                    <div id="ph3" class="panel-heading faq-panel-heading p-2 d-flex justify-content-between"
-                        data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                        <h4 class="panel-title faq-panel-heading-title">
-                            <a class="text-white">
-                                سوال3</a>
-                        </h4>
-                        <i id="p3" class="fa fa-plus" aria-hidden="true"></i>
-                        <i id="m3" class="fa fa-minus d-none" aria-hidden="true"></i>
-                    </div>
-                    <div id="collapse3" class="panel-collapse collapse">
-                        <div class="panel-body faq-panel-heading">متن تستی
-                            به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از
-                            این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح
-                            سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر
-                            متن باشد.3</div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-0 m-0 testsvg">
+        <div class="col-md-10  mx-auto text-center mazaya-row p-0">
+            <div class="row text-center m-0 p-0">
+                <div class="col-md mx-5 p-0 mazaya-back">
+                    <img src="{{ asset('/newui/img/1.svg') }}" alt="">
+                    <span> ارائه خدمات در سریع ترین زمان ممکن</span>
+                </div>
+                <div class="col-md mx-5 p-0 mazaya-back">
+                    <img src="{{ asset('/newui/img/2.svg') }}" alt="">
+                    <span>معرفی سریع به مخاطبین بیشتر</span>
+                </div>
+                <div class="col-md mx-5 p-0 mazaya-back">
+                    <img src="{{ asset('/newui/img/3.svg') }}" alt="">
+                    <span>تایید کار شناسان با بیشترین سرعت</span>
+                </div>
+            </div>
+            <div class="row mt-5 text-center m-0 p-0">
+                <div class="col-md mx-5 p-0 mazaya-back">
+                    <img src="{{ asset('/newui/img/4.svg') }}" alt="">
+                    <span>برگذاری کمپین مسابقاتی</span>
+                </div>
+                <div class="col-md mx-5 p-0 mazaya-back">
+                    <img src="{{ asset('/newui/img/5.svg') }}" alt="">
+                    <span>ارائه خدمات رایگان به مدت سه روزه</span>
+                </div>
+                <div class="col-md mx-5 p-0 mazaya-back">
+                    <img src="{{ asset('/newui/img/6.svg') }}" alt="">
+                    <span>کاهش هزینه های تبلیغاتی</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row w-100 m-0 ">
+        <div class="col-md-12 text-center m-0 p-0">
+            <img src="{{ asset('newui/img/farayand-title.png') }}" alt="">
+            <img src="{{ asset('newui/img/rahnama.png')}}" alt="">
+            <img src="{{ asset('newui/img/soalat.png') }}" alt="">
+            <div class="row faq-body w-100 p-4 m-0  justify-content-center">
+                <div class="col-md-8">
+
+                    <div id="accordion">
+                        <div class="card m-1">
+                            <div class="card-header text-right">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                <a class="card-link text-white" data-toggle="collapse" href="#collapseOne">
+                                    Accordion #1
+                                </a>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                <div class="card-body text-right text-white">Content for Accordion #1.</div>
+                            </div>
+                        </div>
+
+                        <div class="card m-1">
+                            <div class="card-header text-right">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseTwo">
+                                    Accordion #2
+                                </a>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                <div class="card-body text-right text-white">Content for Accordion #2.</div>
+                            </div>
+                        </div>
+
+                        <div class="card m-1">
+                            <div class="card-header text-right">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseThree">
+                                    Accordion #3
+                                </a>
+                            </div>
+
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                <div class="card-body text-right text-white"> Content for Accordion #3.</div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+</div>
+@endsection
+@section('footersvg')
 
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>Copyright © Finter 2020</small></div>
-    </div>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Contact form JS-->
-    <script src="assets/mail/jqBootstrapValidation.js"></script>
-    <script src="assets/mail/contact_me.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
-    <script type="text/javascript" src="{{asset('ui/js/myjquery.js')}}">
-    </script>
-    <!-- Core theme JS-->
-    <script src="{{ asset('ui/js/scripts.js') }}"></script>
-    <script src="{{ asset('ui/buttonsplugin/js/TweenMax.min.js') }}"></script>
-    <script src="{{ asset('ui/buttonsplugin/js/main.js') }}"></script>
-    <script src="{{ asset('ui/js/flickity.min.js')}}"></script>
-    <script>
-        $(function () {
-            new WOW().init();
-        });
-
-        $('#ph1').click(function () {
-            $(' #m1').toggleClass("show-minus");
-        });
-        $('#ph1').click(function () {
-            $('#p1').toggleClass("show-plus");
-        });
-        $('#ph2').click(function () {
-            $(' #m2').toggleClass("show-minus");
-        });
-        $('#ph2').click(function () {
-            $('#p2').toggleClass("show-plus");
-        });
-        $(' #ph3').click(function () {
-            $('#m3').toggleClass("show-minus");
-        });
-        $(' #ph3').click(function () {
-            $(' #p3').toggleClass("show-plus");
-        });
-
-    </script>
-</body>
-
-</html>
+@endsection
