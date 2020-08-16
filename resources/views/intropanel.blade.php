@@ -105,7 +105,7 @@
             <img src="{{ asset('newui/img/farayand-title.png') }}" alt="" class="proces-header">
             <img src="{{ asset('newui/img/rahnama.png')}}" alt="" class="proces-img">
             <img src="{{ asset('newui/img/soalat.png') }}" alt="" class="faq-header">
-            <div class="row faq-body w-100 p-4  justify-content-center faq">
+            <div class="row faq-body w-100 p-4 mx-0  justify-content-center faq">
                 <div class="col-md-8">
 
                     <div id="accordion">
