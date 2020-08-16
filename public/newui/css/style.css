@@ -924,6 +924,24 @@ footer {
     font-size: 1.3rem;
 }
 
+.comments-img {
+    justify-content: center;
+}
+
+.comments-img img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.inner-gamenet-comments {
+    padding-left: 3rem!important;
+}
+
+.gamenet-heading {
+    font-size: 2rem;
+}
+
 @media screen and (max-width: 768px) {
     .footer-register-section {
         bottom: 394px!important;
@@ -941,7 +959,7 @@ footer {
         font-size: 2rem!important;
     }
     .gamenet-row {
-        margin-bottom: 5rem!important;
+        margin-bottom: 7rem!important;
     }
     .gamenet-img {
         height: 350px!important;
@@ -952,7 +970,55 @@ footer {
     .gamenet-location {
         height: 300px!important;
     }
+    .inner-gamenet-comments {
+        padding-left: .5rem!important;
+    }
+    .comments-img {
+        justify-content: right!important;
+    }
+    .gamenet-heading {
+        font-size: 1.5rem!important;
+    }
+    .gamenet-heading svg {
+        height: 40px!important;
+    }
 }
 
 
 /* end gamenet */
+
+.intro-inner-slider {
+    background-image: url(../img/G.png)!important;
+}
+
+.faq {
+    margin-bottom: 25rem;
+}
+
+.hadafha {
+    margin-top: 18rem;
+}
+
+@media screen and (max-width: 768px) {
+    .faq {
+        margin-bottom: 7rem!important;
+    }
+    .proces-header,
+    .faq-header {
+        width: 60%;
+    }
+    .proces-img {
+        width: 100%;
+    }
+    .intro-inner-slider {
+        background-image: url(../img/G.png)!important;
+    }
+    .gmt-header-text {
+        font-size: 1.5rem!important;
+        position: absolute!important;
+        top: -110px;
+    }
+    .hadafha {
+        margin-top: 0!important;
+    }
+}
