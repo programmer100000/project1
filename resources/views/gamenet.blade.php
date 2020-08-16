@@ -1,10 +1,10 @@
-@extends('newui/master')
-@section('content')
+@extends('newui/master') @section('content')
 <div class=" content">
-    <div class="row w-100 m-0 p-0 slider-secttion ">
-        <div class="inneeer-slider col d-flex justify-content-center align-items-center ">
-            <div class="row w-100 p-0 m-0 justify-content-center gm-header-text">
-                <div class="col-md-6 text-center gmt-header-text">
+
+    <div class="row w-100 m-0 p-0 slider-secttion">
+        <div class="inner-slider gamenet-inner-slider col d-flex justify-content-center align-items-center ">
+            <div class="row w-100 p-0 m-0 justify-content-center">
+                <div class="col-md-6 g-header-text">
                     حرفه ای بازی کن !
                 </div>
             </div>
@@ -17,99 +17,160 @@
                     d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z"
                     fill="#231553" />
             </svg>
-            <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
-                <div class="title text-center">
-                    <img src="{{ asset('newui/img/rahnamatitle.png')}}" alt="" class="title-img">
-                </div>
-            </div>
         </div>
     </div>
-    <div class="row justify-content-center p-0 hadaf-row">
-        <div class="col-md-10 p-0 mx-auto">
-            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+    <div class="row w-100 mx-0  p-0 justify-content-center gamenet-row ">
+        <div class="col-md-10 p-0">
+            <div class="row w-100 m-0  p-0 gamenet-info">
+
+                <div class="col-md-3 p-4 mx-2 gamenet-item my-4 d-flex flex-column align-items-center justify-content-center  ">
+
+                    <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
                     <div class="mb-3 d-flex text-right align-self-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54"
-                            height="56" viewBox="0 0 54 56">
-                            <defs>
-                                <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
-                                    <feOffset dy="3" input="SourceAlpha" />
-                                    <feGaussianBlur stdDeviation="3" result="blur" />
-                                    <feFlood flood-color="#e80766" />
-                                    <feComposite operator="in" in2="blur" />
-                                    <feComposite in="SourceGraphic" />
-                                </filter>
-                            </defs>
-                            <g id="Group_515" data-name="Group 515" transform="translate(-175 -1492)">
-                                <g id="Ellipse_79" data-name="Ellipse 79" transform="translate(175 1492)" fill="#e80766"
-                                    stroke="#707070" stroke-width="1" opacity="0.33">
-                                    <circle cx="27" cy="27" r="27" stroke="none" />
-                                    <circle cx="27" cy="27" r="26.5" fill="none" />
-                                </g>
-                                <g transform="matrix(1, 0, 0, 1, 175, 1492)" filter="url(#Ellipse_80)">
-                                    <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5"
-                                        transform="translate(11 11)" fill="#e80766" />
-                                </g>
-                            </g>
-                        </svg>
-                        <span class="hadafe-ma">هدف ما </span>
+                        <span class="text-white">امتیاز: </span>
+                        <div class="stars text-left float-left m-0 p-0 w-75">
+                            <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                        </div>
                     </div>
                     <div class="d-flex mb-4 text-right ">
-
-                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی
-                            گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و
-                            ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+                        <span class="ml-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 50 61.802">
+                            <g id="place_1_" data-name="place (1)" transform="translate(-48.886)">
+                              <g id="Group_459" data-name="Group 459" transform="translate(48.886)">
+                                <g id="Group_458" data-name="Group 458">
+                                  <path id="Path_3139" data-name="Path 3139" d="M94.4,10.745a24.953,24.953,0,0,0-41.027,0,24.957,24.957,0,0,0-2.906,22.994A19.655,19.655,0,0,0,54.09,39.72L72.241,61.041a2.159,2.159,0,0,0,3.29,0L93.678,39.726A19.674,19.674,0,0,0,97.3,33.753,24.962,24.962,0,0,0,94.4,10.745ZM93.253,32.24a15.415,15.415,0,0,1-2.85,4.669.077.077,0,0,0-.01.012L73.887,56.308,57.37,36.908a15.424,15.424,0,0,1-2.855-4.683A20.644,20.644,0,0,1,56.928,13.2a20.631,20.631,0,0,1,33.917,0A20.648,20.648,0,0,1,93.253,32.24Z" transform="translate(-48.886)" fill="#e80766"/>
+                                </g>
+                              </g>
+                              <g id="Group_461" data-name="Group 461" transform="translate(61.785 12.821)">
+                                <g id="Group_460" data-name="Group 460">
+                                  <path id="Path_3140" data-name="Path 3140" d="M167.855,106.219a12.1,12.1,0,1,0,12.1,12.1A12.115,12.115,0,0,0,167.855,106.219Zm0,19.88a7.779,7.779,0,1,1,7.779-7.779A7.788,7.788,0,0,1,167.855,126.1Z" transform="translate(-155.754 -106.219)" fill="#e80766"/>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                          
+                      </span>
+                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.  
+                            </span>
+                    </div>
+                    <div class="d-flex w-100 mb-4 text-right ">
+                        <span class="ml-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 53.819 53.797">
+                            <g id="call" transform="translate(0 -0.104)">
+                              <g id="Group_449" data-name="Group 449" transform="translate(0 0.104)">
+                                <g id="Group_448" data-name="Group 448" transform="translate(0 0)">
+                                  <path id="Path_3134" data-name="Path 3134" d="M52.436,41.917,43.518,33a4.726,4.726,0,0,0-6.688,0L34.6,35.229a4.737,4.737,0,0,1-6.7-.007L18.57,26.009a4.734,4.734,0,0,1,0-6.688L20.8,17.092a4.734,4.734,0,0,0,0-6.688L11.882,1.487a4.734,4.734,0,0,0-6.688,0L2.965,3.716C.072,6.61-.779,12.989.744,20.365A43.254,43.254,0,0,0,12.309,41.917a41.89,41.89,0,0,0,21.42,11.355c5.12.989,12.816,1.223,16.477-2.438L52.436,48.6A4.735,4.735,0,0,0,52.436,41.917ZM7.424,3.716a1.578,1.578,0,0,1,2.229,0l8.917,8.917a1.578,1.578,0,0,1,0,2.229l-1.109,1.109L6.315,4.826Zm26.9,46.46A38.7,38.7,0,0,1,14.538,39.688,40.063,40.063,0,0,1,3.832,19.728c-1.192-5.77-.7-10.106.462-12.465L15.343,18.312a7.9,7.9,0,0,0,1.005,9.933l9.336,9.213a7.894,7.894,0,0,0,9.926,1L46.669,49.515C43.3,51.224,38.059,50.9,34.327,50.177Zm15.88-3.8L49.1,47.485,37.951,36.338l1.109-1.109a1.575,1.575,0,0,1,2.229,0l8.917,8.917A1.578,1.578,0,0,1,50.206,46.375Z" transform="translate(0 -0.104)" fill="#e80766"/>
+                                </g>
+                              </g>
+                              <g id="Group_451" data-name="Group 451" transform="translate(28.595 0.105)">
+                                <g id="Group_450" data-name="Group 450" transform="translate(0 0)">
+                                  <path id="Path_3135" data-name="Path 3135" d="M273.613.115a1.576,1.576,0,0,0,0,3.153A20.515,20.515,0,0,1,294.105,23.76a1.576,1.576,0,1,0,3.153,0A23.672,23.672,0,0,0,273.613.115Z" transform="translate(-272.037 -0.115)" fill="#e80766"/>
+                                </g>
+                              </g>
+                              <g id="Group_453" data-name="Group 453" transform="translate(28.595 6.411)">
+                                <g id="Group_452" data-name="Group 452">
+                                  <path id="Path_3136" data-name="Path 3136" d="M273.613,60.1a1.576,1.576,0,0,0,0,3.153A14.2,14.2,0,0,1,287.8,77.439a1.576,1.576,0,0,0,3.153,0A17.359,17.359,0,0,0,273.613,60.1Z" transform="translate(-272.037 -60.1)" fill="#e80766"/>
+                                </g>
+                              </g>
+                              <g id="Group_455" data-name="Group 455" transform="translate(28.595 12.716)">
+                                <g id="Group_454" data-name="Group 454">
+                                  <path id="Path_3137" data-name="Path 3137" d="M273.613,120.085a1.576,1.576,0,1,0,0,3.153,7.89,7.89,0,0,1,7.882,7.882,1.576,1.576,0,1,0,3.153,0A11.047,11.047,0,0,0,273.613,120.085Z" transform="translate(-272.037 -120.085)" fill="#e80766"/>
+                                </g>
+                              </g>
+                              <g id="Group_457" data-name="Group 457" transform="translate(28.595 19.021)">
+                                <g id="Group_456" data-name="Group 456">
+                                  <path id="Path_3138" data-name="Path 3138" d="M273.613,180.07a1.576,1.576,0,1,0,0,3.153,1.578,1.578,0,0,1,1.576,1.576,1.576,1.576,0,0,0,3.153,0A4.734,4.734,0,0,0,273.613,180.07Z" transform="translate(-272.037 -180.07)" fill="#e80766"/>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                          
+                    </span>
+                        <span class="text-white text-justify">09129878987  
+                          </span>
                     </div>
                     <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">ثبت نام s</button>
+                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
                     </div>
                 </div>
 
-                <div class="col-md-6 introduce2-img">
+                <div class="col-md-8 gamenet-item gamenet-img  my-4 p-0 mx-2">
+
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row p-0 m-0 testsvg">
-        <div class="col-md-10  mx-auto text-center mazaya-row p-0">
-            <div class="row text-center m-0 p-0">
-                <div class="col-md-3 m-5 p-0 mazaya-back">
-                    <img src="{{ asset('/newui/img/1.svg') }}" alt="">
-                    <span> ارائه خدمات در سریع ترین زمان ممکن</span>
+            <div class="row w-100 p-0 m-0 ">
+
+                <div class="col-12 my-2 gamenet-item gamenet-location ">
+
                 </div>
-                <div class="col-md-3 m-5 p-0 mazaya-back">
-                    <img src="{{ asset('/newui/img/2.svg') }}" alt="">
-                    <span>معرفی سریع به مخاطبین بیشتر</span>
+                <div class="col-12 my-4  gamenet-heading ">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
+                    <defs>
+                        <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
+                          <feOffset dy="3" input="SourceAlpha"/>
+                          <feGaussianBlur stdDeviation="3" result="blur"/>
+                          <feFlood flood-color="#e80766"/>
+                          <feComposite operator="in" in2="blur"/>
+                          <feComposite in="SourceGraphic"/>
+                        </filter>
+                      </defs>
+                      <g id="Group_515" data-name="Group 515" transform="translate(-175 -1492)">
+                        <g id="Ellipse_79" data-name="Ellipse 79" transform="translate(175 1492)" fill="#e80766" stroke="#707070" stroke-width="1" opacity="0.33">
+                          <circle cx="27" cy="27" r="27" stroke="none"/>
+                          <circle cx="27" cy="27" r="26.5" fill="none"/>
+                        </g>
+                        <g transform="matrix(1, 0, 0, 1, 175, 1492)" filter="url(#Ellipse_80)">
+                          <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
+                        </g>
+                      </g>
+                    </svg> نظرات کاربران
+
                 </div>
-                <div class="col-md-3 m-5 p-0 mazaya-back">
-                    <img src="{{ asset('/newui/img/3.svg') }}" alt="">
-                    <span>تایید کار شناسان با بیشترین سرعت</span>
+                <div class="col-12 p-0 my-2 gamenet-item gamenet-comments ">
+                    <div class="row w-100 p-3 m-0">
+                        <div class="col-2">
+                            <img src="" alt="">
+                        </div>
+                        <div class="col-10">
+                            <div class="row p-2 gamenet-comments-name">
+                                <p class="text-right text-white ">مریم سلیمی</p>
+                            </div>
+                            <div class="row p-2">
+                                <p class="text-right text-white">
+                                    به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3 m-5 p-0 mazaya-back">
-                    <img src="{{ asset('/newui/img/4.svg') }}" alt="">
-                    <span>برگذاری کمپین مسابقاتی</span>
+                <div class="col-12 p-0 my-2 gamenet-item gamenet-comments ">
+                    <div class="row w-100 p-3 m-0">
+                        <div class="col-2">
+                            <img src="" alt="">
+                        </div>
+                        <div class="col-10">
+                            <div class="row p-2 gamenet-comments-name">
+                                <p class="text-right text-white ">مریم سلیمی</p>
+                            </div>
+                            <div class="row p-2">
+                                <p class="text-right text-white">
+                                    به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3 m-5 p-0 mazaya-back">
-                    <img src="{{ asset('/newui/img/5.svg') }}" alt="">
-                    <span>ارائه خدمات رایگان به مدت سه روزه</span>
-                </div>
-                <div class="col-md-3 m-5 p-0 mazaya-back">
-                    <img src="{{ asset('/newui/img/6.svg') }}" alt="">
-                    <span>کاهش هزینه های تبلیغاتی</span>
-                </div>
+
+
             </div>
+
         </div>
+
+
+
     </div>
-    <div class="row w-100 m-0 plan-header">
-      <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
-          <div class="title text-center">
-              <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
-          </div>
-      </div>
-  </div>
 </div>
-@endsection
-@section('footersvg')
+@endsection @section('footersvg')
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="864" viewBox="0 0 1920 864">
   <defs>
     <clipPath id="clip-path">
@@ -132,13 +193,13 @@
   </g>
 </svg>
 
-<div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
-  <div class="title text-center d-block text-white gamenets-footer-title">
-      <span class="d-block">اینجا برای شماست </span>
-      <button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+<div class="col-12 footer-register-section mx-auto p-0 position-absolute ">
+    <div class="title text-center d-block text-white gamenets-footer-title">
+        <span class="d-block mb-1">اینجا برای شماست! </span>
+        <button type="button" class="btn btn-outline-primary login-page-register-btn  align-self-start ">
         ثبت نام
     </button>
-  </div>
+    </div>
 </div>
 
 

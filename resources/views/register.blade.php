@@ -23,7 +23,7 @@
                     <div class="inner-login-content-right">
                         <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
                             <div class="col-10 p-0 m-0 ">
-                            <form class="login-form" action="{{ route('register') }}" method="POST">
+                            <form class="login-form register" action="{{ route('register') }}" method="POST">
                                     <h1 class="text-white text-center">ثبت نام کاربر</h1>
                                     @csrf
 
@@ -43,7 +43,7 @@
                                         </span>
                                         <input type="text" class="form-control p-0 " placeholder="شماره موبایل" name="mobile">
                                     </div>
-                                    <div class="form-group m-auto">
+                                    <div class=" form-group">
                                         {!! NoCaptcha::renderJs('fa', true, 'recaptchaCallback') !!}
                                         {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
                                         @if ($errors->has('g-recaptcha-response'))

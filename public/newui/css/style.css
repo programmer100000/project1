@@ -83,7 +83,7 @@ h4 {
     font-size: 2.5rem;
 }
 
-.heading {
+.gamenet-heading {
     border-bottom: 5px solid #1A0E46;
     text-align: right;
     color: #fff;
@@ -159,13 +159,6 @@ a:visited {
     background-color: #e80767!important;
 }
 
-.inner-slider {
-    background-image: url(../img/bg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1109px;
-}
-
 .plan-header {
     position: relative;
     top: -406px;
@@ -181,13 +174,6 @@ footer {
     /* background-attachment: fixed; */
     background-position: bottom;
     background-repeat: no-repeat;
-}
-
-.inner-slider {
-    background-image: url(../img/bg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1109px;
 }
 
 .plan-header {
@@ -267,10 +253,6 @@ footer {
 .popular,
 .popular-img {
     border-radius: 1.3rem!important;
-}
-
-.inner-slider {
-    height: 400px;
 }
 
 .plan {
@@ -417,6 +399,7 @@ footer {
 }
 
 .inner-slider {
+    margin-top: 50px;
     background-image: url(../img/bg.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -512,14 +495,6 @@ footer {
     /* background-attachment: fixed; */
     background-position: bottom;
     background-repeat: no-repeat;
-}
-
-.inner-slider {
-    margin-top: 50px;
-    background-image: url(../img/bg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1109px;
 }
 
 .plan-header {
@@ -654,14 +629,14 @@ footer {
         text-align: right!important;
     }
     .footer-call-icon svg {
-        height: 30px;
+        height: 35px;
     }
     .footer-location-icon svg {
-        height: 30px;
+        height: 35px;
     }
     .top-footer {
         height: 69px!important;
-        bottom: 425px!important;
+        bottom: 465px!important;
     }
     .contact-secttion {
         height: 650px!important;
@@ -742,7 +717,6 @@ footer {
         height: 50%!important;
     }
     .inner-register-btn {
-        margin-top: 1.5rem;
         margin-bottom: 1.5rem;
     }
     .login-input {
@@ -751,6 +725,10 @@ footer {
     }
     .right-btn {
         display: none!important;
+    }
+    .confirm .login-input {
+        padding: 0!important;
+        margin: .5rem!important;
     }
 }
 
@@ -826,6 +804,7 @@ footer {
 }
 
 .inner-register-btn {
+    padding-top: 1rem;
     align-self: start;
     height: 15%;
 }
@@ -849,5 +828,115 @@ footer {
     background-color: #1A0E46!important;
 }
 
+.confirm .login-input {
+    border-radius: 50%!important;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.confirm-inputs {
+    padding: 1rem;
+}
+
+.login-form .login-input .form-control:focus {
+    background-color: transparent!important;
+}
+
+.register .form-group {
+    text-align: right!important;
+}
+
+.register .help-block {
+    padding: .8rem!important;
+    font-size: .8rem;
+    color: #fff;
+}
+
+.rc-anchor-dark,
+.recaptcha-checkbox-border {
+    background: transparent;
+    background-color: transparent;
+}
+
 
 /* end login page */
+
+
+/* gamenet */
+
+.footer-register-section {
+    bottom: 320px;
+}
+
+.gamenets-footer-title .login-page-register-btn {
+    padding: .5rem 3rem!important;
+}
+
+.gamenet-inner-slider {
+    background-image: url(../img/bgt.png)!important;
+}
+
+.gamenet-row {
+    margin-bottom: 25rem;
+}
+
+.gamenet-item {
+    background-color: #34256a;
+    border-radius: 30px;
+}
+
+.gamenet-img {
+    background-image: url(../img/gamenet-img.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+
+.gamenet-location {
+    height: 500px;
+}
+
+.gamenet-comments {
+    border-radius: 60px 60px 0 60px;
+}
+
+.gamenet-comments-name {
+    border-bottom: 1px solid #fff;
+}
+
+.gamenet-comments-name p {
+    font-size: 1.3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-register-section {
+        bottom: 394px!important;
+    }
+    .gamenets-footer-title {
+        font-size: 1rem!important;
+    }
+    .gamenets-footer-title .login-page-register-btn {
+        padding: .2rem 1.5rem!important;
+    }
+    .gamenet-inner-slider {
+        background-image: url(../img/bgt.png)!important;
+    }
+    .g-header-text {
+        font-size: 2rem!important;
+    }
+    .gamenet-row {
+        margin-bottom: 5rem!important;
+    }
+    .gamenet-img {
+        height: 350px!important;
+    }
+    .gamenet-info {
+        flex-direction: column-reverse;
+    }
+    .gamenet-location {
+        height: 300px!important;
+    }
+}
+
+
+/* end gamenet */

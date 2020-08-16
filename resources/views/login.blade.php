@@ -11,13 +11,11 @@
 </head>
 
 <body>
-
     <div class="row w-100  m-0 d-flex login-bg align-items-center justify-content-center">
         <div class="col-10 p-0 h-75 m-0 ">
             <div class="row w-100 p-0 m-0 h-100 login-content align-items-center justify-content-center">
                 <div class="col-md-6  login-right p-0 m-0  ">
                     <div class="login-content-right p-0">
-
                     </div>
                     <div class="inner-login-content-right">
                         <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
@@ -45,12 +43,9 @@
                                                   </g>
                                                 </g>
                                               </svg>
-                                              
                                         </span>
                                         <input type="text" class="form-control p-0 " id="username" placeholder="نام کاربری" name="name">
                                     </div>
-
-
                                     <div class="my-4 login-input">
                                         <span class="ml-1">
                                             <svg id="Number_Icon" data-name="Number Icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 49 49">
@@ -75,14 +70,11 @@
                                     <div class="row justify-content-center">
                                         <button type="button" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-md-6 p-0 login-content-left">
                     <div class="row h-100 p-0  m-0 justify-content-center align-items-center ">
                         <div class="col-10 inner-bg m-0 py-4 "></div>
@@ -149,7 +141,6 @@
                           </g>
                         </g>
                       </svg>
-                      
                 </span>
             </div>
         </div>
