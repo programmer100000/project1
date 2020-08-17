@@ -32,10 +32,14 @@ use Illuminate\Support\Facades\Auth;
 // })->name('home');
 
 Route::get('/',function(){
+    $best_gamenet = Gamenet::
+    join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , 'gamenets.gamenet_id')->
+    where('rate' , 5 )->inRandomOrder()->limit(1)->first(); 
+    // dd($best_gamenet);
     $gamenets_active = Gamenet::select()
     ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
     ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->get();
-    return view('newui.index' , compact('gamenets_active'));
+    return view('newui.index' , compact('gamenets_active' , 'best_gamenet'));
 })->name('home');
 // super admin
 Route::get('/superadmin', 'superadmin@index')->name('superadmin');
