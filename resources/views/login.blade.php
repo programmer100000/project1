@@ -73,7 +73,7 @@
                                       @endif
                                   </div>
                                     <a>
-                                        <p class="forget-text text-center">
+                                        <p class="forget-text text-right">
                                             رمزم را فراموش کردم!
                                         </p>
                                     </a>
