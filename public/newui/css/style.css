@@ -944,8 +944,16 @@ footer {
     padding-left: 3rem!important;
 }
 
+.gamenet-info .gamenet-item {
+    height: 600px;
+}
+
 .gamenet-heading {
     font-size: 2rem;
+}
+
+.mobile-gamenet-comments-name {
+    display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -973,6 +981,10 @@ footer {
     .gamenet-info {
         flex-direction: column-reverse;
     }
+    .gamenet-info .gamenet-item {
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
     .gamenet-location {
         height: 300px!important;
     }
@@ -987,6 +999,16 @@ footer {
     }
     .gamenet-heading svg {
         height: 40px!important;
+    }
+    .gamenet-comments-name {
+        display: none!important;
+    }
+    .mobile-gamenet-comments-name {
+        display: block!important;
+    }
+    .comments-img img {
+        height: 70px!important;
+        width: 70px!important;
     }
 }
 
