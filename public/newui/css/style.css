@@ -750,7 +750,7 @@ footer {
 }
 
 .login-content {
-    background-image: url(../img/bbbb.png);
+    background-image: url(../img/-.png);
     background-size: cover;
     background-repeat: no-repeat;
     opacity: .95;
@@ -764,7 +764,7 @@ footer {
 }
 
 .login-content-right {
-    background-image: url(../img/login-content-right.svg);
+    background-image: url(../img/cc.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;

@@ -31,23 +31,23 @@
                                     <div class="row  confirm-inputs">
                                         <div class="col  login-input">
                                             <label for="usr"></label>
-                                            <input type="text" class="form-control p-0 text-white " id="input1" placeholder="" name="input1">
+                                            <input type="number" class="form-control p-0 text-white " id="input1" maxlength="1" placeholder="" name="input1">
                                         </div>
 
 
                                         <div class="col  login-input">
 
-                                            <input type="text" class="form-control p-0 text-white " id="input2" placeholder="" name="input2">
+                                            <input type="number" class="form-control p-0 text-white " id="input2" placeholder="" maxlength="1" name="input2">
                                         </div>
                                         <div class="col  login-input">
 
-                                            <input type="text" class="form-control p-0 text-white " id="input3" placeholder="" name="input3">
+                                            <input type="number" class="form-control p-0 text-white " id="input3" placeholder="" maxlength="1" name="input3">
                                         </div>
 
 
                                         <div class="col login-input">
 
-                                            <input type="text" class="form-control p-0 text-white " id="input4" placeholder="" name="input4">
+                                            <input type="number" class="form-control p-0 text-white " id="input4" placeholder="" maxlength="1" name="input4">
                                         </div>
                                     </div>
 
