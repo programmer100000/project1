@@ -275,7 +275,7 @@
                       </div>
 
                   </div>
-                  <div class="col-md-7 popular-img">
+                  <div class="col-md-7 popular-img" style="background-image: url({{ $best_gamenet->gamenet_image }})">
                   </div>
               </div>
 
