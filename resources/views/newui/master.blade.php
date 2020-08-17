@@ -5,57 +5,126 @@
     <meta charset="utf-8">
     <title>گیم نت</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" type="text/css" href="{{ asset('newui/css/font-awesome.min.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @yield('header')
-  </head>
+</head>
+
 <body>
     <div class="total-content">
 
 
         <header>
             <nav class="navbar navbar-expand-lg bg-secondary text-uppercase text-white fixed-top d-flex justify-content-between" id="mainNav">
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded" type="button" data-toggle="collapse"      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <i class="fa fa-bars"></i>
                 </button>
-                <div class="mobile-header-btns">
-                <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
-                    استان ها
-                  </button>
-                  <button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button>
-              </div>
+                <div class="mobile-header-btns ">
+                    <div class="d-flex">
+
+                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
+                                    <g id="place" transform="translate(-48.886)">
+                                      <g id="Group_300" data-name="Group 300" transform="translate(48.886)">
+                                        <g id="Group_299" data-name="Group 299">
+                                          <path id="Path_1667" data-name="Path 1667" d="M91.748,10.119a23.5,23.5,0,0,0-38.636,0,23.5,23.5,0,0,0-2.736,21.654,18.509,18.509,0,0,0,3.411,5.632L70.88,57.484a2.033,2.033,0,0,0,3.1,0L91.068,37.411a18.527,18.527,0,0,0,3.411-5.625A23.507,23.507,0,0,0,91.748,10.119Zm-1.08,20.242a14.516,14.516,0,0,1-2.684,4.4l-.01.011L72.43,53.026,56.876,34.757a14.525,14.525,0,0,1-2.689-4.41,19.441,19.441,0,0,1,2.272-17.914,19.429,19.429,0,0,1,31.94,0A19.444,19.444,0,0,1,90.668,30.361Z" transform="translate(-48.886 0)" fill="#e80766"/>
+                                        </g>
+                                      </g>
+                                      <g id="Group_302" data-name="Group 302" transform="translate(61.034 12.074)">
+                                        <g id="Group_301" data-name="Group 301">
+                                          <path id="Path_1668" data-name="Path 1668" d="M167.15,106.219a11.4,11.4,0,1,0,11.4,11.4A11.409,11.409,0,0,0,167.15,106.219Zm0,18.722a7.326,7.326,0,1,1,7.326-7.326A7.334,7.334,0,0,1,167.15,124.941Z" transform="translate(-155.754 -106.219)" fill="#e80766"/>
+                                        </g>
+                                      </g>
+                                    </g>
+                            </svg>
+                          </span>
+                      استان ها
+                      <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 30.542 18.962">
+                          <g id="up-arrow" transform="translate(171.833 194.442) rotate(179)">
+                            <g id="Group_269" data-name="Group 269" transform="translate(138.197 178.446)">
+                              <g id="Group_268" data-name="Group 268">
+                                <path id="Path_1506" data-name="Path 1506" d="M167.686,192.4,155.03,179.214a2.458,2.458,0,0,0-3.569,0L138.807,192.4a2.719,2.719,0,0,0,0,3.431,2.463,2.463,0,0,0,3.569.287L153.233,184.8l10.883,11.312a2.458,2.458,0,0,0,3.569,0A2.714,2.714,0,0,0,167.686,192.4Z" transform="translate(-138.197 -178.446)" fill="#e80766"/>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                        
+                      </span>
+                    </button>
+
+                        <button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button>
+                    </div>
+
+                </div>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-right ml-auto ">
                         <li class="nav-item mx-0 mx-lg-1 text-white"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#">صفحه اصلی</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="{{ route('gamenets') }}">گیم نت ها</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="{{ route('gamenets') }}">گیم نت ها</a></li>
                         <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">درباره ما</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">تماس با ما</a></li> -->
                     </ul>
                 </div>
-              <div class="header-btns">
-                <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
-                    استان ها
-                  </button>
-                <a href="{{ route('register') }}"><button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button></a>
-              </div>
-                
+                <div class="header-btns">
+                    <div class="d-flex">
+
+                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
+                                    <g id="place" transform="translate(-48.886)">
+                                      <g id="Group_300" data-name="Group 300" transform="translate(48.886)">
+                                        <g id="Group_299" data-name="Group 299">
+                                          <path id="Path_1667" data-name="Path 1667" d="M91.748,10.119a23.5,23.5,0,0,0-38.636,0,23.5,23.5,0,0,0-2.736,21.654,18.509,18.509,0,0,0,3.411,5.632L70.88,57.484a2.033,2.033,0,0,0,3.1,0L91.068,37.411a18.527,18.527,0,0,0,3.411-5.625A23.507,23.507,0,0,0,91.748,10.119Zm-1.08,20.242a14.516,14.516,0,0,1-2.684,4.4l-.01.011L72.43,53.026,56.876,34.757a14.525,14.525,0,0,1-2.689-4.41,19.441,19.441,0,0,1,2.272-17.914,19.429,19.429,0,0,1,31.94,0A19.444,19.444,0,0,1,90.668,30.361Z" transform="translate(-48.886 0)" fill="#e80766"/>
+                                        </g>
+                                      </g>
+                                      <g id="Group_302" data-name="Group 302" transform="translate(61.034 12.074)">
+                                        <g id="Group_301" data-name="Group 301">
+                                          <path id="Path_1668" data-name="Path 1668" d="M167.15,106.219a11.4,11.4,0,1,0,11.4,11.4A11.409,11.409,0,0,0,167.15,106.219Zm0,18.722a7.326,7.326,0,1,1,7.326-7.326A7.334,7.334,0,0,1,167.15,124.941Z" transform="translate(-155.754 -106.219)" fill="#e80766"/>
+                                        </g>
+                                      </g>
+                                    </g>
+                            </svg>
+                          </span>
+                      استان ها
+                      <span class="mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 30.542 18.962">
+                          <g id="up-arrow" transform="translate(171.833 194.442) rotate(179)">
+                            <g id="Group_269" data-name="Group 269" transform="translate(138.197 178.446)">
+                              <g id="Group_268" data-name="Group 268">
+                                <path id="Path_1506" data-name="Path 1506" d="M167.686,192.4,155.03,179.214a2.458,2.458,0,0,0-3.569,0L138.807,192.4a2.719,2.719,0,0,0,0,3.431,2.463,2.463,0,0,0,3.569.287L153.233,184.8l10.883,11.312a2.458,2.458,0,0,0,3.569,0A2.714,2.714,0,0,0,167.686,192.4Z" transform="translate(-138.197 -178.446)" fill="#e80766"/>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                        
+                      </span>
+                    </button>
+
+
+
+
+                        <a href="{{ route('register') }}"><button type="button" class="btn btn-primary login-header-btn">ثبت نام / ورود</button></a>
+                    </div>
+                </div>
+
             </nav>
         </header>
         @yield('content')
         <footer class="footer  text-center">
-          <div class="row w-100 m-0 top-footer">
-              <div class="col-12 mx-auto p-0 inner-top-footer">
-@yield('footersvg')
-              </div>
-          </div>
+            <div class="row w-100 m-0 top-footer">
+                <div class="col-12 mx-auto p-0 inner-top-footer">
+                    @yield('footersvg')
+                </div>
+            </div>
 
-          <div class="row  w-100 p-0 m-0  justify-content-center align-items-center ">
-              <div class="col-md-6 pb-0 ">
-                  <div class="row  w-100 p-0 m-0 justify-content-center align-items-center">
-                      <div class="col-md-12">
-                          <span class="footer-location-icon">
+            <div class="row  w-100 p-0 m-0  justify-content-center align-items-center ">
+                <div class="col-md-6 pb-0 ">
+                    <div class="row  w-100 p-0 m-0 justify-content-center align-items-center">
+                        <div class="col-md-12">
+                            <span class="footer-location-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 95 95">
                               <g id="place" transform="translate(-21.886 23)">
                                 <g id="Ellipse_75" data-name="Ellipse 75" transform="translate(21.886 -23)" fill="#3b227d" stroke="#e80766" stroke-width="3">
@@ -76,12 +145,12 @@
                             </svg>
                         </span>
 
-                          <p class="text-white">
-                              به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.
-                          </p>
-                      </div>
-                      <div class="col-6 footer-call pr-0">
-                          <span class="footer-call-icon">
+                            <p class="text-white">
+                                به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.
+                            </p>
+                        </div>
+                        <div class="col-6 footer-call pr-0">
+                            <span class="footer-call-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 95 95">
                                   <g id="phone" transform="translate(32 34.888)">
                                     <g id="Ellipse_76" data-name="Ellipse 76" transform="translate(-32 -34.888)" fill="#3b227d" stroke="#e80766" stroke-width="3">
@@ -93,14 +162,14 @@
                                 </svg>
                           </span>
 
-                          <span class="text-white mr-2">
+                            <span class="text-white mr-2">
                           09128999999
                           </span>
 
-                      </div>
-                      <div class="col-6 d-flex  text-right p-0 align-items-center">
+                        </div>
+                        <div class="col-6 d-flex  text-right p-0 align-items-center">
 
-                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 95 95">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 95 95">
                               <g id="email_2_" data-name="email (2)" transform="translate(17.4 -50.466)">
                                 <g id="Ellipse_77" data-name="Ellipse 77" transform="translate(-17.4 50.466)" fill="#3b227d" stroke="#e80766" stroke-width="3">
                                   <circle cx="47.5" cy="47.5" r="47.5" stroke="none"/>
@@ -118,14 +187,14 @@
                                 </g>
                               </g>
                             </svg>
-                          <span class="text-white mr-2">
+                            <span class="text-white mr-2">
                               example@gmail.com
                           </span>
 
 
-                      </div>
-                      <div class="col-md-12 mt-4">
-                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 59.414 59.414">
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 59.414 59.414">
                               <g id="google-plus-circular-button" opacity="0.8">
                                 <g id="Group_11" data-name="Group 11">
                                   <path id="Path_64" data-name="Path 64" d="M23.173,27.438c0-2.914-1.688-4.351-3.546-5.914l-1.52-1.183a2.311,2.311,0,0,1-1.1-1.815,2.97,2.97,0,0,1,1.183-2.069c1.772-1.394,3.546-2.871,3.546-6a7.119,7.119,0,0,0-3-5.7h2.617l2.7-1.52h-8.7A11.512,11.512,0,0,0,7.8,5.562,7.591,7.591,0,0,0,5.1,11.22a6.677,6.677,0,0,0,7.008,6.63c.424,0,.886-.043,1.353-.084a3.792,3.792,0,0,0-.421,1.647,4.432,4.432,0,0,0,1.267,2.871c-1.9.127-5.447.338-8.064,1.942a6.079,6.079,0,0,0-3.252,5.153c0,3.125,2.957,6.039,9.08,6.039C19.33,35.418,23.173,31.4,23.173,27.438ZM14.094,16.67c-3.632,0-5.28-4.688-5.28-7.516A4.872,4.872,0,0,1,9.743,6.03a3.948,3.948,0,0,1,2.957-1.4c3.505,0,5.32,4.732,5.32,7.77a4.265,4.265,0,0,1-1.056,3.084A4.332,4.332,0,0,1,14.094,16.67Zm.043,16.973c-4.518,0-7.432-2.152-7.432-5.15s2.7-4.011,3.632-4.348a16.928,16.928,0,0,1,4.434-.678,6.679,6.679,0,0,1,.97.043c3.211,2.279,4.6,3.419,4.6,5.574C20.343,31.7,18.19,33.644,14.137,33.644Z" transform="translate(10.723 11.614)" fill="#fff"/>
@@ -134,7 +203,7 @@
                                 </g>
                               </g>
                             </svg></a>
-                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 59.414 59.414">
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 59.414 59.414">
                               <g id="pinterest-social-visual-website-logotype" opacity="0.8">
                                 <g id="Group_10" data-name="Group 10" transform="translate(0 0)">
                                   <path id="Path_62" data-name="Path 62" d="M30.909,14.641c0-6.16-5.112-11.9-12.879-11.9-9.668,0-14.54,7.076-14.54,12.977,0,3.573,1.323,6.752,4.167,7.934a.7.7,0,0,0,1.018-.519c.092-.365.316-1.285.413-1.666A1.022,1.022,0,0,0,8.8,20.309a6.073,6.073,0,0,1-1.342-4.075A9.735,9.735,0,0,1,17.471,6.287c5.463,0,8.467,3.408,8.467,7.959,0,5.99-2.6,11.043-6.452,11.043a3.194,3.194,0,0,1-3.211-4c.61-2.63,1.8-5.472,1.8-7.37,0-1.7-.894-3.119-2.744-3.119-2.177,0-3.924,2.3-3.924,5.377a8.107,8.107,0,0,0,.651,3.287S9.825,29.1,9.436,30.782a18.528,18.528,0,0,0-.359,4.651c.149,1.28,1.388,2.323,2.463.918A17.412,17.412,0,0,0,13.531,32c.251-.924,1.431-5.709,1.431-5.709a5.8,5.8,0,0,0,4.972,2.59C26.472,28.876,30.909,22.788,30.909,14.641Z" transform="translate(12.509 9.827)" fill="#fff"/>
@@ -142,8 +211,8 @@
                                 </g>
                               </g>
                             </svg></a>
-                          <a>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 59.414 59.414">
+                            <a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 59.414 59.414">
                                   <g id="twitter-circular-button" opacity="0.8">
                                     <g id="Group_9" data-name="Group 9">
                                       <path id="Path_60" data-name="Path 60" d="M31.724,11.295c0-.3-.005-.6-.019-.891a13.494,13.494,0,0,0,3.276-3.522,12.577,12.577,0,0,1-3.77,1.032A6.737,6.737,0,0,0,34.1,4.143,12.606,12.606,0,0,1,29.93,5.75a6.53,6.53,0,0,0-4.791-2.26,6.632,6.632,0,0,0-6.563,6.841,7.294,7.294,0,0,0,.17,1.585A18.482,18.482,0,0,1,5.217,4.44a7.268,7.268,0,0,0-.888,3.511,7.229,7.229,0,0,0,2.919,5.866,6.282,6.282,0,0,1-2.973-.91V13A6.972,6.972,0,0,0,9.54,19.9a6.216,6.216,0,0,1-1.728.235A6,6,0,0,1,6.578,20a6.671,6.671,0,0,0,6.13,4.885,12.668,12.668,0,0,1-8.151,2.968,12.5,12.5,0,0,1-1.566-.1,17.707,17.707,0,0,0,10.063,3.154C25.123,30.915,31.724,20.409,31.724,11.295Z" transform="translate(10.722 12.506)" fill="#fff"/>
@@ -151,18 +220,18 @@
                                     </g>
                                   </g>
                                 </svg>
-                          </a>
+                            </a>
 
-                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" id="facebook-logo-in-circular-button-outlined-social-symbol" width="40" height="40" viewBox="0 0 63.631 63.631">
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" id="facebook-logo-in-circular-button-outlined-social-symbol" width="40" height="40" viewBox="0 0 63.631 63.631">
                               <g id="Group_8" data-name="Group 8">
                                 <path id="Path_58" data-name="Path 58" d="M63.631,31.815A31.815,31.815,0,1,0,31.815,63.631,31.816,31.816,0,0,0,63.631,31.815Zm-60.738,0A28.923,28.923,0,1,1,31.815,60.738,28.922,28.922,0,0,1,2.892,31.815Z" fill="#fff"/>
                                 <path id="Path_59" data-name="Path 59" d="M14.5,39.427V21.064h6.059l.957-6.085H14.5V11.927c0-1.588.521-3.1,2.8-3.1h4.555V2.75H15.392c-5.438,0-6.921,3.581-6.921,8.544v3.682H4.74v6.088H8.471V39.427Z" transform="translate(18.532 10.752)" fill="#fff"/>
                               </g>
                             </svg></a>
-                      </div>
-                      <div class="col-6 text-left">
-                          <a>
-                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130" height="130" viewBox="0 0 239 233">
+                        </div>
+                        <div class="col-6 text-left">
+                            <a>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130" height="130" viewBox="0 0 239 233">
                                 <defs>
                                   <filter id="Rectangle_119" x="0" y="0" width="239" height="233" filterUnits="userSpaceOnUse">
                                     <feOffset dy="3" input="SourceAlpha"/>
@@ -182,11 +251,11 @@
                                   <rect id="enamad_icon_text_color_blue_275" width="128" height="128" rx="33" transform="translate(923 11406)" fill="url(#pattern)"/>
                                 </g>
                               </svg>
-                          </a>
-                      </div>
-                      <div class="col-6 p-0 text-right">
-                          <a>
-                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130" height="130" viewBox="0 0 239 233">
+                            </a>
+                        </div>
+                        <div class="col-6 p-0 text-right">
+                            <a>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130" height="130" viewBox="0 0 239 233">
                                 <defs>
                                   <filter id="Rectangle_118" x="0" y="0" width="239" height="233" filterUnits="userSpaceOnUse">
                                     <feOffset dy="3" input="SourceAlpha"/>
@@ -204,38 +273,39 @@
                                 </g>
                               </svg>
 
-                          </a>
+                            </a>
 
-                      </div>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-      </footer>
+        </footer>
     </div>
     <script>
-      var urlprovinces = '{{ asset('js/Provinces.json') }}';
+        var urlprovinces = '{{ asset('
+        js / Provinces.json ') }}';
     </script>
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/ui.js')}}" defer></script>
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content p-4">
-          <div class="modal-header justify-content-between align-items-center">
-            <span>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content p-4">
+                <div class="modal-header justify-content-between align-items-center">
+                    <span>
               انتخاب شهر
             </span>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body Provinces">
-          </div>
-          
+                </div>
+                <div class="modal-body Provinces">
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
 </body>
 

@@ -429,13 +429,14 @@ footer {
 .mazaya-back {
     background: #34256A;
     display: block;
-    border-radius: 45%;
+    border-radius: 30px;
 }
 
 .mazaya-back img {
     display: block;
     margin: 0 auto;
-    margin-top: 15%;
+    margin-top: 5%;
+    width: 100%;
 }
 
 .mazaya-back span {
@@ -457,10 +458,12 @@ footer {
     background: url('../img/backbig.png');
     background-size: 100% 100%;
     /* height: 1000px; */
+    margin-top: 4rem;
 }
 
 .mazaya-row {
-    margin: 15%;
+    margin-top: 7rem;
+    margin-bottom: 15rem;
 }
 
 .hadaf-row {
@@ -484,6 +487,7 @@ footer {
     font-size: 2rem;
     white-space: nowrap;
     margin-right: 5%;
+    line-height: 2;
 }
 
 footer {
@@ -550,7 +554,7 @@ footer {
 
 .provinces-header-btn:hover,
 .login-page-register-btn:hover {
-    background-color: #e80767!important;
+    background-color: #34256a!important;
 }
 
 .provinces-header-btn:hover,
@@ -754,13 +758,17 @@ footer {
     background-size: cover;
     background-repeat: no-repeat;
     opacity: .95;
+    border-radius: 30px;
 }
 
 .login-content-left {
     background-image: url(../img/login-content-left.svg);
-    background-size: cover;
+    background-size: 100%;
+    background-position: left;
     background-repeat: no-repeat;
     height: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .login-content-right {
@@ -796,8 +804,6 @@ footer {
     border-radius: 10px !important;
     margin-top: 10%!important;
 }
-
-.login-page-register-btn {}
 
 .forget-text {
     color: #2AC4B5;
@@ -999,12 +1005,24 @@ footer {
     margin-top: 18rem;
 }
 
+.hadafha-row {
+    border-radius: 30px;
+}
+
+.mazaya-row:last-child {
+    margin-top: 3rem;
+}
+
 @media screen and (max-width: 768px) {
+    .mazaya-row {
+        margin-bottom: 0!important;
+    }
     .faq {
         margin-bottom: 7rem!important;
     }
     .proces-header,
-    .faq-header {
+    .faq-header,
+    .mazaya-img {
         width: 60%;
     }
     .proces-img {
@@ -1020,5 +1038,27 @@ footer {
     }
     .hadafha {
         margin-top: 0!important;
+    }
+    .mazaya-back span {
+        font-size: 1rem!important;
+        width: 90%!important;
+    }
+    .mazaya-back img {
+        margin-top: 5%!important;
+        width: 70%!important;
+    }
+    .mazaya-row:last-child {
+        margin-top: 0px!important;
+    }
+    .testsvg {
+        margin-top: 0!important;
+        background: none!important;
+    }
+    .hadafe-ma {
+        font-size: 1.52rem!important;
+    }
+    .provinces-header-btn,
+    .login-header-btn {
+        font-size: .8rem!important;
     }
 }

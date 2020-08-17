@@ -8,10 +8,10 @@ $(document).ready(function() {
             for (let i = 0; i < jsonprovices.length; i++) {
                 let state = jsonprovices[i];
                 $('.Provinces').append(`<div class="row text-right p-1 province">
-                <div class="col-md-11 m-0 p-0 name" data-id="${state.id}">
+                <div class="col-11 m-0 p-0 name" data-id="${state.id}">
                   <span>${state.title}</span>
                 </div>
-                <div class="col-md-1 m-0 p-0 text-center icon">
+                <div class="col-1 m-0 p-0 text-center icon">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
                 </div>
               </div>`);
@@ -25,10 +25,10 @@ function getprovinces() {
     for (let i = 0; i < jsonprovices.length; i++) {
         let state = jsonprovices[i];
         $('.Provinces').append(`<div class="row text-right p-1 province">
-        <div class="col-md-11 m-0 p-0 name" data-id="${state.id}">
+        <div class="col-11 m-0 p-0 name" data-id="${state.id}">
           <span>${state.title}</span>
         </div>
-        <div class="col-md-1 m-0 p-0 text-center icon">
+        <div class="col-1 m-0 p-0 text-center icon">
           <i class="fa fa-angle-left" aria-hidden="true"></i>
         </div>
       </div>`);
@@ -38,10 +38,10 @@ function getprovinces() {
 function getCities(ostanID) {
     $('.Provinces').empty();
     $('.Provinces').append(`<div class="row text-right p-1 back">
-    <div class="col-md-11 m-0 p-0 text-right name">
+    <div class="col-11 m-0 p-0 text-right name">
       <span>  بازگشت به استان ها</span>
     </div>
-    <div class="col-md-1 m-0 p-0 text-center icon">
+    <div class="col-1 m-0 p-0 text-center icon">
       <i class="fa fa-angle-right" aria-hidden="true"></i>
     </div>
   </div>`);

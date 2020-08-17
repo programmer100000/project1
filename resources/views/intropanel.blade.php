@@ -24,8 +24,8 @@
         </div>
     </div>
     <div class="row justify-content-center p-0 m-0 hadaf-row">
-        <div class="col-md-10 p-0 mx-auto hadafha">
-            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
+        <div class="col-10 p-0 mx-auto hadafha">
+            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets hadafha-row ">
                 <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
                     <div class="mb-3 d-flex text-right align-self-start">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
@@ -59,7 +59,7 @@
                             ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
                     </div>
                     <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">ثبت نام s</button>
+                        <button type="button" class="btn btn-primary main-form-btn px-4">ثبت نام </button>
                     </div>
                 </div>
 
@@ -68,32 +68,35 @@
             </div>
         </div>
     </div>
-    <div class="row w-100 p-0 m-0 testsvg">
-        <div class="col-md-10  mx-auto text-center mazaya-row p-0">
-            <div class="row text-center m-0 p-0">
-                <div class="col-md mx-5 p-0 mazaya-back">
+    <div class="row w-100 p-0 mx-0  testsvg">
+        <div class="col-md-10  mx-auto  text-center">
+            <img src="{{ asset('newui/img/mazaya-header.png')}}" alt="" class="mazaya-img mt-5 mb-2">
+        </div>
+        <div class="col-md-10  mx-auto text-center  mazaya-row p-0">
+            <div class="row justify-content-center text-center m-0 p-0">
+                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/1.svg') }}" alt="">
                     <span> ارائه خدمات در سریع ترین زمان ممکن</span>
                 </div>
-                <div class="col-md mx-5 p-0 mazaya-back">
+                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/2.svg') }}" alt="">
                     <span>معرفی سریع به مخاطبین بیشتر</span>
                 </div>
-                <div class="col-md mx-5 p-0 mazaya-back">
+                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/3.svg') }}" alt="">
                     <span>تایید کار شناسان با بیشترین سرعت</span>
                 </div>
             </div>
-            <div class="row mt-5 text-center m-0 p-0">
-                <div class="col-md mx-5 p-0 mazaya-back">
+            <div class="row justify-content-center text-center m-0 p-0">
+                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/4.svg') }}" alt="">
                     <span>برگذاری کمپین مسابقاتی</span>
                 </div>
-                <div class="col-md mx-5 p-0 mazaya-back">
+                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/5.svg') }}" alt="">
                     <span>ارائه خدمات رایگان به مدت سه روزه</span>
                 </div>
-                <div class="col-md mx-5 p-0 mazaya-back">
+                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/6.svg') }}" alt="">
                     <span>کاهش هزینه های تبلیغاتی</span>
                 </div>
@@ -102,10 +105,10 @@
     </div>
     <div class="row w-100 m-0 p-0 ">
         <div class="col-md-12 text-center m-0 p-0">
-            <img src="{{ asset('newui/img/farayand-title.png') }}" alt="" class="proces-header">
+            <img src="{{ asset('newui/img/farayand-title.png') }}" alt="" class="proces-header mt-5 mb-3">
             <img src="{{ asset('newui/img/rahnama.png')}}" alt="" class="proces-img">
-            <img src="{{ asset('newui/img/soalat.png') }}" alt="" class="faq-header">
-            <div class="row faq-body w-100 p-4  justify-content-center faq">
+            <img src="{{ asset('newui/img/soalat.png') }}" alt="" class="faq-header mt-5 mb-2">
+            <div class="row faq-body w-100 p-4 mx-0  justify-content-center faq">
                 <div class="col-md-8">
 
                     <div id="accordion">
