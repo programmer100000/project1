@@ -2,6 +2,7 @@
 @section('header')
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
 <script src="{{ asset('/js/locationpicker.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('/ui/css/star-rating-svg.css') }}">
 @endsection
 @section('content')
 <div class=" content">
@@ -33,9 +34,8 @@
                     <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
                     <div class="mb-3 d-flex text-right align-self-start">
                         <span class="text-white">امتیاز: </span>
-                        <div class="stars text-left float-left m-0 p-0 w-75">
+
                             <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
-                        </div>
                     </div>
                     <div class="d-flex mb-4 text-right ">
                         <span class="ml-1">
@@ -251,6 +251,24 @@
         </button>
     </div>
 </div>
-
+<div id="rate-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content modal-filled bg-danger">
+      <div class="modal-body p-4">
+        <div class="text-center">
+          <i class="dripicons-wrong h1 text-white"></i>
+          <h4 class="mt-2 text-white">توجه</h4>
+          <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
+          <button id="btnrate" data-id={{ $gamenet->gamenet_id }} data-csrf={{ csrf_token() }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+  let ratestatus = '{{ $s }}';
+</script>
+<script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
+<script src="{{ asset('ui/js/myjquery.js') }}" defer></script>
 <script src="{{ asset('js/main.js')}}"> </script>
 @endsection

@@ -38,7 +38,8 @@ Route::get('/',function(){
     // dd($best_gamenet);
     $gamenets_active = Gamenet::select()
     ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
-    ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->get();
+    ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->take(4)->get();
+    // dd($gamenets_active);
     return view('newui.index' , compact('gamenets_active' , 'best_gamenet'));
 })->name('home');
 // super admin
@@ -159,6 +160,7 @@ Route::get('/admin/excel/export/report' , 'AdminpanelController@exportexcelrepor
 Route::get('/register', 'RegisterController@index');
 
 Route::post('/register', 'RegisterController@register')->name('register');
+Route::get('/register/confirm', 'RegisterController@confirm')->name('confirm');
 Route::post('/register/confirm', 'RegisterController@confirm')->name('confirm');
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@login')->name('login');
@@ -207,28 +209,28 @@ Route::get('/active/gamenet/edit/{gamenet_id}', function ($gamenet_id) {
     }
 });
 
-Route::get('/gamenet' , function(){
-    return view('gamenet');
-});
-// Route::get('/gamenet/{gamenet_id}/{gamenet_name}', function () {
-//     $user = Auth::user();
-//     $gamenet = Gamenet::select()
-//         ->where('gamenet_id', $gamanet_id)->first();
-//     $gamenet_images = GamenetPic::select()
-//         ->where('gnet_id', $gamanet_id)->get();
-//     if ($user != null) {
-//         $rate_status = Rate::select()->where([['gnet_id', '=', $gamanet_id], ['user_id', '=', $user->user_id]])->first();
-//         if ($rate_status == null) {
-//             $s = 0;
-//         } else {
-//             $s = $rate_status->rate;
-//         }
-//     } else {
-//         $s = 0;
-//     }
+// Route::get('/gamenet' , function(){
+//     return view('gamenet');
+// });
+Route::get('/gamenet/{gamenet_id}/{gamenet_name}', function ($gamenet_id , $gamenet_name) {
+    $user = Auth::user();
+    $gamenet = Gamenet::select()
+        ->where('gamenet_id', $gamenet_id)->first();
+    $gamenet_images = GamenetPic::select()
+        ->where('gnet_id', $gamenet_id)->get();
+    if ($user != null) {
+        $rate_status = Rate::select()->where([['gnet_id', '=', $gamenet_id], ['user_id', '=', $user->user_id]])->first();
+        if ($rate_status == null) {
+            $s = 0;
+        } else {
+            $s = $rate_status->rate;
+        }
+    } else {
+        $s = 0;
+    }
 
-//     return view('gamenet', compact('gamenet', 'gamenet_images', 's'));
-// })->name('show.gamenet');
+    return view('gamenet', compact('gamenet', 'gamenet_images', 's'));
+})->name('show.gamenet');
 Route::get('/gamenets', function () {
     $gamenets = Gamenet::select()
         ->join('gamenet_pictures', 'gamenet_pictures.gnet_id', '=', 'gamenets.gamenet_id')

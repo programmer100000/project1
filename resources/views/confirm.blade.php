@@ -22,42 +22,41 @@
                     <div class="inner-login-content-right">
                         <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
                             <div class="col-10 p-0 m-0 ">
-                                <form class="login-form confirm digit-group">
-                                    <h1 class="text-white text-center mb-3">ثبت نام کاربر</h1>
+                            <form class="login-form confirm register-form-confirm" action="{{ route('confirm') }}" method="POST" data-autosubmit="false" autocomplete="off">
+                                    
+                              @csrf
+                              <h1 class="text-white text-center mb-3">ثبت نام کاربر</h1>
 
                                     <p class="text-white text-center my-2">
                                         کد ارسال شده را وارد کنید.
                                     </p>
-                                    <div class="row  confirm-inputs">
-                                        <div class="col  login-input">
-                                            <label for="usr"></label>
-                                            <input type="number" class="form-control p-0 text-white " id="input1" maxlength="1" placeholder="" name="input1">
-                                        </div>
+                                    @if($errors->any())
+                                    <p class="text-danger text-right">{{ $errors->first() }}</p>
+                                    @endif
+                                    <div class="form-group digit-group" data-group-name="digits" >
+                                      <input type="text" class="form-control p-0 text-white " id="input1" placeholder="" name="input1" data-next="input2" autofocus>
 
-
-                                        <div class="col  login-input">
-
-                                            <input type="number" class="form-control p-0 text-white " id="input2" placeholder="" maxlength="1" name="input2">
-                                        </div>
-                                        <div class="col  login-input">
-
-                                            <input type="number" class="form-control p-0 text-white " id="input3" placeholder="" maxlength="1" name="input3">
-                                        </div>
-
-
-                                        <div class="col login-input">
-
-                                            <input type="number" class="form-control p-0 text-white " id="input4" placeholder="" maxlength="1" name="input4">
-                                        </div>
+                                      <input type="text" class="form-control p-0 text-white " id="input2" placeholder="" name="input2" data-next="input3" data-previous="input1">
+                                    
+                                      <input type="text" class="form-control p-0 text-white " id="input3" placeholder="" name="input3" data-next="input4" data-previous="input2">
+                                 
+                                      <input type="text" class="form-control p-0 text-white " id="input4" placeholder="" name="input4" data-previous="input3">
                                     </div>
 
+
+                                      <input type="hidden" id="confirm-code" name="confirm">
+                                      <div class="form-group">
+                                        <input type="password" name="password" placeholder="رمز عبور"  class="form-control passwords">
+                                        <input type="password" name="passwordd" placeholder="تکرار رمز عبور" class="form-control passwords">
+                                      </div>
+                                      
                                     <a>
                                         <p class="forget-text text-center">
                                             کدی دریافت نکردم!
                                         </p>
                                     </a>
                                     <div class="row justify-content-center">
-                                        <button type="button" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
+                                        <button type="submit" class="btn btn-primary main-form-btn px-5 py-2" id="btn-sendConfrimCode">ارسال</button>
                                     </div>
 
                                 </form>
@@ -138,6 +137,45 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/js/bootstrapValidator.min.js') }}"></script>
+  <script src="{{ asset('newui/js/formvalidation.js') }}" defer></script>
+  <script>
+    $(document).ready(function() {
+    $('.digit-group').find('input').each(function() {
+        $(this).attr('maxlength', 1);
+        $(this).on('keyup', function(e) {
+            var parent = $($(this).parent());
+
+            if (e.keyCode === 8 || e.keyCode === 37) {
+                var prev = parent.find('input#' + $(this).data('previous'));
+
+                if (prev.length) {
+                    $(prev).select();
+                }
+            } else if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+                var next = parent.find('input#' + $(this).data('next'));
+
+                if (next.length) {
+                    $(next).select();
+                } else {
+                    if (parent.data('autosubmit')) {
+                        parent.submit();
+                    }
+                }
+            }
+        });
+    });
+    
+    $(document).on('click', "#btn-sendConfrimCode", function(){
+      let inp1 = $("#input1").val();
+      let inp2 = $("#input2").val();
+      let inp3 = $("#input3").val();
+      let inp4 = $("#input4").val();
+
+      $("#confirm-code").val(inp1 + '' + inp2 + '' + inp3 + '' + inp4);
+    });
+});
+  </script>
 </body>
 
 </html>
