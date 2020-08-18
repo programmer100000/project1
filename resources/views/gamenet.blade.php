@@ -1,4 +1,9 @@
-@extends('newui/master') @section('content')
+@extends('newui/master') 
+@section('header')
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
+<script src="{{ asset('/js/locationpicker.min.js') }}"></script>
+@endsection
+@section('content')
 <div class=" content">
 
     <div class="row w-100 m-0 p-0 slider-secttion">
@@ -94,13 +99,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-8 mx-2 gamenet-item gamenet-img  my-4 p-0 ">
+                <div  class="col-md-8 mx-2  gamenet-item gamenet-img  my-4 p-0 ">
 
                 </div>
             </div>
             <div class="row w-100 p-0 m-0 justify-content-center">
 
-                <div class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
+                <div id="map" class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
 
                 </div>
                 <div class="col-11 my-4  gamenet-heading ">
@@ -238,5 +243,5 @@
     </div>
 </div>
 
-
+<script src="{{ asset('js/main.js')}}"> </script>
 @endsection

@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/',function(){
     $best_gamenet = Gamenet::
     join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , 'gamenets.gamenet_id')->
-    where('rate' , 5 )->inRandomOrder()->limit(1)->first(); 
+    orderBy('rate' , 'asc')->inRandomOrder()->take(5)->limit(1)->first(); 
     // dd($best_gamenet);
     $gamenets_active = Gamenet::select()
     ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')

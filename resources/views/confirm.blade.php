@@ -22,7 +22,7 @@
                     <div class="inner-login-content-right">
                         <div class="row h-100 p-0 py-5 m-0 justify-content-center align-items-center">
                             <div class="col-10 p-0 m-0 ">
-                                <form class="login-form confirm">
+                                <form class="login-form confirm digit-group">
                                     <h1 class="text-white text-center mb-3">ثبت نام کاربر</h1>
 
                                     <p class="text-white text-center my-2">
