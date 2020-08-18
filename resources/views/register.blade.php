@@ -50,14 +50,14 @@
 </form>
 <a href="{{  route('forget.password') }}">
   <p class="forget-text text-right">
-      فراموشی رمز عبور
+      
   </p>
 </a>
 @endsection
 @section('button')
-<a href="{{ route('login') }}"><button type="submit"
+<a href="{{ route('login') }}"
   class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
   ورود کاربر
-</button>
+
 </a>
 @endsection

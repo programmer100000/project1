@@ -1,8 +1,8 @@
 @extends('newui/master')
 @section('content')
 <div class=" content">
-    <div class="row w-100 m-0 p-0 slider-secttion">
-        <div class="inneer-slider col d-flex justify-content-center align-items-center ">
+    <div class="row w-100 m-0 p-0 slider-secttion gamenets-slider-section">
+        <div class="inner-slider gamenets-inner-slider col d-flex justify-content-center align-items-center ">
             <div class="row w-100 p-0 m-0 justify-content-center">
                 <div class="col-md-6 g-header-text">
                     حرفه ای بازی کن !
@@ -11,21 +11,25 @@
   
         </div>
         <div class="row w-100 m-0 plan-header test-svg">
-            <div class="col-4 inner-plan-header mx-auto p-0 ">
+            <div class="col-4 gamenets-header inner-plan-header mx-auto p-0 ">
                 <select name="" id="" class="form-control select-gamenets">
                     <option value="">تست</option>
                     <option value="">تست</option>
                     <option value="">تست</option>
                 </select>
             </div>
-            <div class="col-4 inner-plan-header mx-auto p-0  ">
+            <div class="col-4 gamenets-header tarefe-gamenets-header inner-plan-header mx-auto p-0  ">
                 <div class="title text-center">
                     <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
                 </div>
             </div>
-            <div class="col-4 inner-plan-header mx-auto p-0 ">
-            <img src="{{ asset('newui/img/menu.svg') }}" alt="" width="60" height="60">
-            <img src="{{ asset('newui/img/menubar.svg') }}" alt="">
+            <div class="col-4 gamenets-header tarefe-gamenets-header-list inner-plan-header d-flex justify-content-center p-0 ">
+              <div class="tarefe-gamenets-header-list-img  mx-2">
+              <img src="{{ asset('newui/img/menu.svg') }}" alt="" width="60" height="60" class="" >
+              </div>
+              <div class="tarefe-gamenets-header-list-img mx-2">
+              <img src="{{ asset('newui/img/menubar.svg') }}" alt="" width="60" height="60" class="">
+              </div>
             </div>
         </div>
     </div>

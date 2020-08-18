@@ -26,9 +26,9 @@
     </div>
     <div class="row w-100 mx-0  p-0 justify-content-center gamenet-row ">
         <div class="col-md-10 p-0">
-            <div class="row w-100 m-0  p-0 gamenet-info justify-content-center">
+            <div class="row w-100 m-0  p-2 gamenet-info justify-content-center align-items-center">
 
-                <div class="col-md-3 p-4 mx-2 gamenet-item my-4 d-flex flex-column align-items-center justify-content-center  ">
+                <div class="col-md-3 col-11 p-4  gamenet-item my-4 mx-4 d-flex flex-column align-items-center justify-content-center  ">
 
                     <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
                     <div class="mb-3 d-flex text-right align-self-start">
@@ -99,13 +99,16 @@
                     </div>
                 </div>
 
-                <div  class="col-md-8 mx-2  gamenet-item gamenet-img  my-4 p-0 ">
+
+                <div class="col-md-8  gamenet-item gamenet-img  my-4 mx-4 p-0 ">
+
 
                 </div>
             </div>
             <div class="row w-100 p-0 m-0 justify-content-center">
 
                 <div id="map" class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
+
 
                 </div>
                 <div class="col-11 my-4  gamenet-heading ">
@@ -133,8 +136,11 @@
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-md-1 comments-img d-flex  align-content-center">
+                        <div class="col-md-1 comments-img d-flex  align-items-center ">
                             <img src="{{ asset('newui/img/images.jpg') }}" alt="">
+                            <div class=" p-2 mobile-gamenet-comments-name">
+                                <p class="text-right text-white ">مریم سلیمی</p>
+                            </div>
                         </div>
                         <div class="col-md-11 inner-gamenet-comments  ">
                             <div class="row p-2 gamenet-comments-name">
@@ -150,8 +156,11 @@
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-md-1 comments-img d-flex  align-content-center">
+                        <div class="col-md-1 comments-img d-flex  align-items-center ">
                             <img src="{{ asset('newui/img/images.jpg') }}" alt="">
+                            <div class=" p-2 mobile-gamenet-comments-name">
+                                <p class="text-right text-white ">مریم سلیمی</p>
+                            </div>
                         </div>
                         <div class="col-md-11 inner-gamenet-comments">
                             <div class="row p-2 gamenet-comments-name">

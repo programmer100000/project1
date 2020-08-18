@@ -69,6 +69,10 @@
         </span>
         @endif
     </div>
+    <div class="row justify-content-center">
+      <button type="submit" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
+  </div>
+</form>
     <a href="{{  route('forget.password') }}">
         <p class="forget-text text-right">
             فراموشی رمز عبور
@@ -80,9 +84,7 @@
 </form>  
     @endsection
     @section('button')
-    <a href="{{ route('register') }}"><button type="button"
-            class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+    <a href="{{ route('register') }}" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
             ثبت نام
-        </button>
     </a>
     @endsection
