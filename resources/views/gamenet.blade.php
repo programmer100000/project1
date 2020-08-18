@@ -1,9 +1,7 @@
-@extends('newui/master') 
-@section('header')
+@extends('newui/master') @section('header')
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
 <script src="{{ asset('/js/locationpicker.min.js') }}"></script>
-@endsection
-@section('content')
+@endsection @section('content')
 <div class=" content">
 
     <div class="row w-100 m-0 p-0 slider-secttion">
@@ -95,21 +93,21 @@
                           </span>
                     </div>
                     <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
+                        <button type="button" class="btn btn-primary main-form-btn px-4 ml-3">دنبال کردن</button>
+                        <button type="button" class="btn btn-primary main-form-btn px-4">مسیریابی</button>
                     </div>
                 </div>
-
-
-                <div class="col-md-8  gamenet-item gamenet-img  my-4 mx-4 p-0 ">
-
-
+                <div class="col-md-8  gamenet-item   my-4 mx-4 p-0 ">
+                    <div class="owl-carousel">
+                        <img src="{{ asset('newui/img/gamenet-img.png') }}" alt="">
+                        <img src="{{ asset('newui/img/gamenet-img.png') }}" alt="">
+                        <img src="{{ asset('newui/img/gamenet-img.png') }}" alt="">
+                        <img src="{{ asset('newui/img/gamenet-img.png') }}" alt="">
+                    </div>
                 </div>
             </div>
             <div class="row w-100 p-0 m-0 justify-content-center">
-
                 <div id="map" class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
-
-
                 </div>
                 <div class="col-11 my-4  gamenet-heading ">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
@@ -194,7 +192,7 @@
                         <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
                       </g>
                     </g>
-                  </svg> نظرات کاربران
+                  </svg> نظر دهید
 
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comment p-4  ">
@@ -251,6 +249,11 @@
         </button>
     </div>
 </div>
-
-<script src="{{ asset('js/main.js')}}"> </script>
+<script>
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel();
+    });
+</script>
+<script src="{{ asset('js/main.js')}}">
+</script>
 @endsection

@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('newui/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('newui/css/owl.theme.default.min.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     @yield('header')
 </head>
 
@@ -62,7 +66,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-right ml-auto ">
-                    <li class="nav-item mx-0 mx-lg-1 text-white"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="{{ route('home') }}">صفحه اصلی</a></li>
+                        <li class="nav-item mx-0 mx-lg-1 text-white"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="{{ route('home') }}">صفحه اصلی</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="{{ route('gamenets') }}">گیم نت ها</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="{{ route('intro') }}">معرفی</a></li>
                         <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">درباره ما</a></li>
@@ -71,7 +75,7 @@
                 </div>
                 <div class="header-btns">
                     <div class="d-flex">
-
+                        <!-- <a href="#" id="mytooltip" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true">Hover</a> -->
                         <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
@@ -115,7 +119,7 @@
         </header>
         @yield('content')
         <footer class="footer  text-center">
-            <div class="row w-100 m-0 top-footer">
+            <div class="row w-100 m-0 top-footer ">
                 <div class="col-12 mx-auto p-0 inner-top-footer">
                     @yield('footersvg')
                 </div>
@@ -284,11 +288,14 @@
 
         </footer>
     </div>
-    <script>
-        var urlprovinces = '{{ asset('js/Provinces.json') }}';
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/ui.js')}}" defer></script>
+
+    <script src="{{ asset('ui/js/scripts.js')}}"></script>
+    <script src="{{ asset('newui/js/jquery.min.js')}}"></script>
+    <script src="{{ asset('newui/js/owl.carousel.min.js')}}"></script>
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -307,6 +314,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // $(document).ready(function() {
+        //     $('#mytooltip').tooltip({
+        //         title: "<h4> Hello, <b>I'm</b> <i>Smiley!</i></h4>",
+        //         html: true
+        //     });
+        // });
+    </script>
 </body>
 
 </html>
