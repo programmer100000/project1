@@ -9,8 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('newui/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('newui/css/owl.theme.default.min.css') }}">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     @yield('header')
@@ -294,8 +293,6 @@
     <script src="{{ asset('js/ui.js')}}" defer></script>
 
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
-    <script src="{{ asset('newui/js/jquery.min.js')}}"></script>
-    <script src="{{ asset('newui/js/owl.carousel.min.js')}}"></script>
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

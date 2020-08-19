@@ -21,6 +21,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('ui/css/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('ui/css/mystyle.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrapValidator.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/buttonsplugin/css/normalize.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/buttonsplugin/css/main.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/bootstrapValidator.min.css') }}">

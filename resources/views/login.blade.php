@@ -78,9 +78,6 @@
             فراموشی رمز عبور
         </p>
     </a>
-    <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
-    </div>
 </form>  
     @endsection
     @section('button')

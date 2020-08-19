@@ -1,13 +1,12 @@
 $(document).ready(function() {
 
 });
-let test = $('.my-rating').closest("div").find('rate-input').val();
-$('.my-rating').starRating('setRating', test);
+
 // if ($('.my-rating').length > 0) {
 //     $(".my-rating").starRating({
 //         starSize: 25,
 //         callback: function(currentRating, $el) {
-//             // make a server call here
+//             // make a server cal l here
 //         }
 //     });
 // }
