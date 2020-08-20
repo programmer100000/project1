@@ -11,13 +11,13 @@
             </div>
 
         </div>
-        <div class="row w-100 m-0 plan-header">
+        <div class="row w-100 m-0 plan-header main-page-plan-header">
             <svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
             <path id="Path_1645" data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"/>
           </svg>
             <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
                 <div class="title text-center">
-                    <img src="{{ asset('newui/img/title.png')}}" alt="" class=" plan-header-img title-img">
+                    <img src="{{ asset('newui/img/title.png')}}" alt="" class=" plan-header-img ">
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="row plan-body w-100  m-0  justify-content-center">
             <div class="col-md-8 d-flex justify-content-center p-0">
                 <div class="row w-100 p-4 m-0 justify-content-center">
-                    <div class="col-md m-3 mb-5 p-0">
+                    <div class="col-lg m-3 mb-5 p-0">
                         <div class="plan first-plan d-block text-center">
                             <div class="header">
                                 <img src="{{ asset('newui/img/khorshid.svg')}}" alt="">
@@ -91,7 +91,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md m-3 mb-5 p-0 ">
+                    <div class="col-lg m-3 mb-5 p-0 ">
                         <div class="plan d-block text-center">
                             <div class="header">
                                 <img src="{{ asset('newui/img/svg2.svg')}}" alt="">
@@ -161,7 +161,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md m-3 p-0 ">
+                    <div class="col-lg m-3 p-0 ">
                         <div class="plan d-block text-center">
                             <div class="header">
                                 <img src="{{ asset('newui/img/kahkeshan.svg')}}" alt="">
@@ -237,7 +237,7 @@
         </div>
     </div>
     <div class="row w-100 m-0 mb-5 p-0 popular-secttion">
-        <div class="row popular-header w-100 m-0 p-0 ">
+        <div class="row popular-header w-100 m-0 p-0 mx-auto ">
             <div class="title text-center mx-auto">
                 <img src="{{ asset('newui/img/bestgamenet.png')}}" alt="" class="title-img">
             </div>
@@ -247,7 +247,7 @@
             <div class="col-md-8 p-0">
                 <a href="/gamenet/{{ $best_gamenet->gamenet_id }}/{{$best_gamenet->title}}">
                     <div class="row w-100 p-3 m-0 popular justify-content-center ">
-                        <div class="col-md-5 d-flex flex-column align-items-center justify-content-center ">
+                        <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
 
                             <h1 class="text-white text-right mb-4 align-self-start">tetse</h1>
                             <div class="mb-3 d-flex text-right align-self-start">
@@ -282,7 +282,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-7 popular-img">
+                        <div class="col-lg-7 my-2 popular-img">
                         </div>
                     </div>
                 </a>
@@ -297,7 +297,7 @@
             </div>
         </div>
         <div class="row introduce-body w-100 p-4 pt-4 m-0  justify-content-center">
-            <div class="col-md-3 p-0 m-3">
+            <div class="col-md-8 col-lg-3 col-md-8 p-0 m-3">
                 <div class="row w-100 p-3 m-0  introduce ">
                     <div class="col-12 introduce1-img ">
                     </div>
@@ -338,9 +338,9 @@
                 </div>
 
             </div>
-            <div class="col-md-5 p-0 m-3">
+            <div class="col-md-8 col-lg-5 p-0 m-3">
                 <div class="row w-100 p-3 m-0  introduce introduce1 ">
-                    <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
+                    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
 
                         <h1 class="text-white text-right my-4 align-self-start">گیمنت ایرانیان</h1>
                         <div class="mb-3 d-flex text-right align-self-start">
@@ -374,13 +374,13 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 introduce2-img">
+                    <div class="col-lg-6 introduce2-img">
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 p-0 m-3">
+            <div class="col-md-8 col-lg-5 p-0 m-3">
                 <div class="row w-100 p-3 m-0  introduce introduce1">
-                    <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
+                    <div class="col-مل-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
 
                         <h1 class="text-white text-right my-4 align-self-start">گیمنت ایرانیان</h1>
                         <div class="mb-3 text-right align-self-start">
@@ -409,11 +409,11 @@
                             <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
                         </div>
                     </div>
-                    <div class="col-md-6 introduce2-img">
+                    <div class="col-مل-6 introduce2-img">
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 p-0 m-3">
+            <div class="col-md-8 col-lg-3 p-0 m-3">
                 <div class="row w-100 p-3 m-0 introduce ">
                     <div class="col-12 introduce1-img ">
                     </div>
@@ -457,7 +457,7 @@
             </div>
         </div>
         <div class="row about-body w-100 p-4 pt-4 m-0  ">
-            <div class="col-md-7 p-4 m-3 about top-about ">
+            <div class="col-md-7 p-4  about top-about ">
                 <h2 class="text-white text-right mb-4">
                     معرفی ما
                 </h2>
@@ -466,7 +466,7 @@
                     و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند
                 </div>
             </div>
-            <div class="col-md-7 p-4 m-3 about bottom-about ">
+            <div class="col-md-7 p-4  about bottom-about ">
                 <h2 class="text-white text-right mb-4">
                     اهداف ما
                 </h2>
@@ -585,11 +585,11 @@
         </div>
     </div>
     <div class="row w-100 mx-0 contact-secttion d-flex justify-content-center align-items-center">
-        <div class="col-md-4  ">
+        <div class="col-md-8 col-lg-4  ">
             <h1 class="text-white text-right">ارتباط با ما</h1>
             <p class="text-white text-justify">برای ارتباط با ما پیغام خود را برای ما ارسال کنید.همکاران ما در اولین فرصت پاسخگوی شما هستند.</p>
         </div>
-        <div class="col-md-4  p-3 main-contact ">
+        <div class="col-md-8 col-lg-4  p-3 main-contact ">
             <form class="main-contact-form">
                 <input type="text" class="form-control mb-4 text-white" id="name" placeholder="نام و نام خانوادگی" name="name">
 

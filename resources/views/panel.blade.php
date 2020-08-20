@@ -8,10 +8,10 @@
 <div class=" content">
 
     <div class="row w-100 m-0 p-0 slider-secttion user-panel-slider-section">
-        <div class="inner-slider gamenet-inner-slider col d-flex justify-content-center align-items-center ">
+        <div class="inner-slider user-panel-inner-slider col d-flex justify-content-center align-items-center ">
             <div class="row w-100 p-0 m-0 justify-content-center">
                 <div class="col-md-6 g-header-text">
-                    حرفه ای بازی کن !
+                    پروفایل
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="row w-100 p-0 m-0  justify-content-center ">
-        <div class="col-md-6 welcome-text mb-5 ">
+        <div class="col-md-6 col-8 welcome-text  ">
             <p class="text-center text-white m-0 p-2">کاربر گرامی خوش آمدید.</p>
         </div>
     </div>
@@ -49,35 +49,35 @@
                             <form class="user-panel-form">
                                 <div class='row'>
 
-                                    <div class=' form-group col-md-6 col-sm-12 '>
+                                    <div class=' form-group col-md-6 col-sm-12 text-right text-white'>
                                         <label>نام </label>
-                                        <input type='text' class='form-control' placeholder='مهراب' />
+                                        <input type='text' class='form-control text-white' placeholder='مهراب' />
                                     </div>
-                                    <div class=' form-group col-md-6 col-sm-12 '>
+                                    <div class=' form-group col-md-6 col-sm-12 text-right text-white'>
                                         <label>نام خانوادگی </label>
-                                        <input type='text' class='form-control' placeholder='کرد بچه' />
+                                        <input type='text' class='form-control text-white' placeholder='کرد بچه' />
                                     </div>
 
                                 </div>
 
                                 <div class='row'>
-                                    <div class=' form-group col-md-6 col-sm-12 '>
+                                    <div class=' form-group col-md-6 col-sm-12 text-right text-white '>
                                         <label>نام کاربری</label>
-                                        <input type='text' class='form-control' placeholder='مهراب' />
+                                        <input type='text' class='form-control text-white' placeholder='مهراب' />
                                     </div>
 
-                                    <div class='form-group col-md-6 col-sm-12 '>
+                                    <div class='form-group col-md-6 col-sm-12 text-right text-white'>
                                         <label>ایمیل</label>
-                                        <input type='text' class='form-control' placeholder='test@gmail.com' />
+                                        <input type='text' class='form-control text-white' placeholder='test@gmail.com' />
                                     </div>
                                 </div>
                                 <div class='row'>
-                                    <div class=' form-group col-md-9 col-sm-12 '>
+                                    <div class=' form-group col-lg-9 col-md-8 text-right text-white '>
                                         <label>شماره موبایل</label>
-                                        <input type='text' class='form-control' placeholder='09128882345' readonly />
+                                        <input type='text' class='form-control text-white' placeholder='09128882345' readonly />
                                     </div>
-                                    <div class=' form-group text-center col-md-3 col-sm-12 submit-button mb-0 '>
-                                        <button type='submit' class='btn btn-success edite-button'>
+                                    <div class=' form-group text-center col-lg-3 col-md-4 submit-button mb-0 '>
+                                        <button type='submit' class=' edite-button'>
                                         ویرایش اطلاعات
                                     </button>
                                     </div>
@@ -90,31 +90,31 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 mb-4  text-center" dir="rtl">
 
-                                    <a href="/gamenet/1/دستگاه گارانتی شده ">
+                                    <a href="/gamenet/1/دستگاه گارانتی شده">
                                     </a>
-                                    <div class="user-panel-card p-2">
-                                        <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img">
+                                    <div class="user-panel-card p-2 d-flex align-items-center">
+                                        <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img w-25">
                                             <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top ">
                                         </a>
-                                        <div class="user-panel-card-body py-3 d-flex justify-content-between align-content-center text-white">
+                                        <div class="user-panel-card-body p-2 d-flex justify-content-between align-items-center text-white w-75">
                                             <a href="/gamenet/1/دستگاه گارانتی شده ">
                                                 <h5 class="card-title m-0 text-white">دستگاه گارانتی شده</h5>
 
                                             </a>
-                                            <a href="" class="btn btn-outline-info float-left btn-sm bookmark"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+                                            <a href="" class="btn btn-outline-info  float-left btn-sm bookmark"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12 mb-4  text-center" dir="rtl">
 
-                                    <a href="/gamenet/1/دستگاه گارانتی شده ">
+                                    <a href="/gamenet/1/دستگاه گارانتی شده">
                                     </a>
-                                    <div class="user-panel-card p-2">
-                                        <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img">
+                                    <div class="user-panel-card p-2 d-flex align-items-center">
+                                        <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img w-25">
                                             <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top ">
                                         </a>
-                                        <div class="user-panel-card-body py-3 d-flex justify-content-between align-content-center text-white">
+                                        <div class="user-panel-card-body p-2 d-flex justify-content-between align-items-center text-white w-75">
                                             <a href="/gamenet/1/دستگاه گارانتی شده ">
                                                 <h5 class="card-title m-0 text-white">دستگاه گارانتی شده</h5>
 
