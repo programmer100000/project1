@@ -1,89 +1,58 @@
-@extends('Admin.base')
+@extends('formsmaster')
+@section('form')
+<form class="login-form register" action="{{ route('forget.password') }}" method="POST">
+  <h1 class="text-white text-center">برای بازیابی رمز عبور خود شماره موبایل را وارد کنید</h1>
+  @csrf
+  <div class="my-4 login-input">
+      <span class="ml-1">
+          <svg id="Number_Icon" data-name="Number Icon" xmlns="http://www.w3.org/2000/svg"
+              width="30" height="30" viewBox="0 0 49 49">
+              <rect id="UI_Dark_Icons_Number_background"
+                  data-name="UI/Dark/Icons/Number background" width="49" height="49"
+                  fill="none" />
+              <g id="Number_Icon-2" data-name="Number Icon">
+                  <rect id="bg" width="49" height="49" fill="none" />
+                  <g id="ico" transform="translate(8.167 22.458)">
+                      <circle id="Oval" cx="2.5" cy="2.5" r="2.5"
+                          transform="translate(13.833 -0.458)" fill="none" stroke="#fff"
+                          stroke-linecap="round" stroke-linejoin="round"
+                          stroke-miterlimit="10" stroke-width="2" />
+                      <ellipse id="Oval-2" data-name="Oval" cx="2" cy="2.5" rx="2"
+                          ry="2.5" transform="translate(28.833 -0.458)" fill="none"
+                          stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-miterlimit="10" stroke-width="2" />
+                      <ellipse id="Oval-3" data-name="Oval" cx="2" cy="2.5" rx="2"
+                          ry="2.5" transform="translate(-0.167 -0.458)" fill="none"
+                          stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-miterlimit="10" stroke-width="2" />
+                  </g>
+              </g>
+          </svg>
+      </span>
+      <input type="text" class="form-control p-0 " placeholder="شماره موبایل"
+          name="mobile">
+  </div>
+  <div class=" form-group">
+      {!! NoCaptcha::renderJs('fa', true, 'recaptchaCallback') !!}
+      {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+      @if ($errors->has('g-recaptcha-response'))
+      <span class="help-block">
+          <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+      </span>
+      @endif
+  </div>
 
-@section('body')
-<body class="loading authentication-bg authentication-bg-pattern">
+  <div class="row justify-content-center">
+      <button type="submit" class="btn btn-primary main-form-btn px-5 py-2">مرحله بعد</button>
+  </div>
 
-    <div class="account-pages mt-5 mb-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6 col-xl-5">
-                    <div class="card bg-pattern">
+</form>
 
-                        <div class="card-body p-4">
-
-                            <div class="text-center w-75 m-auto">
-                                <div class="auth-logo">
-                                    <a href="index.html" class="logo logo-dark text-center">
-                                        <span class="logo-lg">
-                                        <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
-                                        </span>
-                                    </a>
-
-                                    <a href="index.html" class="logo logo-light text-center">
-                                        <span class="logo-lg">
-                                        <img src="{{ url('/ui/img/logo.png') }}" alt="" width="75" height="75">
-                                        </span>
-                                    </a>
-                                </div>
-                                <p class="text-muted mb-4 mt-3">برای بازیابی رمز عبور خود شماره موبایل را وارد کنید</p>
-                            </div>
-
-                            <form class="forms user-forget-pass-form" action="{{ route('forget.password') }}" method="POST">
-                                @csrf
-                                <div class="form-group">
-                                    @if($errors->any())
-                                        <p class="text-danger">{{ $errors->first() }}</p>
-                                    @endif
-                                    <label for="mobile">شماره موبایل</label>
-                                    <input class="form-control" name="mobile" type="text" id="mobile" placeholder="موبایل خود را وارد کنید" required>
-                                </div>
-                                <div class="form-group m-auto">
-                                    {!! NoCaptcha::renderJs('fa', true, 'recaptchaCallback') !!}
-                                    {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
-                                    @if ($errors->has('g-recaptcha-response'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group mb-0 text-center">
-                                    <button class="btn btn-success btn-block" type="submit"> مرحله بعد</button>
-                                </div>
-
-                            </form>
-
-
-                        </div> <!-- end card-body -->
-                    </div>
-                    <!-- end card -->
-
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <p class="text-white-50">قبلا ثبت نام کرده اید؟ <a href="{{ route('login') }}" class="text-white ml-1"><b>وارد شوید</b></a></p>
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
-
-                </div> <!-- end col -->
-            </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end page -->
-
-    <footer class="footer footer-alt text-white-50">
-    <div class="container"><small>Copyright © Finter 2020</small></div>
-    </footer>
-
-    <!-- Vendor js -->
-    <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-
-    <!-- App js -->
-    <script src="{{ asset('assets/js/bootstrapValidator.min.js') }}"></script>
-    <script src="{{ asset('assets/js/adminpanelvalidation.js') }}" defer></script>
-    <script src="{{ asset('assets/js/app.min.js') }}"></script>
-
-</body>
 @endsection
+@section('button')
+<a href="{{ route('login') }}"
+  class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+  ورود کاربر
 
+</a>
+@endsection

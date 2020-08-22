@@ -1,8 +1,8 @@
 @extends('newui/master')
 @section('content')
 <div class=" content">
-    <div class="row w-100 m-0 p-0 slider-secttion">
-        <div class="inneer-slider col d-flex justify-content-center align-items-center ">
+    <div class="row w-100 m-0 p-0 slider-secttion gamenets-slider-section">
+        <div class="inner-slider gamenets-inner-slider col d-flex justify-content-center align-items-center ">
             <div class="row w-100 p-0 m-0 justify-content-center">
                 <div class="col-md-6 g-header-text">
                     حرفه ای بازی کن !
@@ -11,21 +11,25 @@
   
         </div>
         <div class="row w-100 m-0 plan-header test-svg">
-            <div class="col-4 inner-plan-header mx-auto p-0 ">
+            <div class="col-4 gamenets-header inner-plan-header mx-auto p-0 ">
                 <select name="" id="" class="form-control select-gamenets">
                     <option value="">تست</option>
                     <option value="">تست</option>
                     <option value="">تست</option>
                 </select>
             </div>
-            <div class="col-4 inner-plan-header mx-auto p-0  ">
+            <div class="col-4 gamenets-header tarefe-gamenets-header inner-plan-header mx-auto p-0  ">
                 <div class="title text-center">
                     <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
                 </div>
             </div>
-            <div class="col-4 inner-plan-header mx-auto p-0 ">
-            <img src="{{ asset('newui/img/menu.svg') }}" alt="" width="60" height="60">
-            <img src="{{ asset('newui/img/menubar.svg') }}" alt="">
+            <div class="col-4 gamenets-header tarefe-gamenets-header-list inner-plan-header d-flex justify-content-center p-0 ">
+              <div class="tarefe-gamenets-header-list-img  mx-2">
+              <img src="{{ asset('newui/img/menu.svg') }}" alt="" width="60" height="60" class="" >
+              </div>
+              <div class="tarefe-gamenets-header-list-img mx-2">
+              <img src="{{ asset('newui/img/menubar.svg') }}" alt="" width="60" height="60" class="">
+              </div>
             </div>
         </div>
     </div>
@@ -54,159 +58,48 @@
               
             نزدیکترین
         </div>
+        @foreach ($gamenets as $ga)
         <div class="col-md-5 p-0 m-3">
-            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+          <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
+              <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
 
-                    <h1 class="text-white text-right mb-4 align-self-start">گیمنت ایرانیان</h1>
-                    <div class="mb-3 d-flex text-right align-self-start">
-                        <span class="text-white">امتیاز: </span>
-                        <div class="stars text-left float-left m-0 p-0 w-75">
-                          <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-4 text-right ">
-                        <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
-                        <g id="pin" transform="translate(-60.962 0)">
-                            <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
-                              <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
-                                <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
-                              </g>
-                            </g>
-                            <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
-                              <g id="Group_264" data-name="Group 264">
-                                <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
-                              </g>
+              <h1 class="text-white text-right mb-4 align-self-start"> {{ $ga->title }}</h1>
+                  <div class="mb-3 d-flex text-right align-self-start">
+                      <span class="text-white">امتیاز: </span>
+                      <div class="stars text-left float-left m-0 p-0 w-75">
+                        <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                      </div>
+                  </div>
+                  <div class="d-flex mb-4 text-right ">
+                      <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
+                      <g id="pin" transform="translate(-60.962 0)">
+                          <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
+                            <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
+                              <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
                             </g>
                           </g>
-                        </svg>
-                      </span>
-                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
-                    </div>
-                    <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                    </div>
-                </div>
-
-                <div class="col-md-6 introduce2-img">
-                </div>
-            </div>
-        </div>          
-        <div class="col-md-5 p-0 m-3">
-            <div class="row w-100 p-3 m-0  introduce introduce1 ">
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
-
-                    <h1 class="text-white text-right mb-4 align-self-start">گیمنت ایرانیان</h1>
-                    <div class="mb-3 d-flex text-right align-self-start">
-                        <span class="text-white">امتیاز: </span>
-                        <div class="stars text-left float-left m-0 p-0 w-75">
-                          <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-4 text-right ">
-                        <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
-                        <g id="pin" transform="translate(-60.962 0)">
-                            <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
-                              <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
-                                <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
-                              </g>
-                            </g>
-                            <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
-                              <g id="Group_264" data-name="Group 264">
-                                <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
-                              </g>
+                          <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
+                            <g id="Group_264" data-name="Group 264">
+                              <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
                             </g>
                           </g>
-                        </svg>
-                      </span>
-                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
-                    </div>
-                    <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                    </div>
-                </div>
+                        </g>
+                      </svg>
+                    </span>
+                  <span class="text-white text-justify">{{ $ga->description }}</span>
+                  </div>
+                  <div class="row justify-content-center">
+                      <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
+                  </div>
+              </div>
 
-                <div class="col-md-6 introduce2-img">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 p-0 m-3">
-            <div class="row w-100 p-3 m-0  introduce introduce1 ">
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+            <div class="col-md-6 introduce2-img" style="background-image: url('{{ $ga->gamenet_image }}')">
+              </div>
+          </div>
+      </div>       
+        @endforeach
+      
 
-                    <h1 class="text-white text-right mb-4 align-self-start">گیمنت ایرانیان</h1>
-                    <div class="mb-3 d-flex text-right align-self-start">
-                        <span class="text-white">امتیاز: </span>
-                        <div class="stars text-left float-left m-0 p-0 w-75">
-                          <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-4 text-right ">
-                        <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
-                        <g id="pin" transform="translate(-60.962 0)">
-                            <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
-                              <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
-                                <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
-                              </g>
-                            </g>
-                            <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
-                              <g id="Group_264" data-name="Group 264">
-                                <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </span>
-                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
-                    </div>
-                    <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                    </div>
-                </div>
-
-                <div class="col-md-6 introduce2-img">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 p-0 m-3">
-            <div class="row w-100 p-3 m-0  introduce introduce1 ">
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
-
-                    <h1 class="text-white text-right mb-4 align-self-start">گیمنت ایرانیان</h1>
-                    <div class="mb-3 d-flex text-right align-self-start">
-                        <span class="text-white">امتیاز: </span>
-                        <div class="stars text-left float-left m-0 p-0 w-75">
-                          <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-4 text-right ">
-                        <span class="ml-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
-                        <g id="pin" transform="translate(-60.962 0)">
-                            <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
-                              <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
-                                <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
-                              </g>
-                            </g>
-                            <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
-                              <g id="Group_264" data-name="Group 264">
-                                <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </span>
-                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
-                    </div>
-                    <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                    </div>
-                </div>
-
-                <div class="col-md-6 introduce2-img">
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 @endsection
@@ -236,9 +129,10 @@
 <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
   <div class="title text-center d-block text-white gamenets-footer-title">
       <span class="d-block">اینجا برای شماست </span>
-      <button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+  <a href="{{ route('register') }}"><button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
         ثبت نام
     </button>
+  </a>
   </div>
 </div>
 @endsection

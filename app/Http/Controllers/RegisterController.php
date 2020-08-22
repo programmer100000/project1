@@ -53,7 +53,7 @@ class RegisterController extends Controller
                 $db_user->confirm_code = $confirm_code;
                 if($db_user->save()){
                     Auth::login($db_user);
-                    return view('confirm');
+                    return redirect()->route('confirm');
                 }
             }
             else {
@@ -66,26 +66,41 @@ class RegisterController extends Controller
     }
 
     public function confirm(Request $request){
-
         $user = Auth::user();
-        $user_confirm_code = $user->confirm_code;
-        $confirm_code = $request->input('confirm_code');
-        $password = $request->input('password');
-        $passwordd = $request->input('passwordd');
-        if($user_confirm_code == $confirm_code && $password == $passwordd){
-            $user->status_id = 1;
-            $user->password = Hash::make($password);
-            if($user->save()){
-                return redirect()->route('admin');
-            }
-            else{
-                return redirect()->route('admin.loginfirad');
+        switch($request->method()){
+            case 'GET':
+                if($user == null){
+                    return redirect()->route('register');
+                }else{
+                    return view('confirm');
+                }
+            break;
+            case 'POST':
 
-            }
+                $user_confirm_code = $user->confirm_code;
+                $confirm_code = $request->input('confirm');
+                $password = $request->input('password');
+                $passwordd = $request->input('passwordd');
+                if($user_confirm_code == $confirm_code && $password == $passwordd){
+                    $user->status_id = 1;
+                    $user->password = Hash::make($password);
+                    if($user->save()){
+                        return redirect()->route('home');
+                    }
+                    else{
+                        return redirect()->back()->withErrors(['رمز ها با هم یکی نیست ' , 'msg']);
+        
+                    }
+                }
+                else{
+                    return redirect()->back()->withErrors(['کد وارد شده صحیح نیست ' , 'msg']);
+                }
+            break;
+            default:
+                    return "nothing";
+        break;
         }
-        else{
-            return "no";
-        }
+
 
     }
     public function sendsms($mobile , $code){

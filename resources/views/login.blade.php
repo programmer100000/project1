@@ -1,7 +1,9 @@
 
 @extends('formsmaster')
+
 @section('form')
-<form class="login-form">
+<form class="login-form" action="{{ route('login') }}" method="POST">
+    @csrf
     <h1 class="text-white text-center">ورود کاربر</h1>
     <div class="my-4 login-input">
         <span class="ml-1">
@@ -32,7 +34,7 @@
                 </g>
             </svg>
         </span>
-        <input type="text" class="form-control p-0 " id="username" placeholder="نام کاربری" name="name">
+        <input type="text" class="form-control p-0 " id="username" placeholder="نام کاربری" name="username">
     </div>
     <div class="my-4 login-input">
         <span class="ml-1">
@@ -67,16 +69,19 @@
         </span>
         @endif
     </div>
+    <div class="row justify-content-center">
+      <button type="submit" class="btn btn-primary main-form-btn px-5 py-2">ارسال</button>
+  </div>
+</form>
     <a href="{{  route('forget.password') }}">
         <p class="forget-text text-right">
             فراموشی رمز عبور
         </p>
-    </a>
+    </a>    
+</form>  
     @endsection
     @section('button')
-    <a href="{{ route('register') }}"><button type="button"
-            class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+    <a href="{{ route('register') }}" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
             ثبت نام
-        </button>
     </a>
     @endsection

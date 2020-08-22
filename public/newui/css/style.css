@@ -11,16 +11,19 @@
 
 body {
     direction: rtl;
-    font-family: IRANYekan!important;
+    font-family: IRANYekan !important;
     font-size: 16px;
     margin: 0;
     padding: 0;
-    background: #2B1E59!important;
+    background: #2B1E59 !important;
 }
 
 @media screen and (max-width: 768px) {
     body {
         font-size: 14px !important;
+    }
+    .digit-group {
+        width: 90%!important;
     }
 }
 
@@ -38,7 +41,7 @@ a,
 a:hover,
 a:active,
 a:visited {
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
 
 *:focus {
@@ -93,15 +96,15 @@ h4 {
 }
 
 .introduce-gamenets {
-    margin-top: 33%!important;
+    margin-top: 33% !important;
 }
 
 .plan-body {
     /* padding-top: 10rem!important; */
     padding: 3rem;
     /* border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-radius: 50% 50% 0 0; */
+border-right: 50px solid transparent;
+border-radius: 50% 50% 0 0; */
 }
 
 .popular {
@@ -115,11 +118,11 @@ h4 {
 }
 
 #mainNav {
-    background-color: #2c1e59!important;
+    background-color: #2c1e59 !important;
 }
 
 .card {
-    background-color: #34256a!important;
+    background-color: #34256a !important;
 }
 
 .card-header i {
@@ -153,10 +156,10 @@ h4 {
 }
 
 .search_icon a:hover,
-a:active,
-a:visited {
-    color: #fff!important;
-    background-color: #e80767!important;
+.search_icon a:active,
+.search_icon a:visited {
+    color: #fff !important;
+    background-color: #e80767 !important;
 }
 
 .plan-header {
@@ -186,7 +189,7 @@ footer {
 }
 
 .contact-secttion {
-    margin-bottom: 11rem!important;
+    margin-bottom: 11rem !important;
     background-image: url(../img/aboutus.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -207,7 +210,7 @@ footer {
 }
 
 .main-contact-form .form-control {
-    outline: none!important;
+    outline: none !important;
     background-color: transparent;
 }
 
@@ -225,14 +228,14 @@ footer {
 }
 
  ::placeholder {
-    color: #ccc!important;
+    color: #ccc !important;
     opacity: 1;
 }
 
 .main-form-btn {
-    border-radius: 1.25rem!important;
-    background-color: #e80767!important;
-    border-color: #e80767!important;
+    border-radius: 1.25rem !important;
+    background-color: #e80767 !important;
+    border-color: #e80767 !important;
 }
 
 .main-form-btn .about {
@@ -252,20 +255,20 @@ footer {
 .main-contact,
 .popular,
 .popular-img {
-    border-radius: 1.3rem!important;
+    border-radius: 1.3rem !important;
 }
 
 .plan {
     background-color: #34256a;
     border-radius: 15px;
-    height: 780px;
+    /* height: 780px; */
 }
 
 .g-header-text {
     color: #fff;
     margin-right: 0;
     right: 0;
-    position: absolute!important;
+    position: absolute !important;
     text-align: center;
     top: 35%;
     font-size: 5rem;
@@ -292,7 +295,7 @@ footer {
 }
 
 .plan .header h3 {
-    font-size: 2.5rem!important;
+    font-size: 2.5rem !important;
     width: 100%;
     text-align: center;
     top: 8%;
@@ -307,38 +310,66 @@ footer {
     border-radius: 50% 50% 0 0; */
 }
 
-.plan button {
+.plan a {
     width: 35%;
     background-color: #34256A;
     line-height: 2.5;
     border-radius: 30px;
-    color: #fff;
+    position: absolute;
+    color: #fff !important;
+    bottom: -35px;
     border-color: transparent;
     font-size: 1.4rem;
 }
 
 .plan .khorshid {
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, .2);
+    -moz-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, .2);
+    box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, .2);
+    /* position: absolute; */
+    transition: .5s;
+    /* top: 745px; */
+}
+
+.plan .khorshid:hover {
     -webkit-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
     -moz-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
     box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
-    position: absolute;
-    top: 745px;
 }
 
 .plan .almas {
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, .2);
+    -moz-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, .2);
+    box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, .2);
+    /* position: absolute; */
+    transition: .5s;
+    /* top: 745px; */
+}
+
+.plan .almas:hover {
     -webkit-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
     -moz-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
     box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
-    position: absolute;
-    top: 745px;
 }
 
 .plan .kahkeshan {
+    -webkit-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, .2);
+    -moz-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, .2);
+    box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, .2);
+    /* position: absolute; */
+    transition: .5s;
+    /* top: 745px; */
+}
+
+.plan button {
+    position: absolute;
+    bottom: -45px!important;
+}
+
+.plan .kahkeshan:hover {
     -webkit-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
     -moz-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
     box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
-    position: absolute;
-    top: 745px;
 }
 
 .popular {
@@ -375,11 +406,11 @@ footer {
 }
 
 #mainNav {
-    background-color: #2c1e59!important;
+    background-color: #2c1e59 !important;
 }
 
 .card {
-    background-color: #34256a!important;
+    background-color: #34256a !important;
 }
 
 .searchbar {
@@ -474,7 +505,7 @@ footer {
 .gm-header-text {
     position: absolute;
     top: 202px;
-    margin-top: 50px!important;
+    margin-top: 50px !important;
 }
 
 .gmt-header-text {
@@ -540,21 +571,21 @@ footer {
 }
 
 .login-header-btn {
-    border-color: #e80767!important;
-    background-color: #e80767!important;
-    border-radius: 30px!important;
+    border-color: #e80767 !important;
+    background-color: #e80767 !important;
+    border-radius: 30px !important;
 }
 
 .provinces-header-btn,
 .login-page-register-btn {
-    color: #fff!important;
-    border-color: #e80767!important;
-    border-radius: 30px!important;
+    color: #fff !important;
+    border-color: #e80767 !important;
+    border-radius: 30px !important;
 }
 
 .provinces-header-btn:hover,
 .login-page-register-btn:hover {
-    background-color: #34256a!important;
+    background-color: #34256a !important;
 }
 
 .provinces-header-btn:hover,
@@ -567,16 +598,21 @@ footer {
 .login-header-btn:visited,
 .login-page-register-btn,
 .main-form-btn {
-    outline: none!important;
-    box-shadow: none!important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .Provinces {
     cursor: pointer;
     overflow-y: scroll;
     height: 200px;
-    margin-left: 1.4rem;
     border-top: 1px solid #9887bd;
+    color: #fff;
+}
+
+.dropdown-menu {
+    width: 400px;
+    background: #2B1E59 !important;
 }
 
 .Provinces .back {
@@ -587,22 +623,22 @@ footer {
 
 .Provinces .icon {
     font-size: 1.5rem;
-    color: #5a44ab!important;
+    color: #e80767 !important;
 }
 
 .modal-header {
-    border-bottom: none!important;
-    padding: 1rem 0rem 1rem 1.1rem!important;
+    border-bottom: none !important;
+    padding: 1rem 0rem 1rem 1.1rem !important;
 }
 
 .close {
-    margin: 0!important;
-    padding: 0!important;
-    color: #5a44ab!important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #5a44ab !important;
 }
 
 .modal-body {
-    border-top: 1px solid #9887bd!important;
+    border-top: 1px solid #9887bd !important;
 }
 
 .mobile-header-btns {
@@ -610,27 +646,27 @@ footer {
 }
 
 .Provinces .row {
-    border-top: 1px solid #cbbee7!important;
-    margin-left: 1rem!important;
+    border-top: 1px solid #cbbee7 !important;
+    margin-left: 1rem !important;
 }
 
 .Provinces .row:first-child {
-    border-top: none!important;
+    border-top: none !important;
 }
 
 .province {
-    margin-left: 1rem!important;
+    margin-left: 1rem !important;
 }
 
 @media screen and (max-width: 768px) {
     .title-img {
-        width: 40%!important;
+        width: 40% !important;
     }
     footer {
-        height: 400px!important;
+        height: 400px !important;
     }
     .footer-call {
-        text-align: right!important;
+        text-align: right !important;
     }
     .footer-call-icon svg {
         height: 35px;
@@ -639,13 +675,13 @@ footer {
         height: 35px;
     }
     .top-footer {
-        height: 69px!important;
-        bottom: 465px!important;
+        height: 69px !important;
+        bottom: 465px !important;
     }
     .contact-secttion {
-        height: 650px!important;
-        margin-bottom: 0!important;
-        padding-bottom: 6rem!important;
+        height: 650px !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 6rem !important;
     }
     .popular-data {
         height: 290px;
@@ -654,7 +690,7 @@ footer {
         height: 250px;
     }
     .introduce {
-        height: 650px!important;
+        height: 650px !important;
     }
     .introduce1 {
         flex-direction: column-reverse;
@@ -684,7 +720,7 @@ footer {
         padding: 0;
     }
     .text-info-plan {
-        font-size: 1rem!important;
+        font-size: 1rem !important;
     }
     .plan {
         height: 580px;
@@ -693,46 +729,57 @@ footer {
         /* padding: 0!important; */
     }
     .plan .header h3 {
-        top: 5%!important;
-        font-size: 2rem!important;
+        top: 5% !important;
+        font-size: 2rem !important;
     }
     .khorshid,
     .almas,
     .kahkeshan {
-        position: absolute!important;
-        top: 542px!important;
+        position: absolute !important;
+        top: 542px !important;
     }
     .mobile-header-btns {
-        display: block!important;
+        display: block !important;
     }
     .header-btns {
-        display: none!important;
+        display: none !important;
     }
     .login-content-left {
-        height: 50%!important;
+        height: 50% !important;
     }
     .login-content-right {
-        padding: 0 1rem!important;
+        padding: 0 1rem !important;
     }
     .login-content {
-        flex-direction: column-reverse!important;
+        flex-direction: column-reverse !important;
     }
     .login-right {
-        height: 50%!important;
+        height: 50% !important;
     }
     .inner-register-btn {
         margin-bottom: 1.5rem;
     }
     .login-input {
-        padding-bottom: .4rem!important;
-        padding-top: .4rem!important;
+        padding-bottom: .4rem !important;
+        padding-top: .4rem !important;
     }
     .right-btn {
-        display: none!important;
+        display: none !important;
     }
     .confirm .login-input {
-        padding: 0!important;
-        margin: .5rem!important;
+        padding: 0 !important;
+        margin: .5rem !important;
+    }
+    .login-content-left {
+        background-image: none !important;
+        background: #2e205a;
+        background-size: 100%;
+        background-position: left;
+        height: 100%;
+        border-top-left-radius: 30px !important;
+        border-top-right-radius: 30px !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
     }
 }
 
@@ -772,7 +819,6 @@ footer {
 }
 
 .login-content-right {
-    background-image: url(../img/cc.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -797,12 +843,12 @@ footer {
 }
 
 .select-gamenets {
-    background: #2B1E59!important;
+    background: #2B1E59 !important;
     color: #fff !important;
     width: 40% !important;
     margin: 0 auto;
     border-radius: 10px !important;
-    margin-top: 10%!important;
+    margin-top: 10% !important;
 }
 
 .forget-text {
@@ -847,11 +893,11 @@ footer {
 }
 
 .confirm .form-control:focus {
-    background-color: #1A0E46!important;
+    background-color: #1A0E46 !important;
 }
 
 .confirm .login-input {
-    border-radius: 50%!important;
+    border-radius: 50% !important;
     padding: 1rem;
     margin: 1rem;
 }
@@ -861,15 +907,15 @@ footer {
 }
 
 .login-form .login-input .form-control:focus {
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 .register .form-group {
-    text-align: right!important;
+    text-align: right !important;
 }
 
 .register .help-block {
-    padding: .8rem!important;
+    padding: .8rem !important;
     font-size: .8rem;
     color: #fff;
 }
@@ -891,11 +937,11 @@ footer {
 }
 
 .gamenets-footer-title .login-page-register-btn {
-    padding: .5rem 3rem!important;
+    padding: .5rem 3rem !important;
 }
 
 .gamenet-inner-slider {
-    background-image: url(../img/bgt.png)!important;
+    background-image: url(../img/bgt.png) !important;
 }
 
 .gamenet-row {
@@ -941,52 +987,77 @@ footer {
 }
 
 .inner-gamenet-comments {
-    padding-left: 3rem!important;
+    padding-left: 3rem !important;
+}
+
+.gamenet-info .gamenet-item {
+    height: 600px;
 }
 
 .gamenet-heading {
     font-size: 2rem;
 }
 
+.mobile-gamenet-comments-name {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
+    iframe {
+        width: 100% !important;
+    }
     .footer-register-section {
-        bottom: 394px!important;
+        bottom: 394px !important;
     }
     .gamenets-footer-title {
-        font-size: 1rem!important;
+        font-size: 1rem !important;
     }
     .gamenets-footer-title .login-page-register-btn {
-        padding: .2rem 1.5rem!important;
+        padding: .2rem 1.5rem !important;
     }
     .gamenet-inner-slider {
-        background-image: url(../img/bgt.png)!important;
+        background-image: url(../img/bgt.png) !important;
     }
     .g-header-text {
-        font-size: 2rem!important;
+        font-size: 2rem !important;
     }
     .gamenet-row {
-        margin-bottom: 7rem!important;
+        margin-bottom: 7rem !important;
     }
     .gamenet-img {
-        height: 350px!important;
+        height: 350px !important;
     }
     .gamenet-info {
         flex-direction: column-reverse;
     }
+    .gamenet-info .gamenet-item {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
     .gamenet-location {
-        height: 300px!important;
+        height: 300px !important;
     }
     .inner-gamenet-comments {
-        padding-left: .5rem!important;
+        padding-left: .5rem !important;
     }
     .comments-img {
-        justify-content: right!important;
+        justify-content: right !important;
     }
     .gamenet-heading {
-        font-size: 1.5rem!important;
+        font-size: 1.5rem !important;
     }
     .gamenet-heading svg {
-        height: 40px!important;
+        height: 40px !important;
+    }
+    .gamenet-comments-name {
+        display: none !important;
+    }
+    .mobile-gamenet-comments-name {
+        display: block !important;
+    }
+    .comments-img img {
+        height: 70px !important;
+        width: 70px !important;
     }
 }
 
@@ -994,7 +1065,7 @@ footer {
 /* end gamenet */
 
 .intro-inner-slider {
-    background-image: url(../img/G.png)!important;
+    background-image: url(../img/G.png) !important;
 }
 
 .faq {
@@ -1015,10 +1086,10 @@ footer {
 
 @media screen and (max-width: 768px) {
     .mazaya-row {
-        margin-bottom: 0!important;
+        margin-bottom: 0 !important;
     }
     .faq {
-        margin-bottom: 7rem!important;
+        margin-bottom: 7rem !important;
     }
     .proces-header,
     .faq-header,
@@ -1029,36 +1100,128 @@ footer {
         width: 100%;
     }
     .intro-inner-slider {
-        background-image: url(../img/G.png)!important;
+        background-image: url(../img/G.png) !important;
     }
     .gmt-header-text {
-        font-size: 1.5rem!important;
-        position: absolute!important;
+        font-size: 1.5rem !important;
+        position: absolute !important;
         top: -110px;
     }
     .hadafha {
-        margin-top: 0!important;
+        margin-top: 0 !important;
     }
     .mazaya-back span {
-        font-size: 1rem!important;
-        width: 90%!important;
+        font-size: 1rem !important;
+        width: 90% !important;
     }
     .mazaya-back img {
-        margin-top: 5%!important;
-        width: 70%!important;
+        margin-top: 5% !important;
+        width: 70% !important;
     }
     .mazaya-row:last-child {
-        margin-top: 0px!important;
+        margin-top: 0px !important;
     }
     .testsvg {
-        margin-top: 0!important;
-        background: none!important;
+        margin-top: 0 !important;
+        background: none !important;
     }
     .hadafe-ma {
-        font-size: 1.52rem!important;
+        font-size: 1.52rem !important;
     }
     .provinces-header-btn,
     .login-header-btn {
-        font-size: .8rem!important;
+        font-size: .8rem !important;
     }
+}
+
+
+/* gamenets */
+
+@media screen and (max-width: 768px) {
+    .select-gamenets {
+        width: 70% !important;
+        padding: .1rem .75rem !important;
+        font-size: .8rem !important;
+        margin-top: 4% !important;
+    }
+    .tarefe-gamenets-header-list img {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .tarefe-gamenets-header title,
+    .tarefe-gamenets-header .title-img {
+        width: 100% !important;
+    }
+    .tarefe-gamenets-header-list-img {
+        padding: .5rem !important;
+    }
+    .gamenets-inner-slider {
+        background-image: url(../img/bgt.png) !important;
+    }
+    .tarefe-gamenets-header-list img {
+        width: 60px;
+        height: 60px;
+    }
+    .tarefe-gamenets-header-list img {
+        margin-top: 10%;
+    }
+    .gamenets-header {
+        height: fit-content;
+    }
+    .gamenets-slider-section {
+        height: 1000px;
+    }
+    .tarefe-gamenets-header-list-img {
+        margin-top: 4% !important;
+        border: 1px solid #ced4da;
+        border-radius: 50%;
+        padding: 1rem;
+        background: #2B1E59;
+    }
+    /* end gamenets */
+}
+
+.digit-group {
+    display: flex;
+    direction: ltr;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.digit-group input {
+    width: 25%0;
+    height: 50px;
+    background-color: #18182a;
+    border: 1px solid #eee !important;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 47%;
+    font-size: 24px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    color: white;
+    margin: 0 2px;
+}
+
+.digit-group .splitter {
+    padding: 0 5px;
+    color: white;
+    font-size: 24px;
+}
+
+.prompt {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.passwords {
+    background: #fff;
+    border: 1px solid #fff!important;
+    margin-top: 5%!important;
+}
+
+.register-form-confirm .help-block {
+    display: none!important;
 }

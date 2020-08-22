@@ -1,4 +1,10 @@
-@extends('newui/master') @section('content')
+@extends('newui/master') 
+@section('header')
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
+<script src="{{ asset('/js/locationpicker.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('/ui/css/star-rating-svg.css') }}">
+@endsection
+@section('content')
 <div class=" content">
 
     <div class="row w-100 m-0 p-0 slider-secttion">
@@ -21,16 +27,15 @@
     </div>
     <div class="row w-100 mx-0  p-0 justify-content-center gamenet-row ">
         <div class="col-md-10 p-0">
-            <div class="row w-100 m-0  p-0 gamenet-info justify-content-center">
+            <div class="row w-100 m-0  p-2 gamenet-info justify-content-center align-items-center">
 
-                <div class="col-md-3 p-4 mx-2 gamenet-item my-4 d-flex flex-column align-items-center justify-content-center  ">
+                <div class="col-md-3 col-11 p-4  gamenet-item my-4 mx-4 d-flex flex-column align-items-center justify-content-center  ">
 
                     <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
                     <div class="mb-3 d-flex text-right align-self-start">
                         <span class="text-white">امتیاز: </span>
-                        <div class="stars text-left float-left m-0 p-0 w-75">
+
                             <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
-                        </div>
                     </div>
                     <div class="d-flex mb-4 text-right ">
                         <span class="ml-1">
@@ -94,13 +99,16 @@
                     </div>
                 </div>
 
-                <div class="col-md-8 mx-2 gamenet-item gamenet-img  my-4 p-0 ">
+
+                <div class="col-md-8  gamenet-item gamenet-img  my-4 mx-4 p-0 ">
+
 
                 </div>
             </div>
             <div class="row w-100 p-0 m-0 justify-content-center">
 
-                <div class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
+                <div id="map" class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
+
 
                 </div>
                 <div class="col-11 my-4  gamenet-heading ">
@@ -128,8 +136,11 @@
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-md-1 comments-img d-flex  align-content-center">
+                        <div class="col-md-1 comments-img d-flex  align-items-center ">
                             <img src="{{ asset('newui/img/images.jpg') }}" alt="">
+                            <div class=" p-2 mobile-gamenet-comments-name">
+                                <p class="text-right text-white ">مریم سلیمی</p>
+                            </div>
                         </div>
                         <div class="col-md-11 inner-gamenet-comments  ">
                             <div class="row p-2 gamenet-comments-name">
@@ -145,8 +156,11 @@
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-md-1 comments-img d-flex  align-content-center">
+                        <div class="col-md-1 comments-img d-flex  align-items-center ">
                             <img src="{{ asset('newui/img/images.jpg') }}" alt="">
+                            <div class=" p-2 mobile-gamenet-comments-name">
+                                <p class="text-right text-white ">مریم سلیمی</p>
+                            </div>
                         </div>
                         <div class="col-md-11 inner-gamenet-comments">
                             <div class="row p-2 gamenet-comments-name">
@@ -237,6 +251,24 @@
         </button>
     </div>
 </div>
-
-
+<div id="rate-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content modal-filled bg-danger">
+      <div class="modal-body p-4">
+        <div class="text-center">
+          <i class="dripicons-wrong h1 text-white"></i>
+          <h4 class="mt-2 text-white">توجه</h4>
+          <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
+          <button id="btnrate" data-id={{ $gamenet->gamenet_id }} data-csrf={{ csrf_token() }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+  let ratestatus = '{{ $s }}';
+</script>
+<script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
+<script src="{{ asset('ui/js/myjquery.js') }}" defer></script>
+<script src="{{ asset('js/main.js')}}"> </script>
 @endsection
