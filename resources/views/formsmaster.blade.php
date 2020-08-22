@@ -17,7 +17,7 @@
 <div class="row w-100  m-0 d-flex login-bg align-items-center justify-content-center">
     <div class="col-10 p-0 h-75 m-0 ">
         <div class="row w-100 p-0 m-0 h-100 login-content align-items-center justify-content-center">
-            <div class="col-md-6  login-right p-0 m-0  ">
+            <div class="col-lg-6  login-right p-0 m-0  ">
                 <div class="login-content-right p-0">
 
                 </div>
@@ -31,7 +31,7 @@
             </div>
 
 
-            <div class="col-md-6 p-0 login-content-left">
+            <div class="col-lg-6 p-0 login-content-left">
                 <div class="row h-100 p-0  m-0 justify-content-center align-items-center ">
                     <div class="col-10 inner-bg m-0 py-4 "></div>
                     <div class="col-8  d-flex inner-register-btn justify-content-center align-content-center">

@@ -24,8 +24,8 @@
         </div>
     </div>
     <div class="row justify-content-center p-0 m-0 hadaf-row">
-        <div class="col-8 p-0 mx-auto hadafha">
-            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets hadafha-row ">
+        <div class="col-md-8 col-11 p-0 mx-auto hadafha">
+            <div class="row w-100 p-3 m-0  introduce  introduce-gamenets hadafha-row ">
                 <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
                     <div class="mb-3 d-flex text-right align-self-start">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">

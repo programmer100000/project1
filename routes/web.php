@@ -248,7 +248,16 @@ Route::get('/gamenets', function () {
 })->name('gamenets');
 Route::post('/gamenet/rate', 'HomeController@rate')->name('gamenet.rate');
 Route::get('/user/panel', function () {
-    return view('panel');
+    if(Auth::Check()){
+        $user = Auth::user();
+        $fav = favourite::join('gamenets' , 'gamenets.gamenet_id' , '=' , 'gnet_favourites.gnet_id')
+        ->join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , '=' , 'gnet_favourites.gnet_id')
+        ->where([['gnet_favourites.user_id' , $user->user_id] , ['gamenet_pictures.flag', "main"]])->get();
+        return view('panel' , compact('fav'));
+    }else{
+        return redirect()->route('login');
+    }
+    
 });
 Route::get('/intro', function () {
     return view('intropanel');

@@ -215,7 +215,7 @@ footer {
 .captcha p {
     background: #513c9c;
     opacity: .8;
-    line-height: 2;
+    line-height: 3;
 }
 
 .main-contact-form .form-control:focus {
@@ -323,7 +323,7 @@ footer {
     font-size: 2rem!important;
 }
 
-.plan button {
+.plan .plan-btn {
     width: 35%;
     background-color: #34256A;
     line-height: 2.5;
@@ -331,30 +331,26 @@ footer {
     color: #fff;
     border-color: transparent;
     font-size: 1.4rem;
+    position: absolute;
+    bottom: -25px;
 }
 
 .plan .khorshid {
     -webkit-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
     -moz-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
     box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
-    position: absolute;
-    /* top: 595px; */
 }
 
 .plan .almas {
     -webkit-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
     -moz-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
     box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
-    position: absolute;
-    /* top: 595px; */
 }
 
 .plan .kahkeshan {
     -webkit-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
     -moz-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
     box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
-    position: absolute;
-    /* top: 595px; */
 }
 
 .popular {
@@ -444,7 +440,7 @@ footer {
 }
 
 .title-img {
-    width: 65%!important;
+    width: 20%!important;
 }
 
 .mazaya-back {
@@ -490,6 +486,7 @@ footer {
 .hadaf-row {
     width: 100%;
     margin-top: 15%;
+    flex-flow: column-reverse!important;
 }
 
 .gm-header-text {
@@ -644,6 +641,9 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .plan-header-img {
+        width: 30%!important;
+    }
     .main-page-plan-header .inner-plan-header {
         top: 385px!important;
     }
@@ -717,9 +717,6 @@ footer {
     .text-info-plan {
         font-size: 1rem!important;
     }
-    .plan-item {
-        /* padding: 0!important; */
-    }
     .plan .header h3 {
         top: 5%!important;
         font-size: 2rem!important;
@@ -727,8 +724,8 @@ footer {
     .khorshid,
     .almas,
     .kahkeshan {
-        position: absolute!important;
-        top: 705px!important;
+        /* position: absolute!important;
+        top: 705px!important; */
     }
     .mobile-header-btns {
         display: block!important;
@@ -774,7 +771,7 @@ footer {
         border-bottom-right-radius: 0!important;
     }
     .plan {
-        height: 740px!important;
+        /* height: 740px!important; */
     }
     .about-body {
         height: 500px!important;
@@ -792,13 +789,13 @@ footer {
         font-size: 1.5rem!important;
     }
     .plan {
-        height: 550px!important;
+        /* height: 550px!important; */
     }
     .khorshid,
     .almas,
     .kahkeshan {
-        position: absolute!important;
-        top: 515px!important;
+        /* position: absolute!important;
+        top: 515px!important; */
     }
     .contact-secttion {
         height: 650px!important;
@@ -928,6 +925,17 @@ footer {
 
 .confirm-inputs {
     padding: 1rem;
+}
+
+.confirm .digit-group .form-control {
+    margin: 1rem;
+    border: 1px solid #ced4da;
+    padding: 2rem 1rem;
+    border-radius: 50%;
+}
+
+.confirm .passwords {
+    border-radius: 30px!important;
 }
 
 .login-form .login-input .form-control:focus {
@@ -1065,7 +1073,7 @@ footer {
         background-image: url(../img/bgt.png)!important;
     }
     .g-header-text {
-        font-size: 2rem!important;
+        font-size: 3rem!important;
     }
     .gamenet-row {
         margin-bottom: 15rem!important;
@@ -1102,6 +1110,13 @@ footer {
 }
 
 @media screen and (max-width: 576px) {
+    .g-header-text {
+        font-size: 2rem!important;
+    }
+    .confirm .digit-group .form-control {
+        margin: .5rem!important;
+        padding: 1rem!important;
+    }
     .gamenet-row {
         margin-bottom: 4rem!important;
     }
@@ -1146,7 +1161,7 @@ footer {
 }
 
 .mazaya-row:last-child {
-    margin-top: 3rem;
+    margin-top: 8rem;
 }
 
 .proces-header,
@@ -1162,6 +1177,7 @@ footer {
 @media screen and (max-width: 768px) {
     .hadafha-row {
         height: 400px!important;
+        flex-flow: column-reverse!important;
     }
     .mazaya-row {
         margin-bottom: 0!important;
@@ -1211,7 +1227,7 @@ footer {
 
 @media screen and (max-width: 576px) {
     .hadafha-row {
-        height: 550px!important;
+        height: 600px!important;
     }
 }
 
@@ -1363,7 +1379,7 @@ footer {
         flex-direction: row-reverse!important;
     }
     .user-panel-inner-slider {
-        height: 430px!important;
+        height: 320px!important;
     }
     .card-title {
         font-size: 1rem!important;
@@ -1378,7 +1394,7 @@ footer {
         height: 55px!important;
     }
     .user-panel-inner-slider {
-        height: 200px!important;
+        height: 160px!important;
     }
 }
 
