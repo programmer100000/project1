@@ -1,10 +1,13 @@
-@extends('newui/master') 
-@section('header')
+
+@extends('newui/master') @section('header')
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
 <script src="{{ asset('/js/locationpicker.min.js') }}"></script>
+
+
 <link rel="stylesheet" type="text/css" href="{{ asset('/ui/css/star-rating-svg.css') }}">
-@endsection
-@section('content')
+<link rel="stylesheet" href="{{ asset('newui/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('newui/css/owl.theme.default.min.css') }}"> @endsection @section('content')
+
 <div class=" content">
 
     <div class="row w-100 m-0 p-0 slider-secttion">
@@ -29,15 +32,14 @@
         <div class="col-md-10 p-0">
             <div class="row w-100 m-0  p-2 gamenet-info justify-content-center align-items-center">
 
-                <div class="col-md-3 col-11 p-4  gamenet-item my-4 mx-4 d-flex flex-column align-items-center justify-content-center  ">
-
+                <div class="col-lg-3  p-4  gamenet-item my-4 mx-4 d-flex flex-column align-items-center justify-content-center  ">
                     <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
                     <div class="mb-3 d-flex text-right align-self-start">
                         <span class="text-white">امتیاز: </span>
 
-                            <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                        <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
                     </div>
-                    <div class="d-flex mb-4 text-right ">
+                    <div class="d-flex mb-4 text-right align-self-start ">
                         <span class="ml-1">
                           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 50 61.802">
                             <g id="place_1_" data-name="place (1)" transform="translate(-48.886)">
@@ -95,14 +97,26 @@
                           </span>
                     </div>
                     <div class="row justify-content-center">
-                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
+                      @if ($f == 'false')
+                      <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                      data-url = {{ route('add.favourite')}} data-gnet-id = {{ $gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
+                      @elseif ($f == 'true')
+                      <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                       data-url = {{ route('add.favourite')}} data-gnet-id = {{ $gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال شده</button>
+                      @endif
+                        <button type="button" class="btn btn-primary main-form-btn px-4">مسیریابی</button>
                     </div>
                 </div>
+                <div class="col-lg-8  gamenet-item gamenet-slider   my-4 mx-4 p-0 ">
+
+                    <div id="owl-demo" class="owl-carousel owl-theme p-4">
 
 
-                <div class="col-md-8  gamenet-item gamenet-img  my-4 mx-4 p-0 ">
+                        <div class="item"><img src="{{ asset('newui/img/gamenet-img.png') }}" alt=""></div>
+                        <div class="item"><img src="{{ asset('newui/img/gamenet-img.png') }}" alt=""></div>
+                        <div class="item"><img src="{{ asset('newui/img/gamenet-img.png') }}" alt=""></div>
 
-
+                    </div>
                 </div>
             </div>
             <div class="row w-100 p-0 m-0 justify-content-center">
@@ -136,13 +150,14 @@
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-md-1 comments-img d-flex  align-items-center ">
+
+                        <div class="col-md-2 col-lg-1 comments-img d-flex  align-items-center ">
                             <img src="{{ asset('newui/img/images.jpg') }}" alt="">
                             <div class=" p-2 mobile-gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
                         </div>
-                        <div class="col-md-11 inner-gamenet-comments  ">
+                        <div class="col-md-10 col-lg-11 inner-gamenet-comments  ">
                             <div class="row p-2 gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
@@ -156,13 +171,14 @@
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
                     <div class="row w-100 p-3 m-0">
-                        <div class="col-md-1 comments-img d-flex  align-items-center ">
+
+                        <div class="col-md-2 col-lg-1 comments-img d-flex  align-items-center ">
                             <img src="{{ asset('newui/img/images.jpg') }}" alt="">
                             <div class=" p-2 mobile-gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
                         </div>
-                        <div class="col-md-11 inner-gamenet-comments">
+                        <div class="col-md-10 col-lg-11 inner-gamenet-comments">
                             <div class="row p-2 gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
@@ -194,7 +210,7 @@
                         <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
                       </g>
                     </g>
-                  </svg> نظرات کاربران
+                  </svg> نظر دهید
 
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comment p-4  ">
@@ -251,24 +267,61 @@
         </button>
     </div>
 </div>
+
+
 <div id="rate-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content modal-filled bg-danger">
-      <div class="modal-body p-4">
-        <div class="text-center">
-          <i class="dripicons-wrong h1 text-white"></i>
-          <h4 class="mt-2 text-white">توجه</h4>
-          <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
-          <button id="btnrate" data-id={{ $gamenet->gamenet_id }} data-csrf={{ csrf_token() }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content modal-filled bg-danger">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <i class="dripicons-wrong h1 text-white"></i>
+                    <h4 class="mt-2 text-white">توجه</h4>
+                    <p class="mt-3 text-white">برای امتیاز دادن به یک گیم نت فقط یک بار مهلت دارید</p>
+                    <button id="btnrate" data-id={{ $gamenet->gamenet_id }} data-csrf={{ csrf_token() }} data-url="{{ route('gamenet.rate') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">ثبت‌</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <script>
-  let ratestatus = '{{ $s }}';
+    let ratestatus = '{{ $s }}';
 </script>
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('ui/js/myjquery.js') }}" defer></script>
-<script src="{{ asset('js/main.js')}}"> </script>
+<script src="{{ asset('js/main.js')}}">
+</script>
+<script src="{{ asset('/newui/js/newui.js') }}" defer></script>
+<script src="{{ asset('newui/js/jquery.min.js')}}"></script>
+<script src="{{ asset('newui/js/owl.carousel.min.js')}}"></script>
+<script>
+    $(document).ready(function() {
+
+        $("#owl-demo").owlCarousel({
+
+            navigation: true,
+
+
+            smartSpeed: 1000,
+            dots: true,
+
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true,
+            items: 1
+
+            // "singleItem:true" is a shortcut for:
+            // items : 1, 
+            // itemsDesktop : false,
+            // itemsDesktopSmall : false,
+            // itemsTablet: false,
+            // itemsMobile : false
+
+        });
+
+    });
+</script>
+
 @endsection

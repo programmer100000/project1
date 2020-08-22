@@ -1,5 +1,6 @@
 <?php
 
+use App\favourite;
 use App\Http\Controllers\AdminLoginController;
 use App\lottery;
 use App\LotteryMatch;
@@ -167,6 +168,7 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LogoutController@logout')->name('logout');
 Route::get('/forget/password', 'LoginController@forgetpassword')->name('forget.password');
 Route::post('/forget/password', 'LoginController@forgetpassword')->name('forget.password');
+Route::post('/add/favourite' , 'HomeController@addtofavourite')->name('add.favourite');
 /*End User Routes*/
 
 /*Public Routes */
@@ -228,8 +230,14 @@ Route::get('/gamenet/{gamenet_id}/{gamenet_name}', function ($gamenet_id , $game
     } else {
         $s = 0;
     }
-
-    return view('gamenet', compact('gamenet', 'gamenet_images', 's'));
+    $f = '' ;
+    $fav = favourite::where([['user_id' , $user->user_id] , ['gnet_id' , $gamenet->gamenet_id]])->first();
+    if($fav == null){
+        $f = 'false';
+    } else{
+        $f = 'true';
+    }
+    return view('gamenet', compact('gamenet', 'gamenet_images', 's' , 'f'));
 })->name('show.gamenet');
 Route::get('/gamenets', function () {
     $gamenets = Gamenet::select()

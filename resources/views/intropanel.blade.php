@@ -24,9 +24,9 @@
         </div>
     </div>
     <div class="row justify-content-center p-0 m-0 hadaf-row">
-        <div class="col-10 p-0 mx-auto hadafha">
+        <div class="col-8 p-0 mx-auto hadafha">
             <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets hadafha-row ">
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+                <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
                     <div class="mb-3 d-flex text-right align-self-start">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
                             <defs>
@@ -63,48 +63,48 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 introduce2-img">
+                <div class="col-lg-6 introduce2-img">
                 </div>
             </div>
         </div>
     </div>
     <div class="row w-100 p-0 mx-0  testsvg">
-        <div class="col-md-10  mx-auto  text-center">
+        <div class="col-md-8  mx-auto  text-center">
             <img src="{{ asset('newui/img/mazaya-header.png')}}" alt="" class="mazaya-img mt-5 mb-2">
         </div>
-        <div class="col-md-10  mx-auto text-center  mazaya-row p-0">
+        <div class="col-md-8  mx-auto text-center  mazaya-row p-0">
             <div class="row justify-content-center text-center m-0 p-0">
-                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
+                <div class="col-lg col-11 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/1.svg') }}" alt="">
                     <span> ارائه خدمات در سریع ترین زمان ممکن</span>
                 </div>
-                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
+                <div class="col-lg col-11 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/2.svg') }}" alt="">
                     <span>معرفی سریع به مخاطبین بیشتر</span>
                 </div>
-                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
+                <div class="col-lg col-11 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/3.svg') }}" alt="">
                     <span>تایید کار شناسان با بیشترین سرعت</span>
                 </div>
             </div>
             <div class="row justify-content-center text-center m-0 p-0">
-                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
+                <div class="col-lg col-11 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/4.svg') }}" alt="">
                     <span>برگذاری کمپین مسابقاتی</span>
                 </div>
-                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
-                    <img src="{{ asset('/newui/img/5.svg') }}" alt="">
+                <div class="col-lg col-11 mx-4 my-4 p-0 mazaya-back">
+                    <img src="{{ asset('/newui/img/5.png') }}" alt="">
                     <span>ارائه خدمات رایگان به مدت سه روزه</span>
                 </div>
-                <div class="col-md col-9 mx-4 my-4 p-0 mazaya-back">
+                <div class="col-lg col-11 mx-4 my-4 p-0 mazaya-back">
                     <img src="{{ asset('/newui/img/6.svg') }}" alt="">
                     <span>کاهش هزینه های تبلیغاتی</span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row w-100 m-0 p-0 ">
-        <div class="col-md-12 text-center m-0 p-0">
+    <div class="row w-100 justify-content-center m-0 p-0 ">
+        <div class="col-md-8 text-center m-0 p-0">
             <img src="{{ asset('newui/img/farayand-title.png') }}" alt="" class="proces-header mt-5 mb-3">
             <img src="{{ asset('newui/img/rahnama.png')}}" alt="" class="proces-img">
             <img src="{{ asset('newui/img/soalat.png') }}" alt="" class="faq-header mt-5 mb-2">

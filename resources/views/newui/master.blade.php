@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     @yield('header')
 </head>
 
@@ -24,7 +27,7 @@
                 <div class="mobile-header-btns ">
                     <div class="d-flex">
 
-                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                      <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
                                     <g id="place" transform="translate(-48.886)">
@@ -70,9 +73,12 @@
                     </ul>
                 </div>
                 <div class="header-btns">
-                    <div class="d-flex">
-
-                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                    <div class="d-flex dropdown">
+                        <!-- <a href="#" id="mytooltip" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true">Hover</a> -->
+                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <div class="dropdown-menu ">
+                            <div class="Provinces"></div>
+                          </div>
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
                                     <g id="place" transform="translate(-48.886)">
@@ -115,7 +121,7 @@
         </header>
         @yield('content')
         <footer class="footer  text-center">
-            <div class="row w-100 m-0 top-footer">
+            <div class="row w-100 m-0 top-footer ">
                 <div class="col-12 mx-auto p-0 inner-top-footer">
                     @yield('footersvg')
                 </div>
@@ -287,26 +293,21 @@
     <script>
         var urlprovinces = '{{ asset('js/Provinces.json') }}';
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/ui.js')}}" defer></script>
 
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content p-4">
-                <div class="modal-header justify-content-between align-items-center">
-                    <span>
-              انتخاب شهر
-            </span>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-                </div>
-                <div class="modal-body Provinces">
-                </div>
+    <script src="{{ asset('ui/js/scripts.js')}}"></script>
 
-            </div>
-        </div>
-    </div>
+
+    <script>
+        // $(document).ready(function() {
+        //     $('#mytooltip').tooltip({
+        //         title: "<h4> Hello, <b>I'm</b> <i>Smiley!</i></h4>",
+        //         html: true
+        //     });
+        // });
+    </script>
 </body>
 
 </html>
