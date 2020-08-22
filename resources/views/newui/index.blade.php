@@ -380,7 +380,7 @@
             </div>
             <div class="col-md-8 col-lg-5 p-0 m-3">
                 <div class="row w-100 p-3 m-0  introduce introduce1">
-                    <div class="col-مل-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
+                    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
 
                         <h1 class="text-white text-right my-4 align-self-start">گیمنت ایرانیان</h1>
                         <div class="mb-3 text-right align-self-start">
@@ -409,7 +409,7 @@
                             <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
                         </div>
                     </div>
-                    <div class="col-مل-6 introduce2-img">
+                    <div class="col-lg-6 introduce2-img">
                     </div>
                 </div>
             </div>
