@@ -15,7 +15,7 @@
     <div class="row w-100  m-0 d-flex login-bg align-items-center justify-content-center">
         <div class="col-10 p-0 h-75 m-0 ">
             <div class="row w-100 p-0 m-0 h-100 login-content align-items-center justify-content-center">
-                <div class="col-md-6  login-right p-0 m-0  ">
+                <div class="col-lg-6  login-right p-0 m-0  ">
                     <div class="login-content-right p-0">
 
                     </div>
@@ -33,14 +33,14 @@
                                     @if($errors->any())
                                     <p class="text-danger text-right">{{ $errors->first() }}</p>
                                     @endif
-                                    <div class="form-group digit-group" data-group-name="digits" >
-                                      <input type="text" class="form-control p-0 text-white " id="input1" placeholder="" name="input1" data-next="input2" autofocus>
+                                    <div class="form-group digit-group d-flex" data-group-name="digits" >
+                                      <input type="text" class="form-control  text-white text-center " id="input1" placeholder="" name="input1" data-next="input2" autofocus>
 
-                                      <input type="text" class="form-control p-0 text-white " id="input2" placeholder="" name="input2" data-next="input3" data-previous="input1">
+                                      <input type="text" class="form-control text-white text-white text-center " id="input2" placeholder="" name="input2" data-next="input3" data-previous="input1">
                                     
-                                      <input type="text" class="form-control p-0 text-white " id="input3" placeholder="" name="input3" data-next="input4" data-previous="input2">
+                                      <input type="text" class="form-control  text-white text-white text-center" id="input3" placeholder="" name="input3" data-next="input4" data-previous="input2">
                                  
-                                      <input type="text" class="form-control p-0 text-white " id="input4" placeholder="" name="input4" data-previous="input3">
+                                      <input type="text" class="form-control  text-white text-white text-center" id="input4" placeholder="" name="input4" data-previous="input3">
                                     </div>
 
 
@@ -66,7 +66,7 @@
                 </div>
 
 
-                <div class="col-md-6 p-0 login-content-left">
+                <div class="col-lg-6 p-0 login-content-left">
                     <div class="row h-100 p-0  m-0 justify-content-center align-items-center ">
                         <div class="col-10 inner-bg m-0 py-4 "></div>
                         <div class="col-8  d-flex inner-register-btn justify-content-center align-content-center">

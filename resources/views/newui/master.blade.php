@@ -66,8 +66,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-right ml-auto ">
                         <li class="nav-item mx-0 mx-lg-1 text-white"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-white" href="{{ route('home') }}">صفحه اصلی</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="{{ route('gamenets') }}">گیم نت ها</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="{{ route('intro') }}">معرفی</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3  text-white" href="{{ route('gamenets') }}">گیم نت ها</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3  text-white" href="{{ route('intro') }}">معرفی</a></li>
                         <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">درباره ما</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-md-3  text-white" href="#">تماس با ما</a></li> -->
                     </ul>

@@ -12,8 +12,8 @@
 
         </div>
         <div class="row w-100 m-0 plan-header main-page-plan-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
-            <path id="Path_1645" data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="774" viewBox="0 0 1944 774">
+            <path id="Path_1645" width="100%"  data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"/>
           </svg>
             <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
                 <div class="title text-center">
@@ -27,7 +27,7 @@
         <div class="row plan-body w-100  m-0  justify-content-center">
             <div class="col-md-8 d-flex justify-content-center p-0">
                 <div class="row w-100 p-4 m-0 justify-content-center">
-                    <div class="col-lg m-3 mb-5 p-0">
+                    <div class="col-lg mx-lg-3 mx-0 my-5 my-lg-0   d-flex align-items-stretch p-0 justify-content-center">
                         <div class="plan first-plan d-block text-center">
                             <div class="header">
                                 <img src="{{ asset('newui/img/khorshid.svg')}}" alt="">
@@ -43,7 +43,7 @@
                 </svg>
                                 </div>
                                 <div class="col-10 m-0 p-0 text-right text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    یک ماهه
                                 </div>
                             </div>
                             <div class="row m-0 plan-item ">
@@ -56,7 +56,7 @@
                 </svg>
                                 </div>
                                 <div class="col-10 m-0 p-0 text-right text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    گزارش روزانه، هفتگی و ماهیانه
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -69,7 +69,7 @@
                 </svg>
                                 </div>
                                 <div class="col-10 m-0 p-0 text-right text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    گزارش بوفه و خدمات
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -82,16 +82,17 @@
                 </svg>
                                 </div>
                                 <div class="col-10 m-0 p-0 text-right text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    ثبت دستگاه ها
                                 </div>
                             </div>
                             <div class="row m-0 p-0 justify-content-center">
-                                <button class="khorshid" type="button" name="button">خرید</button>
+                                <a type="button" class=" plan-btn khorshid" href="#">خرید</a>
+
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-lg m-3 mb-5 p-0 ">
+                    <div class="col-lg mx-lg-3 mx-0 my-5 my-lg-0 p-0 d-flex align-items-stretch justify-content-center">
                         <div class="plan d-block text-center">
                             <div class="header">
                                 <img src="{{ asset('newui/img/svg2.svg')}}" alt="">
@@ -108,7 +109,7 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    شش ماهه
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -122,7 +123,7 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    گزارش روزانه، هفتگی و ماهیانه
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -136,7 +137,7 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    گزارش بوفه و خدمات
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -150,18 +151,36 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    ثبت دستگاه ها
+                                </div>
+
+
+                            </div>
+                            <div class="row m-0 plan-item">
+                                <div class="col-2 m-0 p-0 icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+                  <g id="Group_313" data-name="Group 313" transform="translate(-341.444 -640.5)">
+                    <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(342.944 642)" fill="none" stroke="#3897ec" stroke-miterlimit="10" stroke-width="3"/>
+                    <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 649.548) rotate(45)" fill="#3899ee"/>
+                  </g>
+                </svg>
+
+                                </div>
+                                <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
+                                    کمپین مسابقات
                                 </div>
 
 
                             </div>
                             <div class="row m-0 p-0 justify-content-center">
-                                <button class="almas" type="button" name="button">خرید</button>
+
+                                <a type="button" class=" plan-btn almas" href="#">خرید</a>
+
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-lg m-3 p-0 ">
+                    <div class="col-lg mx-lg-3 mx-0 my-5 my-lg-0 p-0 d-flex align-items-stretch justify-content-center">
                         <div class="plan d-block text-center">
                             <div class="header">
                                 <img src="{{ asset('newui/img/kahkeshan.svg')}}" alt="">
@@ -178,7 +197,7 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    دوازده ماهه
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -192,7 +211,7 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    گزارش روزانه، هفتگی و ماهیانه
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -206,7 +225,7 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    گزارش بوفه و خدمات
                                 </div>
                             </div>
                             <div class="row m-0 plan-item">
@@ -220,13 +239,47 @@
 
                                 </div>
                                 <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
-                                    لورم ایپسوم متن ساختگی
+                                    ثبت دستگاه ها
+                                </div>
+
+
+                            </div>
+                            <div class="row m-0 plan-item">
+                                <div class="col-2 m-0 p-0 icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+                  <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                    <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                    <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                  </g>
+                </svg>
+
+                                </div>
+                                <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
+                                    کمپین مسابقات
+                                </div>
+
+
+                            </div>
+                            <div class="row m-0 plan-item">
+                                <div class="col-2 m-0 p-0 icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+                  <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                    <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                    <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                  </g>
+                </svg>
+
+                                </div>
+                                <div class="col-10 text-right m-0 p-0 text-white text-info-plan">
+                                    ارائه تیزر تبلیغاتی
                                 </div>
 
 
                             </div>
                             <div class="row m-0 p-0 justify-content-center">
-                                <button class="kahkeshan" type="button" name="button">خرید</button>
+
+                                <a type="button" class=" plan-btn kahkeshan" href="#">خرید</a>
+
                             </div>
                         </div>
                     </div>
@@ -608,7 +661,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button type="button" class="btn btn-primary main-form-btn px-4">ارسال</button>
+                    <button type="button" class="btn btn-primary main-form-btn px-5">ارسال</button>
                 </div>
 
             </form>
