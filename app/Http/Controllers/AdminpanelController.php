@@ -1237,4 +1237,5 @@ class AdminpanelController extends Controller
             'invoice' => $invoice
         ]);
     } 
+
 }
