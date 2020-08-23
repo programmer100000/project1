@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\favourite;
 use App\Gamenet;
 use Illuminate\Http\Request;
@@ -76,6 +77,26 @@ class HomeController extends Controller
                     }
                 }
             }
+        }
+    }
+    public function addcomment(Request $request){
+        if(Auth::check()){
+            $user = Auth::user();
+            $gamenet_id = $request->input('gamenet-id');
+            $msg = $request->input('comment');
+            $comment = new Comment();
+            $comment->parent_id = 0 ;
+            $comment->msg = $msg;
+            $comment->status = 0 ;
+            $comment->gnet_id = $gamenet_id;
+            $comment->user_id = $user->user_id;
+            if($comment->save()){
+                return  redirect()->back()->withErrors(['msg' , 'کامنت شما ثبت شد  ']);
+            }else{
+                return redirect()->back()->withErrors(['msg' , 'خطایی رخ داده  ']);
+            }
+        }else{
+            return redirect()->back()->withErrors(['msg' , 'برای ارسال نظر باید در سایت ثبت نام کنید  ']);
         }
     }
 }

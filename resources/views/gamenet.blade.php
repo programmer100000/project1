@@ -149,7 +149,7 @@
                     <div class="row w-100 p-3 m-0">
 
                         <div class="col-md-2 col-lg-1 comments-img d-flex  align-items-center ">
-                            <img src="{{ asset('newui/img/images.jpg') }}" alt="">
+                            <img src="{{ asset('newui/img/--.png') }}" alt="">
                             <div class=" p-2 mobile-gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
@@ -192,7 +192,8 @@
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comment p-4  ">
                     <div class="row w-100 p-0 m-0 justify-content-center">
                         <div class="col-11">
-                            <form class="main-contact-form">
+                        <form class="main-contact-form" action="{{ route('add.comment') }}" method="POST">
+                          @csrf
                               @if ($errors->any())
                                   <div class="alert alert-danger">
                                           @foreach ($errors->all() as $error)
@@ -200,6 +201,7 @@
                                           @endforeach
                                   </div>
                               @endif
+                                <input type="hidden" value="{{ $gamenet->gamenet_id }}" name="gamenet-id">
                                 <textarea class="form-control mb-4 text-white" rows="5" id="comment" placeholder="متن مورد نظر" name="comment"></textarea>
                                 <div class="row justify-content-center">
                                     <button type="submit" class="btn btn-primary main-form-btn px-5">ارسال</button>
