@@ -59,9 +59,9 @@
             نزدیکترین
         </div>
         @foreach ($gamenets as $ga)
-        <div class="col-md-5 p-0 m-3">
+        <div class="col-md-8 col-lg-5 p-0 m-3">
           <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
-              <div class="col-md-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+              <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
 
               <h1 class="text-white text-right mb-4 align-self-start"> {{ $ga->title }}</h1>
                   <div class="mb-3 d-flex text-right align-self-start">
@@ -93,7 +93,7 @@
                   </div>
               </div>
 
-            <div class="col-md-6 introduce2-img" style="background-image: url('{{ $ga->gamenet_image }}')">
+            <div class="col-lg-6 introduce2-img" style="background-image: url('{{ $ga->gamenet_image }}')">
               </div>
           </div>
       </div>       
