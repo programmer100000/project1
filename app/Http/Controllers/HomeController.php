@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\favourite;
 use App\Gamenet;
 use Illuminate\Http\Request;
 use App\User;
@@ -34,9 +35,9 @@ class HomeController extends Controller
                         $totalrate += $r->rate;
                     }
                     $rate = $totalrate / $rate_count;
-                    $gamenet = Gamenet::select()->where('gamenet_id' , $gnet_id)->first();
+                    $gamenet = Gamenet::select()->where('gamenet_id', $gnet_id)->first();
                     $gamenet->rate = $rate;
-                    if($gamenet->save()){
+                    if ($gamenet->save()) {
                         return true;
                     }
                 } else {
@@ -47,6 +48,34 @@ class HomeController extends Controller
             }
         } else {
             return 'برای امتیاز دادن به گیم نت لطفا وارد شوید';
+        }
+    }
+    public function addtofavourite(Request $request)
+    {
+        $user = Auth::user();
+        $user_id = $user->user_id;
+        $gnet_id = $request->input('gamenet_id');
+
+        $request->validate([
+            'gamenet_id' => 'required'
+        ]);
+        if (validator()) {
+            if ($user != null) {
+                $gamenet = Gamenet::where('gamenet_id', $gnet_id)->first();
+                if ($user != null && $gamenet != null) {
+                    $favourite = favourite::where([['user_id', $user_id], ['gnet_id', $gnet_id]])->first();
+                    if ($favourite == null) {
+                        $fav = new favourite();
+                        $fav->user_id = $user_id;
+                        $fav->gnet_id = $gnet_id;
+                        if ($fav->save()) {
+                            return true;
+                        }
+                    }else{
+                        $favourite->delete();
+                    }
+                }
+            }
         }
     }
 }

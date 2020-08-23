@@ -134,7 +134,7 @@ $('.stars').starRating({
 });
 
 $('.stars').each(function(index) {
-    let this_star = $(this).attr('rate');
+    let this_star = $(this).attr('data-rate');
     $(this).starRating('setRating', this_star);
 });
 

@@ -1,6 +1,6 @@
 @extends('formsmaster')
 @section('form')
-<form class="login-form register" action="{{ route('register') }}" method="POST">
+<form class="login-form register" action="{{ route('forget.password') }}" method="POST">
   <h1 class="text-white text-center">برای بازیابی رمز عبور خود شماره موبایل را وارد کنید</h1>
   @csrf
   <div class="my-4 login-input">

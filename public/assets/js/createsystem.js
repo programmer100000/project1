@@ -61,7 +61,7 @@ $(document).ready(function() {
                 Swal.fire('با موفقیت ثبت شد');
                 refresh_tbl_livelogs();
             },
-            error:function (data) {
+            error: function(data) {
                 Swal.fire('خطا');
             }
         });
@@ -79,7 +79,7 @@ $(document).ready(function() {
             success: function(data) {
                 Swal.fire('با موفقیت ثبت شد');
                 refresh_tbl_buffets();
-                
+
             },
             error: function(data) {
                 Swal.fire('خطا', data.responseJSON.message, 'error');
@@ -100,7 +100,7 @@ $(document).ready(function() {
             success: function(data) {
                 Swal.fire('با موفقیت ثبت شد');
                 refresh_tbl_games();
-                
+
             },
             error: function(data) {
                 Swal.fire('خطا', data.responseJSON.message, 'error');
@@ -151,12 +151,13 @@ $(document).ready(function() {
             }
         });
     });
+
     function refresh_tbl_livelogs() {
         $.ajax({
             type: "POST",
             url: livelogurlajax,
             data: {}, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 $('#tbllivelogs tbody').empty();
                 var i = 1;
                 data = JSON.parse(data);
@@ -198,7 +199,7 @@ $(document).ready(function() {
                     </tr>`);
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) {
                 Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
             }
         });
@@ -209,7 +210,7 @@ $(document).ready(function() {
             type: "POST",
             url: json_system,
             data: {}, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 $('#tbl-createsystems tbody').empty();
                 var i = 1;
                 data = JSON.parse(data);
@@ -240,7 +241,7 @@ $(document).ready(function() {
                     </tr>`);
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) {
                 Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
             }
         });
@@ -251,7 +252,7 @@ $(document).ready(function() {
             type: "POST",
             url: url_device_live,
             data: {}, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 $('#tbl-devices tbody').empty();
                 var i = 1;
                 data = JSON.parse(data);
@@ -277,18 +278,18 @@ $(document).ready(function() {
                     </tr>`);
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) {
                 Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
             }
         });
     }
 
-function refresh_tbl_games() {
+    function refresh_tbl_games() {
         $.ajax({
             type: "POST",
             url: url_game_live,
             data: {}, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 $('#tbl-games tbody').empty();
                 var i = 1;
                 data = JSON.parse(data);
@@ -310,7 +311,7 @@ function refresh_tbl_games() {
                     </tr>`);
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) {
                 Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
             }
         });
@@ -321,7 +322,7 @@ function refresh_tbl_games() {
             type: "POST",
             url: possibility_url,
             data: {}, // serializes the form's elements.
-            success: function (data) {
+            success: function(data) {
                 $('#tbl_possibility tbody').empty();
                 var i = 1;
                 data = JSON.parse(data);
@@ -343,7 +344,7 @@ function refresh_tbl_games() {
                     </tr>`);
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) {
                 Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
             }
         });
@@ -351,21 +352,21 @@ function refresh_tbl_games() {
 
 
 
-  
+
 
     function refresh_tbl_buffets() {
-            $.ajax({
-                type: "POST",
-                url: jsonbuffet,
-                data: {}, // serializes the form's elements.
-                success: function(data) {
-                    $('#tbl_buffets tbody').empty();
-                    var i = 1;
-                    data = JSON.parse(data);
-                    for (let index = 0; index < data.length; index++) {
-                        i = index + 1;
-                        let element = data[index];
-                        $('#tbl_buffets tbody').append(`<tr>
+        $.ajax({
+            type: "POST",
+            url: jsonbuffet,
+            data: {}, // serializes the form's elements.
+            success: function(data) {
+                $('#tbl_buffets tbody').empty();
+                var i = 1;
+                data = JSON.parse(data);
+                for (let index = 0; index < data.length; index++) {
+                    i = index + 1;
+                    let element = data[index];
+                    $('#tbl_buffets tbody').append(`<tr>
                         <td>
                             ${i}
                         </td>
@@ -387,12 +388,12 @@ function refresh_tbl_games() {
                             <button data-id="${ element.device_type_id }" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                         </td>
                     </tr>`);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
                 }
-            });
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                Swal.fire('خطا', 'خطایی پیش امده لطفا دوباره امتحان کنید', 'error');
+            }
+        });
     }
 
     $("#btnformpossibility").click(function(e) {
@@ -478,19 +479,19 @@ function refresh_tbl_games() {
 
 
     });
-    $(document).on('click' , '.edit-buffet' , function(){
-       let that = $(this);
-       let data_id = that.attr('data-id');
+    $(document).on('click', '.edit-buffet', function() {
+        let that = $(this);
+        let data_id = that.attr('data-id');
         let url = buffetlivename;
 
-       $("#buffet_edit_id").val(data_id);
+        $("#buffet_edit_id").val(data_id);
         $.ajax({
-            type : "POST",
-            url : url,
-            data:{
-                id : data_id
+            type: "POST",
+            url: url,
+            data: {
+                id: data_id
             },
-            success: function (data) {
+            success: function(data) {
                 $('#buffetnameedit').val(data.buffet_name);
                 $('#buffetcountedit').val(data.count);
                 $('#modal-system-price').val(data.buffet_price);
@@ -498,11 +499,12 @@ function refresh_tbl_games() {
             }
         })
     });
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 $('#image_show').attr('src', e.target.result);
             }
 
@@ -510,7 +512,7 @@ function refresh_tbl_games() {
         }
     }
 
-    $("#lottery_image").change(function(){
+    $("#lottery_image").change(function() {
         readURL(this);
     });
     $(document).on('click', '.remove-user-lottery', function() {
@@ -667,7 +669,7 @@ function refresh_tbl_games() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                Swal.fire('ثبت' , 'با موفقیت ثبت شد');
+                Swal.fire('ثبت', 'با موفقیت ثبت شد');
                 refresh_tbl_createsystems();
                 refresh_tbl_games();
                 refresh_tbl_buffets();
@@ -686,7 +688,7 @@ function refresh_tbl_games() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                Swal.fire('ثبت' , 'با موفقیت ثبت شد');
+                Swal.fire('ثبت', 'با موفقیت ثبت شد');
                 refresh_tbl_devices();
             }
         });
@@ -703,7 +705,7 @@ function refresh_tbl_games() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                Swal.fire('ثبت' , 'با موفقیت ثبت شد');
+                Swal.fire('ثبت', 'با موفقیت ثبت شد');
                 refresh_tbl_possibility();
             }
         });
@@ -720,7 +722,7 @@ function refresh_tbl_games() {
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                Swal.fire( 'ثبت' , 'با موفقیت ثبت شد ');
+                Swal.fire('ثبت', 'با موفقیت ثبت شد ');
                 refresh_tbl_livelogs();
             }
         });

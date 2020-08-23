@@ -61,9 +61,11 @@ function getCities(ostanID) {
         }
     }
 };
-$(document).on('click', '.Provinces .province', function() {
+$(document).on('click', '.Provinces .province', function(e) {
+
     let that = $(this);
     let data_id = that.find('.name').attr("data-id");
+
     getCities(data_id);
 
 });

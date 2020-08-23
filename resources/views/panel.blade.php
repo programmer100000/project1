@@ -27,7 +27,7 @@
     </div>
     <div class="row w-100 p-0 m-0  justify-content-center ">
         <div class="col-md-6 col-8 welcome-text  ">
-            <p class="text-center text-white m-0 p-2">کاربر گرامی خوش آمدید.</p>
+            <p class="text-center text-white m-0 p-2">{{ Auth::user()->username }} گرامی خوش آمدید .</p>
         </div>
     </div>
     <div class="row w-100 mx-0  p-0 justify-content-center gamenet-row user-panel-row">
@@ -38,7 +38,7 @@
                     <div class="list-group user-panel-list-tab w-100 text-right " id="list-tab" role="tablist">
                         <a class="list-group-item list-group-item-action user-panel-list-item text-white active" id="list-profile-list" data-toggle="list" href="#user-fav" role="tab" aria-controls="profile">علاقه مندی ها</a>
                         <a class="list-group-item list-group-item-action user-panel-list-item text-white" id="list-home-list" data-toggle="list" href="#user-info" role="tab" aria-controls="home">اطلاعات</a>
-                        <a class="list-group-item list-group-item-action user-panel-list-item text-white" id="list-profile-list" data-toggle="list" href="#user-fav" role="tab" aria-controls="profile">خروج</a>
+                    <a class="list-group-item list-group-item-action user-panel-list-item text-white" id="list-profile-list" data-toggle="list" href="{{ route('logout') }}" role="tab" aria-controls="profile">خروج</a>
                     </div>
 
                 </div>
@@ -51,10 +51,10 @@
 
                                     <div class=' form-group col-md-6 col-sm-12 text-right text-white'>
                                         <label>نام </label>
-                                        <input type='text' class='form-control text-white' placeholder='مهراب' />
+                                    <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->fname }}' />
                                     </div>
                                     <div class=' form-group col-md-6 col-sm-12 text-right text-white'>
-                                        <label>نام خانوادگی </label>
+                                        <label>{{ Auth::user()->lname }}</label>
                                         <input type='text' class='form-control text-white' placeholder='کرد بچه' />
                                     </div>
 
@@ -63,18 +63,18 @@
                                 <div class='row'>
                                     <div class=' form-group col-md-6 col-sm-12 text-right text-white '>
                                         <label>نام کاربری</label>
-                                        <input type='text' class='form-control text-white' placeholder='مهراب' />
+                                        <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->username }}' />
                                     </div>
 
                                     <div class='form-group col-md-6 col-sm-12 text-right text-white'>
                                         <label>ایمیل</label>
-                                        <input type='text' class='form-control text-white' placeholder='test@gmail.com' />
+                                        <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->email }}' />
                                     </div>
                                 </div>
                                 <div class='row'>
                                     <div class=' form-group col-lg-9 col-md-8 text-right text-white '>
                                         <label>شماره موبایل</label>
-                                        <input type='text' class='form-control text-white' placeholder='09128882345' readonly />
+                                        <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->mobile }}' readonly />
                                     </div>
                                     <div class=' form-group text-center col-lg-3 col-md-4 submit-button mb-0 '>
                                         <button type='submit' class=' edite-button'>
@@ -88,42 +88,43 @@
                         </div>
                         <div class="tab-pane fade show active" id="user-fav" role="tabpanel" aria-labelledby="list-profile-list">
                             <div class="row">
+                                @foreach ($fav as $f)
                                 <div class="col-md-6 col-sm-12 mb-4  text-center" dir="rtl">
 
-                                    <a href="/gamenet/1/دستگاه گارانتی شده">
-                                    </a>
-                                    <div class="user-panel-card p-2 d-flex align-items-center">
-                                        <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img w-25">
-                                            <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top ">
+                                    <a href="/gamenet/{{$f->gamenet_id}}/{{$f->title }}">
                                         </a>
-                                        <div class="user-panel-card-body p-2 d-flex justify-content-between align-items-center text-white w-75">
-                                            <a href="/gamenet/1/دستگاه گارانتی شده ">
-                                                <h5 class="card-title m-0 text-white">دستگاه گارانتی شده</h5>
-
+                                        <div class="user-panel-card p-2 d-flex align-items-center">
+                                            <a href="/gamenet/{{$f->gamenet_id}}/{{$f->title }}" class="card-img w-25">
+                                            <img src="{{ asset($f->gamenet_image) }}" alt="" class="card-img-top ">
                                             </a>
-                                            <a href="" class="btn btn-outline-info  float-left btn-sm bookmark"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
-
+                                            <div class="user-panel-card-body p-2 d-flex justify-content-between align-items-center text-white w-75">
+                                                <a href="/gamenet/{{$f->gamenet_id}}/{{$f->title }}">
+                                                    <h5 class="card-title m-0 text-white">دستگاه گارانتی شده</h5>
+    
+                                                </a>
+                                                @if (Auth::check())
+                                                @php
+                                                $user = Auth::user();
+                                                $fav = App\favourite::where([['user_id' , $user->user_id] , ['gnet_id' , $f->gamenet_id]])->first();
+                                            @endphp
+                                                
+                                            @if ($fav == null)
+                                            <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                            data-url = {{ route('add.favourite')}} data-gnet-id = {{ $f->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
+                                            @else
+                                            <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                             data-url = {{ route('add.favourite')}} data-gnet-id = {{ $f->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال شده</button>
+                                            @endif
+                                            @else
+                                            <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                            data-url = {{ route('add.favourite')}} data-gnet-id = {{ $f->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
+                                                @endif
+    
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12 mb-4  text-center" dir="rtl">
-
-                                    <a href="/gamenet/1/دستگاه گارانتی شده">
-                                    </a>
-                                    <div class="user-panel-card p-2 d-flex align-items-center">
-                                        <a href="/gamenet/1/دستگاه گارانتی شده " class="card-img w-25">
-                                            <img src="http://localhost:8000/ui/img/test1.jpg" alt="" class="card-img-top ">
-                                        </a>
-                                        <div class="user-panel-card-body p-2 d-flex justify-content-between align-items-center text-white w-75">
-                                            <a href="/gamenet/1/دستگاه گارانتی شده ">
-                                                <h5 class="card-title m-0 text-white">دستگاه گارانتی شده</h5>
-
-                                            </a>
-                                            <a href="" class="btn btn-outline-info  float-left btn-sm bookmark"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+ 
                             </div>
 
                         </div>
@@ -193,6 +194,7 @@
 </script>
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('ui/js/myjquery.js') }}" defer></script>
+<script src="{{ asset('/newui/js/newui.js') }}" defer></script>
 <script src="{{ asset('js/main.js')}}">
 </script>
 

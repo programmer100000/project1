@@ -41,3 +41,26 @@ $(document).ready(function() {
 // $(".reply-comment-button").click(function() {
 //     $(".reply-comment-form").toggleClass("show-reply-comment-form");
 // });
+$(document).on('click', '.favourite-button', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    let that = $(this);
+    let csrf = that.attr('data-csrf');
+    let gnet_id = that.attr('data-gnet-id');
+    let url = that.attr('data-url');
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {
+            _token: csrf,
+            gamenet_id: gnet_id
+        }, // serializes the form's elements.
+        success: function(data) {
+            if (that.text() == 'دنبال کردن') {
+                that.text('دنبال شده');
+            } else {
+                that.text('دنبال کردن');
+            }
+        }
+    });
+});

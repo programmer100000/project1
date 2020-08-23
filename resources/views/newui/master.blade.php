@@ -27,7 +27,7 @@
                 <div class="mobile-header-btns ">
                     <div class="d-flex">
 
-                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                      <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
                                     <g id="place" transform="translate(-48.886)">
@@ -73,9 +73,12 @@
                     </ul>
                 </div>
                 <div class="header-btns">
-                    <div class="d-flex">
+                    <div class="d-flex dropdown">
                         <!-- <a href="#" id="mytooltip" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true">Hover</a> -->
-                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" data-toggle="modal" data-target="#exampleModalCenter">
+                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <div class="dropdown-menu ">
+                            <div class="Provinces"></div>
+                          </div>
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
                                     <g id="place" transform="translate(-48.886)">
@@ -287,30 +290,15 @@
 
         </footer>
     </div>
+    <script>
+        var urlprovinces = '{{ asset('js/Provinces.json') }}';
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/ui.js')}}" defer></script>
 
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
 
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content p-4">
-                <div class="modal-header justify-content-between align-items-center">
-                    <span>
-              انتخاب شهر
-            </span>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-                </div>
-                <div class="modal-body Provinces">
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <script>
         // $(document).ready(function() {

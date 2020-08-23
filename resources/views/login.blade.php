@@ -77,7 +77,7 @@
         <p class="forget-text text-right">
             فراموشی رمز عبور
         </p>
-    </a>
+    </a>  
 </form>  
     @endsection
     @section('button')

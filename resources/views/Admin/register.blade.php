@@ -155,6 +155,28 @@
     <script src="{{ asset('assets/js/adminpanel.js')}}" defer></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }} "></script>
+    <script>
+        var hash = location.hash;
+        console.log(hash);
+        switch (hash) {
+            case '#plan1':
+                document.getElementById('modal-system-typs').value = 1;
+                break;
+                case '#plan2':
+                document.getElementById('modal-system-typs').value = 2;
+                break;
+                case '#plan3':
+                document.getElementById('modal-system-typs').value = 3;
+                break;
+                case '#plan4':
+                document.getElementById('modal-system-typs').value = 4;
+                break;
+        
+            default:
+            document.getElementById('modal-system-typs').value = 1;
+                break;
+        }
+    </script>
 </body>
 @endsection
 
