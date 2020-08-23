@@ -4,30 +4,30 @@
     <div class="row w-100 m-0 p-0 slider-secttion gamenets-slider-section">
         <div class="inner-slider gamenets-inner-slider col d-flex justify-content-center align-items-center ">
             <div class="row w-100 p-0 m-0 justify-content-center">
-                <div class="col-md-6 g-header-text">
+                <div class="col-md-7 g-header-text">
                     حرفه ای بازی کن !
                 </div>
             </div>
   
         </div>
         <div class="row w-100 m-0 plan-header test-svg">
-            <div class="col-4 gamenets-header inner-plan-header mx-auto p-0 ">
-                <select name="" id="" class="form-control select-gamenets">
+            <div class="col-4 gamenets-header  mx-auto p-0 ">
+                <select name="" id="" class="form-control select-gamenets mt-md-4">
                     <option value="">تست</option>
                     <option value="">تست</option>
                     <option value="">تست</option>
                 </select>
             </div>
-            <div class="col-4 gamenets-header tarefe-gamenets-header inner-plan-header mx-auto p-0  ">
+            <div class="col-4 gamenets-header tarefe-gamenets-header  mx-auto p-0  ">
                 <div class="title text-center">
                     <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
                 </div>
             </div>
-            <div class="col-4 gamenets-header tarefe-gamenets-header-list inner-plan-header d-flex justify-content-center p-0 ">
-              <div class="tarefe-gamenets-header-list-img  mx-2">
+            <div class="col-4 gamenets-header tarefe-gamenets-header-list r d-flex justify-content-center p-0 pt-md-2 ">
+              <div class="tarefe-gamenets-header-list-img mx-sm-1 mx-md-2">
               <img src="{{ asset('newui/img/menu.svg') }}" alt="" width="60" height="60" class="" >
               </div>
-              <div class="tarefe-gamenets-header-list-img mx-2">
+              <div class="tarefe-gamenets-header-list-img mx-1 mx-md-2">
               <img src="{{ asset('newui/img/menubar.svg') }}" alt="" width="60" height="60" class="">
               </div>
             </div>
@@ -128,7 +128,7 @@
 
 <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
   <div class="title text-center d-block text-white gamenets-footer-title">
-      <span class="d-block">اینجا برای شماست </span>
+      <span class="d-block py-1">اینجا برای شماست </span>
   <a href="{{ route('register') }}"><button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
         ثبت نام
     </button>
