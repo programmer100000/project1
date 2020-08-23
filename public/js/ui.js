@@ -7,7 +7,7 @@ $(document).ready(function() {
             jsonprovices = data.states;
             for (let i = 0; i < jsonprovices.length; i++) {
                 let state = jsonprovices[i];
-                $('.Provinces').append(`<div class="row text-right p-1 province">
+                $('.Provinces').append(`<div class="row text-right m-0 p-1 province">
                 <div class="col-11 m-0 p-0 name" data-id="${state.id}">
                   <span>${state.title}</span>
                 </div>
@@ -24,7 +24,7 @@ function getprovinces() {
     $('.Provinces').empty();
     for (let i = 0; i < jsonprovices.length; i++) {
         let state = jsonprovices[i];
-        $('.Provinces').append(`<div class="row text-right p-1 province">
+        $('.Provinces').append(`<div class="row text-right m-0 p-1 province">
         <div class="col-11 m-0 p-0 name" data-id="${state.id}">
           <span>${state.title}</span>
         </div>
@@ -37,7 +37,7 @@ function getprovinces() {
 
 function getCities(ostanID) {
     $('.Provinces').empty();
-    $('.Provinces').append(`<div class="row text-right p-1 back">
+    $('.Provinces').append(`<div class="row text-right m-0 p-1 back">
     <div class="col-11 m-0 p-0 text-right name">
       <span>  بازگشت به استان ها</span>
     </div>
@@ -50,7 +50,7 @@ function getCities(ostanID) {
         if (state.id == ostanID) {
             for (let j = 0; j < state.cities.length; j++) {
                 let city = state.cities[j];
-                $('.Provinces').append(`<div class="row text-right p-2">
+                $('.Provinces').append(`<div class="row text-right m-0 p-2">
                 <div class="col-md-10 m-0 p-0 name" data-id="${city.id}">
                   <span>${city.title}</span>
                 </div>
@@ -62,13 +62,21 @@ function getCities(ostanID) {
     }
 };
 $(document).on('click', '.Provinces .province', function(e) {
-
+    e.stopPropagation();
+    e.preventDefault();
+    document.getElementsByClassName('Provinces')[0].scrollTo(0, 0);
     let that = $(this);
     let data_id = that.find('.name').attr("data-id");
 
     getCities(data_id);
 
 });
-$(document).on('click', '.Provinces .back', function() {
+$(document).on('click', '.Provinces .back', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
     getprovinces();
 });
+$('#provinces-dropdown').on('hide.bs.dropdown', function(e) {
+    document.getElementsByClassName('Provinces')[0].scrollTo(0, 0);
+    getprovinces();
+})

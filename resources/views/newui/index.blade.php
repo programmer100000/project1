@@ -174,7 +174,7 @@
                             </div>
                             <div class="row m-0 p-0 justify-content-center">
 
-                                <a type="button" class=" plan-btn almas" href="#">خرید</a>
+                                <a type="button" class=" plan-btn almas" href="{{ route('admin.register') }}/#plan2">خرید</a>
 
                             </div>
 
@@ -278,7 +278,7 @@
                             </div>
                             <div class="row m-0 p-0 justify-content-center">
 
-                                <a type="button" class=" plan-btn kahkeshan" href="#">خرید</a>
+                                <a type="button" class=" plan-btn kahkeshan" href="{{ route('admin.register') }}/#plan3">خرید</a>
 
                             </div>
                         </div>

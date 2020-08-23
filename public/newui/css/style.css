@@ -440,7 +440,7 @@ footer {
 }
 
 .title-img {
-    width: 20%!important;
+    width: 66%!important;
 }
 
 .mazaya-back {
@@ -1396,6 +1396,16 @@ footer {
     .user-panel-inner-slider {
         height: 160px!important;
     }
+}
+
+.Provinces {
+    width: 500px;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.provinces {
+    margin: 0;
 }
 
 

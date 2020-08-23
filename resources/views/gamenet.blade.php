@@ -33,7 +33,7 @@
             <div class="row w-100 m-0  p-2 gamenet-info justify-content-center align-items-center">
 
                 <div class="col-lg-3  p-4  gamenet-item my-4 mx-4 d-flex flex-column align-items-center justify-content-center  ">
-                    <h1 class="text-white text-right mb-4 align-self-start">گیمنت آرشام</h1>
+                <h1 class="text-white text-right mb-4 align-self-start">{{ $gamenet->title }}</h1>
                     <div class="mb-3 d-flex text-right align-self-start">
                         <span class="text-white">امتیاز: </span>
 
@@ -57,7 +57,7 @@
                           </svg>
                           
                       </span>
-                        <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.  
+                        <span class="text-white text-justify">{{$gamenet->address}}<br />{{ $gamenet->description }}
                             </span>
                     </div>
                     <div class="d-flex w-100 mb-4 text-right ">
@@ -93,7 +93,7 @@
                           </svg>
                           
                     </span>
-                        <span class="text-white text-justify">09129878987  
+                        <span class="text-white text-justify">{{ $gamenet->tel }}  
                           </span>
                     </div>
                     <div class="row justify-content-center">
@@ -104,18 +104,15 @@
                       <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
                        data-url = {{ route('add.favourite')}} data-gnet-id = {{ $gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال شده</button>
                       @endif
-                        <button type="button" class="btn btn-primary main-form-btn px-4">مسیریابی</button>
+                    <a   class="btn btn-primary main-form-btn px-4 text-white" onclick="myNavFunc()">مسیریابی</a>
                     </div>
                 </div>
                 <div class="col-lg-8  gamenet-item gamenet-slider   my-4 mx-4 p-0 ">
 
                     <div id="owl-demo" class="owl-carousel owl-theme p-4">
-
-
-                        <div class="item"><img src="{{ asset('newui/img/gamenet-img.png') }}" alt=""></div>
-                        <div class="item"><img src="{{ asset('newui/img/gamenet-img.png') }}" alt=""></div>
-                        <div class="item"><img src="{{ asset('newui/img/gamenet-img.png') }}" alt=""></div>
-
+                        @foreach ($gamenet_images as $gi)
+                        <div class="item"><img src="{{ asset($gi->gamenet_image) }}" alt=""></div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -169,27 +166,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
-                    <div class="row w-100 p-3 m-0">
-
-                        <div class="col-md-2 col-lg-1 comments-img d-flex  align-items-center ">
-                            <img src="{{ asset('newui/img/images.jpg') }}" alt="">
-                            <div class=" p-2 mobile-gamenet-comments-name">
-                                <p class="text-right text-white ">مریم سلیمی</p>
-                            </div>
-                        </div>
-                        <div class="col-md-10 col-lg-11 inner-gamenet-comments">
-                            <div class="row p-2 gamenet-comments-name">
-                                <p class="text-right text-white ">مریم سلیمی</p>
-                            </div>
-                            <div class="row p-2">
-                                <p class="text-right text-white">
-                                    به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-11 my-4  gamenet-heading ">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
                   <defs>
@@ -217,10 +193,16 @@
                     <div class="row w-100 p-0 m-0 justify-content-center">
                         <div class="col-11">
                             <form class="main-contact-form">
-                                <input type="text" class="form-control mb-4 text-white" id="email" placeholder="ایمیل/نام کاربری" name="email">
-                                <textarea class="form-control mb-4" rows="5" id="comment" placeholder="متن مورد نظر"></textarea>
+                              @if ($errors->any())
+                                  <div class="alert alert-danger">
+                                          @foreach ($errors->all() as $error)
+                                              <p class="text-danger">{{ $error }}</p>
+                                          @endforeach
+                                  </div>
+                              @endif
+                                <textarea class="form-control mb-4 text-white" rows="5" id="comment" placeholder="متن مورد نظر" name="comment"></textarea>
                                 <div class="row justify-content-center">
-                                    <button type="button" class="btn btn-primary main-form-btn px-5">ارسال</button>
+                                    <button type="submit" class="btn btn-primary main-form-btn px-5">ارسال</button>
                                 </div>
                             </form>
                         </div>
@@ -291,12 +273,19 @@
 </script>
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('ui/js/myjquery.js') }}" defer></script>
-<script src="{{ asset('js/main.js')}}">
-</script>
 <script src="{{ asset('/newui/js/newui.js') }}" defer></script>
 <script src="{{ asset('newui/js/jquery.min.js')}}"></script>
 <script src="{{ asset('newui/js/owl.carousel.min.js')}}"></script>
 <script>
+  var locationPicker = new locationPicker('map', {
+    setCurrentPosition: true,
+    lat: '{{ $gamenet->lat }}',
+    lng: '{{ $gamenet->long }}'
+
+    // You can omit this, defaults to true
+}, {
+    zoom: 15 // You can set any google map options here, zoom defaults to 15
+});
     $(document).ready(function() {
 
         $("#owl-demo").owlCarousel({
@@ -322,6 +311,19 @@
         });
 
     });
+    function myNavFunc(){
+    // If it's an iPhone..
+    if( (navigator.platform.indexOf("iPhone") != -1) 
+        || (navigator.platform.indexOf("iPod") != -1)
+        || (navigator.platform.indexOf("iPad") != -1))
+        window.open("maps://www.google.com/maps/dir/?api=1&travelmode=driving&layer=traffic&destination={{ $gamenet->lat }},{{ $gamenet->long }}");
+    else if(navigator.platform.indexOf("android")){
+      window.open("geo:{{ $gamenet->lat }} , {{ $gamenet->long }}");
+    }else{
+      window.open("https://www.google.com/maps/@{{ $gamenet->lat }},{{ $gamenet->long }},4z")
+    }
+      
+}
 </script>
 
 @endsection

@@ -73,12 +73,10 @@
                     </ul>
                 </div>
                 <div class="header-btns">
-                    <div class="d-flex dropdown">
+                    <div class="d-flex dropdown" id="provinces-dropdown">
                         <!-- <a href="#" id="mytooltip" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true">Hover</a> -->
                         <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <div class="dropdown-menu ">
-                            <div class="Provinces"></div>
-                          </div>
+
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
                                     <g id="place" transform="translate(-48.886)">
@@ -109,6 +107,9 @@
                         
                       </span>
                     </button>
+                    <div class="dropdown-menu  Provinces">
+                            
+                    </div>
 
 
 

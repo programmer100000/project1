@@ -12,6 +12,7 @@ use App\GamenetBk;
 use App\GamenetPic;
 use App\GamenetTemp;
 use App\Rate;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -231,7 +232,11 @@ Route::get('/gamenet/{gamenet_id}/{gamenet_name}', function ($gamenet_id , $game
         $s = 0;
     }
     $f = '' ;
-    $fav = favourite::where([['user_id' , $user->user_id] , ['gnet_id' , $gamenet->gamenet_id]])->first();
+    if(Auth::check()){
+        $fav = favourite::where([['user_id' , $user->user_id] , ['gnet_id' , $gamenet->gamenet_id]])->first();
+    }else{
+        $fav = null;
+    }
     if($fav == null){
         $f = 'false';
     } else{
@@ -258,7 +263,7 @@ Route::get('/user/panel', function () {
         return redirect()->route('login');
     }
     
-});
+})->name('user.panel');
 Route::get('/intro', function () {
     return view('intropanel');
 })->name('intro');
@@ -271,3 +276,11 @@ Route::get('/pay', function () {
 
 // new
 Route::post('/newlogin', 'LoginController@login')->name('newlogin');
+Route::post('/edit/user/info' , 'UserController@editprofile')->name('edit.user.profile');
+Route::post('/add/comment' , function(Request $request){
+    if(Auth::check()){
+        $message = $request->
+    }else{
+        return  redirect()->back()->withErrors(['msg' , 'برای ارسال کامنت باید وارد سایت شوید']);
+    }
+})->name('add.comment');

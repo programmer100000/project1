@@ -38,7 +38,7 @@
                     <div class="list-group user-panel-list-tab w-100 text-right " id="list-tab" role="tablist">
                         <a class="list-group-item list-group-item-action user-panel-list-item text-white active" id="list-profile-list" data-toggle="list" href="#user-fav" role="tab" aria-controls="profile">علاقه مندی ها</a>
                         <a class="list-group-item list-group-item-action user-panel-list-item text-white" id="list-home-list" data-toggle="list" href="#user-info" role="tab" aria-controls="home">اطلاعات</a>
-                    <a class="list-group-item list-group-item-action user-panel-list-item text-white" id="list-profile-list" data-toggle="list" href="{{ route('logout') }}" role="tab" aria-controls="profile">خروج</a>
+                    <a class="list-group-item list-group-item-action user-panel-list-item text-white"  href="{{ route('logout') }}">خروج</a>
                     </div>
 
                 </div>
@@ -46,16 +46,17 @@
                     <div class="tab-content user-panel-tab-content pt-0" id="nav-tabContent">
                         <div class="tab-pane fade " id="user-info" role="tabpanel" aria-labelledby="list-home-list">
 
-                            <form class="user-panel-form">
+                        <form class="user-panel-form" action="{{ route('edit.user.profile') }}" method="POST">
+                            @csrf
                                 <div class='row'>
 
                                     <div class=' form-group col-md-6 col-sm-12 text-right text-white'>
                                         <label>نام </label>
-                                    <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->fname }}' />
+                                    <input type='text' class='form-control text-white' value='{{ Auth::user()->fname }}' onfocus="this.value=''" name="fname" />
                                     </div>
                                     <div class=' form-group col-md-6 col-sm-12 text-right text-white'>
-                                        <label>{{ Auth::user()->lname }}</label>
-                                        <input type='text' class='form-control text-white' placeholder='کرد بچه' />
+                                        <label>نام خانوادگی</label>
+                                        <input type='text' class='form-control text-white' value='{{ Auth::user()->lname }}' onfocus="this.value=''" name="lname" />
                                     </div>
 
                                 </div>
@@ -63,18 +64,18 @@
                                 <div class='row'>
                                     <div class=' form-group col-md-6 col-sm-12 text-right text-white '>
                                         <label>نام کاربری</label>
-                                        <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->username }}' />
+                                        <input type='text' class='form-control text-white' value='{{ Auth::user()->username }}' onfocus="this.value=''" name="username"/>
                                     </div>
 
                                     <div class='form-group col-md-6 col-sm-12 text-right text-white'>
                                         <label>ایمیل</label>
-                                        <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->email }}' />
+                                        <input type='text' class='form-control text-white' value='{{ Auth::user()->email }}' onfocus="this.value=''" name="email"/>
                                     </div>
                                 </div>
                                 <div class='row'>
                                     <div class=' form-group col-lg-9 col-md-8 text-right text-white '>
                                         <label>شماره موبایل</label>
-                                        <input type='text' class='form-control text-white' placeholder='{{ Auth::user()->mobile }}' readonly />
+                                        <input type='text' class='form-control text-white' value='{{ Auth::user()->mobile }}' readonly name="mobile"/>
                                     </div>
                                     <div class=' form-group text-center col-lg-3 col-md-4 submit-button mb-0 '>
                                         <button type='submit' class=' edite-button'>
@@ -190,7 +191,7 @@
 </div>
 <!-- /.modal -->
 <script>
-    l
+   
 </script>
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('ui/js/myjquery.js') }}" defer></script>
