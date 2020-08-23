@@ -278,9 +278,9 @@ Route::get('/pay', function () {
 Route::post('/newlogin', 'LoginController@login')->name('newlogin');
 Route::post('/edit/user/info' , 'UserController@editprofile')->name('edit.user.profile');
 Route::post('/add/comment' , function(Request $request){
-    if(Auth::check()){
-        $message = $request->
-    }else{
-        return  redirect()->back()->withErrors(['msg' , 'برای ارسال کامنت باید وارد سایت شوید']);
-    }
+    // if(Auth::check()){
+    //     $message = $request->
+    // }else{
+    //     return  redirect()->back()->withErrors(['msg' , 'برای ارسال کامنت باید وارد سایت شوید']);
+    // }
 })->name('add.comment');

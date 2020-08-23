@@ -1,1412 +1,1416 @@
-@font-face {
-    font-family: 'IRANYekan';
-    src: url('../fonts/IRANYekanWeb.ttf') format('ttf'), url('../fonts/IRANYekanWeb.woff') format('woff'), url('../fonts/BYekan-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    direction: rtl;
-    font-family: IRANYekan!important;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    background: #2B1E59!important;
-}
-
-@media screen and (max-width: 768px) {
+        @font-face {
+        font-family: 'IRANYekan';
+        src: url('../fonts/IRANYekanWeb.ttf') format('ttf'), url('../fonts/IRANYekanWeb.woff') format('woff'), url('../fonts/BYekan-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
     body {
-        font-size: 14px !important;
+        direction: rtl;
+        font-family: IRANYekan!important;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        background: #2B1E59!important;
     }
-}
-
-header {
-    overflow: hidden;
-    padding: 0;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-a,
-a:hover,
-a:active,
-a:visited {
-    text-decoration: none!important;
-}
-
-*:focus {
-    outline: 0 !important;
-}
-
-h1 {
-    font-size: 1.2rem !important;
-}
-
-h2 {
-    font-size: 1.1rem !important;
-}
-
-h3 {
-    font-size: 1rem !important;
-}
-
-h4 {
-    font-size: 0.8rem !important;
-}
-
-.total-content {
-    /* background-color: #231553; */
-}
-
-.inner-plan-header {
-    top: 425px;
-    z-index: 99;
-}
-
-.gamenets-row {
-    margin: 25% auto !important;
-}
-
-.nazdiktarin {
-    border-bottom: 5px solid #1A0E46;
-    text-align: right;
-    color: #fff;
-    margin-bottom: 44px;
-    padding-bottom: 10px;
-    font-size: 2.5rem;
-}
-
-.gamenet-heading {
-    border-bottom: 5px solid #1A0E46;
-    text-align: right;
-    color: #fff;
-    margin-bottom: 44px;
-    padding-bottom: 10px;
-    font-size: 2.5rem;
-}
-
-.introduce-gamenets {
-    margin-top: 33%!important;
-}
-
-.plan-body {
-    /* padding-top: 10rem!important; */
-    padding: 3rem;
-    /* border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-radius: 50% 50% 0 0; */
-}
-
-.popular {
-    background-color: #34256a;
-    height: 300px;
-}
-
-.introduce {
-    height: 300px;
-    background-color: #34256a;
-}
-
-#mainNav {
-    background-color: #2c1e59!important;
-    box-shadow: 0px 0px 10px black;
-}
-
-.card {
-    background-color: #34256a!important;
-}
-
-.card-header i {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-left: 3px;
-}
-
-.searchbar {
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 60px;
-    background-color: #fff;
-    border-radius: 30px;
-    padding: 10px;
-}
-
-.search_input {
-    float: right;
-    width: 90%;
-    outline: 0;
-    background: none;
-    caret-color: transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
-}
-
-.searchbar:hover>.search_icon {
-    color: #e80767;
-    opacity: .8;
-}
-
-.search_icon a:hover,
-.search_icon a:active,
-.search_icon a:visited {
-    color: #fff!important;
-    background-color: #e80767!important;
-}
-
-.plan-header {
-    position: relative;
-    top: -406px;
-    height: 111px;
-}
-
-footer {
-    height: 700px;
-    margin: 0;
-    padding: 0;
-    background-image: url('../img/group.svg');
-    background-size: 100%;
-    /* background-attachment: fixed; */
-    background-position: bottom;
-    background-repeat: no-repeat;
-}
-
-.plan-header {
-    position: relative;
-    top: -406px;
-}
-
-.plan-header svg {
-    width: 100%;
-}
-
-.contact-secttion {
-    margin-bottom: 11rem!important;
-    background-image: url(../img/aboutus.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 800px;
-    padding: 1.5rem;
-}
-
-.plan-body {
-    padding-top: 15rem;
-}
-
-.inner-top-footer svg {
-    width: 100%;
-}
-
-.main-contact {
-    background-color: #34256a;
-}
-
-.main-contact-form .form-control {
-    outline: none!important;
-    background-color: transparent;
-}
-
-.captcha p {
-    background: #513c9c;
-    opacity: .8;
-    line-height: 3;
-}
-
-.main-contact-form .form-control:focus {
-    border-color: #CCC;
-    outline: none;
-    box-shadow: none;
-    background-color: transparent;
-}
-
- ::placeholder {
-    color: #ccc!important;
-    opacity: 1;
-}
-
-.main-form-btn {
-    border-radius: 1.25rem!important;
-    background-color: #e80767!important;
-    border-color: #e80767!important;
-}
-
-.main-form-btn .about {
-    background-color: #34256a;
-}
-
-.about {
-    margin: 1rem;
-}
-
-.about-body {
-    background-image: url(../img/Artboard.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    height: 700px;
-}
-
-.top-about,
-.bottom-about,
-.card,
-.main-contact,
-.popular,
-.popular-img {
-    border-radius: 1.3rem!important;
-}
-
-.plan {
-    padding-bottom: 2rem;
-    background-color: #34256a;
-    border-radius: 15px;
-    /* height: 630px; */
-}
-
-.g-header-text {
-    color: #fff;
-    margin-right: 0;
-    right: 0;
-    position: absolute!important;
-    text-align: center;
-    top: 24%;
-    font-size: 5rem;
-}
-
-.gamenets-footer-title {
-    font-size: 3rem;
-}
-
-
-/* 
-.plan .text-info-plan {
-    line-height: 2.5rem;
-    font-size: 1.5rem;
-} */
-
-.plan .icon svg {
-    width: 60%;
-}
-
-.plan svg {
-    width: 100%;
-    height: 100%;
-}
-
-.plan .header h3 {
-    font-size: 2.5rem!important;
-    width: 100%;
-    text-align: center;
-    top: 8%;
-    position: absolute;
-}
-
-.plan-body {
-    /* padding-top: 10rem!important; */
-    padding: 3rem;
-    /* border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-radius: 50% 50% 0 0; */
-}
-
-.plan-header-img {
-    width: 20%!important;
-}
-
-.faq-header h1 {
-    font-size: 2rem!important;
-}
-
-.plan .plan-btn {
-    width: 35%;
-    background-color: #34256A;
-    line-height: 2.5;
-    border-radius: 30px;
-    color: #fff;
-    border-color: transparent;
-    font-size: 1.4rem;
-    position: absolute;
-    bottom: -25px;
-}
-
-.plan .khorshid {
-    -webkit-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
-    -moz-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
-    box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
-}
-
-.plan .almas {
-    -webkit-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
-    -moz-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
-    box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
-}
-
-.plan .kahkeshan {
-    -webkit-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
-    -moz-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
-    box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
-}
-
-.popular {
-    background-color: #34256a;
-    height: 600px;
-}
-
-.popular-img {
-    background-image: url(../img/art.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.introduce {
-    height: 630px;
-    background-color: #34256a;
-    border-radius: 30px;
-}
-
-.introduce2-img {
-    background-image: url(../img/MaskGroup3.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.introduce1-img {
-    height: 300px;
-    background-image: url(../img/MaskGroup4.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.introduce1-data {
-    height: 250px;
-}
-
-#mainNav {
-    background-color: #2c1e59!important;
-}
-
-.card {
-    background-color: #34256a!important;
-}
-
-.searchbar {
-    height: 60px;
-    background-color: #fff;
-    border-radius: 30px;
-    padding: .5rem;
-}
-
-.search_icon {
-    height: 52px;
-    width: 10%;
-    float: right;
-    background: #e80767;
-    border-radius: 50%;
-    text-decoration: none;
-}
-
-.inner-slider {
-    margin-top: 50px;
-    background-image: url(../img/bg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1109px;
-}
-
-.inneer-slider {
-    background-image: url(../img/bgt.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1109px;
-}
-
-.inneeer-slider {
-    background-image: url(../img/G.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1109px;
-}
-
-.plan-header {
-    position: relative;
-    top: -406px;
-    height: 111px;
-}
-
-.title-img {
-    width: 66%!important;
-}
-
-.mazaya-back {
-    background: #34256A;
-    display: block;
-    border-radius: 30px;
-}
-
-.mazaya-back img {
-    display: block;
-    margin: 0 auto;
-    margin-top: 5%;
-    width: 100%;
-}
-
-.mazaya-back span {
-    display: block;
-    width: 60%;
-    color: #fff;
-    font-size: 1.4rem;
-    line-height: 2;
-    margin: 30px auto;
-}
-
-.back-game {
-    background: url('../img//bottomgamenets.svg');
-    background-size: cover;
-    height: 1000px;
-}
-
-.testsvg {
-    background: url('../img/backbig.png');
-    background-size: 100% 100%;
-    /* height: 1000px; */
-    margin-top: 4rem;
-}
-
-.mazaya-row {
-    margin-top: 7rem;
-    margin-bottom: 15rem;
-}
-
-.hadaf-row {
-    width: 100%;
-    margin-top: 15%;
-    flex-flow: column-reverse!important;
-}
-
-.gm-header-text {
-    position: absolute;
-    top: 202px;
-    margin-top: 50px!important;
-}
-
-.gmt-header-text {
-    color: #fff;
-    font-size: 3.5rem;
-}
-
-.hadafe-ma {
-    color: #fff;
-    font-size: 2rem;
-    white-space: nowrap;
-    margin-right: 5%;
-    line-height: 2;
-}
-
-footer {
-    height: 700px;
-    margin: 0;
-    padding: 0;
-    background-image: url('../img/Group313.png');
-    background-size: 100% 100%;
-    /* background-attachment: fixed; */
-    background-position: bottom;
-    background-repeat: no-repeat;
-}
-
-.plan-header {
-    position: relative;
-    top: -406px;
-}
-
-.plan .header img {
-    width: 100%;
-}
-
-.about-section {
-    background-image: url(../img/about.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 400px;
-}
-
-.plan-body {
-    padding-top: 15rem;
-}
-
-.top-footer {
-    position: relative;
-    bottom: 510px;
-    height: 185px;
-}
-
-.inner-plan-header {
-    top: 375px
-}
-
-.footer-call {
-    text-align: left;
-}
-
-.plan-item {
-    padding: 1rem;
-}
-
-.login-header-btn {
-    border-color: #e80767!important;
-    background-color: #e80767!important;
-    border-radius: 30px!important;
-}
-
-.provinces-header-btn,
-.login-page-register-btn {
-    color: #fff!important;
-    border-color: #e80767!important;
-    border-radius: 30px!important;
-}
-
-.provinces-header-btn:hover,
-.login-page-register-btn:hover {
-    background-color: #34256a!important;
-}
-
-.provinces-header-btn:hover,
-.provinces-header-btn:focus,
-.provinces-header-btn:active,
-.provinces-header-btn:visited,
-.logib-header-btn:hover,
-.login-header-btn:focus,
-.login-header-btn:active,
-.login-header-btn:visited,
-.login-page-register-btn,
-.main-form-btn {
-    outline: none!important;
-    box-shadow: none!important;
-}
-
-.Provinces {
-    cursor: pointer;
-    overflow-y: scroll;
-    height: 200px;
-    margin-left: 1.4rem;
-    border-top: 1px solid #9887bd;
-}
-
-.Provinces .back {
-    color: #5a44ab;
-    direction: ltr;
-    text-align: right;
-}
-
-.Provinces .icon {
-    font-size: 1.5rem;
-    color: #5a44ab!important;
-}
-
-.modal-header {
-    border-bottom: none!important;
-    padding: 1rem 0rem 1rem 1.1rem!important;
-}
-
-.close {
-    margin: 0!important;
-    padding: 0!important;
-    color: #5a44ab!important;
-}
-
-.modal-body {
-    border-top: 1px solid #9887bd!important;
-}
-
-.mobile-header-btns {
-    display: none;
-}
-
-.Provinces .row {
-    border-top: 1px solid #cbbee7!important;
-    margin-left: 1rem!important;
-}
-
-.Provinces .row:first-child {
-    border-top: none!important;
-}
-
-.province {
-    margin-left: 1rem!important;
-}
-
-@media screen and (max-width: 768px) {
-    .plan-header-img {
-        width: 30%!important;
+    
+    @media screen and (max-width: 768px) {
+        body {
+            font-size: 14px !important;
+        }
     }
-    .main-page-plan-header .inner-plan-header {
-        top: 385px!important;
-    }
-    .popular {
-        flex-direction: column-reverse;
-    }
-    .title-img {
-        width: 40%!important;
-    }
-    footer {
-        height: 450px!important;
-    }
-    .footer-call {
-        text-align: right!important;
-    }
-    .footer-call-icon svg {
-        height: 35px;
-    }
-    .footer-location-icon svg {
-        height: 35px;
-    }
-    .top-footer {
-        height: 69px!important;
-    }
-    .top-footer {
-        bottom: 466px!important;
-    }
-    .contact-secttion {
-        padding-bottom: 10rem!important;
-        margin: 0!important;
-    }
-    .popular-data {
-        height: 290px;
-    }
-    .popular-img {
-        height: 250px;
-    }
-    .introduce {
-        height: 650px!important;
-    }
-    .introduce1 {
-        flex-direction: column-reverse;
-    }
-    .introduce1-img {
-        height: 46%;
-    }
-    .introduce2-img {
-        height: 44%;
-        margin-bottom: .5rem;
-    }
-    .introduce1-data {
-        height: 50%;
-    }
-    .introduce2-data {
-        height: 52%;
-    }
-    .inner-slider {
-        height: 550px;
-    }
-    .searchbar {
-        height: 35px;
-    }
-    .search_icon {
-        height: 30px;
-        width: 15%;
-    }
-    .plan-body {
-        padding-top: 0;
+    
+    header {
+        overflow: hidden;
         padding: 0;
     }
-    .text-info-plan {
-        font-size: 1rem!important;
+    
+    ul {
+        margin: 0;
+        padding: 0;
     }
+    
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+        text-decoration: none!important;
+    }
+    
+    *:focus {
+        outline: 0 !important;
+    }
+    
+    h1 {
+        font-size: 1.2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.1rem !important;
+    }
+    
+    h3 {
+        font-size: 1rem !important;
+    }
+    
+    h4 {
+        font-size: 0.8rem !important;
+    }
+    
+    .total-content {
+        /* background-color: #231553; */
+    }
+    
+    .inner-plan-header {
+        top: 425px;
+        z-index: 99;
+    }
+    
+    .gamenets-row {
+        margin: 25% auto !important;
+        margin-top: 0!important;
+    }
+    
+    .nazdiktarin {
+        border-bottom: 5px solid #1A0E46;
+        text-align: right;
+        color: #fff;
+        margin-bottom: 44px;
+        padding-bottom: 10px;
+        font-size: 2.5rem;
+    }
+    
+    .gamenet-heading {
+        border-bottom: 5px solid #1A0E46;
+        text-align: right;
+        color: #fff;
+        margin-bottom: 44px;
+        padding-bottom: 10px;
+        font-size: 2.5rem;
+    }
+    
+    .introduce-gamenets {
+        margin-top: 33%!important;
+    }
+    
+    .plan-body {
+        /* padding-top: 10rem!important; */
+        padding: 3rem;
+        /* border-left: 50px solid transparent;
+border-right: 50px solid transparent;
+border-radius: 50% 50% 0 0; */
+    }
+    
+    .popular {
+        background-color: #34256a;
+        height: 300px;
+    }
+    
+    .introduce {
+        height: 300px;
+        background-color: #34256a;
+    }
+    
+    #mainNav {
+        background-color: #2c1e59!important;
+        box-shadow: 0px 0px 10px black;
+    }
+    
+    .card {
+        background-color: #34256a!important;
+    }
+    
+    .card-header i {
+        color: #fff;
+        font-size: 1.2rem;
+        margin-left: 3px;
+    }
+    
+    .searchbar {
+        margin-bottom: auto;
+        margin-top: auto;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 30px;
+        padding: 10px;
+    }
+    
+    .search_input {
+        float: right;
+        width: 90%;
+        outline: 0;
+        background: none;
+        caret-color: transparent;
+        line-height: 40px;
+        transition: width 0.4s linear;
+    }
+    
+    .searchbar:hover>.search_icon {
+        color: #e80767;
+        opacity: .8;
+    }
+    
+    .search_icon a:hover,
+    .search_icon a:active,
+    .search_icon a:visited {
+        color: #fff!important;
+        background-color: #e80767!important;
+    }
+    
+    .plan-header {
+        position: relative;
+        top: -406px;
+        height: 111px;
+    }
+    
+    footer {
+        height: 700px;
+        margin: 0;
+        padding: 0;
+        background-image: url('../img/group.svg');
+        background-size: 100%;
+        /* background-attachment: fixed; */
+        background-position: bottom;
+        background-repeat: no-repeat;
+    }
+    
+    .plan-header {
+        position: relative;
+        top: -406px;
+    }
+    
+    .plan-header svg {
+        width: 100%;
+    }
+    
+    .contact-secttion {
+        margin-bottom: 11rem!important;
+        background-image: url(../img/aboutus.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 800px;
+        padding: 1.5rem;
+    }
+    
+    .plan-body {
+        padding-top: 15rem;
+    }
+    
+    .inner-top-footer svg {
+        width: 100%;
+    }
+    
+    .main-contact {
+        background-color: #34256a;
+    }
+    
+    .main-contact-form .form-control {
+        outline: none!important;
+        background-color: transparent;
+    }
+    
+    .captcha p {
+        background: #513c9c;
+        opacity: .8;
+        line-height: 3;
+    }
+    
+    .main-contact-form .form-control:focus {
+        border-color: #CCC;
+        outline: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+    
+     ::placeholder {
+        color: #ccc!important;
+        opacity: 1;
+    }
+    
+    .main-form-btn {
+        border-radius: 1.25rem!important;
+        background-color: #e80767!important;
+        border-color: #e80767!important;
+    }
+    
+    .main-form-btn .about {
+        background-color: #34256a;
+    }
+    
+    .about {
+        margin: 1rem;
+    }
+    
+    .about-body {
+        background-image: url(../img/Artboard.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        height: 700px;
+    }
+    
+    .top-about,
+    .bottom-about,
+    .card,
+    .main-contact,
+    .popular,
+    .popular-img {
+        border-radius: 1.3rem!important;
+    }
+    
+    .plan {
+        padding-bottom: 2rem;
+        background-color: #34256a;
+        border-radius: 15px;
+        /* height: 630px; */
+    }
+    
+    .g-header-text {
+        color: #fff;
+        margin-right: 0;
+        right: 0;
+        position: absolute!important;
+        text-align: center;
+        top: 24%;
+        font-size: 5rem;
+    }
+    
+    .gamenets-footer-title {
+        font-size: 3rem;
+    }
+    /* 
+.plan .text-info-plan {
+line-height: 2.5rem;
+font-size: 1.5rem;
+} */
+    
+    .plan .icon svg {
+        width: 60%;
+    }
+    
+    .plan svg {
+        width: 100%;
+        height: 100%;
+    }
+    
     .plan .header h3 {
-        top: 5%!important;
+        font-size: 2.5rem!important;
+        width: 100%;
+        text-align: center;
+        top: 8%;
+        position: absolute;
+    }
+    
+    .plan-body {
+        /* padding-top: 10rem!important; */
+        padding: 3rem;
+        /* border-left: 50px solid transparent;
+border-right: 50px solid transparent;
+border-radius: 50% 50% 0 0; */
+    }
+    
+    .plan-header-img {
+        width: 20%!important;
+    }
+    
+    .faq-header h1 {
         font-size: 2rem!important;
     }
-    .khorshid,
-    .almas,
-    .kahkeshan {
-        /* position: absolute!important;
-        top: 705px!important; */
+    
+    .plan .plan-btn {
+        width: 35%;
+        background-color: #34256A;
+        line-height: 2.5;
+        border-radius: 30px;
+        color: #fff;
+        border-color: transparent;
+        font-size: 1.4rem;
+        position: absolute;
+        bottom: -25px;
     }
-    .mobile-header-btns {
-        display: block!important;
+    
+    .plan .khorshid {
+        -webkit-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
+        -moz-box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
+        box-shadow: -1px 2px 5px -1px rgba(249, 194, 97, 1);
     }
-    .header-btns {
-        display: none!important;
+    
+    .plan .almas {
+        -webkit-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
+        -moz-box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
+        box-shadow: -1px 2px 5px -1px rgba(70, 162, 248, 1);
     }
-    .login-content-left {
-        height: 50%!important;
+    
+    .plan .kahkeshan {
+        -webkit-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
+        -moz-box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
+        box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
     }
-    .login-content-right {
-        padding: 0 1rem!important;
+    
+    .popular {
+        background-color: #34256a;
+        height: 600px;
     }
-    .login-content {
-        flex-direction: column-reverse!important;
+    
+    .popular-img {
+        background-image: url(../img/art.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
     }
-    .login-right {
-        height: 50%!important;
+    
+    .introduce {
+        height: 630px;
+        background-color: #34256a;
+        border-radius: 30px;
     }
-    .inner-register-btn {
-        margin-bottom: 1.5rem;
+    
+    .introduce2-img {
+        background-image: url(../img/MaskGroup3.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
     }
-    .login-input {
-        padding-bottom: .4rem!important;
-        padding-top: .4rem!important;
+    
+    .introduce1-img {
+        height: 300px;
+        background-image: url(../img/MaskGroup4.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
     }
-    .right-btn {
-        display: none!important;
+    
+    .introduce1-data {
+        height: 250px;
     }
-    .confirm .login-input {
+    
+    #mainNav {
+        background-color: #2c1e59!important;
+    }
+    
+    .card {
+        background-color: #34256a!important;
+    }
+    
+    .searchbar {
+        height: 60px;
+        background-color: #fff;
+        border-radius: 30px;
+        padding: .5rem;
+    }
+    
+    .search_icon {
+        height: 52px;
+        width: 10%;
+        float: right;
+        background: #e80767;
+        border-radius: 50%;
+        text-decoration: none;
+    }
+    
+    .inner-slider {
+        margin-top: 50px;
+        background-image: url(../img/bg.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 1109px;
+    }
+    
+    .inneer-slider {
+        background-image: url(../img/bgt.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 1109px;
+    }
+    
+    .inneeer-slider {
+        background-image: url(../img/G.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 1109px;
+    }
+    
+    .plan-header {
+        position: relative;
+        top: -406px;
+        height: 111px;
+    }
+    
+    .gamenets-header .title-img {
+        width: 65%!important;
+    }
+    
+    .mazaya-back {
+        background: #34256A;
+        display: block;
+        border-radius: 30px;
+    }
+    
+    .mazaya-back img {
+        display: block;
+        margin: 0 auto;
+        margin-top: 5%;
+        width: 100%;
+    }
+    
+    .mazaya-back span {
+        display: block;
+        width: 60%;
+        color: #fff;
+        font-size: 1.4rem;
+        line-height: 2;
+        margin: 30px auto;
+    }
+    
+    .back-game {
+        background: url('../img//bottomgamenets.svg');
+        background-size: cover;
+        height: 1000px;
+    }
+    
+    .testsvg {
+        background: url('../img/backbig.png');
+        background-size: 100% 100%;
+        /* height: 1000px; */
+        margin-top: 4rem;
+    }
+    
+    .mazaya-row {
+        margin-top: 7rem;
+        margin-bottom: 15rem;
+    }
+    
+    .hadaf-row {
+        width: 100%;
+        margin-top: 15%;
+        flex-flow: column-reverse!important;
+    }
+    
+    .gm-header-text {
+        position: absolute;
+        top: 202px;
+        margin-top: 50px!important;
+    }
+    
+    .gmt-header-text {
+        color: #fff;
+        font-size: 3.5rem;
+    }
+    
+    .hadafe-ma {
+        color: #fff;
+        font-size: 2rem;
+        white-space: nowrap;
+        margin-right: 5%;
+        line-height: 2;
+    }
+    
+    footer {
+        height: 700px;
+        margin: 0;
+        padding: 0;
+        background-image: url('../img/Group313.png');
+        background-size: 100% 100%;
+        /* background-attachment: fixed; */
+        background-position: bottom;
+        background-repeat: no-repeat;
+    }
+    
+    .plan-header {
+        position: relative;
+        top: -406px;
+    }
+    
+    .plan .header img {
+        width: 100%;
+    }
+    
+    .about-section {
+        background-image: url(../img/about.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 400px;
+    }
+    
+    .plan-body {
+        padding-top: 15rem;
+    }
+    
+    .top-footer {
+        position: relative;
+        bottom: 510px;
+        height: 185px;
+    }
+    
+    .inner-plan-header {
+        top: 375px
+    }
+    
+    .footer-call {
+        text-align: left;
+    }
+    
+    .plan-item {
+        padding: 1rem;
+    }
+    
+    .login-header-btn {
+        border-color: #e80767!important;
+        background-color: #e80767!important;
+        border-radius: 30px!important;
+    }
+    
+    .provinces-header-btn,
+    .login-page-register-btn {
+        color: #fff!important;
+        border-color: #e80767!important;
+        border-radius: 30px!important;
+    }
+    
+    .provinces-header-btn:hover,
+    .login-page-register-btn:hover {
+        background-color: #34256a!important;
+    }
+    
+    .provinces-header-btn:hover,
+    .provinces-header-btn:focus,
+    .provinces-header-btn:active,
+    .provinces-header-btn:visited,
+    .logib-header-btn:hover,
+    .login-header-btn:focus,
+    .login-header-btn:active,
+    .login-header-btn:visited,
+    .login-page-register-btn,
+    .main-form-btn {
+        outline: none!important;
+        box-shadow: none!important;
+    }
+    
+    .Provinces {
+        cursor: pointer;
+        overflow-y: scroll;
+        height: 200px;
+        margin-left: 1.4rem;
+        border-top: 1px solid #9887bd;
+    }
+    
+    .Provinces .back {
+        color: #5a44ab;
+        direction: ltr;
+        text-align: right;
+    }
+    
+    .Provinces .icon {
+        font-size: 1.5rem;
+        color: #5a44ab!important;
+    }
+    
+    .modal-header {
+        border-bottom: none!important;
+        padding: 1rem 0rem 1rem 1.1rem!important;
+    }
+    
+    .close {
+        margin: 0!important;
         padding: 0!important;
-        margin: .5rem!important;
+        color: #5a44ab!important;
     }
+    
+    .modal-body {
+        border-top: 1px solid #9887bd!important;
+    }
+    
+    .mobile-header-btns {
+        display: none;
+    }
+    
+    .Provinces .row {
+        border-top: 1px solid #cbbee7!important;
+        margin-left: 1rem!important;
+    }
+    
+    .Provinces .row:first-child {
+        border-top: none!important;
+    }
+    
+    .province {
+        margin-left: 1rem!important;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .plan-header-img {
+            width: 30%!important;
+        }
+        .main-page-plan-header .inner-plan-header {
+            top: 385px!important;
+        }
+        .popular {
+            flex-direction: column-reverse;
+        }
+        .title-img {
+            width: 40%!important;
+        }
+        footer {
+            height: 450px!important;
+        }
+        .footer-call {
+            text-align: right!important;
+        }
+        .footer-call-icon svg {
+            height: 35px;
+        }
+        .footer-location-icon svg {
+            height: 35px;
+        }
+        .top-footer {
+            height: 69px!important;
+        }
+        .top-footer {
+            bottom: 466px!important;
+        }
+        .contact-secttion {
+            padding-bottom: 10rem!important;
+            margin: 0!important;
+        }
+        .popular-data {
+            height: 290px;
+        }
+        .popular-img {
+            height: 250px;
+        }
+        .introduce {
+            height: 650px!important;
+        }
+        .introduce1 {
+            flex-direction: column-reverse;
+        }
+        .introduce1-img {
+            height: 46%;
+        }
+        .introduce2-img {
+            height: 44%;
+            margin-bottom: .5rem;
+        }
+        .introduce1-data {
+            height: 50%;
+        }
+        .introduce2-data {
+            height: 52%;
+        }
+        .inner-slider {
+            height: 550px;
+        }
+        .searchbar {
+            height: 35px;
+        }
+        .search_icon {
+            height: 30px;
+            width: 15%;
+        }
+        .plan-body {
+            padding-top: 0;
+            padding: 0;
+        }
+        .text-info-plan {
+            font-size: 1rem!important;
+        }
+        .plan .header h3 {
+            top: 5%!important;
+            font-size: 2rem!important;
+        }
+        .khorshid,
+        .almas,
+        .kahkeshan {
+            /* position: absolute!important;
+    top: 705px!important; */
+        }
+        .mobile-header-btns {
+            display: block!important;
+        }
+        .header-btns {
+            display: none!important;
+        }
+        .login-content-left {
+            height: 50%!important;
+        }
+        .login-content-right {
+            padding: 0 1rem!important;
+        }
+        .login-content {
+            flex-direction: column-reverse!important;
+        }
+        .login-right {
+            height: 50%!important;
+        }
+        .inner-register-btn {
+            margin-bottom: 1.5rem;
+        }
+        .login-input {
+            padding-bottom: .4rem!important;
+            padding-top: .4rem!important;
+        }
+        .right-btn {
+            display: none!important;
+        }
+        .confirm .login-input {
+            padding: 0!important;
+            margin: .5rem!important;
+        }
+        .login-content-left {
+            background-image: none!important;
+            background: #2e205a;
+            background-size: 100%;
+            background-position: left;
+            height: 100%;
+            border-top-left-radius: 30px!important;
+            border-top-right-radius: 30px!important;
+            border-bottom-left-radius: 0!important;
+            border-bottom-right-radius: 0!important;
+        }
+        .plan {
+            /* height: 740px!important; */
+        }
+        .about-body {
+            height: 500px!important;
+        }
+    }
+    
+    @media screen and (max-width: 576px) {
+        .about {
+            margin: 0!important;
+        }
+        .about-body {
+            height: 550px!important;
+        }
+        .faq-header h1 {
+            font-size: 1.5rem!important;
+        }
+        .plan {
+            /* height: 550px!important; */
+        }
+        .khorshid,
+        .almas,
+        .kahkeshan {
+            /* position: absolute!important;
+    top: 515px!important; */
+        }
+        .contact-secttion {
+            height: 650px!important;
+            padding-bottom: 6rem!important;
+            margin-bottom: 0!important;
+        }
+    }
+    /* login page */
+    
+    .login-bg {
+        background-image: url(../img/login-bg.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 1050px;
+    }
+    
+    .test-svg {
+        background: url('../img/Path.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 761px;
+    }
+    
+    .login-content {
+        background-image: url(../img/-.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: .95;
+        border-radius: 30px;
+    }
+    
     .login-content-left {
-        background-image: none!important;
-        background: #2e205a;
+        background-image: url(../img/login-content-left.svg);
         background-size: 100%;
         background-position: left;
+        background-repeat: no-repeat;
         height: 100%;
-        border-top-left-radius: 30px!important;
-        border-top-right-radius: 30px!important;
-        border-bottom-left-radius: 0!important;
-        border-bottom-right-radius: 0!important;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
     }
-    .plan {
-        /* height: 740px!important; */
+    
+    .login-content-right {
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        padding: 3rem;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
     }
-    .about-body {
-        height: 500px!important;
+    
+    .inner-login-content-right {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
     }
-}
-
-@media screen and (max-width: 576px) {
-    .about {
-        margin: 0!important;
+    
+    .inner-bg {
+        background-image: url(../img/Group425.svg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 75%;
     }
-    .about-body {
-        height: 550px!important;
+    
+    .select-gamenets {
+        background: #2B1E59!important;
+        color: #fff !important;
+        width: 40% !important;
+        margin: 0 auto;
+        border-radius: 10px !important;
     }
-    .faq-header h1 {
-        font-size: 1.5rem!important;
+    
+    .select-gamenets:focus {
+        border-color: #fff!important;
+        outline: none!important;
+        box-shadow: none!important;
     }
-    .plan {
-        /* height: 550px!important; */
+    
+    .forget-text {
+        color: #2AC4B5;
     }
-    .khorshid,
-    .almas,
-    .kahkeshan {
-        /* position: absolute!important;
-        top: 515px!important; */
+    
+    .login-input {
+        padding: .7rem .75rem;
+        color: #707070;
+        background-color: transparent;
+        border: 1px solid #707070;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
     }
-    .contact-secttion {
-        height: 650px!important;
-        padding-bottom: 6rem!important;
-        margin-bottom: 0!important;
+    
+    .login-form .form-control {
+        padding: .375rem .75rem;
+        background-color: transparent;
+        border: none;
     }
-}
-
-
-/* login page */
-
-.login-bg {
-    background-image: url(../img/login-bg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 1050px;
-}
-
-.test-svg {
-    background: url('../img/Path.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 761px;
-}
-
-.login-content {
-    background-image: url(../img/-.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: .95;
-    border-radius: 30px;
-}
-
-.login-content-left {
-    background-image: url(../img/login-content-left.svg);
-    background-size: 100%;
-    background-position: left;
-    background-repeat: no-repeat;
-    height: 100%;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-}
-
-.login-content-right {
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    padding: 3rem;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-}
-
-.inner-login-content-right {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-}
-
-.inner-bg {
-    background-image: url(../img/Group425.svg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 75%;
-}
-
-.select-gamenets {
-    background: #2B1E59!important;
-    color: #fff !important;
-    width: 40% !important;
-    margin: 0 auto;
-    border-radius: 10px !important;
-    margin-top: 10%!important;
-}
-
-.forget-text {
-    color: #2AC4B5;
-}
-
-.login-input {
-    padding: .7rem .75rem;
-    color: #707070;
-    background-color: transparent;
-    border: 1px solid #707070;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.login-form .form-control {
-    padding: .375rem .75rem;
-    background-color: transparent;
-    border: none;
-}
-
-.inner-register-btn {
-    padding-top: 1rem;
-    align-self: start;
-    height: 15%;
-}
-
-.right-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.login-form .form-control:focus {
-    border-color: #CCC;
-    outline: none;
-    box-shadow: none;
-    background-color: transparent;
-    color: #fff;
-}
-
-.confirm .form-control:focus {
-    background-color: #1A0E46!important;
-}
-
-.confirm .login-input {
-    border-radius: 50%!important;
-    padding: 1rem;
-    margin: 1rem;
-}
-
-.confirm-inputs {
-    padding: 1rem;
-}
-
-.confirm .digit-group .form-control {
-    margin: 1rem;
-    border: 1px solid #ced4da;
-    padding: 2rem 1rem;
-    border-radius: 50%;
-}
-
-.confirm .passwords {
-    border-radius: 30px!important;
-}
-
-.login-form .login-input .form-control:focus {
-    background-color: transparent!important;
-}
-
-.register .form-group {
-    text-align: right!important;
-}
-
-.register .help-block {
-    padding: .8rem!important;
-    font-size: .8rem;
-    color: #fff;
-}
-
-.rc-anchor-dark,
-.recaptcha-checkbox-border {
-    background: transparent;
-    background-color: transparent;
-}
-
-
-/* end login page */
-
-
-/* gamenet */
-
-.footer-register-section {
-    bottom: 320px;
-}
-
-.gamenets-footer-title .login-page-register-btn {
-    padding: .5rem 3rem!important;
-}
-
-.gamenet-inner-slider {
-    background-image: url(../img/bgt.png)!important;
-}
-
-.gamenet-row {
-    margin-bottom: 25rem;
-}
-
-.gamenet-item {
-    background-color: #34256a;
-    border-radius: 30px;
-}
-
-.gamenet-img {
-    background-image: url(../img/gamenet-img.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 600px;
-}
-
-.gamenet-location {
-    height: 500px;
-}
-
-.gamenet-comments {
-    border-radius: 60px 60px 0 60px;
-}
-
-.gamenet-comments-name {
-    border-bottom: 1px solid #fff;
-}
-
-.gamenet-comments-name p {
-    font-size: 1.3rem;
-}
-
-.comments-img {
-    justify-content: center;
-}
-
-.comments-img img {
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-}
-
-.inner-gamenet-comments {
-    padding-left: 3rem!important;
-}
-
-.gamenet-info .gamenet-item {
-    height: 600px;
-}
-
-.owl-carousel .owl-stage-outer {
-    height: 100%;
-    direction: ltr!important;
-}
-
-#owl-demo {
-    height: 90%;
-}
-
-#owl-demo .item img {
-    display: block!important;
-    width: 100%!important;
-    height: auto!important;
-}
-
-.owl-dots {
-    direction: ltr!important;
-}
-
-.gamenet-heading {
-    font-size: 2rem;
-}
-
-.mobile-gamenet-comments-name {
-    display: none;
-}
-
-@media screen and (max-width: 768px) {
-    .gamenet-info .gamenet-item {
-        height: fit-content!important;
+    
+    .inner-register-btn {
+        padding-top: 1rem;
+        align-self: start;
+        height: 15%;
     }
-    iframe {
-        width: 100%!important;
+    
+    .right-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
+    
+    .login-form .form-control:focus {
+        border-color: #CCC;
+        outline: none;
+        box-shadow: none;
+        background-color: transparent;
+        color: #fff;
+    }
+    
+    .confirm .form-control:focus {
+        background-color: #1A0E46!important;
+    }
+    
+    .confirm .login-input {
+        border-radius: 50%!important;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .confirm-inputs {
+        padding: 1rem;
+    }
+    
+    .confirm .digit-group .form-control {
+        margin: 1rem;
+        border: 1px solid #ced4da;
+        padding: 2rem 1rem;
+        border-radius: 50%;
+    }
+    
+    .confirm .passwords {
+        border-radius: 30px!important;
+    }
+    
+    .login-form .login-input .form-control:focus {
+        background-color: transparent!important;
+    }
+    
+    .register .form-group {
+        text-align: right!important;
+    }
+    
+    .register .help-block {
+        padding: .8rem!important;
+        font-size: .8rem;
+        color: #fff;
+    }
+    
+    .rc-anchor-dark,
+    .recaptcha-checkbox-border {
+        background: transparent;
+        background-color: transparent;
+    }
+    /* end login page */
+    /* gamenet */
+    
     .footer-register-section {
-        bottom: 394px!important;
+        bottom: 320px;
     }
-    .gamenets-footer-title {
-        font-size: 1rem!important;
-    }
+    
     .gamenets-footer-title .login-page-register-btn {
-        padding: .2rem 1.5rem!important;
+        padding: .5rem 3rem!important;
     }
+    
     .gamenet-inner-slider {
         background-image: url(../img/bgt.png)!important;
     }
-    .g-header-text {
-        font-size: 3rem!important;
-    }
+    
     .gamenet-row {
-        margin-bottom: 15rem!important;
+        margin-bottom: 25rem;
     }
+    
+    .gamenet-item {
+        background-color: #34256a;
+        border-radius: 30px;
+    }
+    
     .gamenet-img {
-        height: 350px!important;
+        background-image: url(../img/gamenet-img.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 600px;
     }
-    .gamenet-info {
-        flex-direction: column-reverse;
-    }
-    .gamenet-info .gamenet-item {
-        margin-left: 0!important;
-        margin-right: 0!important;
-    }
+    
     .gamenet-location {
-        height: 300px!important;
+        height: 500px;
     }
-    .inner-gamenet-comments {
-        padding-left: .5rem!important;
+    
+    .gamenet-comments {
+        border-radius: 60px 60px 0 60px;
     }
-    .comments-img {
-        justify-content: right!important;
-    }
-    .gamenet-heading {
-        font-size: 1.5rem!important;
-    }
-    .gamenet-heading svg {
-        height: 40px!important;
-    }
-    .comments-img img {
-        height: 70px!important;
-        width: 70px!important;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .g-header-text {
-        font-size: 2rem!important;
-    }
-    .confirm .digit-group .form-control {
-        margin: .5rem!important;
-        padding: 1rem!important;
-    }
-    .gamenet-row {
-        margin-bottom: 4rem!important;
-    }
-    .top-footer {
-        bottom: 420px!important;
-    }
+    
     .gamenet-comments-name {
-        display: none!important;
+        border-bottom: 1px solid #fff;
     }
-    .mobile-gamenet-comments-name {
+    
+    .gamenet-comments-name p {
+        font-size: 1.3rem;
+    }
+    
+    .comments-img {
+        justify-content: center;
+    }
+    
+    .comments-img img {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
+    
+    .inner-gamenet-comments {
+        padding-left: 3rem!important;
+    }
+    
+    .gamenet-info .gamenet-item {
+        height: 600px;
+    }
+    
+    .owl-carousel .owl-stage-outer {
+        height: 100%;
+        direction: ltr!important;
+    }
+    
+    #owl-demo {
+        height: 90%;
+    }
+    
+    #owl-demo .item img {
         display: block!important;
+        width: 100%!important;
+        height: auto!important;
     }
-    .inner-slider {
-        height: 270px!important;
+    
+    .owl-dots {
+        direction: ltr!important;
     }
-}
-
-
-/* end gamenet */
-
-
-/* .owl-stage,
+    
+    .gamenet-heading {
+        font-size: 2rem;
+    }
+    
+    .mobile-gamenet-comments-name {
+        display: none;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .gamenet-info .gamenet-item {
+            height: fit-content!important;
+        }
+        iframe {
+            width: 100%!important;
+        }
+        .footer-register-section {
+            bottom: 394px!important;
+        }
+        .gamenets-footer-title {
+            font-size: 1rem!important;
+        }
+        .gamenet-inner-slider {
+            background-image: url(../img/bgt.png)!important;
+        }
+        .g-header-text {
+            font-size: 3rem!important;
+        }
+        .gamenet-row {
+            margin-bottom: 15rem!important;
+        }
+        .gamenet-img {
+            height: 350px!important;
+        }
+        .gamenet-info {
+            flex-direction: column-reverse;
+        }
+        .gamenet-info .gamenet-item {
+            margin-left: 0!important;
+            margin-right: 0!important;
+        }
+        .gamenet-location {
+            height: 300px!important;
+        }
+        .inner-gamenet-comments {
+            padding-left: .5rem!important;
+        }
+        .comments-img {
+            justify-content: right!important;
+        }
+        .gamenet-heading {
+            font-size: 1.5rem!important;
+        }
+        .gamenet-heading svg {
+            height: 40px!important;
+        }
+        .comments-img img {
+            height: 70px!important;
+            width: 70px!important;
+        }
+    }
+    
+    @media screen and (max-width: 576px) {
+        .g-header-text {
+            font-size: 2rem!important;
+        }
+        .confirm .digit-group .form-control {
+            margin: .5rem!important;
+            padding: 1rem!important;
+        }
+        .gamenet-row {
+            margin-bottom: 4rem!important;
+        }
+        .top-footer {
+            bottom: 420px!important;
+        }
+        .gamenet-comments-name {
+            display: none!important;
+        }
+        .mobile-gamenet-comments-name {
+            display: block!important;
+        }
+        .inner-slider {
+            height: 270px!important;
+        }
+    }
+    /* end gamenet */
+    /* .owl-stage,
 .owl-item,
 .owl-item img {
-    width: 100%!important;
+width: 100%!important;
 } */
-
-.intro-inner-slider {
-    background-image: url(../img/G.png)!important;
-}
-
-.faq {
-    margin-bottom: 25rem;
-}
-
-.hadafha {
-    margin-top: 18rem;
-}
-
-.hadafha-row {
-    border-radius: 30px;
-}
-
-.mazaya-row:last-child {
-    margin-top: 8rem;
-}
-
-.proces-header,
-.faq-header,
-.mazaya-img {
-    width: 25%;
-}
-
-.proces-img {
-    width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-    .hadafha-row {
-        height: 400px!important;
-        flex-flow: column-reverse!important;
-    }
-    .mazaya-row {
-        margin-bottom: 0!important;
-    }
-    .faq {
-        margin-bottom: 7rem!important;
-    }
-    .proces-header,
-    .faq-header,
-    .mazaya-img {
-        width: 60%!important;
-    }
+    
     .intro-inner-slider {
         background-image: url(../img/G.png)!important;
     }
-    .gmt-header-text {
-        font-size: 1.5rem!important;
-        position: absolute!important;
-        top: -110px;
+    
+    .faq {
+        margin-bottom: 25rem;
     }
+    
     .hadafha {
-        margin-top: 0!important;
+        margin-top: 18rem;
     }
-    .mazaya-back span {
-        font-size: 1rem!important;
-        width: 90%!important;
-    }
-    .mazaya-back img {
-        margin-top: 5%!important;
-        width: 70%!important;
-    }
-    .mazaya-row:last-child {
-        margin-top: 0px!important;
-    }
-    .testsvg {
-        margin-top: 0!important;
-        background: none!important;
-    }
-    .hadafe-ma {
-        font-size: 1.52rem!important;
-    }
-    .provinces-header-btn,
-    .login-header-btn {
-        font-size: .8rem!important;
-    }
-}
-
-@media screen and (max-width: 576px) {
+    
     .hadafha-row {
-        height: 600px!important;
+        border-radius: 30px;
     }
-}
-
-
-/* gamenets */
-
-@media screen and (max-width: 768px) {
-    .select-gamenets {
-        width: 70%!important;
-        padding: .1rem .75rem!important;
-        font-size: .8rem!important;
-        margin-top: 4%!important;
+    
+    .mazaya-row:last-child {
+        margin-top: 8rem;
     }
-    .tarefe-gamenets-header-list img {
-        width: 20px!important;
-        height: 20px!important;
+    
+    .proces-header,
+    .faq-header,
+    .mazaya-img {
+        width: 25%;
     }
-    .tarefe-gamenets-header title,
-    .tarefe-gamenets-header .title-img {
-        width: 100%!important;
+    
+    .proces-img {
+        width: 100%;
     }
-    .tarefe-gamenets-header-list-img {
-        padding: .5rem!important;
+    
+    @media screen and (max-width: 768px) {
+        .hadafha-row {
+            height: 400px!important;
+            flex-flow: column-reverse!important;
+        }
+        .mazaya-row {
+            margin-bottom: 0!important;
+        }
+        .faq {
+            margin-bottom: 7rem!important;
+        }
+        .proces-header,
+        .faq-header,
+        .mazaya-img {
+            width: 60%!important;
+        }
+        .intro-inner-slider {
+            background-image: url(../img/G.png)!important;
+        }
+        .gmt-header-text {
+            font-size: 1.5rem!important;
+            position: absolute!important;
+            top: -110px;
+        }
+        .hadafha {
+            margin-top: 0!important;
+        }
+        .mazaya-back span {
+            font-size: 1rem!important;
+            width: 90%!important;
+        }
+        .mazaya-back img {
+            margin-top: 5%!important;
+            width: 70%!important;
+        }
+        .mazaya-row:last-child {
+            margin-top: 0px!important;
+        }
+        .testsvg {
+            margin-top: 0!important;
+            background: none!important;
+        }
+        .hadafe-ma {
+            font-size: 1.52rem!important;
+        }
+        .provinces-header-btn,
+        .login-header-btn {
+            font-size: .8rem!important;
+        }
     }
-    .gamenets-inner-slider {
-        background-image: url(../img/bgt.png)!important;
+    
+    @media screen and (max-width: 576px) {
+        .hadafha-row {
+            height: 600px!important;
+        }
     }
-    .tarefe-gamenets-header-list img {
-        width: 60px;
-        height: 60px;
-    }
-    .tarefe-gamenets-header-list img {
-        margin-top: 10%;
-    }
-    .gamenets-header {
-        height: fit-content;
-    }
+    /* gamenets */
+    
     .gamenets-slider-section {
-        height: 1000px;
+        height: 1550px;
     }
-    .tarefe-gamenets-header-list-img {
-        margin-top: 4%!important;
-        border: 1px solid #ced4da;
-        border-radius: 50%;
-        padding: 1rem;
-        background: #2B1E59;
+    
+    .gamenets-header {
+        top: 370px;
     }
-}
-
-
-/* end gamenets */
-
-.passwords {
-    background: #fff;
-    border: 1px solid #fff!important;
-    margin-top: 5%!important;
-}
-
-.register-form-confirm .help-block {
-    display: none!important;
-}
-
-
-/* user panel */
-
-.user-panel-list-tab {
-    height: 90%;
-}
-
-.list-group-item.active {
-    background-color: #2c1e59!important;
+    
+    @media screen and (max-width: 768px) {
+        .test-svg {
+            height: 310px!important;
+            top: -120px!important;
+        }
+        .select-gamenets {
+            width: 70%!important;
+            padding: .1rem .75rem!important;
+            font-size: .8rem!important;
+            margin-top: 4%!important;
+        }
+        .tarefe-gamenets-header-list img {
+            width: 20px!important;
+            height: 20px!important;
+        }
+        .tarefe-gamenets-header title,
+        .tarefe-gamenets-header .title-img {
+            width: 100%!important;
+        }
+        .tarefe-gamenets-header-list-img {
+            padding: .5rem!important;
+        }
+        .gamenets-inner-slider {
+            background-image: url(../img/bgt.png)!important;
+            height: 370px!important;
+            background-size: cover!important;
+        }
+        .tarefe-gamenets-header-list img {
+            width: 60px;
+            height: 60px;
+        }
+        .tarefe-gamenets-header-list img {
+            margin-top: 10%;
+        }
+        .gamenets-header {
+            height: fit-content;
+            top: 140px!important;
+        }
+        .gamenets-slider-section {
+            height: 600px!important;
+        }
+        .tarefe-gamenets-header-list-img {
+            margin-top: 4%!important;
+            border: 1px solid #ced4da;
+            border-radius: 50%;
+            padding: 1rem;
+            background: #2B1E59;
+        }
+        .inner-plan-header {
+            top: 405px!important;
+        }
+    }
+    
+    @media screen and (max-width: 576px) {
+        .tarefe-gamenets-header-list-img {
+            padding: .3rem!important;
+        }
+        .nazdiktarin {
+            font-size: 1.5rem!important;
+        }
+        .nazdiktarin svg {
+            width: 35px!important;
+        }
+        .gamenets-slider-section {
+            height: 360px!important;
+        }
+        .gamenets-inner-slider {
+            height: 210px!important;
+        }
+        .test-svg {
+            height: 200px!important;
+            top: -85px!important;
+            background-size: 100% 100%!important;
+        }
+        .gamenets-header {
+            top: 90px!important;
+        }
+        .gamenets-footer-title .login-page-register-btn {
+            padding: .2rem 1.3rem!important;
+        }
+        .g-header-text {
+            top: 90px!important;
+            font-size: 1.5rem!important;
+        }
+        /* end gamenets */
+        .passwords {
+            background: #fff;
+            border: 1px solid #fff!important;
+            margin-top: 5%!important;
+        }
+        .register-form-confirm .help-block {
+            display: none!important;
+        }
+        /* user panel */
+        .user-panel-list-tab {
+            height: 90%;
+        }
+        .list-group-item.active {
+            background-color: #2c1e59!important;
+            border-color: #1A0E46!important;
+        }
+        .bookmark {
+            border-color: #1A0E46!important;
+            box-shadow: none!important;
+        }
+        .bookmark:hover {
+            background-color: #34256a!important;
+        }
+        .bookmark i {
+            color: #1A0E46;
+        }
+        .user-panel-card {
+            border: 1px solid #1A0E46!important;
+        }
+        .user-panel-card-body {
+            height: fit-content;
+        }
+        .user-panel-form .submit-button {
+            margin-top: 1.7rem;
+        }
+        .user-panel-form .form-control {
+            outline: 0!important;
+            box-shadow: none!important;
+            background-color: transparent!important;
+        }
+        .user-panel-form .form-control:focus {
+            border: 1px solid #ced4da!important;
+        }
+        .edite-button {
+            /* background-color: #1A0E46!important;
     border-color: #1A0E46!important;
-}
-
-.bookmark {
-    border-color: #1A0E46!important;
-    box-shadow: none!important;
-}
-
-.bookmark:hover {
-    background-color: #34256a!important;
-}
-
-.bookmark i {
-    color: #1A0E46;
-}
-
-.user-panel-card {
-    border: 1px solid #1A0E46!important;
-}
-
-.user-panel-card-body {
-    height: fit-content;
-}
-
-.user-panel-form .submit-button {
-    margin-top: 1.7rem;
-}
-
-.user-panel-form .form-control {
-    outline: 0!important;
-    box-shadow: none!important;
-    background-color: transparent!important;
-}
-
-.user-panel-form .form-control:focus {
-    border: 1px solid #ced4da!important;
-}
-
-.edite-button {
-    /* background-color: #1A0E46!important;
-        border-color: #1A0E46!important;
-        box-shadow: none!important; */
-    width: 70%;
-    background-color: #34256A;
-    line-height: 2.5;
-    border-radius: 30px;
-    color: #fff;
-    border-color: transparent;
-    font-size: 1rem;
-    box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
-}
-
-.user-panel-list-item {
-    background-color: transparent!important;
-    border: 1px solid #1A0E46!important;
-}
-
-.welcome-text {
-    background-color: #34256a;
-    border-radius: 30px;
-    margin-bottom: 3rem;
-}
-
-.user-panel-slider-section .plan-header {
-    height: 15px!important;
-}
-
-.user-panel-inner-slider {
-    background-image: url(../img/user-panel-header-4.png)!important;
-    height: 500px!important;
-}
-
-@media screen and (max-width: 768px) {
-    .user-panel-slider-section .plan-header {
-        height: 90px!important;
-    }
-    .user-panel-row .gamenet-info {
-        flex-direction: row-reverse!important;
-    }
-    .user-panel-inner-slider {
-        height: 320px!important;
-    }
-    .card-title {
-        font-size: 1rem!important;
-    }
-    .welcome-text {
-        margin-bottom: 0!important;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .user-panel-slider-section .plan-header {
-        height: 55px!important;
-    }
-    .user-panel-inner-slider {
-        height: 160px!important;
-    }
-}
-
-.Provinces {
-    width: 500px;
-    margin: 0;
-    padding-bottom: 0;
-}
-
-.provinces {
-    margin: 0;
-}
-
-
-/* end user panel */
+    box-shadow: none!important; */
+            width: 70%;
+            background-color: #34256A;
+            line-height: 2.5;
+            border-radius: 30px;
+            color: #fff;
+            border-color: transparent;
+            font-size: 1rem;
+            box-shadow: -1px 2px 5px -1px rgba(132, 37, 226, 1);
+        }
+        .user-panel-list-item {
+            background-color: transparent!important;
+            border: 1px solid #1A0E46!important;
+        }
+        .welcome-text {
+            background-color: #34256a;
+            border-radius: 30px;
+            margin-bottom: 3rem;
+        }
+        .user-panel-slider-section .plan-header {
+            height: 15px!important;
+        }
+        .user-panel-inner-slider {
+            background-image: url(../img/user-panel-header-4.png)!important;
+            height: 500px!important;
+        }
+        @media screen and (max-width: 768px) {
+            .user-panel-slider-section .plan-header {
+                height: 90px!important;
+            }
+            .user-panel-row .gamenet-info {
+                flex-direction: row-reverse!important;
+            }
+            .user-panel-inner-slider {
+                height: 320px!important;
+            }
+            .card-title {
+                font-size: 1rem!important;
+            }
+            .welcome-text {
+                margin-bottom: 0!important;
+            }
+        }
+        @media screen and (max-width: 576px) {
+            .user-panel-slider-section .plan-header {
+                height: 55px!important;
+            }
+            .user-panel-inner-slider {
+                height: 160px!important;
+            }
+        }
+        /* end user panel *
