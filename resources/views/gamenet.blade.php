@@ -149,7 +149,7 @@
                     <div class="row w-100 p-3 m-0">
 
                         <div class="col-md-2 col-lg-1 comments-img d-flex  align-items-center ">
-                            <img src="{{ asset('newui/img/images.jpg') }}" alt="">
+                            <img src="{{ asset('newui/img/--.png') }}" alt="">
                             <div class=" p-2 mobile-gamenet-comments-name">
                                 <p class="text-right text-white ">مریم سلیمی</p>
                             </div>
