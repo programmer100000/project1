@@ -143,10 +143,10 @@ border-radius: 50% 50% 0 0; */
     float: right;
     width: 90%;
     outline: 0;
-    background: none;
-    caret-color: transparent;
+    background: transparent;
     line-height: 40px;
     transition: width 0.4s linear;
+    pointer-events: all!important;
 }
 
 .searchbar:hover>.search_icon {
