@@ -141,12 +141,16 @@ border-radius: 50% 50% 0 0; */
 
 .search_input {
     float: right;
-    width: 90%;
+    width: 100%;
     outline: 0;
     background: transparent;
     line-height: 40px;
     transition: width 0.4s linear;
     pointer-events: all!important;
+}
+
+.easy-autocomplete {
+    width: 100%!important;
 }
 
 .searchbar:hover>.search_icon {

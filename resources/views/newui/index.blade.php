@@ -3,13 +3,10 @@
 <div class=" content">
     <div class="row w-100 m-0 p-0 slider-secttion">
         <div class="inner-slider col d-flex justify-content-center align-items-center ">
-            <div class="row w-100 p-0 m-0 justify-content-center ">
-                <div class=" col-8 col-md-4 p-0    typeahead__container " dir="rtl">
-                    <div class="typeahead__field searchbar d-flex justify-content-center align-items-center" dir="rtl">
-                    <input class="search_input js-typeahead-country_v1 border-white" type="text" name="" placeholder="جستجو...">
-                    <a href="#" class="search_icon d-flex justify-content-center text-white align-items-center typeahead__button"><i class="fa fa-search"></i></a>
-                    </div>
-                    
+            <div class="row w-100 p-0 m-0 justify-content-center">
+                <div class=" col-8 col-md-4 p-2  searchbar d-flex justify-content-center align-items-center" dir="rtl">
+                    <input class="search_input border-0" type="text" name="" placeholder="جستجو...">
+                    <a href="#" class="search_icon d-flex justify-content-center text-white align-items-center"><i class="fa fa-search"></i></a>
                 </div>
             </div>
 
@@ -732,8 +729,7 @@
 <script src="{{ asset('/newui/js/newui.js') }}" defer></script>
 <script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
 <script>
-
-
+  
 </script>
 @endsection
 @section('footersvg')
