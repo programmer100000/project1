@@ -4,7 +4,7 @@
     <div class="row w-100 m-0 p-0 slider-secttion">
         <div class="inner-slider col d-flex justify-content-center align-items-center ">
             <div class="row w-100 p-0 m-0 justify-content-center">
-                <div class=" col-8 col-md-4 p-2  searchbar d-flex justify-content-center align-items-center" dir="rtl">
+                <div class=" col-8 col-md-4 p-2  searchbar d-flex justify-content-center align-items-center" dir="rtl" onblur="searchbarblurfunc()">
                     <input class="search_input border-0" type="text" name="" placeholder="جستجو...">
                     <a href="#" class="search_icon d-flex justify-content-center text-white align-items-center"><i class="fa fa-search"></i></a>
                 </div>
@@ -307,7 +307,7 @@
                                 <input type="hidden" class="rate-input">
                                 <span class="text-white">امتیاز: </span>
                                 <div class="stars text-left float-left m-0 p-0 w-75" data-rate = {{ $best_gamenet->rate }}>
-                                
+
                                 </div>
                             </div>
                             <div class="d-flex mb-4 text-right ">
@@ -336,7 +336,7 @@
                                 $user = Auth::user();
                                 $fav = App\favourite::where([['user_id' , $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first();
                             @endphp
-                                
+
                             @if ($fav == null)
                             <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
                             data-url = {{ route('add.favourite')}} data-gnet-id = {{ $best_gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
@@ -379,7 +379,7 @@
                             <span class="text-white">امتیاز: </span>
                             <input type="hidden" class="rate-input" value="">
                         <div class="stars text-left float-left m-0 p-0 w-75" data-rate="{{$gamenets_active[0]->rate }}">
-                                
+
                             </div>
                         </div>
                         <div class="d-flex mb-4 text-right ">
@@ -408,7 +408,7 @@
                             $user = Auth::user();
                             $fav = App\favourite::where([['user_id' , $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first();
                         @endphp
-                            
+
                         @if ($fav == null)
                         <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
                         data-url = {{ route('add.favourite')}} data-gnet-id = {{ $gamenets_active[0]->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
@@ -729,7 +729,7 @@
 <script src="{{ asset('/newui/js/newui.js') }}" defer></script>
 <script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
 <script>
-  
+
 </script>
 @endsection
 @section('footersvg')

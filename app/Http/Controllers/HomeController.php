@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\favourite;
+use App\Game;
 use App\Gamenet;
+use App\Possibilities;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -98,5 +100,20 @@ class HomeController extends Controller
         }else{
             return redirect()->back()->withErrors(['msg' , 'برای ارسال نظر باید در سایت ثبت نام کنید  ']);
         }
+    }
+    public function search(Request $request){
+        $keyword = $request->input('text');
+        $gamenet = Gamenet::where('title' , 'LIKE' , $keyword)->limit(5)->get();
+        $games = Game::
+        join('gamenets' , 'gamenets.gamenet_id' , '=' , 'gnet_games.gnet_id')
+            ->where('game_name' , 'LIKE' , $keyword)->limit(3)->get();
+        $emkanat = Possibilities::join('gamenets' , 'gamenets.gamenet_id' , '=' , 'possibilities.gnet_id')
+            ->where('text' , 'LIKE', $keyword)->limit(2)->get();
+        $arr = [
+                'gamenets' => $gamenet,
+                'games' => $games,
+                'emkanat' => $emkanat
+            ];
+        return $arr;
     }
 }

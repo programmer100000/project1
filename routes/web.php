@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/',function(){
     $best_gamenet = Gamenet::
     join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , 'gamenets.gamenet_id')->
-    orderBy('rate' , 'asc')->inRandomOrder()->take(5)->limit(1)->first(); 
+    orderBy('rate' , 'asc')->inRandomOrder()->take(5)->limit(1)->first();
     // dd($best_gamenet);
     $gamenets_active = Gamenet::select()
     ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
@@ -262,7 +262,7 @@ Route::get('/user/panel', function () {
     }else{
         return redirect()->route('login');
     }
-    
+
 })->name('user.panel');
 Route::get('/intro', function () {
     return view('intropanel');
@@ -278,3 +278,4 @@ Route::get('/pay', function () {
 Route::post('/newlogin', 'LoginController@login')->name('newlogin');
 Route::post('/edit/user/info' , 'UserController@editprofile')->name('edit.user.profile');
 Route::post('/add/comment' ,'HomeController@addcomment')->name('add.comment');
+Route::get('/search' , 'HomeController@search')->name('search');

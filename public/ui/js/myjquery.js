@@ -177,3 +177,4 @@ $(document).on('click', '#btnrate', function() {
 $(".reply-comment-button").click(function() {
     $(".reply-comment-form").toggleClass("show-reply-comment-form");
 });
+
