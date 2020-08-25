@@ -1,5 +1,4 @@
-@extends('newui/master')
-@section('content')
+@extends('newui/master') @section('content')
 <div class=" content">
     <div class="row w-100 m-0 p-0 slider-secttion gamenets-slider-section">
         <div class="inner-slider gamenets-inner-slider col d-flex justify-content-center align-items-center ">
@@ -8,28 +7,33 @@
                     حرفه ای بازی کن !
                 </div>
             </div>
-  
+
         </div>
         <div class="row w-100 m-0 plan-header test-svg">
-            <div class="col-4 gamenets-header  mx-auto p-0 ">
+            <div class="col-lg-4 col-4 gamenets-header  mx-auto p-0 ">
                 <select name="" id="" class="form-control select-gamenets mt-md-4">
                     <option value="">تست</option>
                     <option value="">تست</option>
                     <option value="">تست</option>
                 </select>
             </div>
-            <div class="col-4 gamenets-header tarefe-gamenets-header  mx-auto p-0  ">
-                <div class="title text-center">
+            <div class="col-lg-4 col-8  gamenets-header tarefe-gamenets-header  p-0  ">
+                <div class="title  ">
                     <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
                 </div>
             </div>
-            <div class="col-4 gamenets-header tarefe-gamenets-header-list r d-flex justify-content-center p-0 pt-md-2 ">
-              <div class="tarefe-gamenets-header-list-img mx-sm-1 mx-md-2">
-              <img src="{{ asset('newui/img/menu.svg') }}" alt="" width="60" height="60" class="" >
-              </div>
-              <div class="tarefe-gamenets-header-list-img mx-1 mx-md-2">
-              <img src="{{ asset('newui/img/menubar.svg') }}" alt="" width="60" height="60" class="">
-              </div>
+            <div class="col-lg-4 gamenets-header tarefe-gamenets-header-list r d-lg-flex justify-content-center p-0 pt-md-2 ">
+                <div class="tarefe-gamenets-header-list-img mx-sm-1 mx-md-2">
+                    <img src="{{ asset('newui/img/menu.svg') }}" class="header-half-img" alt="" width="60" height="60" class="">
+
+
+                </div>
+                <div class="tarefe-gamenets-header-list-img mx-1 mx-md-2">
+                    <img src="{{ asset('newui/img/menubar.svg') }}" class="header-list-img" alt="" width="60" height="60" class="">
+
+
+
+                </div>
             </div>
         </div>
     </div>
@@ -54,24 +58,22 @@
                     <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
                   </g>
                 </g>
-              </svg>
-              
-            نزدیکترین
+              </svg> نزدیکترین
         </div>
         @foreach ($gamenets as $ga)
-        <div class="col-md-8 col-lg-5 p-0 m-3">
-          <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
-              <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+        <div class="col-md-8 col-lg-5 p-0 m-3 half-show">
+            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
+                <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
 
-              <h1 class="text-white text-right mb-4 align-self-start"> {{ $ga->title }}</h1>
-                  <div class="mb-3 d-flex text-right align-self-start">
-                      <span class="text-white">امتیاز: </span>
-                      <div class="stars text-left float-left m-0 p-0 w-75">
-                        <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
-                      </div>
-                  </div>
-                  <div class="d-flex mb-4 text-right ">
-                      <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
+                    <h1 class="text-white text-right mb-4 align-self-start"> {{ $ga->title }}</h1>
+                    <div class="mb-3 d-flex text-right align-self-start">
+                        <span class="text-white">امتیاز: </span>
+                        <div class="stars text-left float-left m-0 p-0 w-75">
+                            <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4 text-right ">
+                        <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
                       <g id="pin" transform="translate(-60.962 0)">
                           <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
                             <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
@@ -86,24 +88,72 @@
                         </g>
                       </svg>
                     </span>
-                  <span class="text-white text-justify">{{ $ga->description }}</span>
-                  </div>
-                  <div class="row justify-content-center">
-                      <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                  </div>
-              </div>
+                        <span class="text-white text-justify">{{ $ga->description }}</span>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
+                    </div>
+                </div>
 
-            <div class="col-lg-6 introduce2-img" style="background-image: url('{{ $ga->gamenet_image }}')">
-              </div>
-          </div>
-      </div>       
+                <div class="col-lg-6 introduce2-img" style="background-image: url('{{ $ga->gamenet_image }}')">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-8 p-0 m-3 list-show">
+            <div class="row w-100 p-3 m-0  introduce introduce1 introduce-gamenets ">
+                <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce-data">
+
+                    <h1 class="text-white text-right mb-4 align-self-start"> {{ $ga->title }}</h1>
+                    <div class="mb-3 d-flex text-right align-self-start">
+                        <span class="text-white">امتیاز: </span>
+                        <div class="stars text-left float-left m-0 p-0 w-75">
+                            <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4 text-right ">
+                        <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
+                      <g id="pin" transform="translate(-60.962 0)">
+                          <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
+                            <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
+                              <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
+                            </g>
+                          </g>
+                          <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
+                            <g id="Group_264" data-name="Group 264">
+                              <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </span>
+                        <span class="text-white text-justify">{{ $ga->description }}</span>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 introduce2-img" style="background-image: url('{{ $ga->gamenet_image }}')">
+                </div>
+            </div>
+        </div>
         @endforeach
-      
+
 
     </div>
 </div>
-@endsection
-@section('footersvg')
+<script>
+    $('.header-half-img').click(function() {
+        $('.half-show').css('display', 'block');
+        $('.list-show').css('display', 'none');
+    });
+    $('.header-list-img').click(function() {
+
+        $('.half-show').css('display', 'none');
+        $('.list-show').css('display', 'block');
+    });
+</script>
+@endsection @section('footersvg')
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="864" viewBox="0 0 1920 864">
   <defs>
     <clipPath id="clip-path">
@@ -127,12 +177,12 @@
 </svg>
 
 <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
-  <div class="title text-center d-block text-white gamenets-footer-title">
-      <span class="d-block py-1">اینجا برای شماست </span>
-  <a href="{{ route('register') }}"><button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
+    <div class="title text-center d-block text-white gamenets-footer-title">
+        <span class="d-block py-1">اینجا برای شماست </span>
+        <a href="{{ route('register') }}"><button type="button" class="btn btn-outline-primary login-page-register-btn px-5 py-2 align-self-start ">
         ثبت نام
     </button>
   </a>
-  </div>
+    </div>
 </div>
 @endsection

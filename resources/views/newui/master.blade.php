@@ -299,28 +299,6 @@
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/ui.js')}}" defer></script>
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}"></script>
-
-
-    <script>
-var options = {
-
-url: "countries.json",
-
-getValue: "name",
-
-list: {
-  match: {
-    enabled: true
-  }
-},
-
-theme: "square"
-};
-
-$(".search_input").easyAutocomplete(options);
-    </script>
 </body>
 
 </html>

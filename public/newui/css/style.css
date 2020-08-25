@@ -70,6 +70,11 @@ h4 {
     z-index: 99;
 }
 
+.intro-inner-plan-header {
+    top: 360px;
+    z-index: 99;
+}
+
 .gamenets-row {
     margin: 25% auto !important;
     margin-top: 0!important;
@@ -147,10 +152,13 @@ border-radius: 50% 50% 0 0; */
     line-height: 40px;
     transition: width 0.4s linear;
     pointer-events: all!important;
+    height: 100%;
+    padding: 0 12px;
 }
 
 .easy-autocomplete {
     width: 100%!important;
+    height: 100%!important;
 }
 
 .searchbar:hover>.search_icon {
@@ -1182,8 +1190,11 @@ width: 100%!important;
 }
 
 @media screen and (max-width: 768px) {
+    .hadafha-row .introduce2-img {
+        height: 55%!important;
+    }
     .hadafha-row {
-        height: 400px!important;
+        height: 550px!important;
         flex-flow: column-reverse!important;
     }
     .mazaya-row {
@@ -1230,16 +1241,32 @@ width: 100%!important;
     .login-header-btn {
         font-size: .8rem!important;
     }
+    .intro-inner-plan-header {
+        top: 375px!important;
+    }
 }
 
 @media screen and (max-width: 576px) {
     .hadafha-row {
-        height: 600px!important;
+        height: 550px!important;
     }
 }
 
 
 /* gamenets */
+
+.header-half-img,
+.header-list-img {
+    cursor: pointer;
+}
+
+.half-show {
+    display: block;
+}
+
+.list-show {
+    display: none;
+}
 
 .gamenets-slider-section {
     height: 1550px;
@@ -1249,7 +1276,18 @@ width: 100%!important;
     top: 370px;
 }
 
+.gamenets-header .title {
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
+    .tarefe-gamenets-header-list {
+        display: none!important;
+    }
+    .gamenets-header .title {
+        text-align: right!important;
+        width: 50%!important;
+    }
     .test-svg {
         height: 310px!important;
         top: -120px!important;
@@ -1264,7 +1302,6 @@ width: 100%!important;
         width: 20px!important;
         height: 20px!important;
     }
-    .tarefe-gamenets-header title,
     .tarefe-gamenets-header .title-img {
         width: 100%!important;
     }
@@ -1301,7 +1338,7 @@ width: 100%!important;
         top: 405px!important;
     }
     .gamenets-row .introduce2-img {
-        height: 60%;
+        height: 55%;
     }
     .gamenets-row .introduce-gamenets {
         height: 530px!important;
