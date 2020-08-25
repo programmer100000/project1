@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('newui/css/jquery.typeahead.min.css') }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -55,7 +56,7 @@
                             </g>
                           </g>
                         </svg>
-                        
+
                       </span>
                     </button>
 
@@ -104,11 +105,11 @@
                             </g>
                           </g>
                         </svg>
-                        
+
                       </span>
                     </button>
                     <div class="dropdown-menu  Provinces">
-                            
+
                     </div>
 
 
@@ -297,17 +298,77 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/ui.js')}}" defer></script>
-
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="{{ asset('newui/js/jquery.typeahead.min.js')}}"></script>
 
 
     <script>
-        // $(document).ready(function() {
-        //     $('#mytooltip').tooltip({
-        //         title: "<h4> Hello, <b>I'm</b> <i>Smiley!</i></h4>",
-        //         html: true
-        //     });
-        // });
+  $.typeahead({
+    input: '.js-typeahead-country_v1',
+    order: "desc",
+      minLength: 1,
+        dynamic: true,             // When true, Typeahead will get a new dataset from the source option on every key press
+        delay: 3,
+      source: {
+        gamenets:{
+            ajax:{
+                url: "{{ route('search') }}",
+                path: "data.gamenets"
+            }
+        }
+    },
+    callback: {
+        onNavigateAfter: function (node, lis, a, item, query, event) {
+            if (~[38,40].indexOf(event.keyCode)) {
+                var resultList = node.closest("form").find("ul.typeahead__list"),
+                    activeLi = lis.filter("li.active"),
+                    offsetTop = activeLi[0] && activeLi[0].offsetTop - (resultList.height() / 2) || 0;
+
+                resultList.scrollTop(offsetTop);
+            }
+
+        },
+        onClickAfter: function (node, a, item, event) {
+
+            event.preventDefault();
+
+            var r = confirm("You will be redirected to:\n" + item.href + "\n\nContinue?");
+            if (r == true) {
+                window.open(item.href);
+            }
+
+            $('#result-container').text('');
+
+        },
+        onResult: function (node, query, result, resultCount) {
+            if (query === "") return;
+
+            var text = "";
+            if (result.length > 0 && result.length < resultCount) {
+                text = "Showing <strong>" + result.length + "</strong> of <strong>" + resultCount + '</strong> elements matching "' + query + '"';
+            } else if (result.length > 0) {
+                text = 'Showing <strong>' + result.length + '</strong> elements matching "' + query + '"';
+            } else {
+                text = 'No results matching "' + query + '"';
+            }
+            $('#result-container').html(text);
+
+        },
+        onMouseEnter: function (node, a, item, event) {
+
+            if (item.group === "gamenets") {
+                $(a).append('<span class="flag-chart flag-' + item.display.replace(' ', '-').toLowerCase() + '"></span>')
+            }
+
+        },
+        onMouseLeave: function (node, a, item, event) {
+
+            $(a).find('.flag-chart').remove();
+
+        }
+    }
+});
     </script>
 </body>
 
