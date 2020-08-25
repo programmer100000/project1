@@ -4,7 +4,7 @@
     <div class="row w-100 m-0 p-0 slider-secttion">
         <div class="inner-slider col d-flex justify-content-center align-items-center ">
             <div class="row w-100 p-0 m-0 justify-content-center">
-                <div class=" col-8 col-md-4 p-2  searchbar d-flex justify-content-center align-items-center" dir="rtl">
+                <div class=" col-8 col-md-4 p-0  searchbar d-flex justify-content-center align-items-center" dir="rtl">
                     <input class="search_input border-0" type="text" name="" placeholder="جستجو...">
                     <a href="#" class="search_icon d-flex justify-content-center text-white align-items-center"><i class="fa fa-search"></i></a>
                 </div>
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="row m-0 p-0 justify-content-center">
-                            <a type="button" class=" plan-btn khorshid" href="{{ route('admin.register') }}/#plan1">خرید</a>
+                                <a type="button" class=" plan-btn khorshid" href="{{ route('admin.register') }}/#plan1">خرید</a>
 
                             </div>
 
@@ -302,11 +302,13 @@
                     <div class="row w-100 p-3 m-0 popular justify-content-center ">
                         <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
 
-                        <h1 class="text-white text-right mb-4 align-self-start">{{ $best_gamenet->title}} </h1>
+                            <h1 class="text-white text-right mb-4 align-self-start">{{ $best_gamenet->title}} </h1>
                             <div class="mb-3 d-flex text-right align-self-start">
                                 <input type="hidden" class="rate-input">
                                 <span class="text-white">امتیاز: </span>
+
                                 <div class="stars text-left float-left m-0 p-0 w-75" data-rate = {{ $best_gamenet->rate }}>
+
 
                                 </div>
                             </div>
@@ -328,9 +330,10 @@
                           </svg>
                         </span>
 
-                    <span class="text-white  text-justify ">{{ $best_gamenet->description }}</span>
+                                <span class="text-white  text-justify ">{{ $best_gamenet->description }}</span>
                             </div>
                             <div class="row justify-content-center">
+
                                 @if (Auth::check())
                                 @php
                                 $user = Auth::user();
@@ -349,7 +352,8 @@
                             data-url = {{ route('add.favourite')}} data-gnet-id = {{ $best_gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
                                 @endif
 
-                                </div>
+
+                            </div>
 
                         </div>
                         <div class="col-lg-7 my-2 popular-img" style="background-image: url({{ $best_gamenet->gamenet_image }})">
@@ -368,11 +372,12 @@
         </div>
         <div class="row introduce-body w-100 p-4 pt-4 m-0  justify-content-center">
             <div class="col-md-8 col-lg-3 col-md-8 p-0 m-3">
-            <a href="/gamenet/{{ $gamenets_active[0]->gamenet_id }}/{{ $gamenets_active[0]->title}}">
-                <div class="row w-100 p-3 m-0  introduce ">
-                <div class="col-12 introduce1-img " style="background-image:url({{ $gamenets_active[0]->gamenet_image }})">
-                    </div>
-                    <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data">
+                <a href="/gamenet/{{ $gamenets_active[0]->gamenet_id }}/{{ $gamenets_active[0]->title}}">
+                    <div class="row w-100 p-3 m-0  introduce ">
+                        <div class="col-12 introduce1-img " style="background-image:url({{ $gamenets_active[0]->gamenet_image }})">
+                        </div>
+                        <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data">
+
 
                     <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[0]->title }}</h1>
                         <div class="mb-3 d-flex text-right align-self-start">
@@ -380,10 +385,10 @@
                             <input type="hidden" class="rate-input" value="">
                         <div class="stars text-left float-left m-0 p-0 w-75" data-rate="{{$gamenets_active[0]->rate }}">
 
+
                             </div>
-                        </div>
-                        <div class="d-flex mb-4 text-right ">
-                            <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
+                            <div class="d-flex mb-4 text-right ">
+                                <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
                     <g id="pin" transform="translate(-60.962 0)">
                         <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
                           <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
@@ -398,6 +403,7 @@
                       </g>
                     </svg>
                   </span>
+
 
 
                 <span class="text-white text-justify ">{{ $gamenets_active[0]->address }}<br /> {{ $gamenets_active[0]->description }}</span>
@@ -421,18 +427,19 @@
                         data-url = {{ route('add.favourite')}} data-gnet-id = {{ $gamenets_active[0]->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
                             @endif
 
-                        </div>
 
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
             </div>
             <div class="col-md-8 col-lg-5 p-0 m-3">
-            <a href="gamenet/{{ $gamenets_active[1]->gamenet_id }}/{{ $gamenets_active[1]->title }}"></a>
+                <a href="gamenet/{{ $gamenets_active[1]->gamenet_id }}/{{ $gamenets_active[1]->title }}"></a>
                 <div class="row w-100 p-3 m-0  introduce introduce1 ">
                     <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
 
-                    <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[1]->title }}</h1>
+                        <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[1]->title }}</h1>
                         <div class="mb-3 d-flex text-right align-self-start">
                             <span class="text-white">امتیاز: </span>
                             <div class="stars text-left float-left m-0 p-0 w-75">
@@ -469,7 +476,7 @@
                     <div class="col-lg-6 introduce2-img">
                     </div>
                 </div>
-            </a>
+                </a>
             </div>
             <div class="col-md-8 col-lg-5 p-0 m-3">
                 <div class="row w-100 p-3 m-0  introduce introduce1">
@@ -728,11 +735,42 @@
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('/newui/js/newui.js') }}" defer></script>
 <script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
+<script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}" defer></script>
 <script>
 
+    $(document).ready(function() {
+        // $('.search_input').focus(function() {
+        //     if ($('.easy-autocomplete-container ul').css('display') == 'block') {
+
+        //         $('.searchbar').css('border-bottom-right-radius', '0px');
+
+        //     } else {
+        //         $('.searchbar').css('border-bottom-right-radius', '30px');
+        //     }
+
+        // });
+
+        // $(this).keypress(function() {
+        //     if ($('.easy-autocomplete-container ul').css('display') == 'block') {
+
+        //         $('.searchbar').css('border-bottom-right-radius', '0px');
+
+        //     } else {
+        //         $('.searchbar').css('border-bottom-right-radius', '30px');
+        //     }
+        // });
+
+
+        // $('.search_input').focusout(function() {
+
+        //     $('.searchbar').css('border-bottom-right-radius', '30px');
+
+        // });
+
+
+
 </script>
-@endsection
-@section('footersvg')
+@endsection @section('footersvg')
 <svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
   <path id="Path_1645" data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"></path>
 </svg> @endsection

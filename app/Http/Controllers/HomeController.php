@@ -110,7 +110,7 @@ class HomeController extends Controller
         $emkanat = Possibilities::join('gamenets' , 'gamenets.gamenet_id' , '=' , 'possibilities.gnet_id')
             ->where('text' , 'LIKE', $keyword)->limit(2)->get();
             $gaments = [];
-            $games = [];
+            $game = [];
             $emkan = [];
             foreach($gamenet as $ga){
                 $gaments[] = [
@@ -118,11 +118,23 @@ class HomeController extends Controller
                     'link' => route('show.gamenet' , ['gamenet_id' => $ga->gamenet_id , 'gamenet_name' => $ga->title] )
                 ];
             }
+            foreach($games as $g){
+                $game[]=[
+                    'title' => $g->game_name . ' در ' . $g->title ,
+                    'link' => route('show.gamenet' , ['gamenet_id' => $g->gamenet_id , 'gamenet_name' => $g->title] )
+                ];
+            }
+            foreach($emkanat as $em){
+                $emkan[]=[
+                    'title' => $em->text . ' در ' . $em->title ,
+                    'link' => route('show.gamenet' , ['gamenet_id' => $em->gamenet_id , 'gamenet_name' => $em->title] )
+                ];
+            }
                 
         $arr = [
                 'gamenets' => $gaments,
-                'games' => $games,
-                'emkanat' => $emkanat
+                'games' => $game,
+                'emkanat' => $emkan
             ];
         return json_encode($arr);
     }

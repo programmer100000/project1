@@ -299,6 +299,7 @@
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/ui.js')}}" defer></script>
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
+
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}"></script>
 
@@ -317,6 +318,10 @@ categories: [{
       listLocation:"games",
       maxNumberOfElements:3, 
       header:"بازی ها"
+    },{
+      listLocation:"emkanat",
+      maxNumberOfElements:3, 
+      header:"امکانات"
     }],
 
 
@@ -331,13 +336,22 @@ categories: [{
         },
         sort: {
             enabled: true
-        }
+        },
+        onSelectItemEvent: function() {
+                    // when hover item
+                },
+                onHideListEvent: function() {
+                    $('.searchbar').css('border-bottom-right-radius', '30px');
+                },
+                onShowListEvent: function() {
+                    $('.searchbar').css('border-bottom-right-radius', '0px');
+                }
     },
     template: {
         type: "links",
         fields: {
             link: "link"
-        }
+        } 
     },
 
 
@@ -346,6 +360,7 @@ theme: "square"
 
 $(".search_input").easyAutocomplete(options);
     </script>
+
 </body>
 
 </html>
