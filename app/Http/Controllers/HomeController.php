@@ -109,12 +109,18 @@ class HomeController extends Controller
             ->where('game_name' , 'LIKE' , $keyword)->limit(3)->get();
         $emkanat = Possibilities::join('gamenets' , 'gamenets.gamenet_id' , '=' , 'possibilities.gnet_id')
             ->where('text' , 'LIKE', $keyword)->limit(2)->get();
-        $g = [];
-        foreach ($gamenet as $ga){
-            $g[] = $ga->title;
-        }
+            $gaments = [];
+            $games = [];
+            $emkan = [];
+            foreach($gamenet as $ga){
+                $gaments[] = [
+                    'title' => $ga->title,
+                    'link' => route('show.gamenet' , ['gamenet_id' => $ga->gamenet_id , 'gamenet_name' => $ga->title] )
+                ];
+            }
+                
         $arr = [
-                'gamenets' => $g,
+                'gamenets' => $gaments,
                 'games' => $games,
                 'emkanat' => $emkanat
             ];
