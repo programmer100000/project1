@@ -24,41 +24,19 @@
             </div>
             <div class="col-lg-4 gamenets-header tarefe-gamenets-header-list r d-lg-flex justify-content-center p-0 pt-md-2 ">
                 <div class="tarefe-gamenets-header-list-img mx-sm-1 mx-md-2">
-                    <img src="{{ asset('newui/img/menu.svg') }}" class="header-half-img" alt="" width="60" height="60" class="">
-
-
+                    <img src="{{ asset('newui/img/menu1.png') }}" class="header-half-img" alt="" width="60" height="60" class="">
+                    <img src="{{ asset('newui/img/menu.svg') }}" class="header-half-light-img" alt="" width="60" height="60" class="">
                 </div>
                 <div class="tarefe-gamenets-header-list-img mx-1 mx-md-2">
                     <img src="{{ asset('newui/img/menubar.svg') }}" class="header-list-img" alt="" width="60" height="60" class="">
-
-
-
+                    <img src="{{ asset('newui/img/menubar1.png') }}" class="header-list-light-img" alt="" width="60" height="60" class="">
                 </div>
             </div>
         </div>
     </div>
     <div class="row justify-content-center p-0 gamenets-row">
         <div class="col-md-10 nazdiktarin ">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
-                <defs>
-                  <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
-                    <feOffset dy="3" input="SourceAlpha"/>
-                    <feGaussianBlur stdDeviation="3" result="blur"/>
-                    <feFlood flood-color="#e80766"/>
-                    <feComposite operator="in" in2="blur"/>
-                    <feComposite in="SourceGraphic"/>
-                  </filter>
-                </defs>
-                <g id="Group_515" data-name="Group 515" transform="translate(-175 -1492)">
-                  <g id="Ellipse_79" data-name="Ellipse 79" transform="translate(175 1492)" fill="#e80766" stroke="#707070" stroke-width="1" opacity="0.33">
-                    <circle cx="27" cy="27" r="27" stroke="none"/>
-                    <circle cx="27" cy="27" r="26.5" fill="none"/>
-                  </g>
-                  <g transform="matrix(1, 0, 0, 1, 175, 1492)" filter="url(#Ellipse_80)">
-                    <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
-                  </g>
-                </g>
-              </svg> نزدیکترین
+            <img src="{{ asset('newui/img/nicon.svg') }}" alt="" width="54" height="54"> نزدیکترین
         </div>
         @foreach ($gamenets as $ga)
         <div class="col-md-8 col-lg-5 p-0 m-3 half-show">
@@ -73,20 +51,10 @@
                         </div>
                     </div>
                     <div class="d-flex mb-4 text-right ">
-                        <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
-                      <g id="pin" transform="translate(-60.962 0)">
-                          <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
-                            <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
-                              <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
-                            </g>
-                          </g>
-                          <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
-                            <g id="Group_264" data-name="Group 264">
-                              <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
+
+                        <span class="ml-1">
+                          <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+                 
                     </span>
                         <span class="text-white text-justify">{{ $ga->description }}</span>
                     </div>
@@ -111,20 +79,9 @@
                         </div>
                     </div>
                     <div class="d-flex mb-4 text-right ">
-                        <span class="ml-1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 51.715 67.879">
-                      <g id="pin" transform="translate(-60.962 0)">
-                          <g id="Group_263" data-name="Group 263" transform="translate(60.962 0)">
-                            <g id="Group_262" data-name="Group 262" transform="translate(0 0)">
-                              <path id="Path_1503" data-name="Path 1503" d="M111.419,17.644A25.193,25.193,0,0,0,95.014,1.237,26.385,26.385,0,0,0,71.491,5.006,25.976,25.976,0,0,0,60.962,25.833a25.636,25.636,0,0,0,5.162,15.5l20.7,26.543,20.7-26.545A26.14,26.14,0,0,0,111.419,17.644Zm-24.6,22.113a13.925,13.925,0,1,1,13.925-13.925A13.941,13.941,0,0,1,86.822,39.757Z" transform="translate(-60.962 0)" fill="#e80766"/>
-                            </g>
-                          </g>
-                          <g id="Group_265" data-name="Group 265" transform="translate(76.876 15.913)">
-                            <g id="Group_264" data-name="Group 264">
-                              <path id="Path_1504" data-name="Path 1504" d="M190.944,120.027a9.933,9.933,0,1,0,9.946,9.92A9.935,9.935,0,0,0,190.944,120.027Z" transform="translate(-180.998 -120.027)" fill="#e80766"/>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
+                        <span class="ml-1">
+                          <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+                  
                     </span>
                         <span class="text-white text-justify">{{ $ga->description }}</span>
                     </div>
@@ -143,17 +100,26 @@
     </div>
 </div>
 <script>
-    $('.header-half-img').click(function() {
+    $('.header-half-light-img').click(function() {
         $('.half-show').css('display', 'block');
         $('.list-show').css('display', 'none');
+        $('.header-half-img').css('display', 'block');
+        $('.header-half-light-img').css('display', 'none');
+        $('.header-list-img').css('display', 'none');
+        $('.header-list-light-img').css('display', 'block');
     });
-    $('.header-list-img').click(function() {
 
+    $('.header-list-light-img').click(function() {
         $('.half-show').css('display', 'none');
         $('.list-show').css('display', 'block');
+        $('.header-list-img').css('display', 'block');
+        $('.header-list-light-img').css('display', 'none');
+        $('.header-half-img').css('display', 'none');
+        $('.header-half-light-img').css('display', 'block');
     });
 </script>
 @endsection @section('footersvg')
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="864" viewBox="0 0 1920 864">
   <defs>
     <clipPath id="clip-path">
