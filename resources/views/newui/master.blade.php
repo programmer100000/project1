@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('newui/css/easy-autocomplete.css') }}">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     @yield('header')
@@ -45,7 +44,8 @@
                                     </g>
                             </svg>
                           </span>
-                      استان ها
+                     <span class="pr-title-mobile">استان ها</span>
+                      
                       <span class="mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 30.542 18.962">
                           <g id="up-arrow" transform="translate(171.833 194.442) rotate(179)">
@@ -76,7 +76,7 @@
                 <div class="header-btns">
                     <div class="d-flex dropdown" id="provinces-dropdown">
                         <!-- <a href="#" id="mytooltip" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true">Hover</a> -->
-                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
 
                           <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47.086 58.2">
@@ -94,7 +94,7 @@
                                     </g>
                             </svg>
                           </span>
-                      استان ها
+                          <span class="pr-title">استان ها</span>
                       <span class="mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 30.542 18.962">
                           <g id="up-arrow" transform="translate(171.833 194.442) rotate(179)">
@@ -297,6 +297,7 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
+ 
     <script src="{{ asset('js/ui.js')}}" defer></script>
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
 
