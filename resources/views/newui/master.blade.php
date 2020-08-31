@@ -238,8 +238,7 @@
         });
     </script>
     <script>
-        var urlprovinces = '{{ asset('
-        js / Provinces.json ') }}';
+        var urlprovinces = '{{ asset('js/Provinces.json') }}';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>

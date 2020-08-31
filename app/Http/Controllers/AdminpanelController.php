@@ -1237,5 +1237,8 @@ class AdminpanelController extends Controller
             'invoice' => $invoice
         ]);
     } 
+    public function setlotterymatchs(Request $request){
+        
+    }
 
 }
