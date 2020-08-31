@@ -1,4 +1,17 @@
 var jsonprovices;
+function ajaxreturngamenets(){
+  $.ajax({
+    type:'get',
+    url: '/get/index/gamenets',
+    data:{
+      provinceId : localStorage.getItem('provinceId'),
+      cityId : localStorage.getItem('cityId')
+    },
+    success:function(data){
+      console.log(data);
+    }
+  });
+}
 $(document).ready(function() {
     if(localStorage.getItem('cityId') == null){
       $('.pr-title').text('استان ها');
@@ -8,19 +21,7 @@ $(document).ready(function() {
       $('.pr-title').text(provincename + ',' + cityname);
       ajaxreturngamenets();
     }
-    function ajaxreturngamenets(){
-      $.ajax({
-        type:'get',
-        url: '/get/index/gamenets',
-        data:{
-          provinceId : localStorage.getItem('provinceId'),
-          cityId : localStorage.getItem('cityId')
-        },
-        success:function(data){
-          console.log(data);
-        }
-      });
-    }
+
     window.onclick = function() {
         $(".Provinces").removeClass("show");
     }
