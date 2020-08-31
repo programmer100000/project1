@@ -50,7 +50,7 @@ function getCities(ostanID) {
         if (state.id == ostanID) {
             for (let j = 0; j < state.cities.length; j++) {
                 let city = state.cities[j];
-                $('.Provinces').append(`<div class="row text-right m-0 p-2">
+                $('.Provinces').append(`<div class="row text-right m-0 p-2 city">
                 <div class="col-md-10 m-0 p-0 name" data-id="${city.id}">
                   <span>${city.title}</span>
                 </div>
@@ -61,21 +61,38 @@ function getCities(ostanID) {
         }
     }
 };
+
 $(document).on('click', '.Provinces .province', function(e) {
-    e.stopPropagation();
     e.preventDefault();
+    e.stopPropagation();
     document.getElementsByClassName('Provinces')[0].scrollTo(0, 0);
     let that = $(this);
     let data_id = that.find('.name').attr("data-id");
-
+    localStorage.setItem("provinceId" , data_id);
+    $('.pr-title').text(that.find('.name').find("span").text());
     getCities(data_id);
-
 });
+
+$(document).on('click' , '.Provinces .city' , function(e){
+  e.preventDefault();
+  e.stopPropagation();
+    let that = $(this);
+    let data_id = that.find('.name').attr("data-id");
+    let province_name =$('.pr-title').text();
+    localStorage.setItem("cityId" , data_id);
+    $('.pr-title').text(province_name + ',' + that.find('.name').find("span").text());
+    $('.Provinces').empty();
+    localStorage.setItem('province' , province_name);
+    localStorage.setItem('city' , that.find('.name').find("span").text());
+    getprovinces();
+});
+
 $(document).on('click', '.Provinces .back', function(e) {
     e.stopPropagation();
     e.preventDefault();
     getprovinces();
 });
+
 $('#provinces-dropdown').on('hide.bs.dropdown', function(e) {
     document.getElementsByClassName('Provinces')[0].scrollTo(0, 0);
     getprovinces();

@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('ui/css/animate.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('newui/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('newui/css/easy-autocomplete.css') }}">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     @yield('header')
@@ -38,11 +37,14 @@
                           <img src="{{ asset('newui/img/place.svg') }}" alt="" width="20" height="20">
                       
                           </span>
-                      استان ها
+                     <span class="pr-title-mobile">استان ها</span>
+                      
                       <span class="mr-3">
+
                       <img src="{{ asset('newui/img/up-arrow.svg') }}" alt="" width="15" height="15">
                       
                         
+
                       </span>
                     </button>
 
@@ -61,14 +63,17 @@
                 <div class="header-btns">
                     <div class="d-flex dropdown" id="provinces-dropdown">
 
+
                         <button type="button" class="btn btn-outline-primary provinces-header-btn ml-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
 
                           <span>
                           <img src="{{ asset('newui/img/place.svg') }}" alt="" width="20" height="20">
                            
                           </span>
-                      استان ها
+                          <span class="pr-title">استان ها</span>
                       <span class="mr-3">
+
                       <img src="{{ asset('newui/img/up-arrow.svg') }}" alt="" width="15" height="15">
                      
                       </span>
@@ -76,6 +81,7 @@
                         <div class="dropdown-menu  Provinces">
 
                         </div>
+
 
 
 
@@ -243,8 +249,71 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
+ 
     <script src="{{ asset('js/ui.js')}}" defer></script>
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}"></script>
+
+
+    <script>
+
+var options = {
+
+url: "{{ route('search') }}",
+
+categories: [{
+        listLocation: "gamenets",
+        maxNumberOfElements: 5,
+        header: "گیم نت ها"
+    },{
+      listLocation:"games",
+      maxNumberOfElements:3, 
+      header:"بازی ها"
+    },{
+      listLocation:"emkanat",
+      maxNumberOfElements:3, 
+      header:"امکانات"
+    }],
+
+
+    getValue: function(element) {
+        return element.title;
+    },
+
+    list: {
+        maxNumberOfElements: 8,
+        match: {
+            enabled: true
+        },
+        sort: {
+            enabled: true
+        },
+        onSelectItemEvent: function() {
+                    // when hover item
+                },
+                onHideListEvent: function() {
+                    $('.searchbar').css('border-bottom-right-radius', '30px');
+                },
+                onShowListEvent: function() {
+                    $('.searchbar').css('border-bottom-right-radius', '0px');
+                }
+    },
+    template: {
+        type: "links",
+        fields: {
+            link: "link"
+        } 
+    },
+
+
+theme: "square"
+};
+
+$(".search_input").easyAutocomplete(options);
+    </script>
+
 </body>
 
 </html>

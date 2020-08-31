@@ -58,7 +58,7 @@ $('#buffetid').change(function() {
     });
 });
 
-$(document).on('change', '.selectbuffet', function() {
+$(document).on('focus', '.selectbuffet', function() {
     let count = $(this).closest('.row').find('.counts');
     let value = $('.selectbuffet').val();
     let url = buffetcountroute;
@@ -70,9 +70,14 @@ $(document).on('change', '.selectbuffet', function() {
             id: value
         }, // serializes the form's elements.
         success: function(data) {
-            for (var i = 1; i <= data; i++) {
-                count.append(new Option(i, i));
-            }
+            $('input').on('input', function() {
+                var value = count.val();
+
+                if ((value !== '') && (value.indexOf('.') === -1)) {
+
+                    $(this).val(Math.max(Math.min(value, data), 1));
+                }
+            });
 
         },
         error: function(data) {

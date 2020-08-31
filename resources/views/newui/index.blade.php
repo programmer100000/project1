@@ -594,6 +594,7 @@
 <script src="{{ asset('/ui/js/jquery.star-rating-svg.js') }}" defer></script>
 <script src="{{ asset('/newui/js/newui.js') }}" defer></script>
 <script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
+
 <script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}" defer></script>
 <script>
     $(document).ready(function() {
@@ -625,9 +626,12 @@
         $(".search_input").easyAutocomplete(options);
     });
 </script>
+
+<script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}" defer></script>`
+
 @endsection @section('footersvg')
-<img src="{{ asset('newui/img/ph.svg') }}" alt="" width="100%">
-<!-- <svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
+<!-- <img src="{{ asset('newui/img/ph.svg') }}" alt="" width="100%"> -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1944" height="774" viewBox="0 0 1944 774">
   <path id="Path_1645" data-name="Path 1645" d="M0,0S331.681,322,1007.612,279.333,1944,0,1944,0V774s-450.388-182-936.388-182S0,774,0,774Z" fill="#231553"></path>
-</svg> -->
+</svg>
 @endsection

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ['type_name' => 'PS4'],
             ['type_name' => 'PS3'],
             ['type_name' => 'PS2'],
+            ['type_name' => 'PC'],
             ['type_name' => 'XBOX'],
             ['type_name' => 'XBOX360']
         ];

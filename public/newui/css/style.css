@@ -1559,3 +1559,7 @@ box-shadow: none!important; */
 
 
 /* end loading */
+
+.easy-autocomplete-container {
+    text-align: right;
+}

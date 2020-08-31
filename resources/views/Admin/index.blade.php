@@ -309,7 +309,7 @@
                         <div class="col-md-6" id="dbf-2">
                             <div class="form-group mb-3">
                                 <label> تعداد</label>
-                                <select name="counts[]" id="counts" class="form-control counts" ></select>
+                                <input type="number" name="counts[]" id="counts" class="form-control counts">
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\favourite;
+use App\Game;
 use App\Gamenet;
+use App\Possibilities;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -98,5 +100,42 @@ class HomeController extends Controller
         }else{
             return redirect()->back()->withErrors(['msg' , 'برای ارسال نظر باید در سایت ثبت نام کنید  ']);
         }
+    }
+    public function search(Request $request){
+        $keyword = $request->input('text');
+        $gamenet = Gamenet::where('title' , 'LIKE' , $keyword)->limit(5)->get();
+        $games = Game::
+        join('gamenets' , 'gamenets.gamenet_id' , '=' , 'gnet_games.gnet_id')
+            ->where('game_name' , 'LIKE' , $keyword)->limit(3)->get();
+        $emkanat = Possibilities::join('gamenets' , 'gamenets.gamenet_id' , '=' , 'possibilities.gnet_id')
+            ->where('text' , 'LIKE', $keyword)->limit(2)->get();
+            $gaments = [];
+            $game = [];
+            $emkan = [];
+            foreach($gamenet as $ga){
+                $gaments[] = [
+                    'title' => $ga->title,
+                    'link' => route('show.gamenet' , ['gamenet_id' => $ga->gamenet_id , 'gamenet_name' => $ga->title] )
+                ];
+            }
+            foreach($games as $g){
+                $game[]=[
+                    'title' => $g->game_name . ' در ' . $g->title ,
+                    'link' => route('show.gamenet' , ['gamenet_id' => $g->gamenet_id , 'gamenet_name' => $g->title] )
+                ];
+            }
+            foreach($emkanat as $em){
+                $emkan[]=[
+                    'title' => $em->text . ' در ' . $em->title ,
+                    'link' => route('show.gamenet' , ['gamenet_id' => $em->gamenet_id , 'gamenet_name' => $em->title] )
+                ];
+            }
+                
+        $arr = [
+                'gamenets' => $gaments,
+                'games' => $game,
+                'emkanat' => $emkan
+            ];
+        return json_encode($arr);
     }
 }
