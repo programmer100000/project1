@@ -17,7 +17,7 @@
           </svg>
             <div class="col-12 inner-plan-header mx-auto p-0 position-absolute ">
                 <div class="title text-center">
-                    <img src="{{ asset('newui/img/title.png')}}" alt="" class=" plan-header-img ">
+                    <img src="{{ asset('newui/img/title.png')}}" alt="" class=" tarefe-header-img ">
                 </div>
             </div>
         </div>
@@ -303,10 +303,10 @@
                         <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
 
                             <h1 class="text-white text-right mb-4 align-self-start">{{ $best_gamenet->title}} </h1>
-                            <div class="mb-3 d-flex text-right align-self-start">
+                            <div class="mb-3 d-flex w-100 text-right align-self-start">
                                 <input type="hidden" class="rate-input">
                                 <span class="text-white">امتیاز: </span>
-                                <div class="stars text-left float-left m-0 p-0 w-75" data-rate={{ $best_gamenet->rate }}>
+                                <div class="stars text-right mr-2 float-center m-0 p-0 w-75" data-rate={{ $best_gamenet->rate }}>
 
                                 </div>
                             </div>
@@ -316,7 +316,7 @@
 
                         </span>
 
-                                <span class="text-white  text-justify ">{{ $best_gamenet->description }}</span>
+                                <span class="text-white  text-justify ">{{$best_gamenet->address}}<br > <hr class="text-white" />{{ $best_gamenet->description }}</span>
                             </div>
                             <div class="row justify-content-center">
                                 @if (Auth::check()) @php $user = Auth::user(); $fav = App\favourite::where([['user_id' , $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first(); @endphp @if ($fav == null)
@@ -351,10 +351,10 @@
                         <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data">
 
                             <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[0]->title }}</h1>
-                            <div class="mb-3 d-flex text-right align-self-start">
+                            <div class="mb-3 d-flex w-100 text-right align-self-start">
                                 <span class="text-white">امتیاز: </span>
                                 <input type="hidden" class="rate-input" value="">
-                                <div class="stars text-left float-left m-0 p-0 w-75" data-rate="{{$gamenets_active[0]->rate }}">
+                                <div class="stars text-right mr-2 float-center m-0 p-0 w-75" data-rate="{{$gamenets_active[0]->rate }}">
 
                                 </div>
                             </div>
@@ -384,9 +384,9 @@
                     <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
 
                         <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[1]->title }}</h1>
-                        <div class="mb-3 d-flex text-right align-self-start">
+                        <div class="mb-3 d-flex w-100 text-right align-self-start">
                             <span class="text-white">امتیاز: </span>
-                            <div class="stars text-left float-left m-0 p-0 w-75">
+                            <div class="stars text-right mr-2 float-center m-0 p-0 w-75">
                                 <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
                             </div>
                         </div>
@@ -411,11 +411,11 @@
                 <div class="row w-100 p-3 m-0  introduce introduce1">
                     <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
 
-                        <h1 class="text-white text-right my-4 align-self-start">گیمنت ایرانیان</h1>
-                        <div class="mb-3 text-right align-self-start">
+                        <h1 class="text-white w-100 text-right my-4 align-self-start">گیمنت ایرانیان</h1>
+                        <div class="mb-3 text-center align-self-start">
                             <span class="text-white">امتیاز: </span>
                         </div>
-                        <div class="d-flex mb-4 text-right ">
+                        <div class="d-flex mb-4 text-right mr-2 ">
                             <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
                     </span>
                             <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
@@ -434,11 +434,11 @@
                     </div>
                     <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data ">
 
-                        <h1 class="text-white text-right my-4 align-self-start">گیمنت آرشام</h1>
+                        <h1 class="text-white w-100 text-right my-4 align-self-start">گیمنت آرشام</h1>
                         <div class="mb-3 text-right align-self-start">
                             <span class="text-white">امتیاز: </span>
                         </div>
-                        <div class="d-flex mb-4 text-right ">
+                        <div class="d-flex mb-4 text-right mr-2 ">
                             <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
                     </span>
                             <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
