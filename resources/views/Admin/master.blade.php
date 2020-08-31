@@ -137,6 +137,14 @@
                                 {{-- <span class="badge badge-success badge-pill float-right">4</span> --}}
                                 <span>  مسابقه </span>
                             </a>
+
+                            <li>
+                            <a href="{{ route('reports') }}">
+                            <i data-feather="edit"></i>
+                                <span>   گزارشات</span>
+                            </a>
+                        </li>
+
                             <li>
                                 <a href="{{ route('logout') }}">
                                     <i data-feather="log-out"></i>

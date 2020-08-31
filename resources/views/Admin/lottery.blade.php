@@ -1,14 +1,7 @@
-@extends('Admin.master')
-@section('title', 'خانه')
-@section('head')
-<link type="text/css" rel="stylesheet" href={{ asset('assets/css/persian-datepicker.css') }} />
+@extends('Admin.master') @section('title', 'خانه') @section('head')
+<link type="text/css" rel="stylesheet" href={{ asset( 'assets/css/persian-datepicker.css') }} />
 
-<link type="text/css" rel="stylesheet"
-    href={{ asset('assets/css/persianDatepicker-dark.css') }} />
-
-@endsection
-
-@section('content')
+<link type="text/css" rel="stylesheet" href={{ asset( 'assets/css/persianDatepicker-dark.css') }} /> @endsection @section('content')
 <!-- ============================================================== -->
 <!-- Start Page Content here -->
 <!-- ============================================================== -->
@@ -53,8 +46,7 @@
                 <div class="col-xl-12">
                     <div class="card-box">
                         <h4 class="header-title mb-3">افزودن</h4>
-                        <form id="lottery_form" action="{{ route('create.lottery') }}"
-                            onsubmit="return false;" enctype="multipart/form-data">
+                        <form id="lottery_form" action="{{ route('create.lottery') }}" onsubmit="return false;" enctype="multipart/form-data">
                             <input type="hidden" name="lottery_id" id="lottery_id" value="">
                             <div class="form-row">
                                 <div class="col-lg-6">
@@ -95,8 +87,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
                                         <label>تاریخ</label>
-                                        <input class="form-control formdate" type="text" name="date" id="tarikh"
-                                            dir="auto" autocomplete="off">
+                                        <input class="form-control formdate" type="text" name="date" id="tarikh" dir="auto" autocomplete="off">
                                         <div class="formdate"></div>
                                     </div>
                                 </div>
@@ -111,8 +102,10 @@
                             <button type="button" id="lottery_form_btn" class="btn btn-primary">ثبت</button>
                             <p style="color: red;" id="device_type_form_msg"></p>
                         </form>
-                    </div> <!-- end card-box-->
-                </div> <!-- end col -->
+                    </div>
+                    <!-- end card-box-->
+                </div>
+                <!-- end col -->
                 <div class="col-xl-12">
                     <div class="card-box">
                         <h4 class="header-title mb-3">مسابقه های ثبت شده </h4>
@@ -130,10 +123,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                    $i = 1;
-                                @endphp
-                                    @foreach ($lotteries as $t)
+                                    @php $i = 1; @endphp @foreach ($lotteries as $t)
 
                                     <tr>
                                         <td>
@@ -150,7 +140,7 @@
                                             {{ $t->game_title }}
                                         </td>
                                         <td>
-                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light editlottery" data-url="{{ route('edit.lottery') }}" data-id="{{ $t->lottery_id }}" >ویرایش</button>
+                                            <button type="button" class="edit-system btn btn-success waves-effect waves-light editlottery" data-url="{{ route('edit.lottery') }}" data-id="{{ $t->lottery_id }}">ویرایش</button>
                                             <button data-id="{{ $t->lottery_id }}" type="button" class="btn btn-danger remove-system" data-toggle="modal" data-target="#danger-alert-modal">حذف</button>
                                             <button data-id="{{ $t->lottery_id }}" type="button" class="btn btn-info add-user-lottery" data-toggle="modal" data-target="#add-alert-modal">افزودن شرکت کننده</button>
                                             <a class="btn btn-light" href="/admin/lottery/show/{{ $t->lottery_id }}" title="{{ $t->lottery_name }}">نمایش</a>
@@ -161,14 +151,17 @@
                             </table>
                         </div>
                     </div>
-                </div> <!-- end col -->
+                </div>
+                <!-- end col -->
 
             </div>
             <!-- end row -->
 
-        </div> <!-- container -->
+        </div>
+        <!-- container -->
 
-    </div> <!-- content -->
+    </div>
+    <!-- content -->
 
     @include('Admin.footer')
 
@@ -184,18 +177,18 @@
                 <div class="text-center">
                     <i class="dripicons-wrong h1 text-white"></i>
                     <h4 class="mt-2 text-white">توجه</h4>
-                    <p class="mt-3 text-white">درصورت حذف این مورد تمام دستگاه های ثبت شده ی شما که به آن مرتبط هستند
-                        حذف خواهند شد.</p>
-                    <button id="remove-system" data-url="{{ route('delete.lottery') }}" type="button"
-                        class="btn btn-light my-2" data-dismiss="modal">حذف</button>
+                    <p class="mt-3 text-white">درصورت حذف این مورد تمام دستگاه های ثبت شده ی شما که به آن مرتبط هستند حذف خواهند شد.</p>
+                    <button id="remove-system" data-url="{{ route('delete.lottery') }}" type="button" class="btn btn-light my-2" data-dismiss="modal">حذف</button>
                 </div>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
-<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none;">
+<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -230,10 +223,10 @@
             </div>
         </div>
     </div>
-</div><!-- /.modal -->
+</div>
+<!-- /.modal -->
 
-<div id="add-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none;">
+<div id="add-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -272,7 +265,8 @@
             </div>
         </div>
     </div>
-</div><!-- /.modal -->
+</div>
+<!-- /.modal -->
 
 
 <!-- ============================================================== -->
@@ -285,6 +279,62 @@
 <!-- ============================================================== -->
 
 <!-- END wrapper -->
+<script>
+    $(window).click(function() {
+        var currentvalue = $(".current").children(':last-child').val();
+        var div1 = $("<div class='score' ></div>");
+        div1.text(currentvalue);
+        alert(currentvalue);
+        // $.post('url', {
+        //         myData: currentvalue
+        //     },
+        //     function(data, status, jqXHR) {
+        //         alert('status: ' + status + ', data: ' + data.responseData);
+        //     })
+
+        $('.currentinput').remove();
+        $(".current").append(div1);
+        div1.show();
+        var curr = $(".current");
+        curr.removeClass('current');
+
+    });
+
+    $(".team").click(function(event) {
+        event.stopPropagation();
+        alert('11');
+        var currentvalue = $(".current").children(':last-child').val();
+        var div1 = $("<div class='score' ></div>");
+        div1.text(currentvalue);
+        if (currentvalue) {
+            alert(currentvalue);
+        }
+        $('.currentinput').remove();
+        $(".current").append(div1);
+        div1.show();
+
+        var curr = $(".current");
+        curr.removeClass('current');
+        curr.children().removeClass('currentinput');
+        var scoreValue = $(this).text();
+        var currentParent = $(this).closest('.team');
+
+        currentParent.addClass('current');
+        $(".current").append(
+            '<input class="" type="text"> '
+        );
+        var currentInput = currentParent.children(':last-child');
+        currentInput.show();
+        currentInput.addClass('currentinput');
+        $(".currentinput").val(scoreValue);
+        currentInput.focus();
+        $(this).remove();
+
+    });
+    $(document).on('click', 'input', function(event) {
+
+    });
+</script>
 <script type="text/javascript" src="{{ asset('assets/js/persian-date.js') }}" defer></script>
 
 <script type="text/javascript" src="{{ asset('assets/js/persian-datepicker.js') }}" defer>

@@ -283,7 +283,62 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery.bracket.min.js') }}" defer></script>
 
 <script src="{{ asset('assets/js/createsystem.js') }}" defer></script>
+// <script>
+//     $(window).click(function() {
+//         var currentvalue = $(".current").children(':last-child').val();
+//         var div1 = $("<div class='score' ></div>");
+//         div1.text(currentvalue);
+//         alert(currentvalue);
+//         // $.post('url', {
+//         //         myData: currentvalue
+//         //     },
+//         //     function(data, status, jqXHR) {
+//         //         alert('status: ' + status + ', data: ' + data.responseData);
+//         //     })
 
+//         $('.currentinput').remove();
+//         $(".current").append(div1);
+//         div1.show();
+//         var curr = $(".current");
+//         curr.removeClass('current');
+
+//     });
+
+//     $(document).on('click', '.score', function(event) {
+//         event.stopPropagation();
+//         alert('11');
+//         var currentvalue = $(".current").children(':last-child').val();
+//         var div1 = $("<div class='score' ></div>");
+//         div1.text(currentvalue);
+//         if (currentvalue) {
+//             alert(currentvalue);
+//         }
+//         $('.currentinput').remove();
+//         $(".current").append(div1);
+//         div1.show();
+
+//         var curr = $(".current");
+//         curr.removeClass('current');
+//         curr.children().removeClass('currentinput');
+//         var scoreValue = $(this).text();
+//         var currentParent = $(this).closest('.team');
+
+//         currentParent.addClass('current');
+//         $(".current").append(
+//             '<input class="" type="text"> '
+//         );
+//         var currentInput = currentParent.children(':last-child');
+//         currentInput.show();
+//         currentInput.addClass('currentinput');
+//         $(".currentinput").val(scoreValue);
+//         currentInput.focus();
+//         $(this).remove();
+
+//     });
+//     $(document).on('click', 'input', function(event) {
+
+//     });
+// </script>
 
 
 

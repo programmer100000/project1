@@ -50,3 +50,8 @@ span {
     outline: none!important;
     box-shadow: none!important;
 }
+
+div.jQBracket .team div.label {
+    left: 0;
+    float: left;
+}

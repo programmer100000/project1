@@ -278,3 +278,7 @@ Route::get('/pay', function () {
 Route::post('/newlogin', 'LoginController@login')->name('newlogin');
 Route::post('/edit/user/info' , 'UserController@editprofile')->name('edit.user.profile');
 Route::post('/add/comment' ,'HomeController@addcomment')->name('add.comment');
+Route::get('/reports', function(){
+    return view("Admin.reports");
+})->name('reports');
+
