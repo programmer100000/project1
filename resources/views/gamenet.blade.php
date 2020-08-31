@@ -1,5 +1,4 @@
-
-@extends('newui/master') @section('header')
+ @extends('newui/master') @section('header')
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6ANKFN7UZG86bQx44xyArKvyqU9jeALg"></script>
 <script src="{{ asset('/js/locationpicker.min.js') }}"></script>
 
@@ -29,11 +28,11 @@
         </div>
     </div>
     <div class="row w-100 mx-0  p-0 justify-content-center gamenet-row ">
-        <div class="col-md-10 p-0">
+        <div class="col-md-10 col-11 p-0">
             <div class="row w-100 m-0  p-2 gamenet-info justify-content-center align-items-center">
 
                 <div class="col-lg-3  p-4  gamenet-item my-4 mx-4 d-flex flex-column align-items-center justify-content-center  ">
-                <h1 class="text-white text-right mb-4 align-self-start">{{ $gamenet->title }}</h1>
+                    <h1 class="text-white text-right mb-4 align-self-start">{{ $gamenet->title }}</h1>
                     <div class="mb-3 d-flex text-right align-self-start">
                         <span class="text-white">امتیاز: </span>
 
@@ -41,20 +40,7 @@
                     </div>
                     <div class="d-flex mb-4 text-right align-self-start ">
                         <span class="ml-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 50 61.802">
-                            <g id="place_1_" data-name="place (1)" transform="translate(-48.886)">
-                              <g id="Group_459" data-name="Group 459" transform="translate(48.886)">
-                                <g id="Group_458" data-name="Group 458">
-                                  <path id="Path_3139" data-name="Path 3139" d="M94.4,10.745a24.953,24.953,0,0,0-41.027,0,24.957,24.957,0,0,0-2.906,22.994A19.655,19.655,0,0,0,54.09,39.72L72.241,61.041a2.159,2.159,0,0,0,3.29,0L93.678,39.726A19.674,19.674,0,0,0,97.3,33.753,24.962,24.962,0,0,0,94.4,10.745ZM93.253,32.24a15.415,15.415,0,0,1-2.85,4.669.077.077,0,0,0-.01.012L73.887,56.308,57.37,36.908a15.424,15.424,0,0,1-2.855-4.683A20.644,20.644,0,0,1,56.928,13.2a20.631,20.631,0,0,1,33.917,0A20.648,20.648,0,0,1,93.253,32.24Z" transform="translate(-48.886)" fill="#e80766"/>
-                                </g>
-                              </g>
-                              <g id="Group_461" data-name="Group 461" transform="translate(61.785 12.821)">
-                                <g id="Group_460" data-name="Group 460">
-                                  <path id="Path_3140" data-name="Path 3140" d="M167.855,106.219a12.1,12.1,0,1,0,12.1,12.1A12.115,12.115,0,0,0,167.855,106.219Zm0,19.88a7.779,7.779,0,1,1,7.779-7.779A7.788,7.788,0,0,1,167.855,126.1Z" transform="translate(-155.754 -106.219)" fill="#e80766"/>
-                                </g>
-                              </g>
-                            </g>
-                          </svg>
+                          <img src="{{ asset('newui/img/place.svg')}}" alt=""  width="25" height="25">
                           
                       </span>
                         <span class="text-white text-justify">{{$gamenet->address}}<br />{{ $gamenet->description }}
@@ -62,49 +48,18 @@
                     </div>
                     <div class="d-flex w-100 mb-4 text-right ">
                         <span class="ml-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 53.819 53.797">
-                            <g id="call" transform="translate(0 -0.104)">
-                              <g id="Group_449" data-name="Group 449" transform="translate(0 0.104)">
-                                <g id="Group_448" data-name="Group 448" transform="translate(0 0)">
-                                  <path id="Path_3134" data-name="Path 3134" d="M52.436,41.917,43.518,33a4.726,4.726,0,0,0-6.688,0L34.6,35.229a4.737,4.737,0,0,1-6.7-.007L18.57,26.009a4.734,4.734,0,0,1,0-6.688L20.8,17.092a4.734,4.734,0,0,0,0-6.688L11.882,1.487a4.734,4.734,0,0,0-6.688,0L2.965,3.716C.072,6.61-.779,12.989.744,20.365A43.254,43.254,0,0,0,12.309,41.917a41.89,41.89,0,0,0,21.42,11.355c5.12.989,12.816,1.223,16.477-2.438L52.436,48.6A4.735,4.735,0,0,0,52.436,41.917ZM7.424,3.716a1.578,1.578,0,0,1,2.229,0l8.917,8.917a1.578,1.578,0,0,1,0,2.229l-1.109,1.109L6.315,4.826Zm26.9,46.46A38.7,38.7,0,0,1,14.538,39.688,40.063,40.063,0,0,1,3.832,19.728c-1.192-5.77-.7-10.106.462-12.465L15.343,18.312a7.9,7.9,0,0,0,1.005,9.933l9.336,9.213a7.894,7.894,0,0,0,9.926,1L46.669,49.515C43.3,51.224,38.059,50.9,34.327,50.177Zm15.88-3.8L49.1,47.485,37.951,36.338l1.109-1.109a1.575,1.575,0,0,1,2.229,0l8.917,8.917A1.578,1.578,0,0,1,50.206,46.375Z" transform="translate(0 -0.104)" fill="#e80766"/>
-                                </g>
-                              </g>
-                              <g id="Group_451" data-name="Group 451" transform="translate(28.595 0.105)">
-                                <g id="Group_450" data-name="Group 450" transform="translate(0 0)">
-                                  <path id="Path_3135" data-name="Path 3135" d="M273.613.115a1.576,1.576,0,0,0,0,3.153A20.515,20.515,0,0,1,294.105,23.76a1.576,1.576,0,1,0,3.153,0A23.672,23.672,0,0,0,273.613.115Z" transform="translate(-272.037 -0.115)" fill="#e80766"/>
-                                </g>
-                              </g>
-                              <g id="Group_453" data-name="Group 453" transform="translate(28.595 6.411)">
-                                <g id="Group_452" data-name="Group 452">
-                                  <path id="Path_3136" data-name="Path 3136" d="M273.613,60.1a1.576,1.576,0,0,0,0,3.153A14.2,14.2,0,0,1,287.8,77.439a1.576,1.576,0,0,0,3.153,0A17.359,17.359,0,0,0,273.613,60.1Z" transform="translate(-272.037 -60.1)" fill="#e80766"/>
-                                </g>
-                              </g>
-                              <g id="Group_455" data-name="Group 455" transform="translate(28.595 12.716)">
-                                <g id="Group_454" data-name="Group 454">
-                                  <path id="Path_3137" data-name="Path 3137" d="M273.613,120.085a1.576,1.576,0,1,0,0,3.153,7.89,7.89,0,0,1,7.882,7.882,1.576,1.576,0,1,0,3.153,0A11.047,11.047,0,0,0,273.613,120.085Z" transform="translate(-272.037 -120.085)" fill="#e80766"/>
-                                </g>
-                              </g>
-                              <g id="Group_457" data-name="Group 457" transform="translate(28.595 19.021)">
-                                <g id="Group_456" data-name="Group 456">
-                                  <path id="Path_3138" data-name="Path 3138" d="M273.613,180.07a1.576,1.576,0,1,0,0,3.153,1.578,1.578,0,0,1,1.576,1.576,1.576,1.576,0,0,0,3.153,0A4.734,4.734,0,0,0,273.613,180.07Z" transform="translate(-272.037 -180.07)" fill="#e80766"/>
-                                </g>
-                              </g>
-                            </g>
-                          </svg>
-                          
+                          <img src="{{ asset('newui/img/call.svg')}}" alt=""  width="25" height="25">
+                      
                     </span>
                         <span class="text-white text-justify">{{ $gamenet->tel }}  
                           </span>
                     </div>
                     <div class="row justify-content-center">
-                      @if ($f == 'false')
-                      <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                      data-url = {{ route('add.favourite')}} data-gnet-id = {{ $gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button>
-                      @elseif ($f == 'true')
-                      <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                       data-url = {{ route('add.favourite')}} data-gnet-id = {{ $gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال شده</button>
-                      @endif
-                    <a   class="btn btn-primary main-form-btn px-4 text-white" onclick="myNavFunc()">مسیریابی</a>
+                        @if ($f == 'false')
+                        <button type="button" class="btn btn-primary main-form-btn px-4 ml-1 favourite-button" data-url={{ route( 'add.favourite')}} data-gnet-id={{ $gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال کردن</button> @elseif ($f
+                        == 'true')
+                        <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button" data-url={ { route( 'add.favourite')}} data-gnet-id={ { $gamenet->gamenet_id }} data-csrf= {{ csrf_token() }}>دنبال شده</button> @endif
+                        <a class="btn btn-primary main-form-btn px-4 text-white" onclick="myNavFunc()">مسیریابی</a>
                     </div>
                 </div>
                 <div class="col-lg-8  gamenet-item gamenet-slider   my-4 mx-4 p-0 ">
@@ -119,30 +74,57 @@
             <div class="row w-100 p-0 m-0 justify-content-center">
 
                 <div id="map" class="col-11 my-2 mb-4 gamenet-item gamenet-location ">
-
-
                 </div>
-                <div class="col-11 my-4  gamenet-heading ">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
-                    <defs>
-                        <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
-                          <feOffset dy="3" input="SourceAlpha"/>
-                          <feGaussianBlur stdDeviation="3" result="blur"/>
-                          <feFlood flood-color="#e80766"/>
-                          <feComposite operator="in" in2="blur"/>
-                          <feComposite in="SourceGraphic"/>
-                        </filter>
-                      </defs>
-                      <g id="Group_515" data-name="Group 515" transform="translate(-175 -1492)">
-                        <g id="Ellipse_79" data-name="Ellipse 79" transform="translate(175 1492)" fill="#e80766" stroke="#707070" stroke-width="1" opacity="0.33">
-                          <circle cx="27" cy="27" r="27" stroke="none"/>
-                          <circle cx="27" cy="27" r="26.5" fill="none"/>
-                        </g>
-                        <g transform="matrix(1, 0, 0, 1, 175, 1492)" filter="url(#Ellipse_80)">
-                          <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
-                        </g>
-                      </g>
-                    </svg> نظرات کاربران
+                <div class="col-11">
+                    <div class="row justify-content-between w-100 p-0 m-0">
+                        <div class="col-lg-5 p-0 ">
+                            <div class="row w-100 p-0 m-0">
+                                <div class="col-12 px-0  my-4  gamenet-heading">
+                                    <img src="{{ asset('newui/img/nicon.svg')}}" alt="" width="54" height="54">
+                                    <span>امکانات</span>
+
+                                </div>
+                            </div>
+                            <div class="row w-100 p-0 m-0">
+                                <div class="col-12 p-4 my-2 gamenet-item gamenet-emkanat">
+                                    <ul>
+                                        <li class="text-right text-white p-2">تست</li>
+                                        <li class="text-right text-white p-2">تست</li>
+                                        <li class="text-right text-white p-2">تست</li>
+                                        <li class="text-right text-white p-2">تست</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 p-0">
+                            <div class="row w-100 p-0 m-0">
+                                <div class="col-12 px-0  my-4  gamenet-heading">
+                                    <img src="{{ asset('newui/img/nicon.svg')}}" alt="" width="54" height="54">
+
+                                    <span>بازی ها</span>
+                                </div>
+                                <div class="row w-100 p-0 m-0">
+                                    <div class="col-12 p-4 my-2 gamenet-item gamenet-emkanat">
+                                        <ul>
+                                            <li class="text-right text-white p-2">تست</li>
+                                            <li class="text-right text-white p-2">تست</li>
+                                            <li class="text-right text-white p-2">تست</li>
+                                            <li class="text-right text-white p-2">تست</li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-11 my-4 px-0 gamenet-heading ">
+                    <img src="{{ asset('newui/img/nicon.svg')}}" alt="" width="54" height="54">
+
+                    <span>نظرات کاربران</span>
 
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comments ">
@@ -166,41 +148,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-11 my-4  gamenet-heading ">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="56" viewBox="0 0 54 56">
-                  <defs>
-                      <filter id="Ellipse_80" x="2" y="5" width="51" height="51" filterUnits="userSpaceOnUse">
-                        <feOffset dy="3" input="SourceAlpha"/>
-                        <feGaussianBlur stdDeviation="3" result="blur"/>
-                        <feFlood flood-color="#e80766"/>
-                        <feComposite operator="in" in2="blur"/>
-                        <feComposite in="SourceGraphic"/>
-                      </filter>
-                    </defs>
-                    <g id="Group_515" data-name="Group 515" transform="translate(-175 -1492)">
-                      <g id="Ellipse_79" data-name="Ellipse 79" transform="translate(175 1492)" fill="#e80766" stroke="#707070" stroke-width="1" opacity="0.33">
-                        <circle cx="27" cy="27" r="27" stroke="none"/>
-                        <circle cx="27" cy="27" r="26.5" fill="none"/>
-                      </g>
-                      <g transform="matrix(1, 0, 0, 1, 175, 1492)" filter="url(#Ellipse_80)">
-                        <circle id="Ellipse_80-2" data-name="Ellipse 80" cx="16.5" cy="16.5" r="16.5" transform="translate(11 11)" fill="#e80766"/>
-                      </g>
-                    </g>
-                  </svg> نظر دهید
+                <div class="col-11 my-4 px-0 gamenet-heading ">
+                    <img src="{{ asset('newui/img/nicon.svg')}}" alt="" width="54" height="54">
+                    <span>نظر دهید</span>
 
                 </div>
                 <div class="col-11 p-0 my-2 gamenet-item gamenet-comment p-4  ">
                     <div class="row w-100 p-0 m-0 justify-content-center">
                         <div class="col-11">
-                        <form class="main-contact-form" action="{{ route('add.comment') }}" method="POST">
-                          @csrf
-                              @if ($errors->any())
-                                  <div class="alert alert-danger">
-                                          @foreach ($errors->all() as $error)
-                                              <p class="text-danger">{{ $error }}</p>
-                                          @endforeach
-                                  </div>
-                              @endif
+                            <form class="main-contact-form" action="{{ route('add.comment') }}" method="POST">
+                                @csrf @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                    <p class="text-danger">{{ $error }}</p>
+                                    @endforeach
+                                </div>
+                                @endif
                                 <input type="hidden" value="{{ $gamenet->gamenet_id }}" name="gamenet-id">
                                 <textarea class="form-control mb-4 text-white" rows="5" id="comment" placeholder="متن مورد نظر" name="comment"></textarea>
                                 <div class="row justify-content-center">
@@ -279,15 +242,15 @@
 <script src="{{ asset('newui/js/jquery.min.js')}}"></script>
 <script src="{{ asset('newui/js/owl.carousel.min.js')}}"></script>
 <script>
-  var locationPicker = new locationPicker('map', {
-    setCurrentPosition: true,
-    lat: '{{ $gamenet->lat }}',
-    lng: '{{ $gamenet->long }}'
+    var locationPicker = new locationPicker('map', {
+        setCurrentPosition: true,
+        lat: '{{ $gamenet->lat }}',
+        lng: '{{ $gamenet->long }}'
 
-    // You can omit this, defaults to true
-}, {
-    zoom: 15 // You can set any google map options here, zoom defaults to 15
-});
+        // You can omit this, defaults to true
+    }, {
+        zoom: 15 // You can set any google map options here, zoom defaults to 15
+    });
     $(document).ready(function() {
 
         $("#owl-demo").owlCarousel({
@@ -313,19 +276,20 @@
         });
 
     });
-    function myNavFunc(){
-    // If it's an iPhone..
-    if( (navigator.platform.indexOf("iPhone") != -1) 
-        || (navigator.platform.indexOf("iPod") != -1)
-        || (navigator.platform.indexOf("iPad") != -1))
-        window.open("maps://www.google.com/maps/dir/?api=1&travelmode=driving&layer=traffic&destination={{ $gamenet->lat }},{{ $gamenet->long }}");
-    else if(navigator.platform.indexOf("android")){
-      window.open("geo:{{ $gamenet->lat }} , {{ $gamenet->long }}");
-    }else{
-      window.open("https://www.google.com/maps/@{{ $gamenet->lat }},{{ $gamenet->long }},4z")
+
+    function myNavFunc() {
+        // If it's an iPhone..
+        if ((navigator.platform.indexOf("iPhone") != -1) ||
+            (navigator.platform.indexOf("iPod") != -1) ||
+            (navigator.platform.indexOf("iPad") != -1))
+            window.open("maps://www.google.com/maps/dir/?api=1&travelmode=driving&layer=traffic&destination={{ $gamenet->lat }},{{ $gamenet->long }}");
+        else if (navigator.platform.indexOf("android")) {
+            window.open("geo:{{ $gamenet->lat }} , {{ $gamenet->long }}");
+        } else {
+            window.open("https://www.google.com/maps/@{{ $gamenet->lat }},{{ $gamenet->long }},4z")
+        }
+
     }
-      
-}
 </script>
 
 @endsection

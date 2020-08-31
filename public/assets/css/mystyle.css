@@ -55,3 +55,11 @@ div.jQBracket .team div.label {
     left: 0;
     float: left;
 }
+
+div.jQBracket .tools span {
+    display: none!important;
+}
+
+.help-block {
+    color: red!important;
+}

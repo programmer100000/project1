@@ -387,6 +387,7 @@ border-radius: 50% 50% 0 0; */
     background-image: url(../img/MaskGroup3.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    border-radius: 30px;
 }
 
 .introduce1-img {
@@ -1115,7 +1116,7 @@ top: 515px!important; */
     .gamenet-heading {
         font-size: 1.5rem!important;
     }
-    .gamenet-heading svg {
+    .gamenet-heading img {
         height: 40px!important;
     }
     .comments-img img {
