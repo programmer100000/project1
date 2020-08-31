@@ -41,7 +41,7 @@ Route::get('/',function(){
     // dd($best_gamenet);
     $gamenets_active = Gamenet::select()
     ->join('gamenet_pictures', 'gamenet_pictures.gamenet_picture_id', '=', 'gamenets.gamenet_id')
-    ->where(['gamenets.approve' => 1, 'gamenet_pictures.flag' => 'main'])->take(4)->get();
+    ->where([['gamenets.approve', 1], ['gamenet_pictures.flag' , 'main']])->take(4)->get();
     // dd($gamenets_active);
     return view('newui.index' , compact('gamenets_active' , 'best_gamenet'));
 })->name('home');
@@ -118,6 +118,7 @@ Route::post('/get/devices/ajax' , 'AdminpanelController@livedevices')->name('liv
 Route::post('/get/games/ajax' , 'AdminpanelController@gameajax')->name('game.ajax');
 Route::post('/get/factor/info' , 'AdminpanelController@getfactorinfo')->name('factor.info');
 Route::post('/get/possibility/ajax' , 'AdminpanelController@possibilityajax')->name('possibility.ajax');
+Route::post('/set/lottery/goals' , 'AdminpanelController@setlotterymatchs')->name('lottery.matchs');
 Route::get('/admin/lottery/show/{id}', function ($id) {
     $lottery_users = lotteryuser::select()
         ->join('lotteries', 'lotteries.lottery_id', '=', 'lottery_users.lottery_id')
