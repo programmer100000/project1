@@ -232,23 +232,18 @@
         </footer>
     </div>
     <script>
-        // $(window).load(function() {
-        //     alert('t');
-        //     $('.loading').css('display', 'none');
-        //     // $('#loader').css('display', 'none');
-        //     // $('.loading').fadeOut();
-        // });
         $(window).on('load', function() {
 
             $('.loading').css('display', 'none');
         });
     </script>
     <script>
-        var urlprovinces = '{{ asset('js/Provinces.json') }}';
+        var urlprovinces = '{{ asset('
+        js / Provinces.json ') }}';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="{{ asset('newui/js/bootstrap.min.js')}}"></script>
- 
+
     <script src="{{ asset('js/ui.js')}}" defer></script>
     <script src="{{ asset('ui/js/scripts.js')}}"></script>
 
@@ -257,39 +252,38 @@
 
 
     <script>
+        var options = {
 
-var options = {
+            url: "{{ route('search') }}",
 
-url: "{{ route('search') }}",
-
-categories: [{
-        listLocation: "gamenets",
-        maxNumberOfElements: 5,
-        header: "گیم نت ها"
-    },{
-      listLocation:"games",
-      maxNumberOfElements:3, 
-      header:"بازی ها"
-    },{
-      listLocation:"emkanat",
-      maxNumberOfElements:3, 
-      header:"امکانات"
-    }],
+            categories: [{
+                listLocation: "gamenets",
+                maxNumberOfElements: 5,
+                header: "گیم نت ها"
+            }, {
+                listLocation: "games",
+                maxNumberOfElements: 3,
+                header: "بازی ها"
+            }, {
+                listLocation: "emkanat",
+                maxNumberOfElements: 3,
+                header: "امکانات"
+            }],
 
 
-    getValue: function(element) {
-        return element.title;
-    },
+            getValue: function(element) {
+                return element.title;
+            },
 
-    list: {
-        maxNumberOfElements: 8,
-        match: {
-            enabled: true
-        },
-        sort: {
-            enabled: true
-        },
-        onSelectItemEvent: function() {
+            list: {
+                maxNumberOfElements: 8,
+                match: {
+                    enabled: true
+                },
+                sort: {
+                    enabled: true
+                },
+                onSelectItemEvent: function() {
                     // when hover item
                 },
                 onHideListEvent: function() {
@@ -298,19 +292,19 @@ categories: [{
                 onShowListEvent: function() {
                     $('.searchbar').css('border-bottom-right-radius', '0px');
                 }
-    },
-    template: {
-        type: "links",
-        fields: {
-            link: "link"
-        } 
-    },
+            },
+            template: {
+                type: "links",
+                fields: {
+                    link: "link"
+                }
+            },
 
 
-theme: "square"
-};
+            theme: "square"
+        };
 
-$(".search_input").easyAutocomplete(options);
+        $(".search_input").easyAutocomplete(options);
     </script>
 
 </body>
