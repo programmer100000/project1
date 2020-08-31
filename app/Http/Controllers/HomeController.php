@@ -138,4 +138,18 @@ class HomeController extends Controller
             ];
         return json_encode($arr);
     }
+    public function gamenetsindex(Request $request){
+        $city_id = $request->input('cityId');
+        $best_gamenet = Gamenet::
+        join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , 'gamenets.gamenet_id')->
+        orderBy('rate' , 'asc')->where('gamenets.city_id',$city_id)->inRandomOrder()->take(5)->limit(1)->first();
+        $gamenets_active = Gamenet::select()
+        ->join('gamenet_pictures', 'gamenet_pictures.gnet_id', '=', 'gamenets.gamenet_id')
+        ->where([['gamenets.approve' , 1],[ 'gamenet_pictures.flag' , 'main'] ,[ 'gamenets.city_id',$city_id]])->take(4)->get();
+        $arr = [
+                'best_gamenet' => $best_gamenet,
+                'gamenets' => $gamenets_active
+        ];
+        return json_encode($arr);   
+    }
 }

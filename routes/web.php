@@ -45,6 +45,7 @@ Route::get('/',function(){
     // dd($gamenets_active);
     return view('newui.index' , compact('gamenets_active' , 'best_gamenet'));
 })->name('home');
+Route::get('/get/index/gamenets' , 'HomeController@gamenetsindex');
 // super admin
 Route::get('/superadmin', 'superadmin@index')->name('superadmin');
 Route::get('/superadmin/login', 'superadminlogin@login')->name('superadmin.login');

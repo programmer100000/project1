@@ -1,5 +1,26 @@
 var jsonprovices;
 $(document).ready(function() {
+    if(localStorage.getItem('cityId') == null){
+      $('.pr-title').text('استان ها');
+    }else{
+      let cityname = localStorage.getItem('city');
+      let provincename = localStorage.getItem('province');
+      $('.pr-title').text(provincename + ',' + cityname);
+      ajaxreturngamenets();
+    }
+    function ajaxreturngamenets(){
+      $.ajax({
+        type:'get',
+        url: '/get/index/gamenets',
+        data:{
+          provinceId : localStorage.getItem('provinceId'),
+          cityId : localStorage.getItem('cityId')
+        },
+        success:function(data){
+          console.log(data);
+        }
+      });
+    }
     window.onclick = function() {
         $(".Provinces").removeClass("show");
     }
@@ -22,6 +43,7 @@ $(document).ready(function() {
         }
     });
 });
+
 
 function getprovinces() {
     $('.Provinces').empty();
@@ -89,7 +111,8 @@ $(document).on('click', '.Provinces .city', function(e) {
     localStorage.setItem('province', province_name);
     localStorage.setItem('city', that.find('.name').find("span").text());
     getprovinces();
-    $(".Provinces").removeClass("show")
+    $(".Provinces").removeClass("show");
+    ajaxreturngamenets();
 });
 
 $(document).on('click', '.Provinces .back', function(e) {

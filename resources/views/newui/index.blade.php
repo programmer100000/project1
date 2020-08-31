@@ -596,36 +596,7 @@
 <script src="{{ asset('/ui/js/myjquery.js') }}" defer></script>
 
 <script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}" defer></script>
-<script>
-    $(document).ready(function() {
 
-        var options = {
-
-            url: "countries.json",
-
-            getValue: "name",
-
-            list: {
-                match: {
-                    enabled: true
-                },
-                onSelectItemEvent: function() {
-                    // when hover item
-                },
-                onHideListEvent: function() {
-                    $('.searchbar').css('border-bottom-right-radius', '30px');
-                },
-                onShowListEvent: function() {
-                    $('.searchbar').css('border-bottom-right-radius', '0px');
-                }
-            },
-
-            theme: "square"
-        };
-
-        $(".search_input").easyAutocomplete(options);
-    });
-</script>
 
 <script src="{{ asset('newui/js/jquery.easy-autocomplete.min.js')}}" defer></script>`
 
