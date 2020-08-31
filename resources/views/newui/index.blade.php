@@ -306,7 +306,7 @@
                             <div class="mb-3 d-flex text-right align-self-start">
                                 <input type="hidden" class="rate-input">
                                 <span class="text-white">امتیاز: </span>
-                                <div class="stars text-left float-left m-0 p-0 w-75" data-rate={ { $best_gamenet->rate }}>
+                                <div class="stars text-left float-left m-0 p-0 w-75" data-rate={{ $best_gamenet->rate }}>
 
                                 </div>
                             </div>
