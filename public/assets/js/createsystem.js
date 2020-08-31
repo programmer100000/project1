@@ -870,14 +870,12 @@ $(document).ready(function() {
 
     if ($().bracket) {
         function saveFn(data, userData) {
-            var json = jQuery.toJSON(data)
-            $('#saveOutput').text('POST ' + userData + ' ' + json)
-                /* You probably want to do something like this
-                jQuery.ajax("rest/"+userData, {contentType: 'application/json',
-                                              dataType: 'json',
-                                              type: 'post',
-                                              data: json})
-                */
+            var json = JSON.stringify(data);
+
+            console.log('====================================');
+            console.log(json);
+            console.log('====================================');
+
         }
         // var minimalData = {
         //     teams: [
@@ -897,11 +895,18 @@ $(document).ready(function() {
         //     ]
         // }
         $(function() {
+
             $('#bracket .demo').bracket({
                 init: minimalData,
-                /* without save() labels are disabled */
-                save: saveFn
+                save: saveFn,
             });
+
+
+             
+            var ss = $('#bracket .demo').bracket('data');
+
+
+
 
         });
     }

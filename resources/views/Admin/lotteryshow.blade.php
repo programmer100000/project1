@@ -267,9 +267,12 @@
                         foreach($arrgoal as $key => $val){
                             echo "[";
                             $ret = [];
+                            $xx = 0;
                             foreach ($val as $key2 => $val2) {
-                                $ret[] = "[$val2[0]]";
+                                $ret[] = "[$val2[0]]";// . ',"m' . $xx . '"' .
+                                $xx++;
                             }
+                            
                             echo join(",",$ret);
                             echo "],";
                         }

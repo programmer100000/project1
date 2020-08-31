@@ -4,7 +4,7 @@
     <div class="row w-100 m-0 p-0 slider-secttion">
         <div class="inner-slider col d-flex justify-content-center align-items-center ">
             <div class="row w-100 p-0 m-0 justify-content-center">
-                <div class=" col-8 col-md-4 p-0  searchbar d-flex justify-content-center align-items-center" dir="rtl">
+                <div class=" col-8 col-md-4 p-0 pl-1  searchbar d-flex justify-content-center align-items-center" dir="rtl">
                     <input class="search_input border-0" type="text" name="" placeholder="جستجو...">
                     <a href="#" class="search_icon d-flex justify-content-center text-white align-items-center"><i class="fa fa-search"></i></a>
                 </div>
@@ -306,7 +306,7 @@
                             <div class="mb-3 d-flex text-right align-self-start">
                                 <input type="hidden" class="rate-input">
                                 <span class="text-white">امتیاز: </span>
-                                <div class="stars text-left float-left m-0 p-0 w-75" data-rate={ { $best_gamenet->rate }}>
+                                <div class="stars text-left float-left m-0 p-0 w-75" data-rate={{ $best_gamenet->rate }}>
 
                                 </div>
                             </div>
@@ -328,7 +328,7 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-7 my-2 popular-img" style="background-image: url({{ $best_gamenet->gamenet_image }})">
+                        <div class="col-lg-7 my-2 popular-img" style="background-image: url('{{ $best_gamenet->gamenet_image }}')">
                         </div>
                     </div>
                 </a>
