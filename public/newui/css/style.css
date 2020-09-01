@@ -1582,3 +1582,10 @@ box-shadow: none!important; */
 hr {
     border-top: 1px solid #fff!important;
 }
+
+#message-not-found {
+    background-color: #34256a;
+    display: none;
+    height: 100px;
+    border-radius: 30px;
+}

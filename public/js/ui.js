@@ -10,10 +10,10 @@ function ajaxreturngamenets() {
             cityId: localStorage.getItem('cityId')
         },
         success: function(data) {
-            var jsonData = JSON.parse(data);                                   
-            if(jsonData.status == 'true'){
-                $('#gamnets_div').css('display' , 'block');
-                $('#message-not-found').css('display' , 'none');
+            var jsonData = JSON.parse(data);
+            if (jsonData.status == 'true') {
+                $('#gamnets_div').css('display', 'block');
+                $('#message-not-found').css('display', 'none');
                 $('.popular-gamenet').empty();
                 $('.popular-gamenet').append(`<a href="/gamenet/${jsonData.best_gamenet.gamenet_id}/${jsonData.best_gamenet.title}">
           <div class="row w-100 p-3 m-0 popular justify-content-center ">
@@ -42,17 +42,22 @@ function ajaxreturngamenets() {
               </div>
           </div>
       </a>`);
-            }else{
-                $('#gamnets_div').css('display' , 'none');
-                $('#message-not-found').css('display' , 'block');
+            } else {
+                $('#gamnets_div').css('display', 'none');
+                $('#message-not-found').css('display', 'block');
+                let cityname = localStorage.getItem('city');
+                let provincename = localStorage.getItem('province');
+
+                $('#message-not-found').text(" گیمنتی در استان " + provincename + " و شهرستان " + cityname + " ثبت نشده است.  ");
+
             }
-           
+
             $('.stars').starRating({
                 starSize: 25,
                 readOnly: true
             });
         }
-    }).done(function(){
+    }).done(function() {
         $('.loading').css('display', 'none');
     });
 }
