@@ -29,11 +29,7 @@ function ajaxreturngamenets() {
                   <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white" />${jsonData.best_gamenet.description}</span>
               </div>
               <div class="row justify-content-center">
-                  @if (Auth::check()) @php $user = Auth::user(); $fav = App\favourite::where([['user_id' , $user->user_id] , ['gnet_id' , ${jsonData.best_gamenet.user_id}]])->first(); @endphp @if ($fav == null)
-                  <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button" data-url="{{ route('add.favourite')}}" data-gnet-id=${jsonData.best_gamenet.user_id} data-csrf= {{ csrf_token() }}>دنبال کردن</button> @else
-                  <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button" data-url="{{ route('add.favourite')}}" data-gnet-id=${jsonData.best_gamenet.user_id} data-csrf= {{ csrf_token() }}>دنبال شده</button> @endif
-                  @else
-                  <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button" data-url="{{ route('add.favourite')}}" data-gnet-id=${jsonData.best_gamenet.user_id} data-csrf= {{ csrf_token() }}>دنبال کردن</button> @endif
+                    ${jsonData.btn_bs}
 
               </div>
 
