@@ -139,15 +139,33 @@ class HomeController extends Controller
         return json_encode($arr);
     }
     public function gamenetsindex(Request $request){
+        $user = Auth::user();
         $city_id = $request->input('cityId');
         $best_gamenet = Gamenet::
         join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , 'gamenets.gamenet_id')->
         orderBy('rate' , 'asc')->where('gamenets.city_id',$city_id)->inRandomOrder()->take(5)->limit(1)->first();
+        if(Auth::check()){
+            $fav = App\favourite::where([['user_id' ,
+                $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first();
+            if($fav == null){
+                $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                data-url='.route('add.favourite').'
+                data-gnet-id='. $best_gamenet->gamenet_id .'
+                data-csrf='. Session::token() .'>دنبال کردن</button> ';
+            }
+            else{
+                $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                data-url='.route('add.favourite').'
+                data-gnet-id='. $best_gamenet->gamenet_id .'
+                data-csrf='. Session::token() .'>دنبال شده</button> ';
+            }
+        }
         $gamenets_active = Gamenet::select()
         ->join('gamenet_pictures', 'gamenet_pictures.gnet_id', '=', 'gamenets.gamenet_id')
         ->where([['gamenets.approve' , 1],[ 'gamenet_pictures.flag' , 'main'] ,[ 'gamenets.city_id',$city_id]])->take(4)->get();
         $arr = [
                 'best_gamenet' => $best_gamenet,
+                'btn_bs' => $bs_gamenet_button,
                 'gamenets' => $gamenets_active
         ];
         return json_encode($arr);   
