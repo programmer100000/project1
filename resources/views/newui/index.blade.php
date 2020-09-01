@@ -366,7 +366,7 @@
         </div>
 
         <div class="row w-100 p-4 m-0  justify-content-center">
-            <div class="col-md-8 p-0">
+            <div class="col-md-8 p-0 popular-gamenet">
                 <a href="/gamenet/{{ $best_gamenet->gamenet_id }}/{{$best_gamenet->title}}">
                     <div class="row w-100 p-3 m-0 popular justify-content-center ">
                         <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">

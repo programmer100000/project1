@@ -399,6 +399,7 @@ border-radius: 50% 50% 0 0; */
     background-image: url(../img/MaskGroup4.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    border-radius: 30px;
 }
 
 .introduce1-data {

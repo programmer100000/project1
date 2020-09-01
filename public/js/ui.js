@@ -1,25 +1,63 @@
 var jsonprovices;
-function ajaxreturngamenets(){
-  $.ajax({
-    type:'get',
-    url: '/get/index/gamenets',
-    data:{
-      provinceId : localStorage.getItem('provinceId'),
-      cityId : localStorage.getItem('cityId')
-    },
-    success:function(data){
-      console.log(data);
-    }
-  });
+
+function ajaxreturngamenets() {
+    $.ajax({
+        type: 'get',
+        url: '/get/index/gamenets',
+        data: {
+            provinceId: localStorage.getItem('provinceId'),
+            cityId: localStorage.getItem('cityId')
+        },
+        success: function(data) {
+            var jsonData = JSON.parse(data);
+            $('.popular-gamenet').empty();
+            $('.popular-gamenet').append(`<a href="/gamenet/${jsonData.best_gamenet.gamenet_id}/${jsonData.best_gamenet.title}">
+      <div class="row w-100 p-3 m-0 popular justify-content-center ">
+          <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
+              <h1 class="text-white text-right mb-4 align-self-start">${jsonData.best_gamenet.title} </h1>
+              <div class="mb-3 d-flex w-100 text-right align-self-start">
+                  <input type="hidden" class="rate-input">
+                  <span class="text-white">امتیاز: </span>
+                  <div class="stars text-right mr-2 float-center m-0 p-0 w-75" data-rate=${jsonData.best_gamenet.rate}>
+
+                  </div>
+              </div>
+              <div class="d-flex mb-4 text-right ">
+                  <span class="ml-1"> 
+                      <img src="newui/img/pin.svg" alt="" width="25" height="25">
+                  </span>
+                  <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white" />${jsonData.best_gamenet.description}</span>
+              </div>
+              <div class="row justify-content-center">
+                  @if (Auth::check()) @php $user = Auth::user(); $fav = App\favourite::where([['user_id' , $user->user_id] , ['gnet_id' , ${jsonData.best_gamenet.user_id}]])->first(); @endphp @if ($fav == null)
+                  <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button" data-url="{{ route('add.favourite')}}" data-gnet-id=${jsonData.best_gamenet.user_id} data-csrf= {{ csrf_token() }}>دنبال کردن</button> @else
+                  <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button" data-url="{{ route('add.favourite')}}" data-gnet-id=${jsonData.best_gamenet.user_id} data-csrf= {{ csrf_token() }}>دنبال شده</button> @endif
+                  @else
+                  <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button" data-url="{{ route('add.favourite')}}" data-gnet-id=${jsonData.best_gamenet.user_id} data-csrf= {{ csrf_token() }}>دنبال کردن</button> @endif
+
+              </div>
+
+          </div>
+          <div class="col-lg-7 my-2 popular-img" style="background-image: url('${jsonData.best_gamenet.gamenet_image}')">
+          </div>
+      </div>
+  </a>`);
+            $('.stars').starRating({
+                starSize: 25,
+                readOnly: true
+            });
+        }
+    });
 }
+
 $(document).ready(function() {
-    if(localStorage.getItem('cityId') == null){
-      $('.pr-title').text('استان ها');
-    }else{
-      let cityname = localStorage.getItem('city');
-      let provincename = localStorage.getItem('province');
-      $('.pr-title').text(provincename + ',' + cityname);
-      ajaxreturngamenets();
+    if (localStorage.getItem('cityId') == null) {
+        $('.pr-title').text('استان ها');
+    } else {
+        let cityname = localStorage.getItem('city');
+        let provincename = localStorage.getItem('province');
+        $('.pr-title').text(provincename + ',' + cityname);
+        ajaxreturngamenets();
     }
 
     window.onclick = function() {
@@ -43,7 +81,9 @@ $(document).ready(function() {
             };
         }
     });
+
 });
+
 
 
 function getprovinces() {
