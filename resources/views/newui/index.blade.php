@@ -310,7 +310,7 @@
 
                                 </div>
                             </div>
-                            <div class="d-flex mb-4 text-right ">
+                            <div class="w-100 d-flex mb-4 text-right ">
                                 <span class="ml-1"> 
                                     <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
 
@@ -358,7 +358,7 @@
 
                                 </div>
                             </div>
-                            <div class="d-flex mb-4 text-right ">
+                            <div class="w-100 d-flex mb-4 text-right ">
                                 <span class="ml-1">
                                     <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
                   </span>
@@ -390,7 +390,7 @@
                                 <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
                             </div>
                         </div>
-                        <div class="d-flex mb-4 text-right ">
+                        <div class="w-100 d-flex mb-4 text-right ">
                             <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
                         </span>
 
@@ -415,10 +415,10 @@
                         <div class="mb-3 text-center align-self-start">
                             <span class="text-white">امتیاز: </span>
                         </div>
-                        <div class="d-flex mb-4 text-right mr-2 ">
+                        <div class="w-100 d-flex mb-4 text-right mr-2 ">
                             <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
                     </span>
-                            <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+                            <span class="text-white text-justify">اولیه شکل ظاهری و کلی طرح</span>
                         </div>
                         <div class="row justify-content-center">
                             <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
@@ -438,10 +438,10 @@
                         <div class="mb-3 text-right align-self-start">
                             <span class="text-white">امتیاز: </span>
                         </div>
-                        <div class="d-flex mb-4 text-right mr-2 ">
+                        <div class="w-100 d-flex mb-4 text-right mr-2 ">
                             <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
                     </span>
-                            <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+                            <span class="text-white text-justify">اولیه شکل ظاهری و کلی طرح </span>
                         </div>
                         <div class="row justify-content-center">
                             <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
