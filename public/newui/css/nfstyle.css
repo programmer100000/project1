@@ -1,0 +1,91 @@
+/* not found */
+
+body {
+    background-image: url(../img/notfoundbg.png);
+    background-size: cover;
+}
+
+.nf-star {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0 0 6px #fff;
+    animation-name: star;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    position: absolute;
+}
+
+@keyframes star {
+    /* from {
+        opacity: 1;
+    }
+    to {
+        opacity: .2;
+    } */
+    0% {
+        opacity: .9;
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        opacity: .2;
+    }
+}
+
+.s1 {
+    top: 10%;
+    right: 80%;
+}
+
+.s2 {
+    top: 20%;
+    right: 50%;
+}
+
+.s3 {
+    top: 35%;
+    right: 10%;
+}
+
+.s4 {
+    top: 55%;
+    right: 25%;
+}
+
+.s5 {
+    top: 50%;
+    right: 60%;
+}
+
+.s6 {
+    top: 70%;
+    right: 40%;
+}
+
+.s7 {
+    top: 80%;
+    right: 30%;
+}
+
+.s8 {
+    top: 90%;
+    right: 70%;
+}
+
+.s9 {
+    top: 85%;
+    right: 80%;
+}
+
+.s10 {
+    top: 28%;
+    right: 70%;
+}
+
+.s11 {
+    top: 75%;
+    right: 90%;
+}
