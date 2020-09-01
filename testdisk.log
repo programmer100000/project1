@@ -1,0 +1,96 @@
+
+
+Tue Sep  1 12:18:57 2020
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-42-generic (#46-Ubuntu SMP Fri Jul 10 00:24:02 UTC 2020) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+User is not root!
+Hard disk list
+
+
+TestDisk exited normally.
+Using locale 'LC_CTYPE=en_US.UTF-8;LC_NUMERIC=az_IR;LC_TIME=az_IR;LC_COLLATE=en_US.UTF-8;LC_MONETARY=az_IR;LC_MESSAGES=en_US.UTF-8;LC_PAPER=az_IR;LC_NAME=az_IR;LC_ADDRESS=az_IR;LC_TELEPHONE=az_IR;LC_MEASUREMENT=az_IR;LC_IDENTIFICATION=az_IR'.
+
+
+Tue Sep  1 12:18:57 2020
+Command line: TestDisk /debug
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-42-generic (#46-Ubuntu SMP Fri Jul 10 00:24:02 UTC 2020) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+/dev/sda: LBA, HPA, LBA48, DCO support
+/dev/sda: size       3907029168 sectors
+/dev/sda: user_max   3907029168 sectors
+/dev/sda: native_max 3907029168 sectors
+/dev/sda: dco        3907029168 sectors
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop7 - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 2000 GB / 1863 GiB - CHS 243201 255 63, sector size=512 - ST2000LM003 HN-M201RAD, S/N:S379J9BH403775, FW:2BE10001
+Disk /dev/sdb - 500 GB / 465 GiB - CHS 60801 255 63, sector size=512 - TOSHIBA External USB 3.0, FW:0201
+Disk /dev/loop0 - 267 MB / 255 MiB - 523400 sectors (RO), sector size=512
+Disk /dev/loop1 - 57 MB / 54 MiB - 112552 sectors (RO), sector size=512
+Disk /dev/loop2 - 65 MB / 62 MiB - 127160 sectors (RO), sector size=512
+Disk /dev/loop3 - 52 MB / 49 MiB - 101960 sectors (RO), sector size=512
+Disk /dev/loop4 - 31 MB / 29 MiB - 61200 sectors (RO), sector size=512
+Disk /dev/loop5 - 58 MB / 55 MiB - 113296 sectors (RO), sector size=512
+Disk /dev/loop6 - 31 MB / 29 MiB - 61216 sectors (RO), sector size=512
+
+Partition table type (auto): None
+Disk /dev/sdb - 500 GB / 465 GiB - TOSHIBA External USB 3.0
+Partition table type: Intel
+
+Interface Advanced
+Geometry from i386 MBR: head=255 sector=63
+BAD_RS LBA=648 16450559
+check_part_i386 2 type EF: no test
+ 2 P EFI (FAT-12/16/32)       0  10 19     0 136 16       7936
+Change partition type:
+ 2 P EFI (FAT-12/16/32)       0  10 19     0 136 16       7936
+Image created successfully.
+
+Analyse Disk /dev/sdb - 500 GB / 465 GiB - CHS 60801 255 63
+Geometry from i386 MBR: head=255 sector=63
+BAD_RS LBA=648 16450559
+check_part_i386 2 type EF: no test
+Current partition structure:
+ 2 P EFI (FAT-12/16/32)       0  10 19     0 136 16       7936
+
+Bad relative sector.
+No partition is bootable
+
+search_part()
+Disk /dev/sdb - 500 GB / 465 GiB - CHS 60801 255 63
+FAT12 at 0/10/19
+check_FAT: Unusual media descriptor (0xf8!=0xf0)
+FAT1 : 1-6
+FAT2 : 7-12
+start_rootdir : 13
+Data : 45-7932
+sectors : 7936
+cluster_size : 4
+no_of_cluster : 1972 (2 - 1973)
+fat_length 6 calculated 6
+heads/cylinder 64 (FAT) != 255 (HD)
+sect/track 32 (FAT) != 63 (HD)
+
+FAT12 at 0/10/19
+     FAT12                    0  10 19     0 136 16       7936 [EFI System Partition] [NO NAME]
+     FAT12, blocksize=2048, 4063 KB / 3968 KiB
+Search for partition aborted
+
+Results
+   L FAT12                    0  10 19     0 136 16       7936 [EFI System Partition] [NO NAME]
+     FAT12, blocksize=2048, 4063 KB / 3968 KiB
+
+Hint for advanced users: dmsetup may be used if you prefer to avoid rewriting the partition table for the moment:
+echo "0 7936 linear /dev/sdb 648" | dmsetup create test0
+SIGINT detected! TestDisk has been killed.

@@ -1,6 +1,7 @@
 var jsonprovices;
 
 function ajaxreturngamenets() {
+    $('.loading').css('display', 'block');
     $.ajax({
         type: 'get',
         url: '/get/index/gamenets',
@@ -10,39 +11,50 @@ function ajaxreturngamenets() {
         },
         success: function(data) {
             var jsonData = JSON.parse(data);
-            $('.popular-gamenet').empty();
-            $('.popular-gamenet').append(`<a href="/gamenet/${jsonData.best_gamenet.gamenet_id}/${jsonData.best_gamenet.title}">
-      <div class="row w-100 p-3 m-0 popular justify-content-center ">
-          <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
-              <h1 class="text-white text-right mb-4 align-self-start">${jsonData.best_gamenet.title} </h1>
-              <div class="mb-3 d-flex w-100 text-right align-self-start">
-                  <input type="hidden" class="rate-input">
-                  <span class="text-white">امتیاز: </span>
-                  <div class="stars text-right mr-2 float-center m-0 p-0 w-75" data-rate=${jsonData.best_gamenet.rate}>
-
+            
+            if(jsonData.status == 'true'){
+                $('#gamnets_div').css('display' , 'block');
+                $('#message-not-found').css('display' , 'none');
+                $('.popular-gamenet').empty();
+                $('.popular-gamenet').append(`<a href="/gamenet/${jsonData.best_gamenet.gamenet_id}/${jsonData.best_gamenet.title}">
+          <div class="row w-100 p-3 m-0 popular justify-content-center ">
+              <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
+                  <h1 class="text-white text-right mb-4 align-self-start">${jsonData.best_gamenet.title} </h1>
+                  <div class="mb-3 d-flex w-100 text-right align-self-start">
+                      <input type="hidden" class="rate-input">
+                      <span class="text-white">امتیاز: </span>
+                      <div class="stars text-right mr-2 float-center m-0 p-0 w-75" data-rate=${jsonData.best_gamenet.rate}>
+    
+                      </div>
                   </div>
+                  <div class="d-flex mb-4 text-right ">
+                      <span class="ml-1"> 
+                          <img src="newui/img/pin.svg" alt="" width="25" height="25">
+                      </span>
+                      <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white" />${jsonData.best_gamenet.description}</span>
+                  </div>
+                  <div class="row justify-content-center">
+                        ${jsonData.btn_bs}
+    
+                  </div>
+    
               </div>
-              <div class="d-flex mb-4 text-right ">
-                  <span class="ml-1"> 
-                      <img src="newui/img/pin.svg" alt="" width="25" height="25">
-                  </span>
-                  <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white" />${jsonData.best_gamenet.description}</span>
+              <div class="col-lg-7 my-2 popular-img" style="background-image: url('${jsonData.best_gamenet.gamenet_image}')">
               </div>
-              <div class="row justify-content-center">
-                    ${jsonData.btn_bs}
-
-              </div>
-
           </div>
-          <div class="col-lg-7 my-2 popular-img" style="background-image: url('${jsonData.best_gamenet.gamenet_image}')">
-          </div>
-      </div>
-  </a>`);
+      </a>`);
+            }else{
+                $('#gamnets_div').css('display' , 'none');
+                $('#message-not-found').css('display' , 'block');
+            }
+           
             $('.stars').starRating({
                 starSize: 25,
                 readOnly: true
             });
         }
+    }).done(function(){
+        $('.loading').css('display', 'none');
     });
 }
 
@@ -131,7 +143,6 @@ $(document).on('click', '.Provinces .province', function(e) {
     document.getElementsByClassName('Provinces')[0].scrollTo(0, 0);
     let that = $(this);
     let data_id = that.find('.name').attr("data-id");
-    localStorage.setItem("provinceId", data_id);
     $('.pr-title').text(that.find('.name').find("span").text());
     getCities(data_id);
 });

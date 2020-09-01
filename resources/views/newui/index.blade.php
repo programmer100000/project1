@@ -358,216 +358,222 @@
 
         </div>
     </div>
-    <div class="row w-100 m-0 mb-5 p-0 popular-secttion">
-        <div class="row popular-header w-100 m-0 p-0 mx-auto ">
-            <div class="title text-center mx-auto">
-                <img src="{{ asset('newui/img/bestgamenet.png')}}" alt="" class="title-img">
+    <div id="gamnets_div" style="display: block;">
+        <div class="row w-100 m-0 mb-5 p-0 popular-secttion">
+            <div class="row popular-header w-100 m-0 p-0 mx-auto ">
+                <div class="title text-center mx-auto">
+                    <img src="{{ asset('newui/img/bestgamenet.png')}}" alt="" class="title-img">
+                </div>
+            </div>
+    
+            <div class="row w-100 p-4 m-0  justify-content-center">
+                <div class="col-md-8 p-0 popular-gamenet">
+                    <a href="/gamenet/{{ $best_gamenet->gamenet_id }}/{{$best_gamenet->title}}">
+                        <div class="row w-100 p-3 m-0 popular justify-content-center ">
+                            <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
+    
+                                <h1 class="text-white text-right mb-4 align-self-start">{{ $best_gamenet->title}} </h1>
+                                <div class="mb-3 d-flex w-100 text-right align-self-start">
+                                    <input type="hidden" class="rate-input">
+                                    <span class="text-white">امتیاز: </span>
+                                    <div class="stars text-right mr-2 float-center m-0 p-0 w-75"
+                                        data-rate={{ $best_gamenet->rate }}>
+    
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-4 text-right ">
+                                    <span class="ml-1">
+                                        <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+    
+                                    </span>
+    
+                                    <span class="text-white  text-justify ">{{$best_gamenet->address}}<br>
+                                        <hr class="text-white" />{{ $best_gamenet->description }}</span>
+                                </div>
+                                <div class="row justify-content-center">
+                                    @if (Auth::check()) 
+                                    @php 
+                                    $user = Auth::user(); $fav = App\favourite::where([['user_id' ,
+                                    $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first(); 
+                                    @endphp 
+                                    @if ($fav == null)
+                                    <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                        data-url="{{ route('add.favourite')}}" data-gnet-id={{ $best_gamenet->gamenet_id }}
+                                        data-csrf={{ csrf_token() }}>دنبال کردن</button> @else
+                                    <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                        data-url="{{ route('add.favourite')}}" data-gnet-id={{ $best_gamenet->gamenet_id }}
+                                        data-csrf={{ csrf_token() }}>دنبال شده</button> @endif
+                                    @else
+                                    <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                        data-url="{{ route('add.favourite')}}" data-gnet-id={{ $best_gamenet->gamenet_id }}
+                                        data-csrf={{ csrf_token() }}>دنبال کردن</button> @endif
+    
+                                </div>
+    
+                            </div>
+                            <div class="col-lg-7 my-2 popular-img"
+                                style="background-image: url('{{ $best_gamenet->gamenet_image }}')">
+                            </div>
+                        </div>
+                    </a>
+    
+                </div>
             </div>
         </div>
-
-        <div class="row w-100 p-4 m-0  justify-content-center">
-            <div class="col-md-8 p-0 popular-gamenet">
-                <a href="/gamenet/{{ $best_gamenet->gamenet_id }}/{{$best_gamenet->title}}">
-                    <div class="row w-100 p-3 m-0 popular justify-content-center ">
-                        <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center ">
-
-                            <h1 class="text-white text-right mb-4 align-self-start">{{ $best_gamenet->title}} </h1>
+        <div class="row w-100 m-0 mb-5 p-0 introduce-secttion">
+            <div class="row introduce-header w-100 m-0 p-0">
+                <div class="title text-center mx-auto">
+                    <img src="{{ asset('newui/img/introgamenet.png')}}" alt="" class="title-img">
+                </div>
+            </div>
+            <div class="row introduce-body w-100 p-4 pt-4 m-0  justify-content-center">
+                <div class="col-md-8 col-lg-3 col-md-8 p-0 m-3">
+                    <a href="/gamenet/{{ $gamenets_active[0]->gamenet_id }}/{{ $gamenets_active[0]->title}}">
+                        <div class="row w-100 p-3 m-0  introduce ">
+                            <div class="col-12 introduce1-img "
+                                style="background-image:url({{ $gamenets_active[0]->gamenet_image }})">
+                            </div>
+                            <div
+                                class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data">
+    
+                                <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[0]->title }}
+                                </h1>
+                                <div class="mb-3 d-flex w-100 text-right align-self-start">
+                                    <span class="text-white">امتیاز: </span>
+                                    <input type="hidden" class="rate-input" value="">
+                                    <div class="stars text-right mr-2 float-center m-0 p-0 w-75"
+                                        data-rate="{{$gamenets_active[0]->rate }}">
+    
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-4 text-right ">
+                                    <span class="ml-1">
+                                        <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+                                    </span>
+    
+    
+                                    <span class="text-white text-justify ">{{ $gamenets_active[0]->address }}<br />
+                                        {{ $gamenets_active[0]->description }}</span>
+                                </div>
+                                <div class="row justify-content-center">
+                                    @if (Auth::check()) 
+                                    @php 
+                                    $user = Auth::user(); 
+                                    $fav = App\favourite::where([['user_id' ,
+                                    $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first(); 
+                                    @endphp 
+                                    @if ($fav == null)
+                                    <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                        data-url={{ route( 'add.favourite')}}
+                                        data-gnet-id={{ $gamenets_active[0]->gamenet_id }}
+                                        data-csrf={{ csrf_token() }}>دنبال کردن</button> 
+                                        @else
+                                    <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                        data-url={{ route( 'add.favourite')}}
+                                        data-gnet-id={{ $gamenets_active[0]->gamenet_id }}
+                                        data-csrf={{ csrf_token() }}>دنبال شده</button> 
+                                        @endif 
+                                        @else
+                                    <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                                        data-url={{ route( 'add.favourite')}}
+                                        data-gnet-id={{ $gamenets_active[0]->gamenet_id }}
+                                        data-csrf={{ csrf_token() }}>دنبال کردن</button> 
+                                        @endif
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-8 col-lg-5 p-0 m-3">
+                    <a href="gamenet/{{ $gamenets_active[1]->gamenet_id }}/{{ $gamenets_active[1]->title }}"></a>
+                    <div class="row w-100 p-3 m-0  introduce introduce1 ">
+                        <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
+    
+                            <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[1]->title }}</h1>
                             <div class="mb-3 d-flex w-100 text-right align-self-start">
-                                <input type="hidden" class="rate-input">
                                 <span class="text-white">امتیاز: </span>
-                                <div class="stars text-right mr-2 float-center m-0 p-0 w-75"
-                                    data-rate={{ $best_gamenet->rate }}>
-
+                                <div class="stars text-right mr-2 float-center m-0 p-0 w-75">
+                                    <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
                                 </div>
                             </div>
                             <div class="d-flex mb-4 text-right ">
-                                <span class="ml-1">
-                                    <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
-
+                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
+                                        height="25">
                                 </span>
-
-                                <span class="text-white  text-justify ">{{$best_gamenet->address}}<br>
-                                    <hr class="text-white" />{{ $best_gamenet->description }}</span>
+    
+    
+                                <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
+                                    طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
+                                    کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
                             </div>
                             <div class="row justify-content-center">
-                                @if (Auth::check()) 
-                                @php 
-                                $user = Auth::user(); $fav = App\favourite::where([['user_id' ,
-                                $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first(); 
-                                @endphp 
-                                @if ($fav == null)
-                                <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                                    data-url="{{ route('add.favourite')}}" data-gnet-id={{ $best_gamenet->gamenet_id }}
-                                    data-csrf={{ csrf_token() }}>دنبال کردن</button> @else
-                                <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                                    data-url="{{ route('add.favourite')}}" data-gnet-id={{ $best_gamenet->gamenet_id }}
-                                    data-csrf={{ csrf_token() }}>دنبال شده</button> @endif
-                                @else
-                                <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                                    data-url="{{ route('add.favourite')}}" data-gnet-id={{ $best_gamenet->gamenet_id }}
-                                    data-csrf={{ csrf_token() }}>دنبال کردن</button> @endif
-
+                                <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
                             </div>
-
                         </div>
-                        <div class="col-lg-7 my-2 popular-img"
-                            style="background-image: url('{{ $best_gamenet->gamenet_image }}')">
+    
+                        <div class="col-lg-6 introduce2-img">
                         </div>
                     </div>
-                </a>
-
-            </div>
-        </div>
-    </div>
-    <div class="row w-100 m-0 mb-5 p-0 introduce-secttion">
-        <div class="row introduce-header w-100 m-0 p-0">
-            <div class="title text-center mx-auto">
-                <img src="{{ asset('newui/img/introgamenet.png')}}" alt="" class="title-img">
-            </div>
-        </div>
-        <div class="row introduce-body w-100 p-4 pt-4 m-0  justify-content-center">
-            <div class="col-md-8 col-lg-3 col-md-8 p-0 m-3">
-                <a href="/gamenet/{{ $gamenets_active[0]->gamenet_id }}/{{ $gamenets_active[0]->title}}">
-                    <div class="row w-100 p-3 m-0  introduce ">
-                        <div class="col-12 introduce1-img "
-                            style="background-image:url({{ $gamenets_active[0]->gamenet_image }})">
-                        </div>
-                        <div
-                            class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data">
-
-                            <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[0]->title }}
-                            </h1>
-                            <div class="mb-3 d-flex w-100 text-right align-self-start">
+                    </a>
+                </div>
+                <div class="col-md-8 col-lg-5 p-0 m-3">
+                    <div class="row w-100 p-3 m-0  introduce introduce1">
+                        <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
+    
+                            <h1 class="text-white w-100 text-right my-4 align-self-start">گیمنت ایرانیان</h1>
+                            <div class="mb-3 text-center align-self-start">
                                 <span class="text-white">امتیاز: </span>
-                                <input type="hidden" class="rate-input" value="">
-                                <div class="stars text-right mr-2 float-center m-0 p-0 w-75"
-                                    data-rate="{{$gamenets_active[0]->rate }}">
-
-                                </div>
                             </div>
-                            <div class="d-flex mb-4 text-right ">
-                                <span class="ml-1">
-                                    <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+                            <div class="d-flex mb-4 text-right mr-2 ">
+                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
+                                        height="25">
                                 </span>
-
-
-                                <span class="text-white text-justify ">{{ $gamenets_active[0]->address }}<br />
-                                    {{ $gamenets_active[0]->description }}</span>
+                                <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
+                                    طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
+                                    کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
                             </div>
                             <div class="row justify-content-center">
-                                @if (Auth::check()) 
-                                @php 
-                                $user = Auth::user(); 
-                                $fav = App\favourite::where([['user_id' ,
-                                $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first(); 
-                                @endphp 
-                                @if ($fav == null)
-                                <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                                    data-url={{ route( 'add.favourite')}}
-                                    data-gnet-id={{ $gamenets_active[0]->gamenet_id }}
-                                    data-csrf={{ csrf_token() }}>دنبال کردن</button> 
-                                    @else
-                                <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                                    data-url={{ route( 'add.favourite')}}
-                                    data-gnet-id={{ $gamenets_active[0]->gamenet_id }}
-                                    data-csrf={{ csrf_token() }}>دنبال شده</button> 
-                                    @endif 
-                                    @else
-                                <button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
-                                    data-url={{ route( 'add.favourite')}}
-                                    data-gnet-id={{ $gamenets_active[0]->gamenet_id }}
-                                    data-csrf={{ csrf_token() }}>دنبال کردن</button> 
-                                    @endif
-
-                            </div>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-8 col-lg-5 p-0 m-3">
-                <a href="gamenet/{{ $gamenets_active[1]->gamenet_id }}/{{ $gamenets_active[1]->title }}"></a>
-                <div class="row w-100 p-3 m-0  introduce introduce1 ">
-                    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
-
-                        <h1 class="text-white text-right my-4 align-self-start">{{ $gamenets_active[1]->title }}</h1>
-                        <div class="mb-3 d-flex w-100 text-right align-self-start">
-                            <span class="text-white">امتیاز: </span>
-                            <div class="stars text-right mr-2 float-center m-0 p-0 w-75">
-                                <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                                <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
                             </div>
                         </div>
-                        <div class="d-flex mb-4 text-right ">
-                            <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
-                                    height="25">
-                            </span>
-
-
-                            <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-                                طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
-                                کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+                        <div class="col-lg-6 introduce2-img">
                         </div>
-                        <div class="row justify-content-center">
-                            <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 introduce2-img">
                     </div>
                 </div>
-                </a>
-            </div>
-            <div class="col-md-8 col-lg-5 p-0 m-3">
-                <div class="row w-100 p-3 m-0  introduce introduce1">
-                    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
-
-                        <h1 class="text-white w-100 text-right my-4 align-self-start">گیمنت ایرانیان</h1>
-                        <div class="mb-3 text-center align-self-start">
-                            <span class="text-white">امتیاز: </span>
+                <div class="col-md-8 col-lg-3 p-0 m-3">
+                    <div class="row w-100 p-3 m-0 introduce ">
+                        <div class="col-12 introduce1-img ">
                         </div>
-                        <div class="d-flex mb-4 text-right mr-2 ">
-                            <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
-                                    height="25">
-                            </span>
-                            <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-                                طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
-                                کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+                        <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data ">
+    
+                            <h1 class="text-white w-100 text-right my-4 align-self-start">گیمنت آرشام</h1>
+                            <div class="mb-3 text-right align-self-start">
+                                <span class="text-white">امتیاز: </span>
+                            </div>
+                            <div class="d-flex mb-4 text-right mr-2 ">
+                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
+                                        height="25">
+                                </span>
+                                <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
+                                    طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
+                                    کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+                            </div>
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
+                            </div>
+    
                         </div>
-                        <div class="row justify-content-center">
-                            <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 introduce2-img">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 col-lg-3 p-0 m-3">
-                <div class="row w-100 p-3 m-0 introduce ">
-                    <div class="col-12 introduce1-img ">
-                    </div>
-                    <div class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data ">
-
-                        <h1 class="text-white w-100 text-right my-4 align-self-start">گیمنت آرشام</h1>
-                        <div class="mb-3 text-right align-self-start">
-                            <span class="text-white">امتیاز: </span>
-                        </div>
-                        <div class="d-flex mb-4 text-right mr-2 ">
-                            <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
-                                    height="25">
-                            </span>
-                            <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-                                طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
-                                کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
-                        </div>
-                        <div class="row justify-content-center">
-                            <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="message-not-found" style="display: none;">
+        <h2>در منطقه شما وجود ندارد</h2>
+    </div>
+
     <div class="row w-100 m-0 mb-5 p-0 about-secttion">
         <div class="row about-header w-100 m-0 mb-5 p-0">
             <div class="title text-center mx-auto">
