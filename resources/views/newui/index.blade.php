@@ -358,7 +358,7 @@
 
         </div>
     </div>
-    <div id="gamnets_div" style="display: block;">
+    <div id="gamnets_div">
         <div class="row w-100 m-0 mb-5 p-0 popular-secttion">
             <div class="row popular-header w-100 m-0 p-0 mx-auto ">
                 <div class="title text-center mx-auto">
@@ -381,8 +381,10 @@
     
                                     </div>
                                 </div>
-                                <div class="d-flex mb-4 text-right ">
-                                    <span class="ml-1">
+    
+                                <div class="w-100 d-flex mb-4 text-right ">
+                                    <span class="ml-1"> 
+    
                                         <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
     
                                     </span>
@@ -427,7 +429,7 @@
                 </div>
             </div>
             <div class="row introduce-body w-100 p-4 pt-4 m-0  justify-content-center">
-                <div class="col-md-8 col-lg-3 col-md-8 p-0 m-3">
+                <div class="col-md-8 col-lg-3 col-md-8 p-0 m-3 g-introduce1">
                     <a href="/gamenet/{{ $gamenets_active[0]->gamenet_id }}/{{ $gamenets_active[0]->title}}">
                         <div class="row w-100 p-3 m-0  introduce ">
                             <div class="col-12 introduce1-img "
@@ -446,7 +448,7 @@
     
                                     </div>
                                 </div>
-                                <div class="d-flex mb-4 text-right ">
+                                <div class="w-100 d-flex mb-4 text-right ">
                                     <span class="ml-1">
                                         <img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
                                     </span>
@@ -486,7 +488,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-8 col-lg-5 p-0 m-3">
+                <div class="col-md-8 col-lg-5 p-0 m-3 g-introduce2">
                     <a href="gamenet/{{ $gamenets_active[1]->gamenet_id }}/{{ $gamenets_active[1]->title }}"></a>
                     <div class="row w-100 p-3 m-0  introduce introduce1 ">
                         <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
@@ -498,10 +500,11 @@
                                     <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
                                 </div>
                             </div>
-                            <div class="d-flex mb-4 text-right ">
-                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
-                                        height="25">
-                                </span>
+    
+                            <div class="w-100 d-flex mb-4 text-right ">
+                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+                            </span>
+    
     
     
                                 <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
@@ -518,7 +521,7 @@
                     </div>
                     </a>
                 </div>
-                <div class="col-md-8 col-lg-5 p-0 m-3">
+                <div class="col-md-8 col-lg-5 p-0 m-3 g-introduce3">
                     <div class="row w-100 p-3 m-0  introduce introduce1">
                         <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
     
@@ -526,13 +529,12 @@
                             <div class="mb-3 text-center align-self-start">
                                 <span class="text-white">امتیاز: </span>
                             </div>
-                            <div class="d-flex mb-4 text-right mr-2 ">
-                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
-                                        height="25">
-                                </span>
-                                <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-                                    طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
-                                    کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+    
+                            <div class="w-100 d-flex mb-4 text-right mr-2 ">
+                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+                        </span>
+                                <span class="text-white text-justify">اولیه شکل ظاهری و کلی طرح</span>
+    
                             </div>
                             <div class="row justify-content-center">
                                 <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
@@ -542,7 +544,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 col-lg-3 p-0 m-3">
+                <div class="col-md-8 col-lg-3 p-0 m-3 g-introduce4">
                     <div class="row w-100 p-3 m-0 introduce ">
                         <div class="col-12 introduce1-img ">
                         </div>
@@ -552,13 +554,12 @@
                             <div class="mb-3 text-right align-self-start">
                                 <span class="text-white">امتیاز: </span>
                             </div>
-                            <div class="d-flex mb-4 text-right mr-2 ">
-                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25"
-                                        height="25">
-                                </span>
-                                <span class="text-white text-justify">به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و
-                                    طراحی گرافیک گفته می‌شود.طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر
-                                    کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید</span>
+    
+                            <div class="w-100 d-flex mb-4 text-right mr-2 ">
+                                <span class="ml-1"><img src="{{ asset('newui/img/pin.svg') }}" alt="" width="25" height="25">
+                        </span>
+                                <span class="text-white text-justify">اولیه شکل ظاهری و کلی طرح </span>
+    
                             </div>
                             <div class="row justify-content-center">
                                 <button type="button" class="btn btn-primary main-form-btn px-4">دنبال کردن</button>
@@ -571,7 +572,7 @@
         </div>
     </div>
     <div id="message-not-found" style="display: none;">
-        <h2>در منطقه شما وجود ندارد</h2>
+        این پیام تستیست
     </div>
 
     <div class="row w-100 m-0 mb-5 p-0 about-secttion">

@@ -146,13 +146,38 @@ class HomeController extends Controller
         $gamenet_act_arr = [];
         $status = 'true';
         $city_id = $request->input('cityId');
+
         $best_gamenet = Gamenet::
         join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , 'gamenets.gamenet_id')->
         orderBy('rate' , 'asc')->where('gamenets.city_id',$city_id)->inRandomOrder()->take(5)->limit(1)->first();
         $gamenets_active = Gamenet::select()
         ->join('gamenet_pictures', 'gamenet_pictures.gnet_id', '=', 'gamenets.gamenet_id')
         ->where([['gamenets.approve' , 1],[ 'gamenet_pictures.flag' , 'main'] ,[ 'gamenets.city_id',$city_id]])->take(4)->get();
+
         if($best_gamenet != null && $gamenets_active != null){
+        if(Auth::check()){
+            $fav = favourite::where([['user_id' ,
+                $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first();
+            if($fav == null){
+                $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                data-url='.route('add.favourite').'
+                data-gnet-id='. $best_gamenet->gamenet_id .'
+                data-csrf='. session()->token() .'>دنبال کردن</button> ';
+            }
+            else{
+                $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                data-url='.route('add.favourite').'
+                data-gnet-id='. $best_gamenet->gamenet_id .'
+                data-csrf='. session()->token() .'>دنبال شده</button> ';
+            }
+        }else{
+            $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+            data-url='.route('add.favourite').'
+            data-gnet-id='. $best_gamenet->gamenet_id .'
+            data-csrf='.  session()->token() .'>دنبال کردن</button> ';
+        }
+
+
             if(Auth::check()){
                 $fav = favourite::where([['user_id' ,
                     $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first();
@@ -173,6 +198,7 @@ class HomeController extends Controller
                 data-url='.route('add.favourite').'
                 data-gnet-id='. $best_gamenet->gamenet_id .'
                 data-csrf='. session()->token() .'>دنبال کردن</button> ';
+
             }
     
             foreach ($gamenets_active as $game) {

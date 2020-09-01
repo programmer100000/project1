@@ -288,4 +288,6 @@ Route::get('/reports', function(){
 
 
 Route::get('/search' , 'HomeController@search')->name('search');
-
+Route::get('/404' ,function(){
+    return view("newui/notfound");
+});

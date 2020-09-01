@@ -10,8 +10,7 @@ function ajaxreturngamenets() {
             cityId: localStorage.getItem('cityId')
         },
         success: function(data) {
-            var jsonData = JSON.parse(data);
-            
+            var jsonData = JSON.parse(data);                                   
             if(jsonData.status == 'true'){
                 $('#gamnets_div').css('display' , 'block');
                 $('#message-not-found').css('display' , 'none');
