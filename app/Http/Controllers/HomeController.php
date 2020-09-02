@@ -12,6 +12,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Rate;
 
+
 class HomeController extends Controller
 {
     public function __construct()
@@ -139,16 +140,109 @@ class HomeController extends Controller
         return json_encode($arr);
     }
     public function gamenetsindex(Request $request){
+        $user = Auth::user();
+        $bs_gamenet_button = '';
+        $gamenet_btn = '';
+        $gamenet_act_arr = [];
+        $status = 'true';
         $city_id = $request->input('cityId');
+
         $best_gamenet = Gamenet::
         join('gamenet_pictures' , 'gamenet_pictures.gnet_id' , 'gamenets.gamenet_id')->
         orderBy('rate' , 'asc')->where('gamenets.city_id',$city_id)->inRandomOrder()->take(5)->limit(1)->first();
         $gamenets_active = Gamenet::select()
         ->join('gamenet_pictures', 'gamenet_pictures.gnet_id', '=', 'gamenets.gamenet_id')
         ->where([['gamenets.approve' , 1],[ 'gamenet_pictures.flag' , 'main'] ,[ 'gamenets.city_id',$city_id]])->take(4)->get();
+
+        if($best_gamenet != null && $gamenets_active != null){
+        if(Auth::check()){
+            $fav = favourite::where([['user_id' ,
+                $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first();
+            if($fav == null){
+                $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                data-url='.route('add.favourite').'
+                data-gnet-id='. $best_gamenet->gamenet_id .'
+                data-csrf='. session()->token() .'>دنبال کردن</button> ';
+            }
+            else{
+                $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                data-url='.route('add.favourite').'
+                data-gnet-id='. $best_gamenet->gamenet_id .'
+                data-csrf='. session()->token() .'>دنبال شده</button> ';
+            }
+        }else{
+            $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+            data-url='.route('add.favourite').'
+            data-gnet-id='. $best_gamenet->gamenet_id .'
+            data-csrf='.  session()->token() .'>دنبال کردن</button> ';
+        }
+
+
+            if(Auth::check()){
+                $fav = favourite::where([['user_id' ,
+                    $user->user_id] , ['gnet_id' , $best_gamenet->gamenet_id]])->first();
+                if($fav == null){
+                    $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                    data-url='.route('add.favourite').'
+                    data-gnet-id='. $best_gamenet->gamenet_id .'
+                    data-csrf='. session()->token() .'>دنبال کردن</button> ';
+                }
+                else{
+                    $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                    data-url='.route('add.favourite').'
+                    data-gnet-id='. $best_gamenet->gamenet_id .'
+                    data-csrf='. session()->token() .'>دنبال شده</button> ';
+                }
+            }else{
+                $bs_gamenet_button  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                data-url='.route('add.favourite').'
+                data-gnet-id='. $best_gamenet->gamenet_id .'
+                data-csrf='. session()->token() .'>دنبال کردن</button> ';
+
+            }
+    
+            foreach ($gamenets_active as $game) {
+                if(Auth::check()){
+                    $fava = favourite::where([['user_id' ,
+                        $user->user_id] , ['gnet_id' , $game->gamenet_id]])->first();
+                    if($fava == null){
+                        $gamenet_btn  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                        data-url='.route('add.favourite').'
+                        data-gnet-id='. $game->gamenet_id .'
+                        data-csrf='. session()->token() .'>دنبال کردن</button> ';
+                    }
+                    else{
+                        $gamenet_btn  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                        data-url='.route('add.favourite').'
+                        data-gnet-id='. $game->gamenet_id .'
+                        data-csrf='. session()->token() .'>دنبال شده</button> ';
+                    }
+                }else{
+                    $gamenet_btn  = '<button type="button" class="btn btn-primary main-form-btn px-4 favourite-button"
+                    data-url='.route('add.favourite').'
+                    data-gnet-id='. $game->gamenet_id .'
+                    data-csrf='. session()->token() .'>دنبال کردن</button> ';
+                }
+                $gamenet_act_arr[] = [
+                    'gamenet_id' => $game->gamenet_id,
+                    'title' => $game->title,
+                    'rate' => $game->rate,
+                    'address' => $game->address,
+                    'description' => $game->description,
+                    'gamenet_image' => $game->gamenet_image,
+                    'btn_gamenet' => $gamenet_btn
+                ];
+            }
+        }else{
+            $status = 'false';
+
+        }
+
         $arr = [
                 'best_gamenet' => $best_gamenet,
-                'gamenets' => $gamenets_active
+                'btn_bs' => $bs_gamenet_button,
+                'gamenets' => $gamenet_act_arr,
+                'status' => $status
         ];
         return json_encode($arr);   
     }

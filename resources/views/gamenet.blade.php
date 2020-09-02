@@ -88,10 +88,43 @@
                             <div class="row w-100 p-0 m-0">
                                 <div class="col-12 p-4 my-2 gamenet-item gamenet-emkanat">
                                     <ul>
-                                        <li class="text-right text-white p-2">تست</li>
-                                        <li class="text-right text-white p-2">تست</li>
-                                        <li class="text-right text-white p-2">تست</li>
-                                        <li class="text-right text-white p-2">تست</li>
+                                        <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                          <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                            <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                            <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                          </g>
+                                        </svg> <span>
+                                          تست
+                                        </span>
+                                        </li>
+                                        <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                          <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                            <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                            <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                          </g>
+                                        </svg> <span>
+                                          تست
+                                        </span>
+                                        </li>
+                                        <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                          <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                            <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                            <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                          </g>
+                                        </svg> <span>
+                                          تست
+                                        </span>
+                                        </li>
+                                        <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                          <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                            <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                            <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                          </g>
+                                        </svg> <span>
+                                          تست
+                                        </span>
+                                        </li>
+
 
                                     </ul>
                                 </div>
@@ -107,10 +140,42 @@
                                 <div class="row w-100 p-0 m-0">
                                     <div class="col-12 p-4 my-2 gamenet-item gamenet-emkanat">
                                         <ul>
-                                            <li class="text-right text-white p-2">تست</li>
-                                            <li class="text-right text-white p-2">تست</li>
-                                            <li class="text-right text-white p-2">تست</li>
-                                            <li class="text-right text-white p-2">تست</li>
+                                            <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                            <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                              <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                              <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                            </g>
+                                          </svg> <span>
+                                            تست
+                                          </span>
+                                            </li>
+                                            <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                            <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                              <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                              <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                            </g>
+                                          </svg> <span>
+                                            تست
+                                          </span>
+                                            </li>
+                                            <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                            <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                              <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                              <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                            </g>
+                                          </svg> <span>
+                                            تست
+                                          </span>
+                                            </li>
+                                            <li class="text-right list-unstyled text-white p-2"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 44 44">
+                                            <g id="Group_314" data-name="Group 314" transform="translate(-341.5 -432.5)">
+                                              <circle id="Oval" cx="20.5" cy="20.5" r="20.5" transform="translate(343 434)" fill="none" stroke="#c454fa" stroke-miterlimit="10" stroke-width="3"/>
+                                              <path id="Combined_Shape" data-name="Combined Shape" d="M10.236,17.742H2.048a2.047,2.047,0,1,1,0-4.094H8.188V2.048a2.048,2.048,0,1,1,4.1,0V15.694a2.047,2.047,0,0,1-2.047,2.048Z" transform="translate(366.321 441.627) rotate(45)" fill="#8f4eab"/>
+                                            </g>
+                                          </svg> <span>
+                                            تست
+                                          </span>
+                                            </li>
 
                                         </ul>
                                     </div>
