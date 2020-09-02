@@ -10,6 +10,42 @@ function showMoney(nStr) {
     return x1 + x2;
 }
 
+function convert_number(num)
+{
+    var number_farsi = {
+        "۰" : "0",
+        "۱" : "1",
+        "۲" : "2",
+        "۳" : "3",
+        "۴" : "4",
+        "۵" : "5",
+        "۶" : "6",
+        "۷" : "7",
+        "۸" : "8",
+        "۹" : "9",
+        "٠" : "0",
+        "١" : "1",
+        "٢" : "2",
+        "٣" : "3",
+        "٤" : "4",
+        "٥" : "5",
+        "٦" : "6",
+        "٧" : "7",
+        "٨" : "8",
+        "٩" : "9"
+    };
+
+    var numbers = num.split("");
+
+    let result = "";
+    for (let index = 0; index < numbers.length; index++) {
+        let thisNum = numbers[index];
+        result = result + "" + number_farsi[thisNum];
+    }
+
+    return parseFloat(result);
+}
+
 var xxx;
 
 $(document).ready(function() {
@@ -44,7 +80,54 @@ $(document).ready(function() {
                 }
             }
         });
+
+        $('.my-form-date').persianDatepicker({
+            autoClose: true,
+            Format: 'YYYY-MM-DD H:mm:ss',
+            altFormat: 'YYYY-MM-DD H:mm:ss',
+            toolbox: {
+                enabled: false,
+                calendarSwitch: {
+                    enabled: false
+                }
+            },
+            navigator: {
+                scroll: {
+                    enabled: false
+                }
+            },
+            maxDate: new persianDate().add('month', 3).valueOf(),
+            minDate: new persianDate().subtract('month', 3).valueOf(),
+            timePicker: {
+                enabled: true,
+                meridiem: {
+                    enabled: true
+                }
+            }
+        });
+
+        persianDate.toLocale('en');
     }
+
+    
+
+    $('#frmreports').submit(function(){
+        let csrf = $('#csrf').val();
+
+        let from = $("#starttarikh").val().split(" ");
+        let fromDate = from[0].split("-");
+        let fromTime = from[1].split(":");
+        let to = $("#end-tarikh").val().split(" ");
+        let toDate = to[0].split("-");
+        let toTime = to[1].split(":");
+        
+        let newFromDate = new persianDate([convert_number(fromDate[0]), convert_number(fromDate[1]), convert_number(fromDate[2]), convert_number(fromTime[0]), convert_number(fromTime[1]), convert_number(fromTime[2])]).toCalendar('gregorian').format("YYYY-MM-DD HH:mm:ss");
+        let newToDate = new persianDate([convert_number(toDate[0]), convert_number(toDate[1]), convert_number(toDate[2]), convert_number(toTime[0]), convert_number(toTime[1]), convert_number(toTime[2])]).toCalendar('gregorian').format("YYYY-MM-DD HH:mm:ss");
+
+        $("#starttarikh").val(newFromDate);
+        $("#end-tarikh").val(newToDate)
+        return true;
+    });
 
 
     $("#add_invoice").click(function(e) {
@@ -871,10 +954,18 @@ $(document).ready(function() {
     if ($().bracket) {
         function saveFn(data, userData) {
             var json = JSON.stringify(data);
+            $.ajax({
+                type:'post',
+                url: userData,
+                data:{
+                    lottery_id : id,
+                    data :json
+                },
+                success:function(){
+                    // location.reload();    
+                }
 
-            console.log('====================================');
-            console.log(json);
-            console.log('====================================');
+            });
 
         }
         // var minimalData = {
@@ -899,6 +990,7 @@ $(document).ready(function() {
             $('#bracket .demo').bracket({
                 init: minimalData,
                 save: saveFn,
+                userData:'/set/lottery/goals'
             });
 
 

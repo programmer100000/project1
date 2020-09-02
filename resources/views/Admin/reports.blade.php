@@ -11,35 +11,41 @@
 
         <!-- Start Content-->
         <div class="container-fluid">
-
-            <div class="row mt-5">
-                <div class="col-xl-6">
-                    <div class="card-box">
-                        <div class="col-lg-11">
-                            <div class="form-group mb-3">
-                                <label>از</label>
-                                <!-- <input class="form-control" type="text" name="start-date" id="start-date"> -->
-                                <input class="form-control formdate" type="text" name="date" id="starttarikh" dir="auto" autocomplete="off">
-                                <div class="formdate"></div>
+            <form action="{{ route('reports.excel') }}" method="POST" id="frmreports">
+                @csrf
+                <div class="row mt-5">
+                    <div class="col-xl-6">
+                        <div class="card-box">
+                            <div class="col-lg-11">
+                                <div class="form-group mb-3">
+                                    <label>از</label>
+                                    <!-- <input class="form-control" type="text" name="start-date" id="start-date"> -->
+                                    <input class="form-control my-form-date text-right" style="direction: ltr;" type="text" name="startdate" id="starttarikh" dir="ltr" autocomplete="off">
+                                    <div class="form"></div>
+                                </div>
                             </div>
                         </div>
+                        <!-- end card-box-->
                     </div>
-                    <!-- end card-box-->
-                </div>
-                <!-- end col -->
-                <div class="col-xl-6">
-                    <div class="card-box">
-                        <div class="col-lg-11">
-                            <div class="form-group mb-3">
-                                <label>تا</label>
-                                <input class="form-control formdate" type="text" name="date" id="end-tarikh" dir="auto" autocomplete="off">
-                                <div class="formdate"></div>
+                    <!-- end col -->
+                    <div class="col-xl-6">
+                        <div class="card-box">
+                            <div class="col-lg-11">
+                                <div class="form-group mb-3">
+                                    <label>تا</label>
+                                    <input class="form-control my-form-date text-right" style="direction: ltr;" type="text" name="finishdate" id="end-tarikh" dir="ltr" autocomplete="off">
+                                    <div class="form"></div>
+                                </div>
                             </div>
                         </div>
+                        <!-- end card-box-->
                     </div>
-                    <!-- end card-box-->
                 </div>
-            </div>
+                <div class="col-xl-6">
+                    <button type="submit" class="btn btn-primary">دریافت فایل اکسل</button>
+                </div>
+            </form>
+            
             <!-- end row -->
 
 

@@ -12,6 +12,7 @@ use App\DeviceType;
 use App\Exports\FactorExport;
 use App\Exports\LivesLogExport;
 use App\Exports\ReportExport;
+use App\Exports\reportsexport;
 use App\Game;
 use App\GameDevice;
 use App\Gamenet;
@@ -1238,7 +1239,20 @@ class AdminpanelController extends Controller
         ]);
     } 
     public function setlotterymatchs(Request $request){
-        
+        $lottery_id = $request->input('lottery_id');
+        $data = json_decode($request->input('data'));
+        $lottery = lottery::where('lottery_id' , $lottery_id)->first();
+        $lottery->json = json_encode($data);
+        if($lottery->save()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function getreportsexcel(Request $request){
+        $sdate = $this->convert_number($request->input('startdate'));
+        $fdate = $this->convert_number($request->input('finishdate'));
+        return FacadesExcel::download(new reportsexport($sdate, $fdate), $sdate.$fdate.'.xlsx');
     }
 
 }

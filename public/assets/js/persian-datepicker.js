@@ -183,26 +183,28 @@
                     persian: {
                         locale: "fa",
                         showHint: !1,
+                        persianDigit: false,
                         leapYearMode: "algorithmic"
                     },
                     gregorian: {
                         locale: "en",
-                        showHint: !1
+                        showHint: !1,
+                        persianDigit: false,
                     }
                 },
                 responsive: !0,
                 inline: !1,
                 initialValue: !0,
-                initialValueType: "gregorian",
-                persianDigit: !0,
+                initialValueType: "persian",
+                persianDigit: false,
                 viewMode: "day",
-                format: "LLLL",
+                format: "YYYY-MM-DD H:mm:ss",
                 formatter: function (e) {
                     var t = this;
                     return this.model.PersianDate.date(e).format(t.format)
                 },
                 altField: !1,
-                altFormat: "unix",
+                altFormat: "YYYY-MM-DD H:mm:ss",
                 altFieldFormatter: function (e) {
                     var t = this,
                         i = t.altFormat.toLowerCase(),

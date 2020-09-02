@@ -24,6 +24,7 @@ class Lotteries extends Migration
             $table->string('lottery_image' , 200)->nullable();
             $table->text('lottery_desc');
             $table->date('date');
+            $table->json('json')->nullable();
             $table->timestamps();
 
 

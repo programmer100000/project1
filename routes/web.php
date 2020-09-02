@@ -69,6 +69,7 @@ Route::get('/admin/create/lottery', 'AdminpanelController@createlottery')->name(
 Route::post('/admin/create/lottery', 'AdminpanelController@createlottery')->name('create.lottery');
 Route::post('/admin/delete/lottery', 'AdminpanelController@deletelottery')->name('delete.lottery');
 Route::post('/admin/edit/lottery', 'AdminpanelController@editlottery')->name('edit.lottery');
+Route::post('/get/reports/excel' , 'AdminpanelController@getreportsexcel')->name('reports.excel');
 
 Route::post('/admin/add/lottery/user', 'AdminpanelController@addlotteryuser')->name('add.lottery.user');
 
@@ -152,9 +153,11 @@ Route::get('/admin/lottery/show/{id}', function ($id) {
             }
         }
     }
-
-    // dd($arrgoal);
-    return view('Admin.lotteryshow', compact('lottery_users',  'id', 'arrgoal', 'last_level', 'lottery_users_1'));
+    $lottery_match =   lottery::where('lottery_id' , $id)->first();
+    $json = json_encode($lottery_match->json);
+    // dd($json);
+    // // dd($arrgoal);
+    return view('Admin.lotteryshow', compact('lottery_users',  'id', 'arrgoal', 'last_level', 'lottery_users_1' , 'json'));
 })->middleware('CheckAdminLogin')->name('lottery.show');
 Route::get('/admin/excel/export/livelogs', 'AdminpanelController@exportexcellivelogs')->name('export.excel.livelogs');
 Route::get('/admin/excel/export/factors', 'AdminpanelController@exportexcelfactors')->name('export.excel.factors');
