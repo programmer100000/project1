@@ -1582,3 +1582,42 @@ box-shadow: none!important; */
 hr {
     border-top: 1px solid #fff!important;
 }
+
+#message-not-found {
+    background-color: #34256a;
+    display: none;
+    border-radius: 30px;
+}
+
+@media screen and (max-height: 576px) {
+    #rc-imageselect,
+    .g-recaptcha {
+        transform: scale(0.5)!important;
+        -webkit-transform: scale(0.5)!important;
+        transform-origin: 0 0!important;
+        -webkit-transform-origin: 0 0!important;
+        transform-origin: 0!important;
+    }
+    .rc-anchor-normal {
+        width: 99%!important;
+    }
+    .rc-anchor-normal .rc-anchor-content {
+        width: 57%!important;
+    }
+    .rc-inline-block {
+        width: 40%!important;
+    }
+    .recaptcha-checkbox {
+        height: 20px!important;
+        width: 20px!important;
+    }
+    .rc-inline-block {
+        width: 60%!important;
+    }
+    .rc-anchor-normal-footer {
+        width: 43%!important;
+    }
+    .rc-anchor-normal .rc-anchor-pt {
+        margin: 2px 0 0 2px!important;
+    }
+}

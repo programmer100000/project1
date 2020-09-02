@@ -11,7 +11,7 @@
         </div>
         <div class="row w-100 m-0 plan-header test-svg">
             <div class="col-lg-4 col-4 gamenets-header  mx-auto p-0 ">
-                <select name="" id="" class="form-control select-gamenets mt-md-4">
+                <select name="" id="" class="form-control select-gamenets mt-lg-5 mt-4">
                     <option value="">تست</option>
                     <option value="">تست</option>
                     <option value="">تست</option>
@@ -19,10 +19,10 @@
             </div>
             <div class="col-lg-4 col-8  gamenets-header tarefe-gamenets-header  p-0  ">
                 <div class="title  ">
-                    <img src="{{ asset('newui/img/title.png')}}" alt="" class="title-img">
+                    <img src="{{ asset('newui/img/gamenets1.png')}}" alt="" class="title-img">
                 </div>
             </div>
-            <div class="col-lg-4 gamenets-header tarefe-gamenets-header-list r d-lg-flex justify-content-center p-0 pt-md-2 ">
+            <div class="col-lg-4 gamenets-header tarefe-gamenets-header-list r d-lg-flex justify-content-center p-0 pt-md-4 ">
                 <div class="tarefe-gamenets-header-list-img mx-sm-1 mx-md-2">
                     <img src="{{ asset('newui/img/menu1.png') }}" class="header-half-img" alt="" width="60" height="60" class="">
                     <img src="{{ asset('newui/img/menu.svg') }}" class="header-half-light-img" alt="" width="60" height="60" class="">

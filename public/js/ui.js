@@ -10,10 +10,10 @@ function ajaxreturngamenets() {
             cityId: localStorage.getItem('cityId')
         },
         success: function(data) {
-            var jsonData = JSON.parse(data);                                   
-            if(jsonData.status == 'true'){
-                $('#gamnets_div').css('display' , 'block');
-                $('#message-not-found').css('display' , 'none');
+            var jsonData = JSON.parse(data);
+            if (jsonData.status == 'true') {
+                $('#gamnets_div').css('display', 'block');
+                $('#message-not-found').css('display', 'none');
                 $('.popular-gamenet').empty();
                 $('.popular-gamenet').append(`<a href="/gamenet/${jsonData.best_gamenet.gamenet_id}/${jsonData.best_gamenet.title}">
           <div class="row w-100 p-3 m-0 popular justify-content-center ">
@@ -30,7 +30,9 @@ function ajaxreturngamenets() {
                       <span class="ml-1"> 
                           <img src="newui/img/pin.svg" alt="" width="25" height="25">
                       </span>
-                      <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white" />${jsonData.best_gamenet.description}</span>
+
+                      <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white w-100" />${jsonData.best_gamenet.description}</span>
+
                   </div>
                   <div class="row justify-content-center">
                         ${jsonData.btn_bs}
@@ -42,17 +44,157 @@ function ajaxreturngamenets() {
               </div>
           </div>
       </a>`);
-            }else{
-                $('#gamnets_div').css('display' , 'none');
-                $('#message-not-found').css('display' , 'block');
+
+                $('.g-introduce1').empty();
+                $('.g-introduce1').append(`<a href="/gamenet/${jsonData.gamenets[0].gamenet_id}/${jsonData.gamenets[0].title}">
+      <div class="row w-100 p-3 m-0  introduce ">
+          <div class="col-12 introduce1-img "
+              style="background-image:url(${jsonData.gamenets[0].gamenet_image})">
+          </div>
+          <div
+              class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data">
+
+              <h1 class="text-white text-right my-4 align-self-start">${jsonData.gamenets[0].title}
+              </h1>
+              <div class="mb-3 d-flex w-100 text-right align-self-start">
+                  <span class="text-white">امتیاز: </span>
+                  <input type="hidden" class="rate-input" value="">
+                  <div class="stars text-right mr-2 float-center m-0 p-0 w-75"
+                      data-rate="${jsonData.gamenets[0].rate}">
+
+                  </div>
+              </div>
+              <div class="w-100 d-flex mb-4 text-right ">
+                  <span class="ml-1">
+                      <img src="newui/img/pin.svg" alt="" width="25" height="25">
+                  </span>
+
+
+                  <span class="text-white text-justify ">${jsonData.gamenets[0].address}<br /><hr class="text-white w-100" />
+                  ${jsonData.gamenets[0].description}</span>
+              </div>
+              <div class="row justify-content-center">
+              ${jsonData.btn_bs}
+              </div>
+
+          </div>
+      </div>
+  </a>`);
+                $('.g-introduce2').empty();
+                $('.g-introduce2').append(`<a href="gamenet/${jsonData.gamenets[1].gamenet_id}/${jsonData.gamenets[1].title}">
+                <div class="row w-100 p-3 m-0  introduce introduce1 ">
+                    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
+
+                        <h1 class="text-white text-right my-4 align-self-start">${jsonData.gamenets[1].title}</h1>
+                        <div class="mb-3 d-flex w-100 text-right align-self-start">
+                            <span class="text-white">امتیاز: </span>
+                            <div class="stars text-right mr-2 float-center m-0 p-0 w-75" data-rate="${jsonData.gamenets[1].rate}" >
+                                <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-flex mb-4 text-right ">
+                            <span class="ml-1"><img src="newui/img/pin.svg" alt="" width="25" height="25">
+                        </span>
+
+
+
+                            <span class="text-white text-justify">${jsonData.gamenets[1].address}<br /><hr class="text-white w-100" />
+                            ${jsonData.gamenets[1].description}</span>
+                        </div>
+                        <div class="row justify-content-center">
+                        ${jsonData.btn_bs}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 introduce2-img" style="background-image:url(${jsonData.gamenets[1].gamenet_image})" >
+                    </div>
+                </div>
+                </a>`);
+                $('.g-introduce3').empty();
+                $('.g-introduce3').append(`<a href="gamenet/${jsonData.gamenets[2].gamenet_id}/${jsonData.gamenets[2].title}">
+                <div class="row w-100 p-3 m-0  introduce introduce1 ">
+                    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center  introduce2-data">
+
+                        <h1 class="text-white text-right my-4 align-self-start">${jsonData.gamenets[2].title}</h1>
+                        <div class="mb-3 d-flex w-100 text-right align-self-start">
+                            <span class="text-white">امتیاز: </span>
+                            <div class="stars text-right mr-2 float-center m-0 p-0 w-75" data-rate="${jsonData.gamenets[2].rate}" >
+                                <div class="my-rating" dir="ltr" data-toggle="modal" href="#rate-modal"></div>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-flex mb-4 text-right ">
+                            <span class="ml-1"><img src="newui/img/pin.svg" alt="" width="25" height="25">
+                        </span>
+
+
+
+                            <span class="text-white text-justify">${jsonData.gamenets[2].address}<br /><hr class="text-white w-100" />
+                            ${jsonData.gamenets[2].description}</span>
+                        </div>
+                        <div class="row justify-content-center">
+                        ${jsonData.btn_bs}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 introduce2-img" style="background-image:url(${jsonData.gamenets[2].gamenet_image})" >
+                    </div>
+                </div>
+                </a>`);
+                $('.g-introduce4').empty();
+                $('.g-introduce4').append(`<a href="/gamenet/${jsonData.gamenets[3].gamenet_id}/${jsonData.gamenets[3].title}">
+<div class="row w-100 p-3 m-0  introduce ">
+<div class="col-12 introduce1-img "
+style="background-image:url(${jsonData.gamenets[3].gamenet_image})">
+</div>
+<div
+class="col-12 d-flex flex-column align-items-center justify-content-center  introduce1-data">
+
+<h1 class="text-white text-right my-4 align-self-start">${jsonData.gamenets[3].title}
+</h1>
+<div class="mb-3 d-flex w-100 text-right align-self-start">
+    <span class="text-white">امتیاز: </span>
+    <input type="hidden" class="rate-input" value="">
+    <div class="stars text-right mr-2 float-center m-0 p-0 w-75"
+        data-rate="${jsonData.gamenets[3].rate}">
+
+    </div>
+</div>
+<div class="w-100 d-flex mb-4 text-right ">
+    <span class="ml-1">
+        <img src="newui/img/pin.svg" alt="" width="25" height="25">
+    </span>
+
+
+    <span class="text-white text-justify ">${jsonData.gamenets[3].address}<br /><hr class="text-white w-100" />
+    ${jsonData.gamenets[3].description}</span>
+</div>
+<div class="row justify-content-center">
+${jsonData.btn_bs}
+</div>
+
+</div>
+</div>
+</a>`);
+
+            } else {
+                $('#gamnets_div').css('display', 'none');
+                $('#message-not-found').css('display', 'block');
+                let cityname = localStorage.getItem('city');
+                let provincename = localStorage.getItem('province');
+
+
+                $('#message-not-found p').text(" گیمنتی در استان " + provincename + " و شهرستان " + cityname + " ثبت نشده است.  ");
+
             }
-           
+
             $('.stars').starRating({
                 starSize: 25,
                 readOnly: true
             });
         }
-    }).done(function(){
+    }).done(function() {
         $('.loading').css('display', 'none');
     });
 }

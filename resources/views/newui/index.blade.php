@@ -571,9 +571,13 @@
             </div>
         </div>
     </div>
-    <div id="message-not-found" style="display: none;">
-        این پیام تستیست
+    <div class="row w-100 p-0 m-0 mb-5 justify-content-center align-items-center">
+
+    <div class="col-md-7 text-center   text-white text-center  p-5 " id="message-not-found" >
+        <p></p>
+
     </div>
+   
 
     <div class="row w-100 m-0 mb-5 p-0 about-secttion">
         <div class="row about-header w-100 m-0 mb-5 p-0">
