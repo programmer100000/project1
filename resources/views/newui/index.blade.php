@@ -572,8 +572,12 @@
         </div>
     </div>
     <div class="row w-100 p-0 m-0 mb-5 justify-content-center align-items-center">
+<<<<<<< HEAD
     <div class="col-md-7 text-center   text-white text-center  p-5 " id="message-not-found" >
         <p></p>
+=======
+    <div class="col-md-8 d-flex justify-content-center  text-white text-center align-items-center " id="message-not-found" >
+>>>>>>> c37c2c103593bbf4e1446be94bd5b2b6022757d3
 </div>
     </div>
    

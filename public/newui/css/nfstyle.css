@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     /* not found */
     
     body {
@@ -122,11 +123,123 @@
     
     @keyframes star {
         /* from {
+=======
+/* not found */
+
+body {
+    background-image: url(../img/notfoundbg.png);
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    color: #fff;
+    font-size: 200px;
+}
+
+.nf-human {
+    height: 500px;
+    width: 230px;
+    background-size: cover;
+    background-image: url(../img/nf-human.png);
+    position: absolute;
+    top: 45%;
+    right: 17%;
+}
+
+.nf-daste1 {
+    height: 500px;
+    width: 357px;
+    background-size: cover;
+    background-image: url(../img/daste1.png);
+    position: absolute;
+    top: 23%;
+    right: 78%;
+    transform: rotate(-20deg);
+    animation: 10s ease-in-out 0s infinite normal none running floating;
+}
+
+.nf-daste2 {
+    height: 460px;
+    width: 360px;
+    background-size: cover;
+    background-image: url(../img/daste2.png);
+    position: absolute;
+    top: -1%;
+    right: 63%;
+    animation: floating 8s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+    50% {
+        -webkit-transform: translateY(20px);
+        -moz-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        -o-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.nf-star {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0 0 6px #fff;
+    animation-name: star;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    position: absolute;
+}
+
+.nf-fill-star {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 6px #fff;
+    animation-name: star;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position: absolute;
+}
+
+@keyframes star {
+    /* from {
+>>>>>>> c37c2c103593bbf4e1446be94bd5b2b6022757d3
         opacity: 1;
     }
     to {
         opacity: .2;
     } */
+<<<<<<< HEAD
         0% {
             opacity: .8;
         }
@@ -260,3 +373,116 @@
             font-size: 20px;
         }
     }
+=======
+    0% {
+        opacity: .8;
+    }
+    50% {
+        opacity: .6;
+    }
+    100% {
+        opacity: .2;
+    }
+}
+
+.s1 {
+    top: 10%;
+    right: 80%;
+}
+
+.s2 {
+    top: 20%;
+    right: 50%;
+}
+
+.s3 {
+    top: 35%;
+    right: 10%;
+}
+
+.s4 {
+    top: 55%;
+    right: 25%;
+}
+
+.s5 {
+    top: 50%;
+    right: 60%;
+}
+
+.s6 {
+    top: 70%;
+    right: 40%;
+}
+
+.s7 {
+    top: 80%;
+    right: 30%;
+}
+
+.s8 {
+    top: 90%;
+    right: 70%;
+}
+
+.s9 {
+    top: 85%;
+    right: 80%;
+}
+
+.s10 {
+    top: 28%;
+    right: 70%;
+}
+
+.s11 {
+    top: 75%;
+    right: 90%;
+}
+
+.s12 {
+    top: 65%;
+    right: 60%;
+}
+
+.s13 {
+    top: 30%;
+    right: 25%;
+}
+
+.s14 {
+    top: 53%;
+    right: 80%;
+}
+
+.s15 {
+    top: 83%;
+    right: 56%;
+}
+
+.s16 {
+    top: 46%;
+    right: 40%;
+}
+
+.s17 {
+    top: 10%;
+    right: 40%;
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        background-image: url(../img/notfoundbg-mob.png)!important;
+    }
+    .nf-daste1,
+    .nf-daste2 {
+        display: none!important;
+    }
+    .nf-human {
+        height: 210px!important;
+        width: 100px!important;
+        top: 65%!important;
+        right: 4%!important;
+    }
+}
+>>>>>>> c37c2c103593bbf4e1446be94bd5b2b6022757d3

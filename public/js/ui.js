@@ -30,7 +30,11 @@ function ajaxreturngamenets() {
                       <span class="ml-1"> 
                           <img src="newui/img/pin.svg" alt="" width="25" height="25">
                       </span>
+<<<<<<< HEAD
                       <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white w-100" />${jsonData.best_gamenet.description}</span>
+=======
+                      <span class="text-white  text-justify ">${jsonData.best_gamenet.address}<br > <hr class="text-white" />${jsonData.best_gamenet.description}</span>
+>>>>>>> c37c2c103593bbf4e1446be94bd5b2b6022757d3
                   </div>
                   <div class="row justify-content-center">
                         ${jsonData.btn_bs}
@@ -42,6 +46,7 @@ function ajaxreturngamenets() {
               </div>
           </div>
       </a>`);
+<<<<<<< HEAD
                 $('.g-introduce1').empty();
                 $('.g-introduce1').append(`<a href="/gamenet/${jsonData.gamenets[0].gamenet_id}/${jsonData.gamenets[0].title}">
       <div class="row w-100 p-3 m-0  introduce ">
@@ -174,13 +179,19 @@ ${jsonData.btn_bs}
 </div>
 </div>
 </a>`);
+=======
+>>>>>>> c37c2c103593bbf4e1446be94bd5b2b6022757d3
             } else {
                 $('#gamnets_div').css('display', 'none');
                 $('#message-not-found').css('display', 'block');
                 let cityname = localStorage.getItem('city');
                 let provincename = localStorage.getItem('province');
 
+<<<<<<< HEAD
                 $('#message-not-found p').text(" گیمنتی در استان " + provincename + " و شهرستان " + cityname + " ثبت نشده است.  ");
+=======
+                $('#message-not-found').text(" گیمنتی در استان " + provincename + " و شهرستان " + cityname + " ثبت نشده است.  ");
+>>>>>>> c37c2c103593bbf4e1446be94bd5b2b6022757d3
 
             }
 
