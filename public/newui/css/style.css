@@ -1586,7 +1586,6 @@ hr {
 #message-not-found {
     background-color: #34256a;
     display: none;
-<<<<<<< HEAD
     border-radius: 30px;
 }
 
@@ -1621,8 +1620,4 @@ hr {
     .rc-anchor-normal .rc-anchor-pt {
         margin: 2px 0 0 2px!important;
     }
-=======
-    height: 100px;
-    border-radius: 30px;
->>>>>>> c37c2c103593bbf4e1446be94bd5b2b6022757d3
 }

@@ -296,3 +296,4 @@ Route::get('/404' ,function(){
 Route::get('/403' ,function(){
     return view("newui/403");
 
+});
